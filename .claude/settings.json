@@ -1,0 +1,9 @@
+{
+  "env": {
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "REDACTED"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "github@claude-plugins-official": true
+  }
+}

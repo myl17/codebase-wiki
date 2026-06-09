@@ -98,3 +98,27 @@ def test_delta_skips_large_files(tmp_path):
     all_paths = [f["path"] for f in result["new"]]
     assert not any("bundle.js" in p for p in all_paths)
     assert any("index.ts" in p for p in all_paths)
+
+
+def test_delta_reads_from_hashstore(tmp_path):
+    """delta.py CLI 应从 wiki/repos/<name>/.hashes.json 读取上次 hashes。"""
+    import hashlib, subprocess, sys as _sys, json
+    repo = make_repo(tmp_path / "repo", {"src/index.ts": "v1"})
+    wiki_root = tmp_path / "wiki"
+    store_path = wiki_root / "repos" / "myrepo" / ".hashes.json"
+    store_path.parent.mkdir(parents=True)
+    store_path.write_text(json.dumps({
+        "src/index.ts": hashlib.sha256(b"v1").hexdigest()
+    }))
+    (repo / "src" / "index.ts").write_text("v2")
+    result = subprocess.run(
+        [_sys.executable, "scripts/delta.py", str(repo),
+         "--wiki", str(wiki_root), "--repo", "myrepo"],
+        capture_output=True, text=True,
+        cwd=str(Path(__file__).parent.parent),
+    )
+    assert result.returncode == 0, result.stderr
+    data = json.loads(result.stdout)
+    assert len(data["modified"]) == 1
+    assert data["modified"][0]["path"] == "src/index.ts"
+    assert len(data["new"]) == 0

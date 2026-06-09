@@ -13,6 +13,9 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).parent))
+from manifest import HashStore
 
 # Files/patterns that map to "core" layer
 _CORE_NAMES = {"README.md", "README.rst", "README", "README.txt"}
@@ -200,9 +203,9 @@ def compute_delta(repo_root: Path, prev_hashes: dict) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="Detect repo file changes by layer.")
     parser.add_argument("repo_path", help="Path to the repository root")
-    parser.add_argument("--manifest", default=".manifest.json",
-                        help="Path to .manifest.json (default: .manifest.json)")
-    parser.add_argument("--repo", help="Repo name key in manifest (default: basename of repo_path)")
+    parser.add_argument("--wiki", default="wiki",
+                        help="Path to wiki root (default: wiki)")
+    parser.add_argument("--repo", help="Repo key (default: basename of repo_path)")
     args = parser.parse_args()
 
     repo_root = Path(args.repo_path).resolve()
@@ -210,13 +213,9 @@ def main():
         print(f"ERROR: {repo_root} is not a directory", file=sys.stderr)
         sys.exit(1)
 
-    manifest_path = Path(args.manifest)
-    manifest = {}
-    if manifest_path.exists():
-        manifest = json.loads(manifest_path.read_text())
-
     repo_key = args.repo or repo_root.name
-    prev_hashes = manifest.get("repos", {}).get(repo_key, {}).get("file_hashes", {})
+    store = HashStore(Path(args.wiki), repo_key)
+    prev_hashes = store.load()
 
     result = compute_delta(repo_root, prev_hashes)
     print(json.dumps(result, indent=2))

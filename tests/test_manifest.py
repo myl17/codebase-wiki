@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
-from manifest import ManifestManager
+from manifest import ManifestManager, HashStore
 
 
 def test_init_empty_manifest(tmp_path):
@@ -31,13 +31,11 @@ def test_update_after_ingest(tmp_path):
         repo_key="react",
         completed_dimensions=["architecture"],
         pending_dimensions=["extension-points", "performance-tradeoffs"],
-        file_hashes={"src/index.js": "abc123"},
         timestamp="2026-06-08T10:00:00Z",
     )
     repo = m.data["repos"]["react"]
     assert repo["dimensions_completed"] == ["architecture"]
     assert repo["dimensions_pending"] == ["extension-points", "performance-tradeoffs"]
-    assert repo["file_hashes"] == {"src/index.js": "abc123"}
     assert repo["last_ingest"] == "2026-06-08T10:00:00Z"
     assert repo["dimensions_version"] == "v1.0"
 
@@ -49,7 +47,6 @@ def test_stale_repos(tmp_path):
         repo_key="react",
         completed_dimensions=["architecture"],
         pending_dimensions=[],
-        file_hashes={},
         timestamp="2026-06-08T10:00:00Z",
     )
     # Bump global dimensions_version
@@ -73,7 +70,7 @@ def test_stale_count_returns_integer(tmp_path, capsys):
     import subprocess, sys as _sys
     m = ManifestManager(tmp_path / ".manifest.json")
     m.add_repo("react", "./raw/repos/react")
-    m.update_after_ingest("react", ["architecture"], [], {}, "2026-06-08T10:00:00Z")
+    m.update_after_ingest("react", ["architecture"], [], "2026-06-08T10:00:00Z")
     m.data["dimensions_version"] = "v1.1"
     m.save()
     result = subprocess.run(
@@ -84,3 +81,48 @@ def test_stale_count_returns_integer(tmp_path, capsys):
         cwd=str(Path(__file__).parent.parent),
     )
     assert result.stdout.strip() == "1"
+
+
+def test_hashstore_load_missing(tmp_path):
+    store = HashStore(tmp_path / "wiki", "react")
+    assert store.load() == {}
+
+
+def test_hashstore_save_and_load(tmp_path):
+    store = HashStore(tmp_path / "wiki", "react")
+    store.save({"src/index.ts": "abc123"})
+    assert store.load() == {"src/index.ts": "abc123"}
+    assert (tmp_path / "wiki" / "repos" / "react" / ".hashes.json").exists()
+
+
+def test_hashstore_merge_delta(tmp_path):
+    store = HashStore(tmp_path / "wiki", "react")
+    store.save({"src/old.ts": "aaa", "src/gone.ts": "bbb"})
+    delta = {
+        "new": [{"path": "src/new.ts", "layer": "impl", "hash": "ccc"}],
+        "modified": [{"path": "src/old.ts", "layer": "impl", "hash": "ddd"}],
+        "deleted": ["src/gone.ts"],
+    }
+    store.merge_delta(delta)
+    result = store.load()
+    assert result == {"src/old.ts": "ddd", "src/new.ts": "ccc"}
+
+
+def test_add_repo_no_file_hashes(tmp_path):
+    m = ManifestManager(tmp_path / ".manifest.json")
+    m.add_repo("vue", "./raw/repos/vue")
+    assert "file_hashes" not in m.data["repos"]["vue"]
+
+
+def test_update_after_ingest_no_file_hashes(tmp_path):
+    m = ManifestManager(tmp_path / ".manifest.json")
+    m.add_repo("react", "./raw/repos/react")
+    m.update_after_ingest(
+        repo_key="react",
+        completed_dimensions=["architecture"],
+        pending_dimensions=["extension-points"],
+        timestamp="2026-06-09T10:00:00Z",
+    )
+    repo = m.data["repos"]["react"]
+    assert "file_hashes" not in repo
+    assert repo["dimensions_completed"] == ["architecture"]

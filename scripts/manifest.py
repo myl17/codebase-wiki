@@ -13,6 +13,30 @@ import json
 import sys
 from pathlib import Path
 
+class HashStore:
+    """Manages per-repo file hashes in wiki/repos/<name>/.hashes.json."""
+
+    def __init__(self, wiki_root: Path, repo_key: str):
+        self.path = Path(wiki_root) / "repos" / repo_key / ".hashes.json"
+
+    def load(self) -> dict:
+        if not self.path.exists():
+            return {}
+        return json.loads(self.path.read_text())
+
+    def save(self, hashes: dict):
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(json.dumps(hashes, indent=2) + "\n")
+
+    def merge_delta(self, delta: dict):
+        existing = self.load()
+        for entry in delta.get("new", []) + delta.get("modified", []):
+            existing[entry["path"]] = entry["hash"]
+        for path in delta.get("deleted", []):
+            existing.pop(path, None)
+        self.save(existing)
+
+
 _DEFAULT_MANIFEST = {
     "repos": {},
     "dimensions_version": "v1.0",
@@ -40,7 +64,6 @@ class ManifestManager:
                 "dimensions_version": None,
                 "dimensions_completed": [],
                 "dimensions_pending": [],
-                "file_hashes": {},
                 "category": category,
             }
         if category:
@@ -56,7 +79,6 @@ class ManifestManager:
         repo_key: str,
         completed_dimensions: list,
         pending_dimensions: list,
-        file_hashes: dict,
         timestamp: str,
     ):
         if repo_key not in self.data["repos"]:
@@ -65,7 +87,6 @@ class ManifestManager:
         repo["last_ingest"] = timestamp
         repo["dimensions_completed"] = completed_dimensions
         repo["dimensions_pending"] = pending_dimensions
-        repo["file_hashes"] = file_hashes
         repo["dimensions_version"] = self.data["dimensions_version"]
 
     def get_stale_repos(self) -> list:

@@ -116,6 +116,9 @@ def main():
     p_upd.add_argument("--delta-json", default=None,
                        help="Path to delta.py JSON output; merges file hashes into manifest")
 
+    p_mig = sub.add_parser("migrate", help="Move file_hashes from manifest into per-repo .hashes.json")
+    p_mig.add_argument("--wiki", default="wiki", help="Path to wiki root (default: wiki)")
+
     p_stale = sub.add_parser("stale", help="List stale repos")
     p_stale.add_argument("--json", action="store_true",
                          help="Output count as a plain integer (for scripting)")
@@ -147,6 +150,17 @@ def main():
         m.update_after_ingest(args.repo_key, completed, pending, file_hashes, args.timestamp)
         m.save()
         print(f"Updated '{args.repo_key}'")
+
+    elif args.cmd == "migrate":
+        wiki_root = Path(args.wiki)
+        migrated = 0
+        for repo_key, info in m.data.get("repos", {}).items():
+            hashes = info.pop("file_hashes", None)
+            if hashes is not None:
+                HashStore(wiki_root, repo_key).save(hashes)
+                migrated += 1
+        m.save()
+        print(f"Migrated {migrated} repo(s). file_hashes removed from manifest.")
 
     elif args.cmd == "stale":
         stale = m.get_stale_repos()

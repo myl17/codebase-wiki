@@ -126,3 +126,38 @@ def test_update_after_ingest_no_file_hashes(tmp_path):
     repo = m.data["repos"]["react"]
     assert "file_hashes" not in repo
     assert repo["dimensions_completed"] == ["architecture"]
+
+
+def test_migrate_moves_hashes_to_hashstore(tmp_path):
+    import subprocess, sys as _sys
+    wiki_root = tmp_path / "wiki"
+    wiki_root.mkdir()
+    manifest_path = tmp_path / ".manifest.json"
+    manifest_path.write_text(json.dumps({
+        "repos": {
+            "react": {
+                "path": "./raw/repos/react",
+                "last_ingest": "2026-06-09T10:00:00Z",
+                "dimensions_completed": ["architecture"],
+                "dimensions_pending": [],
+                "file_hashes": {"src/index.ts": "abc123"},
+                "category": None,
+                "dimensions_version": "v1.0",
+            }
+        },
+        "dimensions_version": "v1.0",
+        "categories": {},
+    }))
+    result = subprocess.run(
+        [_sys.executable, "scripts/manifest.py",
+         "--manifest", str(manifest_path),
+         "migrate", "--wiki", str(wiki_root)],
+        capture_output=True, text=True,
+        cwd=str(Path(__file__).parent.parent),
+    )
+    assert result.returncode == 0, result.stderr
+    hashes_path = wiki_root / "repos" / "react" / ".hashes.json"
+    assert hashes_path.exists()
+    assert json.loads(hashes_path.read_text()) == {"src/index.ts": "abc123"}
+    updated = json.loads(manifest_path.read_text())
+    assert "file_hashes" not in updated["repos"]["react"]

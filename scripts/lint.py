@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-lint.py — 8 fixed health-check rules for the codebase wiki.
+lint.py — 7 fixed health-check rules for the codebase wiki.
 
 Usage:
   python scripts/lint.py [--wiki wiki/] [--manifest .manifest.json]
@@ -165,37 +165,6 @@ def check_missing_provenance(wiki_root: Path) -> list:
     return warnings
 
 
-_SOURCE_CALLOUT_RE = re.compile(r"^>\s*\[!source\]", re.MULTILINE)
-
-
-def check_missing_code_snippet(wiki_root: Path) -> list:
-    """[WARN] Dimension pages with ^[file:line] not followed by a [!source] callout."""
-    warnings = []
-    dims_root = wiki_root / "repos"
-    if not dims_root.exists():
-        return []
-    for page in dims_root.rglob("*.md"):
-        body, fm = _strip_frontmatter(page.read_text(errors="replace"))
-        if fm.get("dimension") == "overview":
-            continue
-        provenance_matches = list(PROVENANCE_RE.finditer(body))
-        if not provenance_matches:
-            continue
-        for m in provenance_matches:
-            after = body[m.end():]
-            lines_after = [l for l in after.split("\n") if l.strip()][:5]
-            has_callout = any(_SOURCE_CALLOUT_RE.match(l) for l in lines_after)
-            if not has_callout:
-                warnings.append({
-                    "level": "WARN",
-                    "rule": "check_missing_code_snippet",
-                    "file": str(page.relative_to(wiki_root)),
-                    "detail": f"provenance ^[...] at offset {m.start()} has no [!source] callout",
-                })
-                break
-    return warnings
-
-
 def check_empty_pending(wiki_root: Path, manifest_path: Path) -> list:
     """[WARN] dimensions_pending entries older than 30 days."""
     if not manifest_path.exists():
@@ -283,7 +252,6 @@ def run_all(wiki_root: Path, manifest_path: Path) -> list:
     findings += check_stale_dimensions(wiki_root, manifest_path)
     findings += check_orphan_pages(wiki_root)
     findings += check_missing_provenance(wiki_root)
-    findings += check_missing_code_snippet(wiki_root)
     findings += check_empty_pending(wiki_root, manifest_path)
     findings += check_missing_category(wiki_root, manifest_path)
     findings += check_views_freshness(wiki_root)

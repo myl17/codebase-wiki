@@ -38,6 +38,29 @@ Format: `^[<relative-path-from-repo-root>:<line-start>-<line-end>]`
 
 Pages without any provenance references trigger `[WARN] check_missing_provenance` in lint.
 
+### Provenance Code Snippet
+
+每个 `^[file:line]` 引用后必须紧跟一个折叠 callout，供读者在 Obsidian 内直接验证结论：
+
+```
+结论文字。^[src/scheduler.js:147-203]
+
+> [!source]- scheduler.js:152-158
+> ```js
+> // 共 57 行，展示核心片段（仅在超过 15 行时加此注释）
+> if (shouldYield()) { return callback; }
+> workLoop(hasTimeRemaining, initialTime);
+> ```
+```
+
+规则：
+- callout 类型固定为 `[!source]-`（`-` 使其在 Obsidian 中默认折叠）
+- callout 标题格式：`文件名:展示起止行`，文件名不含目录前缀
+- LLM 从引用的行范围内选最直接支持结论的片段，**最多 15 行**
+- 超出 15 行时截断，代码块**第一行**加注释：`// 共 N 行，展示核心片段`
+- 代码语言标注按后缀选择：`.ts/.tsx` → `ts`，`.py` → `py`，`.go` → `go`，`.rs` → `rs`，其余省略
+- 已有 wiki 页不强制回填；新 analyze 或补充内容时执行此规则
+
 ## Frontmatter (required on every wiki/repos/ page)
 
 ```yaml

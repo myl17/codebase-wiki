@@ -113,8 +113,6 @@ def main():
     p_upd.add_argument("--completed", default="", help="Comma-separated completed dims")
     p_upd.add_argument("--pending", default="", help="Comma-separated pending dims")
     p_upd.add_argument("--timestamp", required=True, help="ISO8601 timestamp")
-    p_upd.add_argument("--delta-json", default=None,
-                       help="Path to delta.py JSON output; merges file hashes into manifest")
 
     p_mig = sub.add_parser("migrate", help="Move file_hashes from manifest into per-repo .hashes.json")
     p_mig.add_argument("--wiki", default="wiki", help="Path to wiki root (default: wiki)")
@@ -136,18 +134,7 @@ def main():
     elif args.cmd == "update":
         completed = [d for d in args.completed.split(",") if d]
         pending = [d for d in args.pending.split(",") if d]
-        # Merge file hashes from delta.py output if provided
-        file_hashes = {}
-        if args.delta_json:
-            delta = json.loads(Path(args.delta_json).read_text())
-            # Merge new and modified entries; remove deleted
-            existing = dict(m.data.get("repos", {}).get(args.repo_key, {}).get("file_hashes", {}))
-            for entry in delta.get("new", []) + delta.get("modified", []):
-                existing[entry["path"]] = entry["hash"]
-            for path in delta.get("deleted", []):
-                existing.pop(path, None)
-            file_hashes = existing
-        m.update_after_ingest(args.repo_key, completed, pending, file_hashes, args.timestamp)
+        m.update_after_ingest(args.repo_key, completed, pending, args.timestamp)
         m.save()
         print(f"Updated '{args.repo_key}'")
 

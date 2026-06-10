@@ -88,6 +88,24 @@ def test_check_missing_provenance_passes(tmp_path):
     assert warnings == []
 
 
+def test_check_broken_wikilinks_entity_resolves_from_entities_dir(tmp_path):
+    # [[事件驱动]] should resolve to wiki/entities/事件驱动.md
+    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
+          "Uses [[事件驱动]] pattern.")
+    write(tmp_path / "wiki/entities/事件驱动.md", "# 事件驱动")
+    errors = check_broken_wikilinks(tmp_path / "wiki")
+    assert errors == []
+
+
+def test_check_broken_wikilinks_entity_missing(tmp_path):
+    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
+          "Uses [[事件驱动]] pattern.")
+    # entities/事件驱动.md does not exist
+    errors = check_broken_wikilinks(tmp_path / "wiki")
+    assert len(errors) == 1
+    assert "事件驱动" in errors[0]["detail"]
+
+
 def test_check_missing_entity_links_warns_when_no_entity_links(tmp_path):
     # dimension page with only repo cross-links, no entity wikilinks (no /-less links)
     write(tmp_path / "wiki/repos/react/dimensions/architecture.md",

@@ -70,6 +70,9 @@ def check_broken_wikilinks(wiki_root: Path) -> list:
         # views/... and insights/... resolve from wiki root
         if t.startswith("views/") or t.startswith("insights/"):
             return t in wiki_strs
+        # entity wikilinks (no '/') resolve from wiki/entities/
+        if "/" not in t:
+            return f"entities/{t}" in wiki_strs
         # everything else resolves from wiki/repos/
         return t in repos_strs
 

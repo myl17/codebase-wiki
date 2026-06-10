@@ -246,6 +246,32 @@ def check_views_freshness(wiki_root: Path) -> list:
     return infos
 
 
+def check_missing_entity_links(wiki_root: Path) -> list:
+    """[WARN] Dimension pages with no entity wikilinks (wikilinks without a '/' in target)."""
+    warnings = []
+    dims_root = wiki_root / "repos"
+    if not dims_root.exists():
+        return []
+    for page in dims_root.rglob("*.md"):
+        body, fm = _strip_frontmatter(page.read_text(errors="replace"))
+        if fm.get("dimension") == "overview":
+            continue
+        if fm.get("dimension") is None and "dimensions" not in page.parts:
+            continue
+        entity_links = [
+            m.group(1) for m in WIKILINK_RE.finditer(body)
+            if "/" not in m.group(1)
+        ]
+        if not entity_links:
+            warnings.append({
+                "level": "WARN",
+                "rule": "check_missing_entity_links",
+                "file": str(page.relative_to(wiki_root)),
+                "detail": "no entity wikilinks found (expected [[架构模式]], [[技术栈]], or [[领域概念]])",
+            })
+    return warnings
+
+
 def run_all(wiki_root: Path, manifest_path: Path) -> list:
     findings = []
     findings += check_broken_wikilinks(wiki_root)
@@ -255,6 +281,7 @@ def run_all(wiki_root: Path, manifest_path: Path) -> list:
     findings += check_empty_pending(wiki_root, manifest_path)
     findings += check_missing_category(wiki_root, manifest_path)
     findings += check_views_freshness(wiki_root)
+    findings += check_missing_entity_links(wiki_root)
     return findings
 
 

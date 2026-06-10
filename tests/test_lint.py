@@ -10,6 +10,7 @@ from lint import (
     check_stale_dimensions,
     check_orphan_pages,
     check_missing_provenance,
+    check_missing_entity_links,
 )
 
 
@@ -84,4 +85,31 @@ def test_check_missing_provenance_passes(tmp_path):
     write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
           "---\nrepo: react\n---\n# Architecture\n\nReact uses Fiber. ^[src/ReactFiber.js:1-10]")
     warnings = check_missing_provenance(tmp_path / "wiki")
+    assert warnings == []
+
+
+def test_check_missing_entity_links_warns_when_no_entity_links(tmp_path):
+    # dimension page with only repo cross-links, no entity wikilinks (no /-less links)
+    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
+          "---\nrepo: react\ndimension: architecture\n---\n"
+          "# Arch\n\nSee [[vue/dimensions/architecture]].")
+    warnings = check_missing_entity_links(tmp_path / "wiki")
+    assert len(warnings) == 1
+    assert warnings[0]["rule"] == "check_missing_entity_links"
+    assert "architecture" in warnings[0]["file"]
+
+
+def test_check_missing_entity_links_passes_when_entity_link_present(tmp_path):
+    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
+          "---\nrepo: react\ndimension: architecture\n---\n"
+          "# Arch\n\nUses [[事件驱动]] pattern. ^[src/core.js:1-10]")
+    warnings = check_missing_entity_links(tmp_path / "wiki")
+    assert warnings == []
+
+
+def test_check_missing_entity_links_skips_overview(tmp_path):
+    write(tmp_path / "wiki/repos/react/overview.md",
+          "---\nrepo: react\ndimension: overview\n---\n"
+          "# Overview\n\nLinks to [[react/dimensions/architecture]].")
+    warnings = check_missing_entity_links(tmp_path / "wiki")
     assert warnings == []

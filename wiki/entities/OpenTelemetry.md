@@ -9,4 +9,4 @@ category: 技术栈
 
 ## 在各 repo 中的体现
 
-- [[openclaw/dimensions/architecture]] — `extensions/diagnostics-otel/` 实现完整集成：OTLPTraceExporter + OTLPMetricExporter + OTLPLogExporter 三路并行导出；采样率通过 TraceIdRatioBasedSampler 配置；敏感内容上报前经 redactSensitiveText 处理
+- [[openclaw/dimensions/openclaw-architecture]] — `extensions/diagnostics-otel/` 实现完整集成：OTLPTraceExporter + OTLPMetricExporter + OTLPLogExporter 三路并行导出；采样率通过 TraceIdRatioBasedSampler 配置；敏感内容上报前经 redactSensitiveText 处理

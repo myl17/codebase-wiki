@@ -9,4 +9,4 @@ category: 技术栈
 
 ## 在各 repo 中的体现
 
-- [[openclaw/dimensions/architecture]] — 九大子系统集成于单一 TypeScript monorepo；`extensions/` 下每个 channel/provider 是独立 npm 包，通过 `workspace:*` 引用 plugin-sdk
+- [[openclaw/dimensions/openclaw-architecture]] — 九大子系统集成于单一 TypeScript monorepo；`extensions/` 下每个 channel/provider 是独立 npm 包，通过 `workspace:*` 引用 plugin-sdk

@@ -1,0 +1,18 @@
+{
+  "name": "codebase-wiki-dev",
+  "description": "Local development marketplace for codebase-wiki plugin",
+  "owner": {
+    "name": "miaoyuanli"
+  },
+  "plugins": [
+    {
+      "name": "codebase-wiki",
+      "description": "Codebase knowledge management plugin — analyze repos, build a structured wiki, compare architectures, query design decisions, and track staleness",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "miaoyuanli"
+      }
+    }
+  ]
+}

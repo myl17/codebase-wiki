@@ -9,5 +9,5 @@ category: 领域概念
 
 ## 在各 repo 中的体现
 
-- [[openclaw/dimensions/performance-tradeoffs]] — 通过 `OPENCLAW_CACHE_BOUNDARY` 标记切分 system prompt 稳定前缀与动态后缀，打 `cache_control: ephemeral`；支持 `1h` 长 TTL 配置
-- [[hermes-agent/dimensions/performance-tradeoffs]] — `agent/prompt_caching.py` 采用 `system_and_3` 策略，最多 4 个 breakpoints；GatewayRunner 缓存 AIAgent 实例以跨消息保持 prefix 有效
+- [[openclaw/dimensions/openclaw-performance-tradeoffs]] — 通过 `OPENCLAW_CACHE_BOUNDARY` 标记切分 system prompt 稳定前缀与动态后缀，打 `cache_control: ephemeral`；支持 `1h` 长 TTL 配置
+- [[hermes-agent/dimensions/hermes-agent-performance-tradeoffs]] — `agent/prompt_caching.py` 采用 `system_and_3` 策略，最多 4 个 breakpoints；GatewayRunner 缓存 AIAgent 实例以跨消息保持 prefix 有效

@@ -144,4 +144,4 @@ Breakpoints 2-4: 最后 3 条非 system 消息（滚动窗口）
 
 ## 关联
 
-- [[openclaw/dimensions/performance-tradeoffs]]
+- [[openclaw/dimensions/openclaw-performance-tradeoffs]]

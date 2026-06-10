@@ -9,4 +9,4 @@ category: 技术栈
 
 ## 在各 repo 中的体现
 
-- [[openclaw/dimensions/testing-philosophy]] — 全栈使用 Vitest（`^4.1.4`），90+ 个子配置按子系统分片并行运行，worker 数量根据系统负载动态计算
+- [[openclaw/dimensions/openclaw-testing-philosophy]] — 全栈使用 Vitest（`^4.1.4`），90+ 个子配置按子系统分片并行运行，worker 数量根据系统负载动态计算

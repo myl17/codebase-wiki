@@ -1,0 +1,38 @@
+{
+  "name": "codebase-wiki",
+  "description": "Codebase knowledge management plugin — analyze repos, build a structured wiki, compare architectures, query design decisions, and track staleness across your organization's repositories",
+  "version": "0.1.0",
+  "author": {
+    "name": "miaoyuanli"
+  },
+  "homepage": "https://github.com/miaoyuanli/codebase-wiki",
+  "repository": "https://github.com/miaoyuanli/codebase-wiki",
+  "license": "MIT",
+  "keywords": [
+    "codebase",
+    "wiki",
+    "knowledge-management",
+    "code-analysis",
+    "architecture",
+    "comparison",
+    "lint"
+  ],
+  "commands": {
+    "analyze": {
+      "description": "Analyze a code repository and populate wiki/repos/<name>/ with structured knowledge",
+      "file": ".claude/commands/analyze.md"
+    },
+    "query": {
+      "description": "Answer questions using the wiki knowledge base",
+      "file": ".claude/commands/query.md"
+    },
+    "compare": {
+      "description": "Generate a comparison matrix across repos in a category",
+      "file": ".claude/commands/compare.md"
+    },
+    "lint": {
+      "description": "Run programmatic health checks on the wiki",
+      "file": ".claude/commands/lint.md"
+    }
+  }
+}

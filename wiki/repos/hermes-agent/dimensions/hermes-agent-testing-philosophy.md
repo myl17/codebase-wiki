@@ -114,4 +114,4 @@ Hermes 的测试哲学是 "实用主义行为覆盖":
 
 ## 关联
 
-- [[openclaw/dimensions/testing-philosophy]]
+- [[openclaw/dimensions/openclaw-testing-philosophy]]

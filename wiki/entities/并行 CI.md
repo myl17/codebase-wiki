@@ -9,4 +9,4 @@ category: 技术栈
 
 ## 在各 repo 中的体现
 
-- [[hermes-agent/dimensions/testing-philosophy]] — `pytest -q -n auto`（pytest-xdist）并行执行全量单元测试，CI 10 分钟超时硬限
+- [[hermes-agent/dimensions/hermes-agent-testing-philosophy]] — `pytest -q -n auto`（pytest-xdist）并行执行全量单元测试，CI 10 分钟超时硬限

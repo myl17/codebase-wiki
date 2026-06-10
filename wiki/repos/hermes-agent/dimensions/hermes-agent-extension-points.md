@@ -215,4 +215,4 @@ class BasePlatformAdapter(ABC):
 
 ## 关联
 
-- [[openclaw/dimensions/extension-points]]
+- [[openclaw/dimensions/openclaw-extension-points]]

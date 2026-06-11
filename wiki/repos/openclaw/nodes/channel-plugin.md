@@ -3,6 +3,7 @@ node_type: ExtensionPoint
 scope: subsystem
 concept: 插件系统
 targets: [context-engine]
+motivated_by: [channel-isolation-decision]
 sources:
   - src/channels/plugins/types.plugin.ts:53-94
 ---

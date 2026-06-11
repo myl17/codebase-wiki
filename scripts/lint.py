@@ -285,7 +285,137 @@ def run_all(wiki_root: Path, manifest_path: Path) -> list:
     findings += check_missing_category(wiki_root, manifest_path)
     findings += check_views_freshness(wiki_root)
     findings += check_missing_entity_links(wiki_root)
+    findings += check_graph_edge_types(wiki_root)
+    findings += check_graph_dangling_edges(wiki_root)
+    findings += check_concept_registered(wiki_root)
     return findings
+
+
+def _parse_node_frontmatter(text: str) -> dict:
+    """Minimal frontmatter parser for node pages (scalars, inline lists, block lists)."""
+    if not text.startswith("---"):
+        return {}
+    end = text.find("\n---", 3)
+    if end == -1:
+        return {}
+    fm_text = text[3:end]
+    fm = {}
+    current_list = None
+    for line in fm_text.splitlines():
+        if line.startswith("  - ") and current_list is not None:
+            current_list.append(line[4:].strip())
+            continue
+        if ":" in line:
+            key, _, val = line.partition(":")
+            key, val = key.strip(), val.strip()
+            if val == "":
+                current_list = []
+                fm[key] = current_list
+            elif val.startswith("[") and val.endswith("]"):
+                current_list = None
+                inner = val[1:-1].strip()
+                fm[key] = [x.strip() for x in inner.split(",")] if inner else []
+            else:
+                current_list = None
+                fm[key] = val
+        else:
+            current_list = None
+    return fm
+
+
+def _iter_node_pages(wiki_root: Path):
+    """Yield (repo, node_file, frontmatter) for all node pages."""
+    repos_root = wiki_root / "repos"
+    if not repos_root.exists():
+        return
+    for nodes_dir in sorted(repos_root.glob("*/nodes")):
+        repo = nodes_dir.parent.name
+        for node_file in sorted(nodes_dir.glob("*.md")):
+            yield repo, node_file, _parse_node_frontmatter(node_file.read_text(errors="replace"))
+
+
+def _as_list(value) -> list:
+    if value is None or value == "":
+        return []
+    if isinstance(value, str):
+        return [value]
+    return value
+
+
+def check_graph_edge_types(wiki_root: Path) -> list:
+    """[ERROR] node_type/edge-type constraint violations.
+
+    Rules (per schema/graph-schema.md):
+    - Only ExtensionPoint nodes may have `targets`
+    - DesignDecision nodes may not have `concept` (decisions are edge sources via motivates)
+    """
+    errors = []
+    for repo, node_file, fm in _iter_node_pages(wiki_root):
+        ntype = fm.get("node_type", "")
+        slug = node_file.stem
+
+        if _as_list(fm.get("targets")) and ntype != "ExtensionPoint":
+            errors.append({
+                "level": "ERROR",
+                "rule": "check_graph_edge_types",
+                "file": str(node_file.relative_to(wiki_root)),
+                "detail": f"{repo}:{slug} has `targets` but node_type is {ntype!r} (only ExtensionPoint allowed)",
+            })
+        if fm.get("concept") and ntype == "DesignDecision":
+            errors.append({
+                "level": "ERROR",
+                "rule": "check_graph_edge_types",
+                "file": str(node_file.relative_to(wiki_root)),
+                "detail": f"{repo}:{slug} DesignDecision cannot have `concept`",
+            })
+    return errors
+
+
+def check_graph_dangling_edges(wiki_root: Path) -> list:
+    """[ERROR] targets / motivated_by pointing to non-existent node pages."""
+    errors = []
+    slugs_by_repo = {}
+    for repo, node_file, _ in _iter_node_pages(wiki_root):
+        slugs_by_repo.setdefault(repo, set()).add(node_file.stem)
+
+    for repo, node_file, fm in _iter_node_pages(wiki_root):
+        slug = node_file.stem
+        for field in ("targets", "motivated_by"):
+            for ref in _as_list(fm.get(field)):
+                if ref not in slugs_by_repo.get(repo, set()):
+                    errors.append({
+                        "level": "ERROR",
+                        "rule": "check_graph_dangling_edges",
+                        "file": str(node_file.relative_to(wiki_root)),
+                        "detail": f"{repo}:{slug} {field} → {ref!r} does not exist in nodes/",
+                    })
+    return errors
+
+
+def check_concept_registered(wiki_root: Path) -> list:
+    """[ERROR] concept field value not present in wiki/entities/_index.md."""
+    index_path = wiki_root / "entities" / "_index.md"
+    if not index_path.exists():
+        return []
+
+    registered = set()
+    for line in index_path.read_text(errors="replace").splitlines():
+        if line.startswith("|") and not line.startswith("| Concept") and not line.startswith("|--"):
+            cols = [c.strip() for c in line.split("|")]
+            if len(cols) >= 2 and cols[1]:
+                registered.add(cols[1])
+
+    errors = []
+    for repo, node_file, fm in _iter_node_pages(wiki_root):
+        concept = fm.get("concept", "")
+        if isinstance(concept, str) and concept and concept not in registered:
+            errors.append({
+                "level": "ERROR",
+                "rule": "check_concept_registered",
+                "file": str(node_file.relative_to(wiki_root)),
+                "detail": f"concept {concept!r} not found in entities/_index.md",
+            })
+    return errors
 
 
 def main():

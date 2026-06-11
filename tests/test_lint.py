@@ -131,3 +131,47 @@ def test_check_missing_entity_links_skips_overview(tmp_path):
           "# Overview\n\nLinks to [[react/dimensions/architecture]].")
     warnings = check_missing_entity_links(tmp_path / "wiki")
     assert warnings == []
+
+
+# ---- graph structure lint rules ----
+
+def test_check_invalid_edge_type_targets(tmp_path):
+    """Component 不能有 targets 字段（targets 只属于 ExtensionPoint）。"""
+    write(tmp_path / "wiki/repos/openclaw/nodes/bad.md",
+          "---\nnode_type: Component\nscope: subsystem\ntargets:\n  - other\n---\n# Bad\n")
+    from lint import check_graph_edge_types
+    errors = check_graph_edge_types(tmp_path / "wiki")
+    assert len(errors) == 1
+    assert "bad" in errors[0]["detail"]
+
+
+def test_check_dangling_targets(tmp_path):
+    """targets 指向不存在的节点页时报错。"""
+    write(tmp_path / "wiki/repos/openclaw/nodes/ep.md",
+          "---\nnode_type: ExtensionPoint\nscope: subsystem\ntargets:\n  - nonexistent\n---\n# EP\n")
+    from lint import check_graph_dangling_edges
+    errors = check_graph_dangling_edges(tmp_path / "wiki")
+    assert len(errors) == 1
+    assert "nonexistent" in errors[0]["detail"]
+
+
+def test_check_concept_not_registered(tmp_path):
+    """concept 字段的值不在 _index.md 时报错。"""
+    write(tmp_path / "wiki/entities/_index.md",
+          "# Concept Index\n\n| Concept | 别名 | 定义 | 实例数 |\n|---|---|---|---|\n| 插件系统 | Plugin System | desc | 1 |\n")
+    write(tmp_path / "wiki/repos/openclaw/nodes/ep.md",
+          "---\nnode_type: ExtensionPoint\nscope: subsystem\nconcept: 未注册概念\n---\n# EP\n")
+    from lint import check_concept_registered
+    errors = check_concept_registered(tmp_path / "wiki")
+    assert len(errors) == 1
+    assert "未注册概念" in errors[0]["detail"]
+
+
+def test_check_concept_registered_passes(tmp_path):
+    write(tmp_path / "wiki/entities/_index.md",
+          "# Concept Index\n\n| Concept | 别名 | 定义 | 实例数 |\n|---|---|---|---|\n| 插件系统 | Plugin System | desc | 1 |\n")
+    write(tmp_path / "wiki/repos/openclaw/nodes/ep.md",
+          "---\nnode_type: ExtensionPoint\nscope: subsystem\nconcept: 插件系统\n---\n# EP\n")
+    from lint import check_concept_registered
+    errors = check_concept_registered(tmp_path / "wiki")
+    assert errors == []

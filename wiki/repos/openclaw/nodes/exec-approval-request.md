@@ -1,7 +1,7 @@
 ---
 node_type: ExtensionPoint
 scope: component
-concept: 人机审批协议
+concept_candidate: 人机审批协议
 targets: [tool-policy]
 motivated_by: [sync-gating-decision]
 sources:

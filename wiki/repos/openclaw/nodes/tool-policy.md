@@ -1,6 +1,6 @@
 ---
 node_type: Component
-scope: subsystem
+scope: system
 motivated_by: [sync-gating-decision]
 sources:
   - src/agents/tool-policy-pipeline.ts:56-90

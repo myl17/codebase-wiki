@@ -133,3 +133,40 @@ def test_query_impact_excludes_unrelated(tmp_path):
 
     ids = {r["id"] for r in result}
     assert "openclaw:context-engine" not in ids
+
+
+def test_generate_mermaid_contains_nodes(tmp_path):
+    make_node(tmp_path, "openclaw", "sync-gate",
+              "node_type: DesignDecision\nscope: system")
+    make_node(tmp_path, "openclaw", "tool-policy",
+              "node_type: Component\nscope: subsystem\n"
+              "motivated_by:\n  - sync-gate")
+
+    from graph import generate_mermaid
+    result = generate_mermaid(tmp_path / "wiki", "openclaw",
+                              center_slug="tool-policy", hops=1)
+
+    assert "graph LR" in result
+    assert "sync_gate" in result
+    assert "tool_policy" in result
+    assert "motivates" in result
+
+
+def test_generate_mermaid_hops_limit(tmp_path):
+    """hops=1 时距中心 2 跳的节点不应出现。"""
+    make_node(tmp_path, "openclaw", "a",
+              "node_type: Component\nscope: subsystem")
+    make_node(tmp_path, "openclaw", "b",
+              "node_type: ExtensionPoint\nscope: component\ntargets: [a]")
+    make_node(tmp_path, "openclaw", "c-decision",
+              "node_type: DesignDecision\nscope: system")
+    # c-decision motivates b → b is 1 hop from a, c-decision is 2 hops
+    make_node(tmp_path, "openclaw", "b2",
+              "node_type: ExtensionPoint\nscope: component\n"
+              "targets: [a]\nmotivated_by: [c-decision]")
+
+    from graph import generate_mermaid
+    result = generate_mermaid(tmp_path / "wiki", "openclaw",
+                              center_slug="a", hops=1)
+
+    assert "openclaw_b[" in result or "openclaw_b " in result

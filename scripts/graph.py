@@ -156,7 +156,7 @@ def generate_mermaid(wiki_root: Path, repo: str,
         relevant_ids = set(repo_nodes.keys())
 
     def _mermaid_id(node_id: str) -> str:
-        return node_id.replace(":", "_").replace("-", "_")
+        return node_id.replace(":", "_").replace("-", "_").replace(" ", "_")
 
     def _label(node_id: str) -> str:
         if node_id in repo_nodes:

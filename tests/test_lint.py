@@ -175,3 +175,25 @@ def test_check_concept_registered_passes(tmp_path):
     from lint import check_concept_registered
     errors = check_concept_registered(tmp_path / "wiki")
     assert errors == []
+
+
+def test_check_candidate_backlog_warns_when_many(tmp_path):
+    """当某个 repo 的 nodes/ 下积压 >=3 个 concept_candidate 时应报警。"""
+    for i in range(3):
+        write(tmp_path / f"wiki/repos/openclaw/nodes/ep{i}.md",
+              f"---\nnode_type: ExtensionPoint\nscope: subsystem\n"
+              f"concept_candidate: 候选概念{i}\n---\n# EP{i}\n")
+    from lint import check_candidate_backlog
+    warnings = check_candidate_backlog(tmp_path / "wiki")
+    assert len(warnings) == 1
+    assert "openclaw" in warnings[0]["detail"]
+
+
+def test_check_candidate_backlog_ok_when_few(tmp_path):
+    for i in range(2):
+        write(tmp_path / f"wiki/repos/openclaw/nodes/ep{i}.md",
+              f"---\nnode_type: ExtensionPoint\nscope: subsystem\n"
+              f"concept_candidate: 候选{i}\n---\n# EP{i}\n")
+    from lint import check_candidate_backlog
+    warnings = check_candidate_backlog(tmp_path / "wiki")
+    assert warnings == []

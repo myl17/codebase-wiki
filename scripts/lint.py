@@ -284,10 +284,13 @@ def run_all(wiki_root: Path, manifest_path: Path) -> list:
     findings += check_empty_pending(wiki_root, manifest_path)
     findings += check_missing_category(wiki_root, manifest_path)
     findings += check_views_freshness(wiki_root)
+    # check_missing_entity_links: demoted — signals quantity not quality.
+    # Kept for narrative pages; graph-layer quality is covered by the rules below.
     findings += check_missing_entity_links(wiki_root)
     findings += check_graph_edge_types(wiki_root)
     findings += check_graph_dangling_edges(wiki_root)
     findings += check_concept_registered(wiki_root)
+    findings += check_candidate_backlog(wiki_root)
     return findings
 
 
@@ -416,6 +419,26 @@ def check_concept_registered(wiki_root: Path) -> list:
                 "detail": f"concept {concept!r} not found in entities/_index.md",
             })
     return errors
+
+
+def check_candidate_backlog(wiki_root: Path, threshold: int = 3) -> list:
+    """[WARN] A repo has >= threshold unconfirmed concept_candidate nodes."""
+    counts = {}
+    for repo, node_file, fm in _iter_node_pages(wiki_root):
+        cand = fm.get("concept_candidate", "")
+        if isinstance(cand, str) and cand:
+            counts.setdefault(repo, []).append(node_file.stem)
+
+    warnings = []
+    for repo, candidates in sorted(counts.items()):
+        if len(candidates) >= threshold:
+            warnings.append({
+                "level": "WARN",
+                "rule": "check_candidate_backlog",
+                "file": f"repos/{repo}/nodes/",
+                "detail": f"{repo} has {len(candidates)} unconfirmed concept_candidate(s): {candidates} — run normalization pass",
+            })
+    return warnings
 
 
 def main():

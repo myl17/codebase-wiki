@@ -29,7 +29,7 @@ export default definePluginEntry({
 ^[extensions/anthropic/index.ts:1-10]
 
 
-**`defineBundledChannelEntry`** — 用于 channel 类插件，接受 `{ plugin, secrets, runtime, registerFull }` 四个模块引用，channel 代码按需[[懒加载]]（`loadBundledEntryExportSync`），避免不使用的 channel 在启动时加载。^[src/plugin-sdk/channel-entry-contract.ts:31-60]
+**`defineBundledChannelEntry`** — 用于 channel 类插件，接受 `{ plugin, secrets, runtime, registerFull }` 四个模块引用，channel 代码按需懒加载（`loadBundledEntryExportSync`），避免不使用的 channel 在启动时加载。^[src/plugin-sdk/channel-entry-contract.ts:31-60]
 
 
 ## OpenClawPluginApi — 注册 API 全面清单

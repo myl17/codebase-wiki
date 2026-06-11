@@ -1,4 +1,5 @@
 ---
+watchlist: true
 type: entity
 category: 技术栈
 ---

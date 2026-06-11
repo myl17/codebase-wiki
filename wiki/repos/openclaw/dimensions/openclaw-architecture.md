@@ -7,13 +7,13 @@ generated: 2026-06-09
 
 # OpenClaw — Architecture
 
-OpenClaw 是一个自托管个人 AI 助手运行时，采用**九大子系统**集成架构，[[TypeScript monorepo]]。Gateway 是纯控制平面，产品核心是助手本身。
+OpenClaw 是一个自托管个人 AI 助手运行时，采用**九大子系统**集成架构，TypeScript monorepo。Gateway 是纯控制平面，产品核心是助手本身。
 
 ## 1. Entry / Process Supervisor
 
 `src/entry.ts` 是 CLI 入口，初始化 compile cache（`enableCompileCache()`）、gaxios fetch compat、进程标题（`process.title = "openclaw"`），并通过 `isMainModule` 防止作为依赖被 import 时重复启动。^[src/entry.ts:37-58]
 
-`src/process/supervisor/` 是进程看门狗，管理 `ManagedRun` / `SpawnMode` / `RunState`，负责子进程生命周期和 respawn 策略。以[[单例模式]]暴露（`getProcessSupervisor()`）。^[src/process/supervisor/index.ts:1-12]
+`src/process/supervisor/` 是进程看门狗，管理 `ManagedRun` / `SpawnMode` / `RunState`，负责子进程生命周期和 respawn 策略。以单例模式暴露（`getProcessSupervisor()`）。^[src/process/supervisor/index.ts:1-12]
 
 ## 2. Gateway（控制平面）
 
@@ -57,7 +57,7 @@ extensions 层四个可选实现：`memory-core`（核心接口）、`memory-lan
 
 ## 9. 可观测性（Observability）
 
-`extensions/diagnostics-otel/` 实现完整 [[OpenTelemetry]] 集成：Traces（`OTLPTraceExporter`）、Metrics（`OTLPMetricExporter` + `PeriodicExportingMetricReader`）、Logs（`OTLPLogExporter` + `BatchLogRecordProcessor`）三路并行导出。采样率通过 `TraceIdRatioBasedSampler` 配置，敏感内容在上报前经 `redactSensitiveText` 处理。这是**可选 extension**，不在核心依赖路径，需显式安装。^[extensions/diagnostics-otel/src/service.ts:1-13]
+`extensions/diagnostics-otel/` 实现完整 OpenTelemetry [[可观测性集成]]：Traces（`OTLPTraceExporter`）、Metrics（`OTLPMetricExporter` + `PeriodicExportingMetricReader`）、Logs（`OTLPLogExporter` + `BatchLogRecordProcessor`）三路并行导出。采样率通过 `TraceIdRatioBasedSampler` 配置，敏感内容在上报前经 `redactSensitiveText` 处理。这是**可选 extension**，不在核心依赖路径，需显式安装。^[extensions/diagnostics-otel/src/service.ts:1-13]
 
 ## 数据流（完整）
 

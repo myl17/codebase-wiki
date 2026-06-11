@@ -100,3 +100,36 @@ def test_build_graph_inline_list_syntax(tmp_path):
                for e in g["edges"])
     assert any(e["type"] == "motivates" and e["from"] == "openclaw:sync-gate"
                for e in g["edges"])
+
+
+def test_query_impact_direct(tmp_path):
+    """Nodes targeted by or motivated_by the queried node should appear."""
+    make_node(tmp_path, "openclaw", "sync-gate",
+              "node_type: DesignDecision\nscope: system")
+    make_node(tmp_path, "openclaw", "tool-policy",
+              "node_type: Component\nscope: subsystem\n"
+              "motivated_by:\n  - sync-gate")
+    make_node(tmp_path, "openclaw", "exec-approval",
+              "node_type: ExtensionPoint\nscope: component\n"
+              "targets:\n  - tool-policy\n"
+              "motivated_by:\n  - sync-gate")
+
+    from graph import query_impact
+    result = query_impact(tmp_path / "wiki", "openclaw", "tool-policy")
+
+    ids = {r["id"] for r in result}
+    assert "openclaw:sync-gate" in ids
+    assert "openclaw:exec-approval" in ids
+
+
+def test_query_impact_excludes_unrelated(tmp_path):
+    make_node(tmp_path, "openclaw", "tool-policy",
+              "node_type: Component\nscope: subsystem")
+    make_node(tmp_path, "openclaw", "context-engine",
+              "node_type: Component\nscope: subsystem")
+
+    from graph import query_impact
+    result = query_impact(tmp_path / "wiki", "openclaw", "tool-policy")
+
+    ids = {r["id"] for r in result}
+    assert "openclaw:context-engine" not in ids

@@ -7,7 +7,7 @@ generated: 2026-06-09
 
 # OpenClaw — Extension Points
 
-OpenClaw 的[[插件系统]]分为两个层次：一套声明式 JSON manifest（`openclaw.plugin.json`）描述 plugin 元数据，一套命令式的 `OpenClawPluginApi` 提供运行时注册能力。两者共同构成 plugin 扩展协议；Skills 文件是第三层轻量扩展，无需代码。
+OpenClaw 的插件系统分为两个层次：一套声明式 JSON manifest（`openclaw.plugin.json`）描述 plugin 元数据，一套命令式的 `OpenClawPluginApi` 提供运行时注册能力。两者共同构成 plugin 扩展协议；Skills 文件是第三层轻量扩展，无需代码。
 
 ## 扩展入口文件
 

@@ -7,7 +7,7 @@ generated: 2026-06-09
 
 # Hermes Agent — Performance Tradeoffs
 
-## 1. [[Prompt Caching]] — 用延迟换成本
+## 1. Prompt Caching — 用延迟换成本
 
 **文件**: `agent/prompt_caching.py:1-73`  
 **策略**: `system_and_3` — 最多 4 个 cache breakpoints（Anthropic 上限）
@@ -25,7 +25,7 @@ Breakpoints 2-4: 最后 3 条非 system 消息（滚动窗口）
 | **自动启用** | OpenRouter + Claude 模型自动启用，原生 Anthropic API 自动启用 ^[run_agent.py:809-812] |
 | **Gateway 面** | GatewayRunner 缓存 AIAgent 实例以保持 prompt cache prefix 跨消息有效 ^[gateway/run.py:604-611] |
 
-## 2. [[Context 压缩]] — 用准确度换容量
+## 2. Context 压缩 — 用准确度换容量
 
 **文件**: `agent/context_compressor.py:1-60`  
 **阈值**: 75% 的模型 context window ^[agent/context_engine.py:59]
@@ -39,7 +39,7 @@ Breakpoints 2-4: 最后 3 条非 system 消息（滚动窗口）
 | **失败退避** | 摘要失败冷却 600 秒，防止重试风暴 ^[agent/context_compressor.py:60] |
 | **用户通知** | 分层警告：85% 和 95% 阈值各通知一次（不注入 LLM，避免模型因压力提前放弃）^[run_agent.py:824-828] |
 
-## 3. [[并行工具执行]] — 用复杂度换延迟
+## 3. 并行工具执行 — 用复杂度换延迟
 
 **文件**: `run_agent.py:214-311`  
 **最大并行线程**: 8 workers ^[run_agent.py:237]

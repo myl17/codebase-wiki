@@ -28,7 +28,7 @@ OpenClaw 的依赖态度：**核心逻辑大量依赖 Node.js stdlib，channel/p
 
 ## 3. Channel SDK：拥抱生态，各自独立
 
-每个 channel extension 只声明自己需要的 SDK，通过 `workspace:*` 引用内部 plugin-sdk，不在 root package 中聚合。这是[[故障隔离]]的典型实践——代表性依赖：^[extensions/slack/package.json:1-15]
+每个 channel extension 只声明自己需要的 SDK，通过 `workspace:*` 引用内部 plugin-sdk，不在 root package 中聚合。这是故障隔离的典型实践——代表性依赖：^[extensions/slack/package.json:1-15]
 
 - Slack：`@slack/bolt`、`@slack/web-api`
 - Telegram：`grammy`、`@grammyjs/runner`

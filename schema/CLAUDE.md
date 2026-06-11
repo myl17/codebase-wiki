@@ -12,10 +12,7 @@ These rules apply to ALL LLM operations that write to the `wiki/` directory.
 | views/ compare page links each repo | ✅ Link each repo name to its `overview.md` |
 | Inside a code block (``` or inline code) | ❌ Never build wikilinks |
 | Inside a provenance reference `^[file:line]` | ❌ Keep as plain text |
-| 行文中提到架构模式（如事件驱动、分层架构、插件注册表） | ✅ 用 `[[概念名]]` 内联标记，例：`[[事件驱动]]` |
-| 行文中提到技术栈（如 Python asyncio、TypeScript monorepo） | ✅ 用 `[[概念名]]` 内联标记，例：`[[TypeScript monorepo]]` |
-| 行文中提到领域概念（如 Context 压缩、Memory Provider） | ✅ 用 `[[概念名]]` 内联标记，例：`[[Context 压缩]]` |
-| 具体类名、函数名、文件路径 | ❌ 不标 entity wikilink，保持纯文本 |
+| 具体类名、函数名、文件路径 | ❌ 不标 wikilink，保持纯文本 |
 | Associative concept that "might be related" | ❌ Only build links that are definitively meaningful |
 
 ## Required Page Sections
@@ -29,8 +26,6 @@ Every `wiki/repos/<name>/dimensions/<dim>.md` page must end with:
 ```
 
 Every `wiki/repos/<name>/overview.md` must link to each of its dimension pages.
-
-Entity wikilink 规则：dimension 页正文中，凡属于架构模式/技术栈/领域概念的词汇，首次出现时用 `[[概念名]]` 标记。同一概念在同一页面只标一次（首次出现）。overview 页不标 entity wikilink。
 
 ## Provenance Format
 

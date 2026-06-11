@@ -44,7 +44,7 @@ tests/
 
 | Job | 内容 | 运行方式 |
 |---|---|---|
-| **test** (10min) | 全部单元测试（排除 integration/ 和 e2e/） | `pytest -q -n auto` [[并行 CI]]执行 |
+| **test** (10min) | 全部单元测试（排除 integration/ 和 e2e/） | `pytest -q -n auto` 并行 CI执行 |
 | **e2e** (10min) | `tests/e2e/` 仅 3 个文件 | `pytest -v` 串行执行 |
 
 默认排除集成/e2e 测试: `addopts = "-m 'not integration' -n auto"` ^[pyproject.toml:136]
@@ -69,7 +69,7 @@ tests/
 ### 测试行为 vs 实现细节
 
 ```
-目标: [[行为驱动测试]]（behavioral tests）
+目标: 行为驱动测试（behavioral tests）
 策略:
   ✅ 测试公共 API 表面（函数签名、返回格式、边界条件）
   ✅ 对错误路径和边界值有专门测试（如空 model fallback、SQL injection）

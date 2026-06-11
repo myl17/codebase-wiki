@@ -7,7 +7,7 @@ generated: 2026-06-09
 
 # Hermes Agent — Extension Points
 
-Hermes Agent 的[[插件系统]]提供九大扩展机制，覆盖从最低层工具注入到最高层平台适配的全频谱。
+Hermes Agent 的插件系统提供九大扩展机制，覆盖从最低层工具注入到最高层平台适配的全频谱。
 
 ## 1. Tool Registry — 工具自动发现与动态注册
 

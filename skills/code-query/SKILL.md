@@ -9,6 +9,54 @@ Answer questions using the wiki knowledge base. Follow the retrieval escalation 
 /query --repo react,vue <question>
 ```
 
+## Graph Traversal (check BEFORE the escalation chain for structural questions)
+
+If the question matches any of these patterns, use graph traversal **first**:
+
+- "改 X 会波及什么" / "X 的影响范围" / "impact of changing X"
+- "为什么有 X" / "X 为什么存在" / "why does X exist / why designed this way"
+- "哪些仓库也有 X" / "which repos implement X" / cross-repo same-pattern questions
+
+### Graph traversal steps
+
+1. Map the concept/component name in the question to a node slug in `wiki/repos/*/nodes/`
+   (list the directory if unsure)
+2. Run:
+   ```bash
+   python scripts/graph.py query --wiki wiki --repo <repo> --impact <slug>
+   ```
+3. For each related node returned, read its node page (`wiki/repos/<repo>/nodes/<slug>.md`)
+   — node pages are short; reading all related ones is cheap
+4. For cross-repo questions, find the shared Concept in the output (`→ <concept>` suffix),
+   then grep other repos' nodes/ for the same `concept:` value
+5. Format the answer as a traversal narrative (below)
+
+### Graph traversal output format
+
+```
+## 影响发现：<node name>
+
+**直接关联节点**（targets / motivates 边）：
+
+- **<node-id>** [<node_type>, <scope>]
+  <one-line description from the node page>
+  ^[source from node page]
+
+**决策来源**（motivates 反向追溯）：
+
+- <DesignDecision node>：<why this decision created the queried node>
+
+**跨仓库同模式**（embodies → Concept ← embodies）：
+
+- <other-repo node> also embodies <Concept> — key difference: <difference>
+
+遍历路径：
+  <node-id> ←edge─ <related-id> ─edge→ <related-id>
+```
+
+If graph.py returns no results or the node cannot be identified, fall through to the
+retrieval escalation chain below.
+
 ## Retrieval Escalation Chain
 
 Follow in order. Stop at the level that gives a confident answer.

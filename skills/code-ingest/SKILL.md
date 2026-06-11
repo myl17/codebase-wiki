@@ -66,6 +66,58 @@ Followed by:
 ```
 (Only add links to repos that have already been analyzed — do not build broken links.)
 
+### Step 3.5 — Node Extraction (graph layer)
+
+After all dimension pages are written, extract structured nodes into `wiki/repos/<name>/nodes/`.
+Follow `schema/graph-schema.md` strictly — extraction and validation are **two separate steps**.
+
+**Extraction (permissive, gather candidates):**
+
+For each identifiable Component / ExtensionPoint / DesignDecision in the dimension pages:
+- Component: independent directory + entry file + distinct responsibility
+- ExtensionPoint: interface + multiple implementations / register* methods / hook signatures / config schema
+- DesignDecision: a "chose X over Y because Z" causal chain in docs/comments/commits
+
+**Validation (strict — a candidate becomes a node page ONLY if it passes ALL three):**
+
+1. **Connectivity**: the node must have at least one edge (`concept` / `concept_candidate` /
+   `targets` / `motivated_by` non-empty), OR be a DesignDecision referenced by another
+   node's `motivated_by`. Orphan nodes have no traversal value.
+2. **Audience question**: the node must directly answer one of —
+   "改这里波及什么？" (Component) / "这里怎么扩展？" (ExtensionPoint) / "为什么这样设计？" (DesignDecision).
+3. **Deduplication**: the node must not be a property of another node
+   (e.g. an exclusive registration slot is a property of its Component, not a separate node).
+
+**Scope assignment (blast-radius test, see schema for full criteria):**
+
+> If this thing were deleted or fully replaced, what is the minimal rewrite unit?
+
+- `system`: on the hot path with no replacement mechanism / constrains ALL instances of an operation class / non-interface-replaceable dependency
+- `subsystem`: a bounded capability unit (own directory + registration/config switch + interface-only dependents); deleting it loses one capability, everything else runs
+- `component`: a mechanism inside a capability unit (single file/class); deleting it degrades one behavior
+
+Caution: "calls other subsystems" ≠ blast radius. A scheduler calling tasks/agents/channels
+is still `subsystem` if deleting it only requires rewriting itself.
+
+**Concept mapping:**
+
+- If the node matches a Concept in `wiki/entities/_index.md` (check names AND aliases), set `concept:`
+- If no match but it could be a cross-repo concept, set `concept_candidate: <proposed name>` —
+  do NOT add to _index.md without passing the three-question admission test
+- If neither, leave both empty only when the node is repo-specific AND has other edges
+
+**Do not extract:**
+- Functions, class names, file paths (implementation details)
+- Textbook patterns present in every codebase (singleton, lazy-loading, retry)
+- Tool/library names visible in package.json without reading code
+
+After writing nodes, verify:
+```bash
+python scripts/lint.py --wiki wiki --manifest .manifest.json
+python scripts/graph.py build --wiki wiki --out wiki/graph/graph.json
+```
+Fix any `[ERROR] check_graph_*` findings before proceeding to Step 4.
+
 ### Step 4 — Write overview.md
 
 After all dimensions are done, write `wiki/repos/<name>/overview.md`:

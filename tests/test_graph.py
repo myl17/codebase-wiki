@@ -278,10 +278,11 @@ def test_write_obsidian_graph_config(tmp_path):
     write_obsidian_graph_config(config_path)
     assert config_path.exists()
     cfg = json.loads(config_path.read_text())
-    assert len(cfg["colorGroups"]) == 5
+    assert len(cfg["colorGroups"]) == 6
     queries = {g["query"] for g in cfg["colorGroups"]}
     assert "path:nodes/components" in queries
     assert "path:nodes/extension-points" in queries
     assert "path:nodes/design-decisions" in queries
     assert "path:dimensions" in queries
     assert "overview" in queries
+    assert "path:entities" in queries

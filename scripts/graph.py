@@ -392,7 +392,7 @@ def write_obsidian_graph_config(config_path):
             {"query": "path:nodes/design-decisions",  "color": {"a": 1, "rgb": 14714079}},  # red
             {"query": "path:dimensions",              "color": {"a": 1, "rgb": 5026082}},   # teal
             {"query": "overview",  "color": {"a": 1, "rgb": 16744448}},  # orange (matches filename)
-            {"query": "path:entities",             "color": {"a": 1, "rgb": 16753920}},  # gold — concept hub
+            {"query": "path:entities",             "color": {"a": 1, "rgb": 4129023}},    # blue — concept hub
         ],
         "collapse-display": False,
         "showArrow": False,

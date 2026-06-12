@@ -17,6 +17,6 @@ extracted_from:
 ## 关联
 
 **催生了**（被此决策 motivates）：
-- [[hermes-agent/nodes/extension-points/event-hooks]]
-- [[hermes-agent/nodes/components/tool-registry]]
+- [[hermes-agent/nodes/extension-points/hermes-agent-event-hooks]]
+- [[hermes-agent/nodes/components/hermes-agent-tool-registry]]
 <!-- /generated -->

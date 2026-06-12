@@ -19,9 +19,9 @@ extracted_from:
 ## 关联
 
 **设计原因**（motivates）：
-- [[openclaw/nodes/design-decisions/sync-gating-decision]] — 该决策催生了此节点
+- [[openclaw/nodes/design-decisions/openclaw-sync-gating-decision]] — 该决策催生了此节点
 
 **被以下扩展点作用于**（被 targets）：
-- [[openclaw/nodes/extension-points/exec-approval-request]]
-- [[openclaw/nodes/extension-points/hook-system]]
+- [[openclaw/nodes/extension-points/openclaw-exec-approval-request]]
+- [[openclaw/nodes/extension-points/openclaw-hook-system]]
 <!-- /generated -->

@@ -18,17 +18,19 @@ extracted_from:
 <!-- generated-wikilinks -->
 ## 关联
 
+**所属概念：** [[Context 压缩]]
+
 **设计原因**（motivates）：
-- [[openclaw/nodes/design-decisions/compaction-recoverability-priority]] — 该决策催生了此节点
+- [[openclaw/nodes/design-decisions/openclaw-compaction-recoverability-priority]] — 该决策催生了此节点
 
 **被以下扩展点作用于**（被 targets）：
-- [[openclaw/nodes/extension-points/agent-harness]]
-- [[openclaw/nodes/extension-points/channel-plugin]]
-- [[openclaw/nodes/extension-points/compaction-provider]]
-- [[openclaw/nodes/extension-points/hook-system]]
-- [[openclaw/nodes/extension-points/skills-extension]]
+- [[openclaw/nodes/extension-points/openclaw-agent-harness]]
+- [[openclaw/nodes/extension-points/openclaw-channel-plugin]]
+- [[openclaw/nodes/extension-points/openclaw-compaction-provider]]
+- [[openclaw/nodes/extension-points/openclaw-hook-system]]
+- [[openclaw/nodes/extension-points/openclaw-skills-extension]]
 
 **同属「Context 压缩」的其他仓库实例：**
-- [[hermes-agent/nodes/extension-points/context-engine]] — hermes-agent
-- [[openclaw/nodes/extension-points/compaction-provider]] — openclaw
+- [[hermes-agent/nodes/extension-points/hermes-agent-context-engine]] — hermes-agent
+- [[openclaw/nodes/extension-points/openclaw-compaction-provider]] — openclaw
 <!-- /generated -->

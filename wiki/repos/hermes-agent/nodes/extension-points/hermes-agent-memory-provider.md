@@ -17,9 +17,11 @@ extracted_from:
 <!-- generated-wikilinks -->
 ## 关联
 
+**所属概念：** [[可替换记忆后端]]
+
 **作用于**（targets）：
-- [[hermes-agent/nodes/components/ai-agent]] — 改动会波及此组件
+- [[hermes-agent/nodes/components/hermes-agent-ai-agent]] — 改动会波及此组件
 
 **同属「可替换记忆后端」的其他仓库实例：**
-- [[openclaw/nodes/components/memory-system]] — openclaw
+- [[openclaw/nodes/components/openclaw-memory-system]] — openclaw
 <!-- /generated -->

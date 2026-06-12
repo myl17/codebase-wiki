@@ -96,7 +96,7 @@ OpenClaw 的依赖态度：**核心逻辑大量依赖 Node.js stdlib，channel/p
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[openclaw/nodes/design-decisions/channel-isolation-decision]] — DesignDecision
-- [[openclaw/nodes/design-decisions/mariozechner-core-dependency]] — DesignDecision
-- [[openclaw/nodes/design-decisions/startup-over-memory-tradeoff]] — DesignDecision
+- [[openclaw/nodes/design-decisions/openclaw-channel-isolation-decision]] — DesignDecision
+- [[openclaw/nodes/design-decisions/openclaw-mariozechner-core-dependency]] — DesignDecision
+- [[openclaw/nodes/design-decisions/openclaw-startup-over-memory-tradeoff]] — DesignDecision
 <!-- /generated-dimension-links -->

@@ -19,16 +19,18 @@ extracted_from:
 <!-- generated-wikilinks -->
 ## 关联
 
+**所属概念：** [[插件系统]]
+
 **设计原因**（motivates）：
-- [[openclaw/nodes/design-decisions/channel-isolation-decision]] — 该决策催生了此节点
+- [[openclaw/nodes/design-decisions/openclaw-channel-isolation-decision]] — 该决策催生了此节点
 
 **作用于**（targets）：
-- [[openclaw/nodes/components/context-engine]] — 改动会波及此组件
+- [[openclaw/nodes/components/openclaw-context-engine]] — 改动会波及此组件
 
 **同属「插件系统」的其他仓库实例：**
-- [[hermes-agent/nodes/extension-points/event-hooks]] — hermes-agent
-- [[hermes-agent/nodes/extension-points/platform-adapter]] — hermes-agent
-- [[hermes-agent/nodes/components/tool-registry]] — hermes-agent
-- [[openclaw/nodes/extension-points/agent-harness]] — openclaw
-- [[openclaw/nodes/extension-points/hook-system]] — openclaw
+- [[hermes-agent/nodes/extension-points/hermes-agent-event-hooks]] — hermes-agent
+- [[hermes-agent/nodes/extension-points/hermes-agent-platform-adapter]] — hermes-agent
+- [[hermes-agent/nodes/components/hermes-agent-tool-registry]] — hermes-agent
+- [[openclaw/nodes/extension-points/openclaw-agent-harness]] — openclaw
+- [[openclaw/nodes/extension-points/openclaw-hook-system]] — openclaw
 <!-- /generated -->

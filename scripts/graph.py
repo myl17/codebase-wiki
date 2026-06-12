@@ -70,7 +70,7 @@ def _node_wikilink(node_id: str, node_map: dict) -> str:
     """
     n = node_map.get(node_id)
     if n and n.get("type_dir"):
-        return f"[[{n['repo']}/nodes/{n['type_dir']}/{n['slug']}]]"
+        return f"[[{n['repo']}/nodes/{n['type_dir']}/{n['repo']}-{n['slug']}]]"
     return f"[[{node_id.replace(':', '/nodes/')}]]"
 
 
@@ -84,7 +84,10 @@ def build_graph(wiki_root: Path) -> dict:
     for nodes_dir in nodes_dirs:
         repo = nodes_dir.parent.name
         for node_file in sorted(nodes_dir.glob("*/*.md")):
-            slug = node_file.stem
+            raw_stem = node_file.stem
+            # Strip repo prefix: "openclaw-tool-policy" → "tool-policy"
+            prefix = f"{repo}-"
+            slug = raw_stem[len(prefix):] if raw_stem.startswith(prefix) else raw_stem
             node_id = f"{repo}:{slug}"
             fm, _ = _parse_frontmatter(node_file.read_text())
 
@@ -262,7 +265,7 @@ def update_wikilinks(wiki_root: Path, g: dict):
         for node_id, node in sorted(repo_nodes.items()):
             slug = node["slug"]
             type_d = node.get("type_dir", "components")
-            page_path = nodes_dir / repo / "nodes" / type_d / f"{slug}.md"
+            page_path = nodes_dir / repo / "nodes" / type_d / f"{repo}-{slug}.md"
             edges = edge_index.get(node_id, [])
 
             # Group edges by direction+type for labeling
@@ -324,6 +327,11 @@ def update_wikilinks(wiki_root: Path, g: dict):
                     label = n["repo"] if n else ""
                     lines.append(f"- {_node_wikilink(nid, node_map)} — {label}")
                 lines.append("")
+
+            # Link back to concept hub page
+            concept_val = node.get("concept", "")
+            if concept_val and isinstance(concept_val, str):
+                lines.insert(0, f"**所属概念：** [[{concept_val}]]\n")
 
             if lines:
                 _update_page_section(page_path, _GEN_WIKILINKS_START, _GEN_WIKILINKS_END,

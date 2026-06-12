@@ -18,11 +18,11 @@ extracted_from:
 ## 关联
 
 **设计原因**（motivates）：
-- [[hermes-agent/nodes/design-decisions/self-learning-loop-decision]] — 该决策催生了此节点
+- [[hermes-agent/nodes/design-decisions/hermes-agent-self-learning-loop-decision]] — 该决策催生了此节点
 
 **被以下扩展点作用于**（被 targets）：
-- [[hermes-agent/nodes/extension-points/context-engine]]
-- [[hermes-agent/nodes/extension-points/event-hooks]]
-- [[hermes-agent/nodes/extension-points/memory-provider]]
-- [[hermes-agent/nodes/extension-points/platform-adapter]]
+- [[hermes-agent/nodes/extension-points/hermes-agent-context-engine]]
+- [[hermes-agent/nodes/extension-points/hermes-agent-event-hooks]]
+- [[hermes-agent/nodes/extension-points/hermes-agent-memory-provider]]
+- [[hermes-agent/nodes/extension-points/hermes-agent-platform-adapter]]
 <!-- /generated -->

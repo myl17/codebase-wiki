@@ -18,9 +18,11 @@ extracted_from:
 <!-- generated-wikilinks -->
 ## 关联
 
+**所属概念：** [[人机审批协议]]
+
 **设计原因**（motivates）：
-- [[hermes-agent/nodes/design-decisions/layered-approval-decision]] — 该决策催生了此节点
+- [[hermes-agent/nodes/design-decisions/hermes-agent-layered-approval-decision]] — 该决策催生了此节点
 
 **同属「人机审批协议」的其他仓库实例：**
-- [[openclaw/nodes/extension-points/exec-approval-request]] — openclaw
+- [[openclaw/nodes/extension-points/openclaw-exec-approval-request]] — openclaw
 <!-- /generated -->

@@ -258,12 +258,12 @@ OpenClaw 有 skills（markdown 文件注入 system prompt）和 memory（向量�
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[hermes-agent/nodes/components/ai-agent]] — Component
-- [[hermes-agent/nodes/components/approval-system]] — Component
-- [[hermes-agent/nodes/design-decisions/ast-autodiscovery-decision]] — DesignDecision
-- [[hermes-agent/nodes/extension-points/event-hooks]] — ExtensionPoint
-- [[hermes-agent/nodes/design-decisions/layered-approval-decision]] — DesignDecision
-- [[hermes-agent/nodes/design-decisions/self-learning-loop-decision]] — DesignDecision
-- [[hermes-agent/nodes/components/skills-guard]] — Component
-- [[hermes-agent/nodes/components/tool-registry]] — Component
+- [[hermes-agent/nodes/components/hermes-agent-ai-agent]] — Component
+- [[hermes-agent/nodes/components/hermes-agent-approval-system]] — Component
+- [[hermes-agent/nodes/design-decisions/hermes-agent-ast-autodiscovery-decision]] — DesignDecision
+- [[hermes-agent/nodes/extension-points/hermes-agent-event-hooks]] — ExtensionPoint
+- [[hermes-agent/nodes/design-decisions/hermes-agent-layered-approval-decision]] — DesignDecision
+- [[hermes-agent/nodes/design-decisions/hermes-agent-self-learning-loop-decision]] — DesignDecision
+- [[hermes-agent/nodes/components/hermes-agent-skills-guard]] — Component
+- [[hermes-agent/nodes/components/hermes-agent-tool-registry]] — Component
 <!-- /generated-dimension-links -->

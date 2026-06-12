@@ -16,6 +16,6 @@ Context 压缩时摘要指令优先保留活跃任务状态、批处理进度、
 ## 关联
 
 **催生了**（被此决策 motivates）：
-- [[openclaw/nodes/extension-points/compaction-provider]]
-- [[openclaw/nodes/components/context-engine]]
+- [[openclaw/nodes/extension-points/openclaw-compaction-provider]]
+- [[openclaw/nodes/components/openclaw-context-engine]]
 <!-- /generated -->

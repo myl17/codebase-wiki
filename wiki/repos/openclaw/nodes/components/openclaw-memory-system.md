@@ -16,6 +16,8 @@ extracted_from:
 <!-- generated-wikilinks -->
 ## 关联
 
+**所属概念：** [[可替换记忆后端]]
+
 **同属「可替换记忆后端」的其他仓库实例：**
-- [[hermes-agent/nodes/extension-points/memory-provider]] — hermes-agent
+- [[hermes-agent/nodes/extension-points/hermes-agent-memory-provider]] — hermes-agent
 <!-- /generated -->

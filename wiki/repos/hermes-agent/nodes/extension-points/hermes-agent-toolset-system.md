@@ -17,5 +17,5 @@ extracted_from:
 ## 关联
 
 **作用于**（targets）：
-- [[hermes-agent/nodes/components/tool-registry]] — 改动会波及此组件
+- [[hermes-agent/nodes/components/hermes-agent-tool-registry]] — 改动会波及此组件
 <!-- /generated -->

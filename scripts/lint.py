@@ -344,13 +344,17 @@ def check_graph_edge_types(wiki_root: Path) -> list:
 
 def check_graph_dangling_edges(wiki_root: Path) -> list:
     """[ERROR] targets / motivated_by pointing to non-existent node pages."""
+    def _repo_slug(repo: str, stem: str) -> str:
+        prefix = f"{repo}-"
+        return stem[len(prefix):] if stem.startswith(prefix) else stem
+
     errors = []
     slugs_by_repo = {}
     for repo, node_file, _ in _iter_node_pages(wiki_root):
-        slugs_by_repo.setdefault(repo, set()).add(node_file.stem)
+        slugs_by_repo.setdefault(repo, set()).add(_repo_slug(repo, node_file.stem))
 
     for repo, node_file, fm in _iter_node_pages(wiki_root):
-        slug = node_file.stem
+        slug = _repo_slug(repo, node_file.stem)
         for field in ("targets", "motivated_by"):
             for ref in _as_list(fm.get(field)):
                 if ref not in slugs_by_repo.get(repo, set()):

@@ -84,14 +84,14 @@ extensions 层四个可选实现：`memory-core`（核心接口）、`memory-lan
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[openclaw/nodes/extension-points/agent-harness]] — ExtensionPoint
-- [[openclaw/nodes/extension-points/channel-plugin]] — ExtensionPoint
-- [[openclaw/nodes/components/context-engine]] — Component
-- [[openclaw/nodes/components/cron-scheduler]] — Component
-- [[openclaw/nodes/extension-points/exec-approval-request]] — ExtensionPoint
-- [[openclaw/nodes/components/memory-system]] — Component
-- [[openclaw/nodes/components/process-supervisor]] — Component
-- [[openclaw/nodes/design-decisions/sync-gating-decision]] — DesignDecision
-- [[openclaw/nodes/components/task-flow]] — Component
-- [[openclaw/nodes/components/tool-policy]] — Component
+- [[openclaw/nodes/extension-points/openclaw-agent-harness]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/openclaw-channel-plugin]] — ExtensionPoint
+- [[openclaw/nodes/components/openclaw-context-engine]] — Component
+- [[openclaw/nodes/components/openclaw-cron-scheduler]] — Component
+- [[openclaw/nodes/extension-points/openclaw-exec-approval-request]] — ExtensionPoint
+- [[openclaw/nodes/components/openclaw-memory-system]] — Component
+- [[openclaw/nodes/components/openclaw-process-supervisor]] — Component
+- [[openclaw/nodes/design-decisions/openclaw-sync-gating-decision]] — DesignDecision
+- [[openclaw/nodes/components/openclaw-task-flow]] — Component
+- [[openclaw/nodes/components/openclaw-tool-policy]] — Component
 <!-- /generated-dimension-links -->

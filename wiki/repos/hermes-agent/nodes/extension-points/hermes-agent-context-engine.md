@@ -17,10 +17,12 @@ extracted_from:
 <!-- generated-wikilinks -->
 ## 关联
 
+**所属概念：** [[Context 压缩]]
+
 **作用于**（targets）：
-- [[hermes-agent/nodes/components/ai-agent]] — 改动会波及此组件
+- [[hermes-agent/nodes/components/hermes-agent-ai-agent]] — 改动会波及此组件
 
 **同属「Context 压缩」的其他仓库实例：**
-- [[openclaw/nodes/extension-points/compaction-provider]] — openclaw
-- [[openclaw/nodes/components/context-engine]] — openclaw
+- [[openclaw/nodes/extension-points/openclaw-compaction-provider]] — openclaw
+- [[openclaw/nodes/components/openclaw-context-engine]] — openclaw
 <!-- /generated -->

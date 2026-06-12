@@ -262,3 +262,20 @@ def test_dimension_links_from_extracted_from(tmp_path):
     assert _GEN_DIM_LINKS_START in arch
     assert "[[openclaw/nodes/components/tool-policy]]" in arch
     assert "[[openclaw/nodes/extension-points/channel-plugin]]" in arch
+
+
+def test_write_obsidian_graph_config(tmp_path):
+    """应写出带 colorGroups 的 graph.json。"""
+    from graph import write_obsidian_graph_config
+    import json
+    config_path = tmp_path / ".obsidian" / "graph.json"
+    write_obsidian_graph_config(config_path)
+    assert config_path.exists()
+    cfg = json.loads(config_path.read_text())
+    assert len(cfg["colorGroups"]) == 5
+    queries = {g["query"] for g in cfg["colorGroups"]}
+    assert "path:nodes/components" in queries
+    assert "path:nodes/extension-points" in queries
+    assert "path:nodes/design-decisions" in queries
+    assert "path:dimensions" in queries
+    assert "path:overview" in queries

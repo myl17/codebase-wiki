@@ -4,6 +4,8 @@ scope: subsystem
 motivated_by: [startup-over-memory-tradeoff]
 sources:
   - src/process/supervisor/index.ts:1-12
+extracted_from:
+  - architecture
 ---
 
 # ProcessSupervisor

@@ -4,6 +4,8 @@ scope: subsystem
 concept_candidate: 任务编排
 sources:
   - src/tasks/task-executor.ts:85-112
+extracted_from:
+  - architecture
 ---
 
 # TaskFlow

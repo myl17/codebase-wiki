@@ -5,6 +5,8 @@ concept_candidate: 声明式行为定制
 targets: [context-engine]
 sources:
   - src/agents/skills.ts:8-39
+extracted_from:
+  - extension-points
 ---
 
 # Skills 扩展

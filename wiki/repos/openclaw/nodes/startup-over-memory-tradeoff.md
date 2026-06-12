@@ -4,6 +4,9 @@ scope: system
 sources:
   - src/shared/lazy-runtime.ts:1-44
   - src/entry.ts:52-58
+extracted_from:
+  - performance-tradeoffs
+  - dependency-strategy
 ---
 
 # 启动速度优先于内存占用

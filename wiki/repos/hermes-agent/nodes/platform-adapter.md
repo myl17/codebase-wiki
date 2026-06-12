@@ -5,6 +5,8 @@ concept: 插件系统
 targets: [ai-agent]
 sources:
   - gateway/platforms/base.py:813-893
+extracted_from:
+  - extension-points
 ---
 
 # BasePlatformAdapter

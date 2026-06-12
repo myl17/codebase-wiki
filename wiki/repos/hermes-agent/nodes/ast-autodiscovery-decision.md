@@ -3,6 +3,9 @@ node_type: DesignDecision
 scope: subsystem
 sources:
   - tools/registry.py:28-73
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # AST 扫描自动发现工具

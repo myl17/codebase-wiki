@@ -5,6 +5,8 @@ motivated_by: [sync-gating-decision]
 sources:
   - src/agents/tool-policy-pipeline.ts:56-90
   - src/agents/tool-policy.ts:19-55
+extracted_from:
+  - architecture
 ---
 
 # ToolPolicy

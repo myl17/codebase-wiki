@@ -11,6 +11,9 @@
       "sources": [
         "run_agent.py:535-560",
         "run_agent.py:8130-8189"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -24,6 +27,9 @@
       "sources": [
         "tools/approval.py:586-922",
         "tools/approval.py:219-284"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -36,6 +42,10 @@
       "concept_candidate": "",
       "sources": [
         "tools/registry.py:28-73"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -48,6 +58,9 @@
       "concept_candidate": "",
       "sources": [
         "agent/context_engine.py:32-60"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -61,6 +74,10 @@
       "sources": [
         "gateway/hooks.py:9-19",
         "gateway/hooks.py:34-80"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -73,6 +90,9 @@
       "concept_candidate": "",
       "sources": [
         "tools/approval.py:586-922"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -85,6 +105,9 @@
       "concept_candidate": "可替换记忆后端",
       "sources": [
         "agent/memory_manager.py:1-27"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -97,6 +120,9 @@
       "concept_candidate": "",
       "sources": [
         "gateway/platforms/base.py:813-893"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -109,6 +135,9 @@
       "concept_candidate": "",
       "sources": [
         "agent/prompt_builder.py:145-171"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -122,6 +151,9 @@
       "sources": [
         "tools/skills_guard.py:82-484",
         "tools/skills_guard.py:595-639"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -134,6 +166,10 @@
       "concept_candidate": "",
       "sources": [
         "tools/registry.py:100-159"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -146,6 +182,9 @@
       "concept_candidate": "",
       "sources": [
         "tools/toolsets.py:1-30"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -158,6 +197,10 @@
       "concept_candidate": "",
       "sources": [
         "src/agents/harness/types.ts:30-44"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -170,6 +213,9 @@
       "concept_candidate": "",
       "sources": [
         "extensions/slack/package.json:1-15"
+      ],
+      "extracted_from": [
+        "dependency-strategy"
       ]
     },
     {
@@ -182,6 +228,10 @@
       "concept_candidate": "",
       "sources": [
         "src/channels/plugins/types.plugin.ts:53-94"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -194,6 +244,9 @@
       "concept_candidate": "",
       "sources": [
         "src/plugins/types.ts:1867-1990"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -206,6 +259,9 @@
       "concept_candidate": "",
       "sources": [
         "src/agents/compaction.ts:19-40"
+      ],
+      "extracted_from": [
+        "performance-tradeoffs"
       ]
     },
     {
@@ -218,6 +274,10 @@
       "concept_candidate": "",
       "sources": [
         "src/context-engine/index.ts:1-27"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -230,6 +290,9 @@
       "concept_candidate": "无消息主动触发",
       "sources": [
         "src/cron/delivery-plan.ts:10-19"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -242,6 +305,10 @@
       "concept_candidate": "人机审批协议",
       "sources": [
         "src/agents/bash-tools.exec-approval-request.ts:89-126"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
       ]
     },
     {
@@ -255,6 +322,9 @@
       "sources": [
         "src/plugins/hook-types.ts:55-84",
         "src/plugins/hook-types.ts:128-133"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -267,6 +337,9 @@
       "concept_candidate": "",
       "sources": [
         "package.json:1-50"
+      ],
+      "extracted_from": [
+        "dependency-strategy"
       ]
     },
     {
@@ -279,6 +352,9 @@
       "concept_candidate": "可替换记忆后端",
       "sources": [
         "src/memory-host-sdk/host/types.ts:1-30"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -291,6 +367,9 @@
       "concept_candidate": "",
       "sources": [
         "src/process/supervisor/index.ts:1-12"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -303,6 +382,9 @@
       "concept_candidate": "声明式行为定制",
       "sources": [
         "src/agents/skills.ts:8-39"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     },
     {
@@ -316,6 +398,10 @@
       "sources": [
         "src/shared/lazy-runtime.ts:1-44",
         "src/entry.ts:52-58"
+      ],
+      "extracted_from": [
+        "performance-tradeoffs",
+        "dependency-strategy"
       ]
     },
     {
@@ -329,6 +415,9 @@
       "sources": [
         "src/agents/tool-policy-pipeline.ts:56-90",
         "src/agents/bash-tools.exec-approval-request.ts:89-126"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -341,6 +430,9 @@
       "concept_candidate": "任务编排",
       "sources": [
         "src/tasks/task-executor.ts:85-112"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     },
     {
@@ -354,6 +446,9 @@
       "sources": [
         "src/agents/tool-policy-pipeline.ts:56-90",
         "src/agents/tool-policy.ts:19-55"
+      ],
+      "extracted_from": [
+        "architecture"
       ]
     }
   ],

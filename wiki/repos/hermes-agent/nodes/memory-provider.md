@@ -5,6 +5,8 @@ concept_candidate: 可替换记忆后端
 targets: [ai-agent]
 sources:
   - agent/memory_manager.py:1-27
+extracted_from:
+  - extension-points
 ---
 
 # MemoryProvider

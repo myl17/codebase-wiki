@@ -138,6 +138,9 @@ motivated_by:                      # list of DesignDecision slugs in same repo
   - sync-gating-decision
 sources:
   - src/channels/plugins/types.plugin.ts:53-94
+extracted_from:                    # 来源维度页 slug（不含 repo 前缀），LLM 在提取时填写
+  - architecture
+  - extension-points
 ---
 
 # <节点名>
@@ -150,3 +153,7 @@ sources:
 - `targets` / `motivated_by` 填同 repo `nodes/` 目录下的文件名（不含 `.md`）
 - `concept` 填 `wiki/entities/_index.md` 中已有的 Concept 名，未注册不得填
 - `sources` 格式：`<repo 内相对路径>:<起始行>-<结束行>`
+- `extracted_from` 填维度 slug（不含 repo 前缀，如 `architecture`、`extension-points`）。
+  由 LLM 在 Step 3.5 填写，标注此节点是从哪个维度页提取的。
+  一个节点可以来自多个维度页。这是维度→节点反向链接的唯一数据源，
+  既增强节点可信度（可追溯到叙事），又实现天然过滤——未通过验证的候选不会出现在维度链接中。

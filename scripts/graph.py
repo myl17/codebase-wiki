@@ -86,6 +86,7 @@ def build_graph(wiki_root: Path) -> dict:
                 "concept": fm.get("concept", "") if isinstance(fm.get("concept", ""), str) else "",
                 "concept_candidate": fm.get("concept_candidate", "") if isinstance(fm.get("concept_candidate", ""), str) else "",
                 "sources": _as_list(fm.get("sources")),
+                "extracted_from": _as_list(fm.get("extracted_from")),
             })
 
             concept = fm.get("concept", "")
@@ -190,6 +191,8 @@ _GEN_WIKILINKS_START = "<!-- generated-wikilinks -->"
 _GEN_WIKILINKS_END = "<!-- /generated -->"
 _GEN_MERMAID_START = "<!-- generated-mermaid -->"
 _GEN_MERMAID_END = "<!-- /generated-mermaid -->"
+_GEN_DIM_LINKS_START = "<!-- generated-dimension-links -->"
+_GEN_DIM_LINKS_END = "<!-- /generated-dimension-links -->"
 
 
 def _strip_generated_section(text: str, start: str, end: str) -> str:
@@ -312,6 +315,26 @@ def update_wikilinks(wiki_root: Path, g: dict):
             if lines:
                 _update_page_section(page_path, _GEN_WIKILINKS_START, _GEN_WIKILINKS_END,
                                      "## 关联\n\n" + "\n".join(lines).rstrip())
+
+        # --- per-repo dimension→node links ---
+        # Reverse-index: (repo, dim_slug) → list of node slugs
+        dim_links: dict[tuple, list] = {}
+        for n in g["nodes"]:
+            for dim in n.get("extracted_from", []) or []:
+                dim_links.setdefault((n["repo"], dim), []).append(n["slug"])
+
+        for (repo, dim_slug), node_slugs in dim_links.items():
+            dim_path = nodes_dir / repo / "dimensions" / f"{repo}-{dim_slug}.md"
+            if not dim_path.exists():
+                continue
+            node_map = {n["id"]: n for n in g["nodes"]}
+            lines = []
+            for slug in sorted(node_slugs):
+                n = node_map.get(f"{repo}:{slug}", {})
+                ntype = n.get("node_type", "")
+                lines.append(f"- [[{repo}/nodes/{slug}]] — {ntype}")
+            _update_page_section(dim_path, _GEN_DIM_LINKS_START, _GEN_DIM_LINKS_END,
+                                 "**本维度提取的节点：**\n\n" + "\n".join(lines))
 
         # --- per-repo Mermaid in overview ---
         mermaid = generate_mermaid(wiki_root, repo)

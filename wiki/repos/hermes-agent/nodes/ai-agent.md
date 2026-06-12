@@ -5,6 +5,8 @@ motivated_by: [self-learning-loop-decision]
 sources:
   - run_agent.py:535-560
   - run_agent.py:8130-8189
+extracted_from:
+  - architecture
 ---
 
 # AIAgent

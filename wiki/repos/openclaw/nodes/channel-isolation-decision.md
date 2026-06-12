@@ -3,6 +3,8 @@ node_type: DesignDecision
 scope: system
 sources:
   - extensions/slack/package.json:1-15
+extracted_from:
+  - dependency-strategy
 ---
 
 # Channel SDK 故障域隔离

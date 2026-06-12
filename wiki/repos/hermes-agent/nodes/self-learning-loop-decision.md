@@ -3,6 +3,8 @@ node_type: DesignDecision
 scope: system
 sources:
   - agent/prompt_builder.py:145-171
+extracted_from:
+  - architecture
 ---
 
 # 自学习闭环内建于 system prompt

@@ -4,6 +4,8 @@ scope: component
 targets: [tool-registry]
 sources:
   - tools/toolsets.py:1-30
+extracted_from:
+  - extension-points
 ---
 
 # Toolset System

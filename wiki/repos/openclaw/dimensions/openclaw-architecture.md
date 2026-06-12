@@ -80,3 +80,18 @@ extensions 层四个可选实现：`memory-core`（核心接口）、`memory-lan
 ## 关联
 
 *(暂无同类仓库已分析，链接待补充)*
+
+<!-- generated-dimension-links -->
+**本维度提取的节点：**
+
+- [[openclaw/nodes/agent-harness]] — ExtensionPoint
+- [[openclaw/nodes/channel-plugin]] — ExtensionPoint
+- [[openclaw/nodes/context-engine]] — Component
+- [[openclaw/nodes/cron-scheduler]] — Component
+- [[openclaw/nodes/exec-approval-request]] — ExtensionPoint
+- [[openclaw/nodes/memory-system]] — Component
+- [[openclaw/nodes/process-supervisor]] — Component
+- [[openclaw/nodes/sync-gating-decision]] — DesignDecision
+- [[openclaw/nodes/task-flow]] — Component
+- [[openclaw/nodes/tool-policy]] — Component
+<!-- /generated-dimension-links -->

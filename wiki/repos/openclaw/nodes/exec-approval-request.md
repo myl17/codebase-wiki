@@ -6,6 +6,9 @@ targets: [tool-policy]
 motivated_by: [sync-gating-decision]
 sources:
   - src/agents/bash-tools.exec-approval-request.ts:89-126
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # ExecApprovalRequest

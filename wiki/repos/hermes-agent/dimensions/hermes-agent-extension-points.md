@@ -216,3 +216,15 @@ class BasePlatformAdapter(ABC):
 ## 关联
 
 - [[openclaw/dimensions/openclaw-extension-points]]
+
+<!-- generated-dimension-links -->
+**本维度提取的节点：**
+
+- [[hermes-agent/nodes/ast-autodiscovery-decision]] — DesignDecision
+- [[hermes-agent/nodes/context-engine]] — ExtensionPoint
+- [[hermes-agent/nodes/event-hooks]] — ExtensionPoint
+- [[hermes-agent/nodes/memory-provider]] — ExtensionPoint
+- [[hermes-agent/nodes/platform-adapter]] — ExtensionPoint
+- [[hermes-agent/nodes/tool-registry]] — Component
+- [[hermes-agent/nodes/toolset-system]] — ExtensionPoint
+<!-- /generated-dimension-links -->

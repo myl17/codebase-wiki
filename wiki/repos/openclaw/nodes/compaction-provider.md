@@ -6,6 +6,8 @@ targets: [context-engine]
 motivated_by: [compaction-recoverability-priority]
 sources:
   - src/plugins/types.ts:1867-1990
+extracted_from:
+  - extension-points
 ---
 
 # CompactionProvider

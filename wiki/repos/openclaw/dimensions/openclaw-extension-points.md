@@ -110,3 +110,15 @@ reply_dispatch            before_install
 ## 关联
 
 *(暂无同类仓库已分析，链接待补充)*
+
+<!-- generated-dimension-links -->
+**本维度提取的节点：**
+
+- [[openclaw/nodes/agent-harness]] — ExtensionPoint
+- [[openclaw/nodes/channel-plugin]] — ExtensionPoint
+- [[openclaw/nodes/compaction-provider]] — ExtensionPoint
+- [[openclaw/nodes/context-engine]] — Component
+- [[openclaw/nodes/exec-approval-request]] — ExtensionPoint
+- [[openclaw/nodes/hook-system]] — ExtensionPoint
+- [[openclaw/nodes/skills-extension]] — ExtensionPoint
+<!-- /generated-dimension-links -->

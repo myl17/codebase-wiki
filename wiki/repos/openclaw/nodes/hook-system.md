@@ -6,6 +6,8 @@ targets: [context-engine, tool-policy]
 sources:
   - src/plugins/hook-types.ts:55-84
   - src/plugins/hook-types.ts:128-133
+extracted_from:
+  - extension-points
 ---
 
 # Hook System

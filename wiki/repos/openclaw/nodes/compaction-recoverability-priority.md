@@ -3,6 +3,8 @@ node_type: DesignDecision
 scope: subsystem
 sources:
   - src/agents/compaction.ts:19-40
+extracted_from:
+  - performance-tradeoffs
 ---
 
 # 压缩优先保证可恢复性

@@ -5,6 +5,9 @@ concept: 插件系统
 motivated_by: [ast-autodiscovery-decision]
 sources:
   - tools/registry.py:100-159
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # ToolRegistry

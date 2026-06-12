@@ -99,6 +99,13 @@ For each identifiable Component / ExtensionPoint / DesignDecision in the dimensi
 Caution: "calls other subsystems" ≠ blast radius. A scheduler calling tasks/agents/channels
 is still `subsystem` if deleting it only requires rewriting itself.
 
+**Provenance tracking:**
+
+- Set `extracted_from:` to list the dimension slug(s) this node was extracted from
+  (e.g. `extracted_from: [architecture, extension-points]`). This enables `graph.py` to
+  write reverse links from dimension pages back to nodes, and gives each node auditability
+  — readers can trace a node back to the narrative that produced it.
+
 **Concept mapping:**
 
 - If the node matches a Concept in `wiki/entities/_index.md` (check names AND aliases), set `concept:`

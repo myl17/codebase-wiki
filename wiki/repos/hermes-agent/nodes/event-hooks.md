@@ -7,6 +7,9 @@ motivated_by: [ast-autodiscovery-decision]
 sources:
   - gateway/hooks.py:9-19
   - gateway/hooks.py:34-80
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # Event Hooks

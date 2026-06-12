@@ -6,6 +6,9 @@ targets: [context-engine]
 motivated_by: [mariozechner-core-dependency]
 sources:
   - src/agents/harness/types.ts:30-44
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # AgentHarness

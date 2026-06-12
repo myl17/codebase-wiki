@@ -228,3 +228,39 @@ def test_update_wikilinks_idempotent(tmp_path):
 
     tp = (tmp_path / "wiki/repos/openclaw/nodes/channel-plugin.md").read_text()
     assert tp.count(_GEN_WIKILINKS_START) == 1
+
+
+def test_dimension_links_from_extracted_from(tmp_path):
+    """extracted_from 字段应生成维度页到节点页的反向链接。"""
+    # node with extracted_from
+    make_node(tmp_path, "openclaw", "tool-policy",
+              "node_type: Component\nscope: subsystem\n"
+              "extracted_from:\n  - architecture")
+    make_node(tmp_path, "openclaw", "channel-plugin",
+              "node_type: ExtensionPoint\nscope: subsystem\n"
+              "extracted_from:\n  - architecture\n  - extension-points")
+    # dimension pages
+    from pathlib import Path
+    make_node(tmp_path, "openclaw", "openclaw-architecture",
+              "---\nrepo: openclaw\ndimension: architecture\n---\n# Architecture\n\n"
+              "Key components.\n",
+              body="")
+    (tmp_path / "wiki/repos/openclaw/dimensions").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "wiki/repos/openclaw/nodes/tool-policy.md").rename(
+        tmp_path / "wiki/repos/openclaw/nodes/tool-policy.md")  # keep
+    # Actually dimensions are at dimensions/, not nodes/
+    import shutil
+    src = tmp_path / "wiki/repos/openclaw/nodes/openclaw-architecture.md"
+    dst = tmp_path / "wiki/repos/openclaw/dimensions/openclaw-architecture.md"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    src.rename(dst)
+
+    from graph import build_graph, update_wikilinks, _GEN_DIM_LINKS_START
+    wiki = tmp_path / "wiki"
+    g = build_graph(wiki)
+    update_wikilinks(wiki, g)
+
+    arch = (tmp_path / "wiki/repos/openclaw/dimensions/openclaw-architecture.md").read_text()
+    assert _GEN_DIM_LINKS_START in arch
+    assert "[[openclaw/nodes/tool-policy]]" in arch
+    assert "[[openclaw/nodes/channel-plugin]]" in arch

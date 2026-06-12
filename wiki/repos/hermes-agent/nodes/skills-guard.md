@@ -5,6 +5,8 @@ motivated_by: [layered-approval-decision]
 sources:
   - tools/skills_guard.py:82-484
   - tools/skills_guard.py:595-639
+extracted_from:
+  - architecture
 ---
 
 # SkillsGuard

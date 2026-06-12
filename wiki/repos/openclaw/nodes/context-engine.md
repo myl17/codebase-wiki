@@ -5,6 +5,9 @@ concept: Context 压缩
 motivated_by: [compaction-recoverability-priority]
 sources:
   - src/context-engine/index.ts:1-27
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # ContextEngine

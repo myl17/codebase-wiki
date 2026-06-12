@@ -4,6 +4,8 @@ scope: subsystem
 concept_candidate: 可替换记忆后端
 sources:
   - src/memory-host-sdk/host/types.ts:1-30
+extracted_from:
+  - architecture
 ---
 
 # Memory System

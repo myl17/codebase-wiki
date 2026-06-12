@@ -4,6 +4,8 @@ scope: system
 sources:
   - src/agents/tool-policy-pipeline.ts:56-90
   - src/agents/bash-tools.exec-approval-request.ts:89-126
+extracted_from:
+  - architecture
 ---
 
 # 5层同步门控

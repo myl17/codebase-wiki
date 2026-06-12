@@ -3,6 +3,8 @@ node_type: DesignDecision
 scope: system
 sources:
   - tools/approval.py:586-922
+extracted_from:
+  - architecture
 ---
 
 # 三层审批而非单级开关

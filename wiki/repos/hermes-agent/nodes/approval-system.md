@@ -5,6 +5,8 @@ motivated_by: [layered-approval-decision]
 sources:
   - tools/approval.py:586-922
   - tools/approval.py:219-284
+extracted_from:
+  - architecture
 ---
 
 # Approval System

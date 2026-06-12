@@ -4,6 +4,8 @@ scope: subsystem
 concept_candidate: 无消息主动触发
 sources:
   - src/cron/delivery-plan.ts:10-19
+extracted_from:
+  - architecture
 ---
 
 # CronScheduler

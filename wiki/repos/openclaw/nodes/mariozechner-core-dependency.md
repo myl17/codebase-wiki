@@ -3,6 +3,8 @@ node_type: DesignDecision
 scope: system
 sources:
   - package.json:1-50
+extracted_from:
+  - dependency-strategy
 ---
 
 # 深度绑定 @mariozechner 私有包族

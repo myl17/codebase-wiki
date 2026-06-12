@@ -6,6 +6,9 @@ targets: [context-engine]
 motivated_by: [channel-isolation-decision]
 sources:
   - src/channels/plugins/types.plugin.ts:53-94
+extracted_from:
+  - architecture
+  - extension-points
 ---
 
 # ChannelPlugin

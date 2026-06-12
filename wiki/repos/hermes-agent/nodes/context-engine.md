@@ -5,6 +5,8 @@ concept: Context 压缩
 targets: [ai-agent]
 sources:
   - agent/context_engine.py:32-60
+extracted_from:
+  - extension-points
 ---
 
 # ContextEngine

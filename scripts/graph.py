@@ -387,12 +387,12 @@ def write_obsidian_graph_config(config_path):
         "showOrphans": True,
         "collapse-color-groups": False,
         "colorGroups": [
-            {"query": "path:nodes/components",       "color": {"a": 1, "rgb": 5603047}},   # green
-            {"query": "path:nodes/extension-points",  "color": {"a": 1, "rgb": 10834779}},  # purple
-            {"query": "path:nodes/design-decisions",  "color": {"a": 1, "rgb": 14714079}},  # red
-            {"query": "path:dimensions",              "color": {"a": 1, "rgb": 5026082}},   # teal
-            {"query": "overview",  "color": {"a": 1, "rgb": 16744448}},  # orange (matches filename)
-            {"query": "path:entities",             "color": {"a": 1, "rgb": 4129023}},    # blue — concept hub
+            {"query": "path:nodes/components",       "color": {"a": 1, "rgb": 3046706}},   # #2E7D32 green
+            {"query": "path:nodes/extension-points",  "color": {"a": 1, "rgb": 8069026}},   # #7B1FA2 purple
+            {"query": "path:nodes/design-decisions",  "color": {"a": 1, "rgb": 12986408}},  # #C62828 deep red
+            {"query": "path:dimensions",              "color": {"a": 1, "rgb": 35195}},     # #00897B teal
+            {"query": "overview",                     "color": {"a": 1, "rgb": 15690752}},  # #EF6C00 orange
+            {"query": "path:entities",                "color": {"a": 1, "rgb": 1402304}},   # #1565C0 blue
         ],
         "collapse-display": False,
         "showArrow": False,

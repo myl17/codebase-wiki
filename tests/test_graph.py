@@ -170,3 +170,61 @@ def test_generate_mermaid_hops_limit(tmp_path):
                               center_slug="a", hops=1)
 
     assert "openclaw_b[" in result or "openclaw_b " in result
+
+
+def test_update_wikilinks_writes_node_sections(tmp_path):
+    """--update-wikilinks 应为每节点页写入 ## 关联 区块。"""
+    make_node(tmp_path, "openclaw", "sync-gate",
+              "node_type: DesignDecision\nscope: system")
+    make_node(tmp_path, "openclaw", "tool-policy",
+              "node_type: Component\nscope: subsystem\n"
+              "motivated_by:\n  - sync-gate")
+    make_node(tmp_path, "openclaw", "channel-plugin",
+              "node_type: ExtensionPoint\nscope: subsystem\n"
+              "concept: 插件系统\ntargets:\n  - tool-policy")
+    make_node(tmp_path, "openclaw", "overview",
+              f"---\nrepo: openclaw\ndimension: overview\n---\n\n# Overview\n",
+              body="")
+
+    from graph import build_graph, update_wikilinks, _GEN_WIKILINKS_START, _GEN_MERMAID_START
+    g = build_graph(tmp_path / "wiki")
+    update_wikilinks(tmp_path / "wiki", g)
+
+    tp = (tmp_path / "wiki/repos/openclaw/nodes/tool-policy.md").read_text()
+    assert _GEN_WIKILINKS_START in tp
+    assert "设计原因" in tp
+    assert "[[openclaw/nodes/sync-gate]]" in tp
+
+    # Verify the "催生了" section header (for DesignDecisions that motivate others)
+    # does NOT appear — tool-policy is a Component, not a DesignDecision
+    after_gen = tp[tp.index(_GEN_WIKILINKS_START):]
+    assert "**催生了**" not in after_gen
+
+    cp = (tmp_path / "wiki/repos/openclaw/nodes/channel-plugin.md").read_text()
+    assert _GEN_WIKILINKS_START in cp
+    assert "[[openclaw/nodes/tool-policy]]" in cp
+
+    ov = (tmp_path / "wiki/repos/openclaw/overview.md").read_text()
+    assert _GEN_MERMAID_START in ov
+    assert "graph LR" in ov
+
+
+def test_update_wikilinks_idempotent(tmp_path):
+    """第二次运行应替换旧区块，不重复。"""
+    make_node(tmp_path, "openclaw", "tool-policy",
+              "node_type: Component\nscope: subsystem")
+    make_node(tmp_path, "openclaw", "channel-plugin",
+              "node_type: ExtensionPoint\nscope: subsystem\n"
+              "targets:\n  - tool-policy")
+    make_node(tmp_path, "openclaw", "overview",
+              "---\nrepo: openclaw\ndimension: overview\n---\n\n# Overview\n",
+              body="")
+
+    from graph import build_graph, update_wikilinks, _GEN_WIKILINKS_START
+    wiki = tmp_path / "wiki"
+    g = build_graph(wiki)
+    update_wikilinks(wiki, g)
+    update_wikilinks(wiki, g)  # second run
+
+    tp = (tmp_path / "wiki/repos/openclaw/nodes/channel-plugin.md").read_text()
+    assert tp.count(_GEN_WIKILINKS_START) == 1

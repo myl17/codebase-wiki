@@ -114,9 +114,12 @@ is still `subsystem` if deleting it only requires rewriting itself.
 After writing nodes, verify:
 ```bash
 python scripts/lint.py --wiki wiki --manifest .manifest.json
-python scripts/graph.py build --wiki wiki --out wiki/graph/graph.json
+python scripts/graph.py build --wiki wiki --out wiki/graph/graph.json --update-wikilinks
 ```
 Fix any `[ERROR] check_graph_*` findings before proceeding to Step 4.
+
+`--update-wikilinks` 自动为所有 node 页生成 `## 关联` 区块（按边类型分组的 wikilink 网络），
+并为 overview.md 嵌入 `## 决策链` Mermaid 图。Obsidian graph view 将不再出现孤点。
 
 ### Step 4 — Write overview.md
 

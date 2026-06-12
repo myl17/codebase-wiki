@@ -12,3 +12,20 @@ sources:
 
 `ChannelPlugin<ResolvedAccount>` 接口，统一 13+ Adapter（Messaging / Outbound / Lifecycle / Auth / Setup）。每个 IM 平台在 `extensions/` 下实现独立 npm 包，通过 `definePluginEntry` / `defineBundledChannelEntry` 注册，按需懒加载。二开时添加新平台只需实现接口并注册，不改动 core。
 ^[src/channels/plugins/types.plugin.ts:53-94]
+
+<!-- generated-wikilinks -->
+## 关联
+
+**设计原因**（motivates）：
+- [[openclaw/nodes/channel-isolation-decision]] — 该决策催生了此节点
+
+**作用于**（targets）：
+- [[openclaw/nodes/context-engine]] — 改动会波及此组件
+
+**同属「插件系统」的其他仓库实例：**
+- [[hermes-agent/nodes/event-hooks]] — hermes-agent
+- [[hermes-agent/nodes/platform-adapter]] — hermes-agent
+- [[hermes-agent/nodes/tool-registry]] — hermes-agent
+- [[openclaw/nodes/agent-harness]] — openclaw
+- [[openclaw/nodes/hook-system]] — openclaw
+<!-- /generated -->

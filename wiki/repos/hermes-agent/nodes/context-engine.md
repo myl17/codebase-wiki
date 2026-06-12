@@ -11,3 +11,14 @@ sources:
 
 上下文压缩策略扩展点：实现 `ContextEngine` ABC 放入 `plugins/context_engine/<name>/`（策略模式），决定何时以及如何压缩对话上下文。内置 Compressor / LCM 两种实现。
 ^[agent/context_engine.py:32-60]
+
+<!-- generated-wikilinks -->
+## 关联
+
+**作用于**（targets）：
+- [[hermes-agent/nodes/ai-agent]] — 改动会波及此组件
+
+**同属「Context 压缩」的其他仓库实例：**
+- [[openclaw/nodes/compaction-provider]] — openclaw
+- [[openclaw/nodes/context-engine]] — openclaw
+<!-- /generated -->

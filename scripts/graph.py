@@ -185,6 +185,142 @@ def generate_mermaid(wiki_root: Path, repo: str,
     return "\n".join(lines)
 
 
+# ---- generated section markers ----
+_GEN_WIKILINKS_START = "<!-- generated-wikilinks -->"
+_GEN_WIKILINKS_END = "<!-- /generated -->"
+_GEN_MERMAID_START = "<!-- generated-mermaid -->"
+_GEN_MERMAID_END = "<!-- /generated-mermaid -->"
+
+
+def _strip_generated_section(text: str, start: str, end: str) -> str:
+    """Remove a generated section (and surrounding blank lines) from text."""
+    # Handle both block-at-end (no trailing content) and block-in-middle.
+    idx_start = text.find(start)
+    if idx_start == -1:
+        return text
+    idx_end = text.find(end, idx_start)
+    if idx_end == -1:
+        return text
+    # Strip leading blank lines before the start marker
+    while idx_start > 0 and text[idx_start - 1] == "\n":
+        idx_start -= 1
+    # Strip trailing newline after end marker
+    idx_end += len(end)
+    if idx_end < len(text) and text[idx_end] == "\n":
+        idx_end += 1
+    return text[:idx_start] + text[idx_end:]
+
+
+def _update_page_section(path: Path, start: str, end: str, new_block: str):
+    """Idempotently replace a generated section in a markdown file.
+
+    If the file already has a section delimited by `start`...`end`, replace it.
+    Otherwise, append the block at the end.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = path.read_text() if path.exists() else ""
+    text = _strip_generated_section(text, start, end)
+    text = text.rstrip()
+    text = text + "\n\n" + start + "\n" + new_block.rstrip() + "\n" + end + "\n"
+    path.write_text(text)
+
+
+def update_wikilinks(wiki_root: Path, g: dict):
+    """Write ## 关联 blocks to node pages and Mermaid to overview pages.
+
+    Node pages get wikilinks grouped by edge type with relationship labels.
+    Overview pages get a repo-level Mermaid diagram.
+    """
+    node_map = {n["id"]: n for n in g["nodes"]}
+    edge_index: dict[str, list[dict]] = {}  # node_id → [edge dicts]
+    for e in g["edges"]:
+        edge_index.setdefault(e["from"], []).append(e)
+        edge_index.setdefault(e["to"], []).append(e)
+
+    repos = sorted({n["repo"] for n in g["nodes"]})
+    nodes_dir = wiki_root / "repos"
+
+    for repo in repos:
+        repo_nodes = {n["id"]: n for n in g["nodes"] if n["repo"] == repo}
+
+        # --- per-node wikilinks ---
+        for node_id, node in sorted(repo_nodes.items()):
+            slug = node["slug"]
+            page_path = nodes_dir / repo / "nodes" / f"{slug}.md"
+            edges = edge_index.get(node_id, [])
+
+            # Group edges by direction+type for labeling
+            motivated_by = []  # DesignDecisions that motivate this node
+            motivates_out = []  # this DesignDecision motivates others
+            targets_out = []   # this ExtensionPoint targets Components
+            targeted_by = []   # Components targeted by ExtensionPoints
+            same_concept = []  # nodes in other repos with same concept
+
+            for e in edges:
+                etype = e["type"]
+                if etype == "motivates":
+                    if e["to"] == node_id:
+                        motivated_by.append(e["from"])
+                    else:
+                        motivates_out.append(e["to"])
+                elif etype == "targets":
+                    if e["from"] == node_id:
+                        targets_out.append(e["to"])
+                    else:
+                        targeted_by.append(e["from"])
+                elif etype == "embodies":
+                    # find siblings (same concept, different repo)
+                    concept = e["to"]  # concept:<name>
+                    for ee in g["edges"]:
+                        if ee["type"] == "embodies" and ee["to"] == concept and ee["from"] != node_id:
+                            same_concept.append(ee["from"])
+
+            lines = []
+            if motivated_by:
+                lines.append("**设计原因**（motivates）：")
+                for did in sorted(set(motivated_by)):
+                    n = node_map.get(did)
+                    label = f"该决策催生了此节点" if n else ""
+                    lines.append(f"- [[{did.replace(':', '/nodes/')}]] — {label}")
+                lines.append("")
+            if motivates_out:
+                lines.append("**催生了**（被此决策 motivates）：")
+                for nid in sorted(set(motivates_out)):
+                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]]")
+                lines.append("")
+            if targets_out:
+                lines.append("**作用于**（targets）：")
+                for nid in sorted(set(targets_out)):
+                    n = node_map.get(nid)
+                    label = f"改动会波及此组件" if n else ""
+                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]] — {label}")
+                lines.append("")
+            if targeted_by:
+                lines.append("**被以下扩展点作用于**（被 targets）：")
+                for nid in sorted(set(targeted_by)):
+                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]]")
+                lines.append("")
+            if same_concept:
+                concept_val = node.get("concept", "")
+                lines.append(f"**同属「{concept_val}」的其他仓库实例：**")
+                for nid in sorted(set(same_concept)):
+                    n = node_map.get(nid)
+                    label = n["repo"] if n else ""
+                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]] — {label}")
+                lines.append("")
+
+            if lines:
+                _update_page_section(page_path, _GEN_WIKILINKS_START, _GEN_WIKILINKS_END,
+                                     "## 关联\n\n" + "\n".join(lines).rstrip())
+
+        # --- per-repo Mermaid in overview ---
+        mermaid = generate_mermaid(wiki_root, repo)
+        overview_path = nodes_dir / repo / "overview.md"
+        _update_page_section(overview_path, _GEN_MERMAID_START, _GEN_MERMAID_END,
+                             "## 决策链\n\n```mermaid\n" + mermaid + "\n```")
+        print(f"graph.py wikilinks: {repo} — {len(repo_nodes)} node pages + overview Mermaid")
+
+
 def _cmd_build(args):
     wiki_root = Path(args.wiki)
     g = build_graph(wiki_root)
@@ -192,6 +328,8 @@ def _cmd_build(args):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(g, indent=2, ensure_ascii=False) + "\n")
     print(f"graph.py build: {len(g['nodes'])} nodes, {len(g['edges'])} edges → {out_path}")
+    if args.update_wikilinks:
+        update_wikilinks(wiki_root, g)
 
 
 def _cmd_query(args):
@@ -220,6 +358,8 @@ def main():
     p_build = sub.add_parser("build", help="Scan node pages, write graph.json")
     p_build.add_argument("--wiki", default="wiki")
     p_build.add_argument("--out", default="wiki/graph/graph.json")
+    p_build.add_argument("--update-wikilinks", action="store_true",
+                         help="Write ## 关联 wikilink blocks to node pages + Mermaid to overview")
 
     p_query = sub.add_parser("query", help="Graph traversal queries")
     p_query.add_argument("--wiki", default="wiki")

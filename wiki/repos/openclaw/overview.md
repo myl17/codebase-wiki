@@ -38,3 +38,30 @@ generated: 2026-06-08
 2671 个单元测试文件 + 90+ 个独立 vitest 配置 + 五类测试（单元/契约/e2e/live/Docker）。契约测试自动覆盖所有 channel/plugin 接口，无需手写。启动性能有专用 fixture 基线和 CI 预算检查。20+ 专项 lint 脚本将架构边界约束变成可执行代码。
 
 详见：[[openclaw/dimensions/openclaw-testing-philosophy]]
+
+<!-- generated-mermaid -->
+## 决策链
+
+```mermaid
+graph LR
+    openclaw_agent_harness["agent-harness<br/>ExtensionPoint"] -->|embodies| concept_插件系统["concept:插件系统"]
+    openclaw_agent_harness["agent-harness<br/>ExtensionPoint"] -->|targets| openclaw_context_engine["context-engine<br/>Component"]
+    openclaw_mariozechner_core_dependency["mariozechner-core-dependency<br/>DesignDecision"] -->|motivates| openclaw_agent_harness["agent-harness<br/>ExtensionPoint"]
+    openclaw_channel_plugin["channel-plugin<br/>ExtensionPoint"] -->|embodies| concept_插件系统["concept:插件系统"]
+    openclaw_channel_plugin["channel-plugin<br/>ExtensionPoint"] -->|targets| openclaw_context_engine["context-engine<br/>Component"]
+    openclaw_channel_isolation_decision["channel-isolation-decision<br/>DesignDecision"] -->|motivates| openclaw_channel_plugin["channel-plugin<br/>ExtensionPoint"]
+    openclaw_compaction_provider["compaction-provider<br/>ExtensionPoint"] -->|embodies| concept_Context_压缩["concept:Context 压缩"]
+    openclaw_compaction_provider["compaction-provider<br/>ExtensionPoint"] -->|targets| openclaw_context_engine["context-engine<br/>Component"]
+    openclaw_compaction_recoverability_priority["compaction-recoverability-priority<br/>DesignDecision"] -->|motivates| openclaw_compaction_provider["compaction-provider<br/>ExtensionPoint"]
+    openclaw_context_engine["context-engine<br/>Component"] -->|embodies| concept_Context_压缩["concept:Context 压缩"]
+    openclaw_compaction_recoverability_priority["compaction-recoverability-priority<br/>DesignDecision"] -->|motivates| openclaw_context_engine["context-engine<br/>Component"]
+    openclaw_exec_approval_request["exec-approval-request<br/>ExtensionPoint"] -->|targets| openclaw_tool_policy["tool-policy<br/>Component"]
+    openclaw_sync_gating_decision["sync-gating-decision<br/>DesignDecision"] -->|motivates| openclaw_exec_approval_request["exec-approval-request<br/>ExtensionPoint"]
+    openclaw_hook_system["hook-system<br/>ExtensionPoint"] -->|embodies| concept_插件系统["concept:插件系统"]
+    openclaw_hook_system["hook-system<br/>ExtensionPoint"] -->|targets| openclaw_context_engine["context-engine<br/>Component"]
+    openclaw_hook_system["hook-system<br/>ExtensionPoint"] -->|targets| openclaw_tool_policy["tool-policy<br/>Component"]
+    openclaw_startup_over_memory_tradeoff["startup-over-memory-tradeoff<br/>DesignDecision"] -->|motivates| openclaw_process_supervisor["process-supervisor<br/>Component"]
+    openclaw_skills_extension["skills-extension<br/>ExtensionPoint"] -->|targets| openclaw_context_engine["context-engine<br/>Component"]
+    openclaw_sync_gating_decision["sync-gating-decision<br/>DesignDecision"] -->|motivates| openclaw_tool_policy["tool-policy<br/>Component"]
+```
+<!-- /generated-mermaid -->

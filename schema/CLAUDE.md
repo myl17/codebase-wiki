@@ -23,9 +23,13 @@ Every `wiki/repos/<name>/dimensions/<dim>.md` page must end with:
 ## 关联
 
 - [[<same-category-repo>/dimensions/<dim>]]   (for each other repo in same category)
+- [[<name>/nodes/<slug>]]   (link to node pages covered in this dimension)
 ```
 
 Every `wiki/repos/<name>/overview.md` must link to each of its dimension pages.
+
+The `## 决策链` Mermaid block and node page `## 关联` blocks are managed by
+`graph.py build --update-wikilinks`. Do not edit `<!-- generated-* -->` blocks manually.
 
 ## Provenance Format
 

@@ -2,8 +2,8 @@
 
 ## Repos
 
-- [[openclaw/overview]] — OpenClaw — ai-agent-frameworks — last analyzed: 2026-06-08 (all 5 dimensions)
-- [[hermes-agent/overview]] — Hermes Agent — ai-agent-frameworks — last analyzed: 2026-06-09 (all 5 dimensions)
+- [[openclaw/openclaw-overview]] — OpenClaw — ai-agent-frameworks — last analyzed: 2026-06-08 (all 5 dimensions)
+- [[hermes-agent/hermes-agent-overview]] — Hermes Agent — ai-agent-frameworks — last analyzed: 2026-06-09 (all 5 dimensions)
 
 ## Views
 

@@ -352,7 +352,7 @@ def update_wikilinks(wiki_root: Path, g: dict):
 
         # --- per-repo Mermaid in overview ---
         mermaid = generate_mermaid(wiki_root, repo)
-        overview_path = nodes_dir / repo / "overview.md"
+        overview_path = nodes_dir / repo / f"{repo}-overview.md"
         _update_page_section(overview_path, _GEN_MERMAID_START, _GEN_MERMAID_END,
                              "## 决策链\n\n```mermaid\n" + mermaid + "\n```")
         print(f"graph.py wikilinks: {repo} — {len(repo_nodes)} node pages + overview Mermaid")
@@ -383,7 +383,7 @@ def write_obsidian_graph_config(config_path):
             {"query": "path:nodes/extension-points",  "color": {"a": 1, "rgb": 10834779}},  # purple
             {"query": "path:nodes/design-decisions",  "color": {"a": 1, "rgb": 14714079}},  # red
             {"query": "path:dimensions",              "color": {"a": 1, "rgb": 5026082}},   # teal
-            {"query": "path:overview",                "color": {"a": 1, "rgb": 16744448}},  # orange
+            {"query": "overview",  "color": {"a": 1, "rgb": 16744448}},  # orange (matches filename)
         ],
         "collapse-display": False,
         "showArrow": False,

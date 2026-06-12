@@ -15,7 +15,13 @@ def write(path: Path, content: str):
 
 _TYPE_DIR = {"Component": "components", "ExtensionPoint": "extension-points", "DesignDecision": "design-decisions"}
 
-def make_node(tmp: Path, repo: str, slug: str, frontmatter: str, body: str = "# Node", type_dir: str = None):
+def make_node(tmp: Path, repo: str, slug: str, frontmatter: str, body: str = "# Node", type_dir: str = None, explicit_path: str = None):
+    if explicit_path:
+        write(
+            tmp / f"wiki/repos/{repo}/{explicit_path}",
+            f"---\n{frontmatter}\n---\n\n{body}\n"
+        )
+        return
     if type_dir is None:
         for ntype, dname in _TYPE_DIR.items():
             if f"node_type: {ntype}" in frontmatter:
@@ -193,7 +199,7 @@ def test_update_wikilinks_writes_node_sections(tmp_path):
               "concept: 插件系统\ntargets:\n  - tool-policy")
     make_node(tmp_path, "openclaw", "overview",
               f"---\nrepo: openclaw\ndimension: overview\n---\n\n# Overview\n",
-              body="")
+              body="", explicit_path="openclaw-overview.md")
 
     from graph import build_graph, update_wikilinks, _GEN_WIKILINKS_START, _GEN_MERMAID_START
     g = build_graph(tmp_path / "wiki")
@@ -213,7 +219,7 @@ def test_update_wikilinks_writes_node_sections(tmp_path):
     assert _GEN_WIKILINKS_START in cp
     assert "[[openclaw/nodes/components/tool-policy]]" in cp
 
-    ov = (tmp_path / "wiki/repos/openclaw/overview.md").read_text()
+    ov = (tmp_path / "wiki/repos/openclaw/openclaw-overview.md").read_text()
     assert _GEN_MERMAID_START in ov
     assert "graph LR" in ov
 
@@ -227,7 +233,7 @@ def test_update_wikilinks_idempotent(tmp_path):
               "targets:\n  - tool-policy")
     make_node(tmp_path, "openclaw", "overview",
               "---\nrepo: openclaw\ndimension: overview\n---\n\n# Overview\n",
-              body="")
+              body="", explicit_path="openclaw-overview.md")
 
     from graph import build_graph, update_wikilinks, _GEN_WIKILINKS_START
     wiki = tmp_path / "wiki"
@@ -278,4 +284,4 @@ def test_write_obsidian_graph_config(tmp_path):
     assert "path:nodes/extension-points" in queries
     assert "path:nodes/design-decisions" in queries
     assert "path:dimensions" in queries
-    assert "path:overview" in queries
+    assert "overview" in queries

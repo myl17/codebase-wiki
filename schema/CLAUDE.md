@@ -2,6 +2,21 @@
 
 These rules apply to ALL LLM operations that write to the `wiki/` directory.
 
+## One-Time Setup
+
+首次使用本 vault 时，在 Obsidian Graph View 设置（齿轮图标 → Groups）中创建 6 个颜色分组：
+
+| Query | 颜色 | 对应 |
+|-------|------|------|
+| `path:nodes/components` | 🟢 绿 | Component |
+| `path:nodes/extension-points` | 🟣 紫 | ExtensionPoint |
+| `path:nodes/design-decisions` | 🔴 深红 | DesignDecision |
+| `path:dimensions` | 🩵 青 | 维度叙事 |
+| `path:overview` | 🟠 橙 | 概览 |
+| `path:entities` | 🔵 蓝 | Concept 枢纽 |
+
+Obsidian 退出时自动保存此配置，之后永久生效，无需再次设置。
+
 ## Double-Link Rules
 
 | Situation | Action |

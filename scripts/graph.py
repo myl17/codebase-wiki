@@ -365,51 +365,6 @@ def update_wikilinks(wiki_root: Path, g: dict):
                              "## 决策链\n\n```mermaid\n" + mermaid + "\n```")
         print(f"graph.py wikilinks: {repo} — {len(repo_nodes)} node pages + overview Mermaid")
 
-    # --- Obsidian graph.json color config ---
-    obsidian_config = wiki_root / ".obsidian" / "graph.json"
-    write_obsidian_graph_config(obsidian_config)
-    print(f"graph.py obsidian: color groups written to {obsidian_config}")
-
-
-def write_obsidian_graph_config(config_path):
-    """Write Obsidian graph.json with color groups for node types.
-
-    Obsidian overwrites this file on exit. This function should be called
-    when Obsidian is not running (e.g. after ingest, before opening the vault).
-    """
-    import json as _json
-    config = {
-        "collapse-filter": False,
-        "search": "",
-        "showTags": False,
-        "showAttachments": False,
-        "hideUnresolved": False,
-        "showOrphans": True,
-        "collapse-color-groups": False,
-        "colorGroups": [
-            {"query": "path:nodes/components",       "color": {"a": 1, "rgb": 3046706}},   # #2E7D32 green
-            {"query": "path:nodes/extension-points",  "color": {"a": 1, "rgb": 8069026}},   # #7B1FA2 purple
-            {"query": "path:nodes/design-decisions",  "color": {"a": 1, "rgb": 12986408}},  # #C62828 deep red
-            {"query": "path:dimensions",              "color": {"a": 1, "rgb": 35195}},     # #00897B teal
-            {"query": "path:overview",                 "color": {"a": 1, "rgb": 15690752}},  # #EF6C00 orange
-            {"query": "path:entities",                "color": {"a": 1, "rgb": 1402304}},   # #1565C0 blue
-        ],
-        "collapse-display": False,
-        "showArrow": False,
-        "textFadeMultiplier": 0,
-        "nodeSizeMultiplier": 1,
-        "lineSizeMultiplier": 1,
-        "collapse-forces": False,
-        "centerStrength": 0.518713248970312,
-        "repelStrength": 10,
-        "linkStrength": 1,
-        "linkDistance": 250,
-        "scale": 1,
-        "close": True,
-    }
-    config_path.parent.mkdir(parents=True, exist_ok=True)
-    config_path.write_text(_json.dumps(config, indent=2, ensure_ascii=False) + "\n")
-
 
 def _cmd_build(args):
     wiki_root = Path(args.wiki)

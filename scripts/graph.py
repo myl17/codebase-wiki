@@ -391,7 +391,7 @@ def write_obsidian_graph_config(config_path):
             {"query": "path:nodes/extension-points",  "color": {"a": 1, "rgb": 8069026}},   # #7B1FA2 purple
             {"query": "path:nodes/design-decisions",  "color": {"a": 1, "rgb": 12986408}},  # #C62828 deep red
             {"query": "path:dimensions",              "color": {"a": 1, "rgb": 35195}},     # #00897B teal
-            {"query": "overview",                     "color": {"a": 1, "rgb": 15690752}},  # #EF6C00 orange
+            {"query": "path:overview",                 "color": {"a": 1, "rgb": 15690752}},  # #EF6C00 orange
             {"query": "path:entities",                "color": {"a": 1, "rgb": 1402304}},   # #1565C0 blue
         ],
         "collapse-display": False,

@@ -284,5 +284,5 @@ def test_write_obsidian_graph_config(tmp_path):
     assert "path:nodes/extension-points" in queries
     assert "path:nodes/design-decisions" in queries
     assert "path:dimensions" in queries
-    assert "overview" in queries
+    assert "path:overview" in queries
     assert "path:entities" in queries

@@ -17,6 +17,6 @@ extracted_from:
 ## 关联
 
 **催生了**（被此决策 motivates）：
-- [[openclaw/nodes/exec-approval-request]]
-- [[openclaw/nodes/tool-policy]]
+- [[openclaw/nodes/extension-points/exec-approval-request]]
+- [[openclaw/nodes/components/tool-policy]]
 <!-- /generated -->

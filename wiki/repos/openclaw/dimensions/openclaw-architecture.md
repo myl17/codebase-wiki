@@ -84,14 +84,14 @@ extensions 层四个可选实现：`memory-core`（核心接口）、`memory-lan
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[openclaw/nodes/agent-harness]] — ExtensionPoint
-- [[openclaw/nodes/channel-plugin]] — ExtensionPoint
-- [[openclaw/nodes/context-engine]] — Component
-- [[openclaw/nodes/cron-scheduler]] — Component
-- [[openclaw/nodes/exec-approval-request]] — ExtensionPoint
-- [[openclaw/nodes/memory-system]] — Component
-- [[openclaw/nodes/process-supervisor]] — Component
-- [[openclaw/nodes/sync-gating-decision]] — DesignDecision
-- [[openclaw/nodes/task-flow]] — Component
-- [[openclaw/nodes/tool-policy]] — Component
+- [[openclaw/nodes/extension-points/agent-harness]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/channel-plugin]] — ExtensionPoint
+- [[openclaw/nodes/components/context-engine]] — Component
+- [[openclaw/nodes/components/cron-scheduler]] — Component
+- [[openclaw/nodes/extension-points/exec-approval-request]] — ExtensionPoint
+- [[openclaw/nodes/components/memory-system]] — Component
+- [[openclaw/nodes/components/process-supervisor]] — Component
+- [[openclaw/nodes/design-decisions/sync-gating-decision]] — DesignDecision
+- [[openclaw/nodes/components/task-flow]] — Component
+- [[openclaw/nodes/components/tool-policy]] — Component
 <!-- /generated-dimension-links -->

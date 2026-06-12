@@ -64,15 +64,26 @@ def _as_list(value) -> list:
     return value
 
 
+def _node_wikilink(node_id: str, node_map: dict) -> str:
+    """Convert node ID to Obsidian wikilink with type-aware path.
+    e.g. openclaw:tool-policy → [[openclaw/nodes/components/tool-policy]]
+    """
+    n = node_map.get(node_id)
+    if n and n.get("type_dir"):
+        return f"[[{n['repo']}/nodes/{n['type_dir']}/{n['slug']}]]"
+    return f"[[{node_id.replace(':', '/nodes/')}]]"
+
+
 def build_graph(wiki_root: Path) -> dict:
-    """Scan all nodes/ pages and return {nodes: [...], edges: [...]}."""
+    """Scan all nodes/ pages (in type subdirectories) and return {nodes: [...], edges: [...]}."""
     nodes = []
     edges = []
 
+    # nodes are at wiki/repos/<repo>/nodes/<type-dir>/<slug>.md
     nodes_dirs = sorted((wiki_root / "repos").glob("*/nodes"))
     for nodes_dir in nodes_dirs:
         repo = nodes_dir.parent.name
-        for node_file in sorted(nodes_dir.glob("*.md")):
+        for node_file in sorted(nodes_dir.glob("*/*.md")):
             slug = node_file.stem
             node_id = f"{repo}:{slug}"
             fm, _ = _parse_frontmatter(node_file.read_text())
@@ -81,6 +92,7 @@ def build_graph(wiki_root: Path) -> dict:
                 "id": node_id,
                 "repo": repo,
                 "slug": slug,
+                "type_dir": node_file.parent.name,  # components / extension-points / design-decisions
                 "node_type": fm.get("node_type", ""),
                 "scope": fm.get("scope", ""),
                 "concept": fm.get("concept", "") if isinstance(fm.get("concept", ""), str) else "",
@@ -249,7 +261,8 @@ def update_wikilinks(wiki_root: Path, g: dict):
         # --- per-node wikilinks ---
         for node_id, node in sorted(repo_nodes.items()):
             slug = node["slug"]
-            page_path = nodes_dir / repo / "nodes" / f"{slug}.md"
+            type_d = node.get("type_dir", "components")
+            page_path = nodes_dir / repo / "nodes" / type_d / f"{slug}.md"
             edges = edge_index.get(node_id, [])
 
             # Group edges by direction+type for labeling
@@ -284,24 +297,24 @@ def update_wikilinks(wiki_root: Path, g: dict):
                 for did in sorted(set(motivated_by)):
                     n = node_map.get(did)
                     label = f"该决策催生了此节点" if n else ""
-                    lines.append(f"- [[{did.replace(':', '/nodes/')}]] — {label}")
+                    lines.append(f"- {_node_wikilink(did, node_map)} — {label}")
                 lines.append("")
             if motivates_out:
                 lines.append("**催生了**（被此决策 motivates）：")
                 for nid in sorted(set(motivates_out)):
-                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]]")
+                    lines.append(f"- {_node_wikilink(nid, node_map)}")
                 lines.append("")
             if targets_out:
                 lines.append("**作用于**（targets）：")
                 for nid in sorted(set(targets_out)):
                     n = node_map.get(nid)
                     label = f"改动会波及此组件" if n else ""
-                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]] — {label}")
+                    lines.append(f"- {_node_wikilink(nid, node_map)} — {label}")
                 lines.append("")
             if targeted_by:
                 lines.append("**被以下扩展点作用于**（被 targets）：")
                 for nid in sorted(set(targeted_by)):
-                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]]")
+                    lines.append(f"- {_node_wikilink(nid, node_map)}")
                 lines.append("")
             if same_concept:
                 concept_val = node.get("concept", "")
@@ -309,7 +322,7 @@ def update_wikilinks(wiki_root: Path, g: dict):
                 for nid in sorted(set(same_concept)):
                     n = node_map.get(nid)
                     label = n["repo"] if n else ""
-                    lines.append(f"- [[{nid.replace(':', '/nodes/')}]] — {label}")
+                    lines.append(f"- {_node_wikilink(nid, node_map)} — {label}")
                 lines.append("")
 
             if lines:
@@ -330,9 +343,10 @@ def update_wikilinks(wiki_root: Path, g: dict):
             node_map = {n["id"]: n for n in g["nodes"]}
             lines = []
             for slug in sorted(node_slugs):
-                n = node_map.get(f"{repo}:{slug}", {})
+                nid = f"{repo}:{slug}"
+                n = node_map.get(nid, {})
                 ntype = n.get("node_type", "")
-                lines.append(f"- [[{repo}/nodes/{slug}]] — {ntype}")
+                lines.append(f"- {_node_wikilink(nid, node_map)} — {ntype}")
             _update_page_section(dim_path, _GEN_DIM_LINKS_START, _GEN_DIM_LINKS_END,
                                  "**本维度提取的节点：**\n\n" + "\n".join(lines))
 

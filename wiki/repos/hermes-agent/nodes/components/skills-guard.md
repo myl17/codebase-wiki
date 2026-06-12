@@ -18,5 +18,5 @@ Skill 安全扫描器：100+ 威胁模式覆盖 12 类别（exfiltration/injecti
 ## 关联
 
 **设计原因**（motivates）：
-- [[hermes-agent/nodes/layered-approval-decision]] — 该决策催生了此节点
+- [[hermes-agent/nodes/design-decisions/layered-approval-decision]] — 该决策催生了此节点
 <!-- /generated -->

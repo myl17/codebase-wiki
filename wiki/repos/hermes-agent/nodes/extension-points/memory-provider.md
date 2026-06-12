@@ -1,7 +1,7 @@
 ---
 node_type: ExtensionPoint
 scope: subsystem
-concept_candidate: 可替换记忆后端
+concept: 可替换记忆后端
 targets: [ai-agent]
 sources:
   - agent/memory_manager.py:1-27
@@ -18,5 +18,8 @@ extracted_from:
 ## 关联
 
 **作用于**（targets）：
-- [[hermes-agent/nodes/ai-agent]] — 改动会波及此组件
+- [[hermes-agent/nodes/components/ai-agent]] — 改动会波及此组件
+
+**同属「可替换记忆后端」的其他仓库实例：**
+- [[openclaw/nodes/components/memory-system]] — openclaw
 <!-- /generated -->

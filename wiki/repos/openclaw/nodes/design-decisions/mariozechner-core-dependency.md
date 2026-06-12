@@ -16,5 +16,5 @@ extracted_from:
 ## 关联
 
 **催生了**（被此决策 motivates）：
-- [[openclaw/nodes/agent-harness]]
+- [[openclaw/nodes/extension-points/agent-harness]]
 <!-- /generated -->

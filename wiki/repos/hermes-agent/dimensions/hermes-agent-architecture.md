@@ -258,12 +258,12 @@ OpenClaw 有 skills（markdown 文件注入 system prompt）和 memory（向量�
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[hermes-agent/nodes/ai-agent]] — Component
-- [[hermes-agent/nodes/approval-system]] — Component
-- [[hermes-agent/nodes/ast-autodiscovery-decision]] — DesignDecision
-- [[hermes-agent/nodes/event-hooks]] — ExtensionPoint
-- [[hermes-agent/nodes/layered-approval-decision]] — DesignDecision
-- [[hermes-agent/nodes/self-learning-loop-decision]] — DesignDecision
-- [[hermes-agent/nodes/skills-guard]] — Component
-- [[hermes-agent/nodes/tool-registry]] — Component
+- [[hermes-agent/nodes/components/ai-agent]] — Component
+- [[hermes-agent/nodes/components/approval-system]] — Component
+- [[hermes-agent/nodes/design-decisions/ast-autodiscovery-decision]] — DesignDecision
+- [[hermes-agent/nodes/extension-points/event-hooks]] — ExtensionPoint
+- [[hermes-agent/nodes/design-decisions/layered-approval-decision]] — DesignDecision
+- [[hermes-agent/nodes/design-decisions/self-learning-loop-decision]] — DesignDecision
+- [[hermes-agent/nodes/components/skills-guard]] — Component
+- [[hermes-agent/nodes/components/tool-registry]] — Component
 <!-- /generated-dimension-links -->

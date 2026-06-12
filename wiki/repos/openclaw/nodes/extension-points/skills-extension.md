@@ -18,5 +18,5 @@ extracted_from:
 ## 关联
 
 **作用于**（targets）：
-- [[openclaw/nodes/context-engine]] — 改动会波及此组件
+- [[openclaw/nodes/components/context-engine]] — 改动会波及此组件
 <!-- /generated -->

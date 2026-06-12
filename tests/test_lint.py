@@ -91,7 +91,7 @@ def test_check_missing_provenance_passes(tmp_path):
 
 def test_check_invalid_edge_type_targets(tmp_path):
     """Component 不能有 targets 字段（targets 只属于 ExtensionPoint）。"""
-    write(tmp_path / "wiki/repos/openclaw/nodes/bad.md",
+    write(tmp_path / "wiki/repos/openclaw/nodes/components/bad.md",
           "---\nnode_type: Component\nscope: subsystem\ntargets:\n  - other\n---\n# Bad\n")
     from lint import check_graph_edge_types
     errors = check_graph_edge_types(tmp_path / "wiki")
@@ -101,7 +101,7 @@ def test_check_invalid_edge_type_targets(tmp_path):
 
 def test_check_dangling_targets(tmp_path):
     """targets 指向不存在的节点页时报错。"""
-    write(tmp_path / "wiki/repos/openclaw/nodes/ep.md",
+    write(tmp_path / "wiki/repos/openclaw/nodes/extension-points/ep.md",
           "---\nnode_type: ExtensionPoint\nscope: subsystem\ntargets:\n  - nonexistent\n---\n# EP\n")
     from lint import check_graph_dangling_edges
     errors = check_graph_dangling_edges(tmp_path / "wiki")
@@ -113,7 +113,7 @@ def test_check_concept_not_registered(tmp_path):
     """concept 字段的值不在 _index.md 时报错。"""
     write(tmp_path / "wiki/entities/_index.md",
           "# Concept Index\n\n| Concept | 别名 | 定义 | 实例数 |\n|---|---|---|---|\n| 插件系统 | Plugin System | desc | 1 |\n")
-    write(tmp_path / "wiki/repos/openclaw/nodes/ep.md",
+    write(tmp_path / "wiki/repos/openclaw/nodes/extension-points/ep.md",
           "---\nnode_type: ExtensionPoint\nscope: subsystem\nconcept: 未注册概念\n---\n# EP\n")
     from lint import check_concept_registered
     errors = check_concept_registered(tmp_path / "wiki")
@@ -124,7 +124,7 @@ def test_check_concept_not_registered(tmp_path):
 def test_check_concept_registered_passes(tmp_path):
     write(tmp_path / "wiki/entities/_index.md",
           "# Concept Index\n\n| Concept | 别名 | 定义 | 实例数 |\n|---|---|---|---|\n| 插件系统 | Plugin System | desc | 1 |\n")
-    write(tmp_path / "wiki/repos/openclaw/nodes/ep.md",
+    write(tmp_path / "wiki/repos/openclaw/nodes/extension-points/ep.md",
           "---\nnode_type: ExtensionPoint\nscope: subsystem\nconcept: 插件系统\n---\n# EP\n")
     from lint import check_concept_registered
     errors = check_concept_registered(tmp_path / "wiki")
@@ -134,7 +134,7 @@ def test_check_concept_registered_passes(tmp_path):
 def test_check_candidate_backlog_warns_when_many(tmp_path):
     """当某个 repo 的 nodes/ 下积压 >=3 个 concept_candidate 时应报警。"""
     for i in range(3):
-        write(tmp_path / f"wiki/repos/openclaw/nodes/ep{i}.md",
+        write(tmp_path / f"wiki/repos/openclaw/nodes/extension-points/ep{i}.md",
               f"---\nnode_type: ExtensionPoint\nscope: subsystem\n"
               f"concept_candidate: 候选概念{i}\n---\n# EP{i}\n")
     from lint import check_candidate_backlog
@@ -145,7 +145,7 @@ def test_check_candidate_backlog_warns_when_many(tmp_path):
 
 def test_check_candidate_backlog_ok_when_few(tmp_path):
     for i in range(2):
-        write(tmp_path / f"wiki/repos/openclaw/nodes/ep{i}.md",
+        write(tmp_path / f"wiki/repos/openclaw/nodes/extension-points/ep{i}.md",
               f"---\nnode_type: ExtensionPoint\nscope: subsystem\n"
               f"concept_candidate: 候选{i}\n---\n# EP{i}\n")
     from lint import check_candidate_backlog

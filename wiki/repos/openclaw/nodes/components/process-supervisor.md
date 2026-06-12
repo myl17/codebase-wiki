@@ -17,5 +17,5 @@ extracted_from:
 ## 关联
 
 **设计原因**（motivates）：
-- [[openclaw/nodes/startup-over-memory-tradeoff]] — 该决策催生了此节点
+- [[openclaw/nodes/design-decisions/startup-over-memory-tradeoff]] — 该决策催生了此节点
 <!-- /generated -->

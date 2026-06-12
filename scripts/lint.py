@@ -301,7 +301,7 @@ def _iter_node_pages(wiki_root: Path):
         return
     for nodes_dir in sorted(repos_root.glob("*/nodes")):
         repo = nodes_dir.parent.name
-        for node_file in sorted(nodes_dir.glob("*.md")):
+        for node_file in sorted(nodes_dir.glob("*/*.md")):
             yield repo, node_file, _parse_node_frontmatter(node_file.read_text(errors="replace"))
 
 

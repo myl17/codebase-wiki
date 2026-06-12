@@ -1,6 +1,7 @@
 ---
 node_type: Component
 scope: system
+concept: 人机审批协议
 motivated_by: [layered-approval-decision]
 sources:
   - tools/approval.py:586-922
@@ -18,5 +19,8 @@ extracted_from:
 ## 关联
 
 **设计原因**（motivates）：
-- [[hermes-agent/nodes/layered-approval-decision]] — 该决策催生了此节点
+- [[hermes-agent/nodes/design-decisions/layered-approval-decision]] — 该决策催生了此节点
+
+**同属「人机审批协议」的其他仓库实例：**
+- [[openclaw/nodes/extension-points/exec-approval-request]] — openclaw
 <!-- /generated -->

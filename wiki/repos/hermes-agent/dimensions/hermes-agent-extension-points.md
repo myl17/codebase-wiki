@@ -220,11 +220,11 @@ class BasePlatformAdapter(ABC):
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[hermes-agent/nodes/ast-autodiscovery-decision]] — DesignDecision
-- [[hermes-agent/nodes/context-engine]] — ExtensionPoint
-- [[hermes-agent/nodes/event-hooks]] — ExtensionPoint
-- [[hermes-agent/nodes/memory-provider]] — ExtensionPoint
-- [[hermes-agent/nodes/platform-adapter]] — ExtensionPoint
-- [[hermes-agent/nodes/tool-registry]] — Component
-- [[hermes-agent/nodes/toolset-system]] — ExtensionPoint
+- [[hermes-agent/nodes/design-decisions/ast-autodiscovery-decision]] — DesignDecision
+- [[hermes-agent/nodes/extension-points/context-engine]] — ExtensionPoint
+- [[hermes-agent/nodes/extension-points/event-hooks]] — ExtensionPoint
+- [[hermes-agent/nodes/extension-points/memory-provider]] — ExtensionPoint
+- [[hermes-agent/nodes/extension-points/platform-adapter]] — ExtensionPoint
+- [[hermes-agent/nodes/components/tool-registry]] — Component
+- [[hermes-agent/nodes/extension-points/toolset-system]] — ExtensionPoint
 <!-- /generated-dimension-links -->

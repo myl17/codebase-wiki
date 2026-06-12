@@ -13,9 +13,18 @@ def write(path: Path, content: str):
     path.write_text(content)
 
 
-def make_node(tmp: Path, repo: str, slug: str, frontmatter: str, body: str = "# Node"):
+_TYPE_DIR = {"Component": "components", "ExtensionPoint": "extension-points", "DesignDecision": "design-decisions"}
+
+def make_node(tmp: Path, repo: str, slug: str, frontmatter: str, body: str = "# Node", type_dir: str = None):
+    if type_dir is None:
+        for ntype, dname in _TYPE_DIR.items():
+            if f"node_type: {ntype}" in frontmatter:
+                type_dir = dname
+                break
+        else:
+            type_dir = "components"  # fallback
     write(
-        tmp / f"wiki/repos/{repo}/nodes/{slug}.md",
+        tmp / f"wiki/repos/{repo}/nodes/{type_dir}/{slug}.md",
         f"---\n{frontmatter}\n---\n\n{body}\n"
     )
 
@@ -190,19 +199,19 @@ def test_update_wikilinks_writes_node_sections(tmp_path):
     g = build_graph(tmp_path / "wiki")
     update_wikilinks(tmp_path / "wiki", g)
 
-    tp = (tmp_path / "wiki/repos/openclaw/nodes/tool-policy.md").read_text()
+    tp = (tmp_path / "wiki/repos/openclaw/nodes/components/tool-policy.md").read_text()
     assert _GEN_WIKILINKS_START in tp
     assert "设计原因" in tp
-    assert "[[openclaw/nodes/sync-gate]]" in tp
+    assert "[[openclaw/nodes/design-decisions/sync-gate]]" in tp
 
     # Verify the "催生了" section header (for DesignDecisions that motivate others)
     # does NOT appear — tool-policy is a Component, not a DesignDecision
     after_gen = tp[tp.index(_GEN_WIKILINKS_START):]
     assert "**催生了**" not in after_gen
 
-    cp = (tmp_path / "wiki/repos/openclaw/nodes/channel-plugin.md").read_text()
+    cp = (tmp_path / "wiki/repos/openclaw/nodes/extension-points/channel-plugin.md").read_text()
     assert _GEN_WIKILINKS_START in cp
-    assert "[[openclaw/nodes/tool-policy]]" in cp
+    assert "[[openclaw/nodes/components/tool-policy]]" in cp
 
     ov = (tmp_path / "wiki/repos/openclaw/overview.md").read_text()
     assert _GEN_MERMAID_START in ov
@@ -226,41 +235,30 @@ def test_update_wikilinks_idempotent(tmp_path):
     update_wikilinks(wiki, g)
     update_wikilinks(wiki, g)  # second run
 
-    tp = (tmp_path / "wiki/repos/openclaw/nodes/channel-plugin.md").read_text()
+    tp = (tmp_path / "wiki/repos/openclaw/nodes/extension-points/channel-plugin.md").read_text()
     assert tp.count(_GEN_WIKILINKS_START) == 1
 
 
 def test_dimension_links_from_extracted_from(tmp_path):
     """extracted_from 字段应生成维度页到节点页的反向链接。"""
-    # node with extracted_from
-    make_node(tmp_path, "openclaw", "tool-policy",
-              "node_type: Component\nscope: subsystem\n"
-              "extracted_from:\n  - architecture")
-    make_node(tmp_path, "openclaw", "channel-plugin",
-              "node_type: ExtensionPoint\nscope: subsystem\n"
-              "extracted_from:\n  - architecture\n  - extension-points")
-    # dimension pages
-    from pathlib import Path
-    make_node(tmp_path, "openclaw", "openclaw-architecture",
-              "---\nrepo: openclaw\ndimension: architecture\n---\n# Architecture\n\n"
-              "Key components.\n",
-              body="")
-    (tmp_path / "wiki/repos/openclaw/dimensions").mkdir(parents=True, exist_ok=True)
-    (tmp_path / "wiki/repos/openclaw/nodes/tool-policy.md").rename(
-        tmp_path / "wiki/repos/openclaw/nodes/tool-policy.md")  # keep
-    # Actually dimensions are at dimensions/, not nodes/
-    import shutil
-    src = tmp_path / "wiki/repos/openclaw/nodes/openclaw-architecture.md"
-    dst = tmp_path / "wiki/repos/openclaw/dimensions/openclaw-architecture.md"
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    src.rename(dst)
+    wiki = tmp_path / "wiki"
+
+    # node pages in type subdirectories
+    write(wiki / "repos/openclaw/nodes/components/tool-policy.md",
+          "---\nnode_type: Component\nscope: subsystem\n"
+          "extracted_from:\n  - architecture\n---\n\n# ToolPolicy\n")
+    write(wiki / "repos/openclaw/nodes/extension-points/channel-plugin.md",
+          "---\nnode_type: ExtensionPoint\nscope: subsystem\n"
+          "extracted_from:\n  - architecture\n  - extension-points\n---\n\n# ChannelPlugin\n")
+    # dimension page
+    write(wiki / "repos/openclaw/dimensions/openclaw-architecture.md",
+          "---\nrepo: openclaw\ndimension: architecture\n---\n\n# Architecture\n\nKey components.\n")
 
     from graph import build_graph, update_wikilinks, _GEN_DIM_LINKS_START
-    wiki = tmp_path / "wiki"
     g = build_graph(wiki)
     update_wikilinks(wiki, g)
 
-    arch = (tmp_path / "wiki/repos/openclaw/dimensions/openclaw-architecture.md").read_text()
+    arch = (wiki / "repos/openclaw/dimensions/openclaw-architecture.md").read_text()
     assert _GEN_DIM_LINKS_START in arch
-    assert "[[openclaw/nodes/tool-policy]]" in arch
-    assert "[[openclaw/nodes/channel-plugin]]" in arch
+    assert "[[openclaw/nodes/components/tool-policy]]" in arch
+    assert "[[openclaw/nodes/extension-points/channel-plugin]]" in arch

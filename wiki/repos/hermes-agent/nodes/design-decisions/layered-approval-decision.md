@@ -16,6 +16,6 @@ extracted_from:
 ## 关联
 
 **催生了**（被此决策 motivates）：
-- [[hermes-agent/nodes/approval-system]]
-- [[hermes-agent/nodes/skills-guard]]
+- [[hermes-agent/nodes/components/approval-system]]
+- [[hermes-agent/nodes/components/skills-guard]]
 <!-- /generated -->

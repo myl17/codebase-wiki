@@ -18,12 +18,12 @@ extracted_from:
 ## 关联
 
 **作用于**（targets）：
-- [[hermes-agent/nodes/ai-agent]] — 改动会波及此组件
+- [[hermes-agent/nodes/components/ai-agent]] — 改动会波及此组件
 
 **同属「插件系统」的其他仓库实例：**
-- [[hermes-agent/nodes/event-hooks]] — hermes-agent
-- [[hermes-agent/nodes/tool-registry]] — hermes-agent
-- [[openclaw/nodes/agent-harness]] — openclaw
-- [[openclaw/nodes/channel-plugin]] — openclaw
-- [[openclaw/nodes/hook-system]] — openclaw
+- [[hermes-agent/nodes/extension-points/event-hooks]] — hermes-agent
+- [[hermes-agent/nodes/components/tool-registry]] — hermes-agent
+- [[openclaw/nodes/extension-points/agent-harness]] — openclaw
+- [[openclaw/nodes/extension-points/channel-plugin]] — openclaw
+- [[openclaw/nodes/extension-points/hook-system]] — openclaw
 <!-- /generated -->

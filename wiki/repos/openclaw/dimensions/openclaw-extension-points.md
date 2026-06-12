@@ -114,11 +114,11 @@ reply_dispatch            before_install
 <!-- generated-dimension-links -->
 **本维度提取的节点：**
 
-- [[openclaw/nodes/agent-harness]] — ExtensionPoint
-- [[openclaw/nodes/channel-plugin]] — ExtensionPoint
-- [[openclaw/nodes/compaction-provider]] — ExtensionPoint
-- [[openclaw/nodes/context-engine]] — Component
-- [[openclaw/nodes/exec-approval-request]] — ExtensionPoint
-- [[openclaw/nodes/hook-system]] — ExtensionPoint
-- [[openclaw/nodes/skills-extension]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/agent-harness]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/channel-plugin]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/compaction-provider]] — ExtensionPoint
+- [[openclaw/nodes/components/context-engine]] — Component
+- [[openclaw/nodes/extension-points/exec-approval-request]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/hook-system]] — ExtensionPoint
+- [[openclaw/nodes/extension-points/skills-extension]] — ExtensionPoint
 <!-- /generated-dimension-links -->

@@ -18,9 +18,9 @@ extracted_from:
 ## 关联
 
 **作用于**（targets）：
-- [[hermes-agent/nodes/ai-agent]] — 改动会波及此组件
+- [[hermes-agent/nodes/components/ai-agent]] — 改动会波及此组件
 
 **同属「Context 压缩」的其他仓库实例：**
-- [[openclaw/nodes/compaction-provider]] — openclaw
-- [[openclaw/nodes/context-engine]] — openclaw
+- [[openclaw/nodes/extension-points/compaction-provider]] — openclaw
+- [[openclaw/nodes/components/context-engine]] — openclaw
 <!-- /generated -->

@@ -4,6 +4,7 @@
       "id": "hermes-agent:ai-agent",
       "repo": "hermes-agent",
       "slug": "ai-agent",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "system",
       "concept": "",
@@ -20,9 +21,10 @@
       "id": "hermes-agent:approval-system",
       "repo": "hermes-agent",
       "slug": "approval-system",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "system",
-      "concept": "",
+      "concept": "人机审批协议",
       "concept_candidate": "",
       "sources": [
         "tools/approval.py:586-922",
@@ -33,117 +35,10 @@
       ]
     },
     {
-      "id": "hermes-agent:ast-autodiscovery-decision",
-      "repo": "hermes-agent",
-      "slug": "ast-autodiscovery-decision",
-      "node_type": "DesignDecision",
-      "scope": "subsystem",
-      "concept": "",
-      "concept_candidate": "",
-      "sources": [
-        "tools/registry.py:28-73"
-      ],
-      "extracted_from": [
-        "architecture",
-        "extension-points"
-      ]
-    },
-    {
-      "id": "hermes-agent:context-engine",
-      "repo": "hermes-agent",
-      "slug": "context-engine",
-      "node_type": "ExtensionPoint",
-      "scope": "subsystem",
-      "concept": "Context 压缩",
-      "concept_candidate": "",
-      "sources": [
-        "agent/context_engine.py:32-60"
-      ],
-      "extracted_from": [
-        "extension-points"
-      ]
-    },
-    {
-      "id": "hermes-agent:event-hooks",
-      "repo": "hermes-agent",
-      "slug": "event-hooks",
-      "node_type": "ExtensionPoint",
-      "scope": "component",
-      "concept": "插件系统",
-      "concept_candidate": "",
-      "sources": [
-        "gateway/hooks.py:9-19",
-        "gateway/hooks.py:34-80"
-      ],
-      "extracted_from": [
-        "architecture",
-        "extension-points"
-      ]
-    },
-    {
-      "id": "hermes-agent:layered-approval-decision",
-      "repo": "hermes-agent",
-      "slug": "layered-approval-decision",
-      "node_type": "DesignDecision",
-      "scope": "system",
-      "concept": "",
-      "concept_candidate": "",
-      "sources": [
-        "tools/approval.py:586-922"
-      ],
-      "extracted_from": [
-        "architecture"
-      ]
-    },
-    {
-      "id": "hermes-agent:memory-provider",
-      "repo": "hermes-agent",
-      "slug": "memory-provider",
-      "node_type": "ExtensionPoint",
-      "scope": "subsystem",
-      "concept": "",
-      "concept_candidate": "可替换记忆后端",
-      "sources": [
-        "agent/memory_manager.py:1-27"
-      ],
-      "extracted_from": [
-        "extension-points"
-      ]
-    },
-    {
-      "id": "hermes-agent:platform-adapter",
-      "repo": "hermes-agent",
-      "slug": "platform-adapter",
-      "node_type": "ExtensionPoint",
-      "scope": "subsystem",
-      "concept": "插件系统",
-      "concept_candidate": "",
-      "sources": [
-        "gateway/platforms/base.py:813-893"
-      ],
-      "extracted_from": [
-        "extension-points"
-      ]
-    },
-    {
-      "id": "hermes-agent:self-learning-loop-decision",
-      "repo": "hermes-agent",
-      "slug": "self-learning-loop-decision",
-      "node_type": "DesignDecision",
-      "scope": "system",
-      "concept": "",
-      "concept_candidate": "",
-      "sources": [
-        "agent/prompt_builder.py:145-171"
-      ],
-      "extracted_from": [
-        "architecture"
-      ]
-    },
-    {
       "id": "hermes-agent:skills-guard",
       "repo": "hermes-agent",
       "slug": "skills-guard",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "subsystem",
       "concept": "",
@@ -160,6 +55,7 @@
       "id": "hermes-agent:tool-registry",
       "repo": "hermes-agent",
       "slug": "tool-registry",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "subsystem",
       "concept": "插件系统",
@@ -173,9 +69,125 @@
       ]
     },
     {
+      "id": "hermes-agent:ast-autodiscovery-decision",
+      "repo": "hermes-agent",
+      "slug": "ast-autodiscovery-decision",
+      "type_dir": "design-decisions",
+      "node_type": "DesignDecision",
+      "scope": "subsystem",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "tools/registry.py:28-73"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
+      ]
+    },
+    {
+      "id": "hermes-agent:layered-approval-decision",
+      "repo": "hermes-agent",
+      "slug": "layered-approval-decision",
+      "type_dir": "design-decisions",
+      "node_type": "DesignDecision",
+      "scope": "system",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "tools/approval.py:586-922"
+      ],
+      "extracted_from": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "hermes-agent:self-learning-loop-decision",
+      "repo": "hermes-agent",
+      "slug": "self-learning-loop-decision",
+      "type_dir": "design-decisions",
+      "node_type": "DesignDecision",
+      "scope": "system",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "agent/prompt_builder.py:145-171"
+      ],
+      "extracted_from": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "hermes-agent:context-engine",
+      "repo": "hermes-agent",
+      "slug": "context-engine",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "subsystem",
+      "concept": "Context 压缩",
+      "concept_candidate": "",
+      "sources": [
+        "agent/context_engine.py:32-60"
+      ],
+      "extracted_from": [
+        "extension-points"
+      ]
+    },
+    {
+      "id": "hermes-agent:event-hooks",
+      "repo": "hermes-agent",
+      "slug": "event-hooks",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "component",
+      "concept": "插件系统",
+      "concept_candidate": "",
+      "sources": [
+        "gateway/hooks.py:9-19",
+        "gateway/hooks.py:34-80"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
+      ]
+    },
+    {
+      "id": "hermes-agent:memory-provider",
+      "repo": "hermes-agent",
+      "slug": "memory-provider",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "subsystem",
+      "concept": "可替换记忆后端",
+      "concept_candidate": "",
+      "sources": [
+        "agent/memory_manager.py:1-27"
+      ],
+      "extracted_from": [
+        "extension-points"
+      ]
+    },
+    {
+      "id": "hermes-agent:platform-adapter",
+      "repo": "hermes-agent",
+      "slug": "platform-adapter",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "subsystem",
+      "concept": "插件系统",
+      "concept_candidate": "",
+      "sources": [
+        "gateway/platforms/base.py:813-893"
+      ],
+      "extracted_from": [
+        "extension-points"
+      ]
+    },
+    {
       "id": "hermes-agent:toolset-system",
       "repo": "hermes-agent",
       "slug": "toolset-system",
+      "type_dir": "extension-points",
       "node_type": "ExtensionPoint",
       "scope": "component",
       "concept": "",
@@ -188,86 +200,10 @@
       ]
     },
     {
-      "id": "openclaw:agent-harness",
-      "repo": "openclaw",
-      "slug": "agent-harness",
-      "node_type": "ExtensionPoint",
-      "scope": "subsystem",
-      "concept": "插件系统",
-      "concept_candidate": "",
-      "sources": [
-        "src/agents/harness/types.ts:30-44"
-      ],
-      "extracted_from": [
-        "architecture",
-        "extension-points"
-      ]
-    },
-    {
-      "id": "openclaw:channel-isolation-decision",
-      "repo": "openclaw",
-      "slug": "channel-isolation-decision",
-      "node_type": "DesignDecision",
-      "scope": "system",
-      "concept": "",
-      "concept_candidate": "",
-      "sources": [
-        "extensions/slack/package.json:1-15"
-      ],
-      "extracted_from": [
-        "dependency-strategy"
-      ]
-    },
-    {
-      "id": "openclaw:channel-plugin",
-      "repo": "openclaw",
-      "slug": "channel-plugin",
-      "node_type": "ExtensionPoint",
-      "scope": "subsystem",
-      "concept": "插件系统",
-      "concept_candidate": "",
-      "sources": [
-        "src/channels/plugins/types.plugin.ts:53-94"
-      ],
-      "extracted_from": [
-        "architecture",
-        "extension-points"
-      ]
-    },
-    {
-      "id": "openclaw:compaction-provider",
-      "repo": "openclaw",
-      "slug": "compaction-provider",
-      "node_type": "ExtensionPoint",
-      "scope": "component",
-      "concept": "Context 压缩",
-      "concept_candidate": "",
-      "sources": [
-        "src/plugins/types.ts:1867-1990"
-      ],
-      "extracted_from": [
-        "extension-points"
-      ]
-    },
-    {
-      "id": "openclaw:compaction-recoverability-priority",
-      "repo": "openclaw",
-      "slug": "compaction-recoverability-priority",
-      "node_type": "DesignDecision",
-      "scope": "subsystem",
-      "concept": "",
-      "concept_candidate": "",
-      "sources": [
-        "src/agents/compaction.ts:19-40"
-      ],
-      "extracted_from": [
-        "performance-tradeoffs"
-      ]
-    },
-    {
       "id": "openclaw:context-engine",
       "repo": "openclaw",
       "slug": "context-engine",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "subsystem",
       "concept": "Context 压缩",
@@ -284,6 +220,7 @@
       "id": "openclaw:cron-scheduler",
       "repo": "openclaw",
       "slug": "cron-scheduler",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "subsystem",
       "concept": "",
@@ -296,60 +233,14 @@
       ]
     },
     {
-      "id": "openclaw:exec-approval-request",
-      "repo": "openclaw",
-      "slug": "exec-approval-request",
-      "node_type": "ExtensionPoint",
-      "scope": "component",
-      "concept": "",
-      "concept_candidate": "人机审批协议",
-      "sources": [
-        "src/agents/bash-tools.exec-approval-request.ts:89-126"
-      ],
-      "extracted_from": [
-        "architecture",
-        "extension-points"
-      ]
-    },
-    {
-      "id": "openclaw:hook-system",
-      "repo": "openclaw",
-      "slug": "hook-system",
-      "node_type": "ExtensionPoint",
-      "scope": "subsystem",
-      "concept": "插件系统",
-      "concept_candidate": "",
-      "sources": [
-        "src/plugins/hook-types.ts:55-84",
-        "src/plugins/hook-types.ts:128-133"
-      ],
-      "extracted_from": [
-        "extension-points"
-      ]
-    },
-    {
-      "id": "openclaw:mariozechner-core-dependency",
-      "repo": "openclaw",
-      "slug": "mariozechner-core-dependency",
-      "node_type": "DesignDecision",
-      "scope": "system",
-      "concept": "",
-      "concept_candidate": "",
-      "sources": [
-        "package.json:1-50"
-      ],
-      "extracted_from": [
-        "dependency-strategy"
-      ]
-    },
-    {
       "id": "openclaw:memory-system",
       "repo": "openclaw",
       "slug": "memory-system",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "subsystem",
-      "concept": "",
-      "concept_candidate": "可替换记忆后端",
+      "concept": "可替换记忆后端",
+      "concept_candidate": "",
       "sources": [
         "src/memory-host-sdk/host/types.ts:1-30"
       ],
@@ -361,6 +252,7 @@
       "id": "openclaw:process-supervisor",
       "repo": "openclaw",
       "slug": "process-supervisor",
+      "type_dir": "components",
       "node_type": "Component",
       "scope": "subsystem",
       "concept": "",
@@ -373,24 +265,91 @@
       ]
     },
     {
-      "id": "openclaw:skills-extension",
+      "id": "openclaw:task-flow",
       "repo": "openclaw",
-      "slug": "skills-extension",
-      "node_type": "ExtensionPoint",
-      "scope": "component",
+      "slug": "task-flow",
+      "type_dir": "components",
+      "node_type": "Component",
+      "scope": "subsystem",
       "concept": "",
-      "concept_candidate": "声明式行为定制",
+      "concept_candidate": "任务编排",
       "sources": [
-        "src/agents/skills.ts:8-39"
+        "src/tasks/task-executor.ts:85-112"
       ],
       "extracted_from": [
-        "extension-points"
+        "architecture"
+      ]
+    },
+    {
+      "id": "openclaw:tool-policy",
+      "repo": "openclaw",
+      "slug": "tool-policy",
+      "type_dir": "components",
+      "node_type": "Component",
+      "scope": "system",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "src/agents/tool-policy-pipeline.ts:56-90",
+        "src/agents/tool-policy.ts:19-55"
+      ],
+      "extracted_from": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "openclaw:channel-isolation-decision",
+      "repo": "openclaw",
+      "slug": "channel-isolation-decision",
+      "type_dir": "design-decisions",
+      "node_type": "DesignDecision",
+      "scope": "system",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "extensions/slack/package.json:1-15"
+      ],
+      "extracted_from": [
+        "dependency-strategy"
+      ]
+    },
+    {
+      "id": "openclaw:compaction-recoverability-priority",
+      "repo": "openclaw",
+      "slug": "compaction-recoverability-priority",
+      "type_dir": "design-decisions",
+      "node_type": "DesignDecision",
+      "scope": "subsystem",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "src/agents/compaction.ts:19-40"
+      ],
+      "extracted_from": [
+        "performance-tradeoffs"
+      ]
+    },
+    {
+      "id": "openclaw:mariozechner-core-dependency",
+      "repo": "openclaw",
+      "slug": "mariozechner-core-dependency",
+      "type_dir": "design-decisions",
+      "node_type": "DesignDecision",
+      "scope": "system",
+      "concept": "",
+      "concept_candidate": "",
+      "sources": [
+        "package.json:1-50"
+      ],
+      "extracted_from": [
+        "dependency-strategy"
       ]
     },
     {
       "id": "openclaw:startup-over-memory-tradeoff",
       "repo": "openclaw",
       "slug": "startup-over-memory-tradeoff",
+      "type_dir": "design-decisions",
       "node_type": "DesignDecision",
       "scope": "system",
       "concept": "",
@@ -408,6 +367,7 @@
       "id": "openclaw:sync-gating-decision",
       "repo": "openclaw",
       "slug": "sync-gating-decision",
+      "type_dir": "design-decisions",
       "node_type": "DesignDecision",
       "scope": "system",
       "concept": "",
@@ -421,34 +381,103 @@
       ]
     },
     {
-      "id": "openclaw:task-flow",
+      "id": "openclaw:agent-harness",
       "repo": "openclaw",
-      "slug": "task-flow",
-      "node_type": "Component",
+      "slug": "agent-harness",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
       "scope": "subsystem",
-      "concept": "",
-      "concept_candidate": "任务编排",
+      "concept": "插件系统",
+      "concept_candidate": "",
       "sources": [
-        "src/tasks/task-executor.ts:85-112"
+        "src/agents/harness/types.ts:30-44"
       ],
       "extracted_from": [
-        "architecture"
+        "architecture",
+        "extension-points"
       ]
     },
     {
-      "id": "openclaw:tool-policy",
+      "id": "openclaw:channel-plugin",
       "repo": "openclaw",
-      "slug": "tool-policy",
-      "node_type": "Component",
-      "scope": "system",
-      "concept": "",
+      "slug": "channel-plugin",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "subsystem",
+      "concept": "插件系统",
       "concept_candidate": "",
       "sources": [
-        "src/agents/tool-policy-pipeline.ts:56-90",
-        "src/agents/tool-policy.ts:19-55"
+        "src/channels/plugins/types.plugin.ts:53-94"
       ],
       "extracted_from": [
-        "architecture"
+        "architecture",
+        "extension-points"
+      ]
+    },
+    {
+      "id": "openclaw:compaction-provider",
+      "repo": "openclaw",
+      "slug": "compaction-provider",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "component",
+      "concept": "Context 压缩",
+      "concept_candidate": "",
+      "sources": [
+        "src/plugins/types.ts:1867-1990"
+      ],
+      "extracted_from": [
+        "extension-points"
+      ]
+    },
+    {
+      "id": "openclaw:exec-approval-request",
+      "repo": "openclaw",
+      "slug": "exec-approval-request",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "component",
+      "concept": "人机审批协议",
+      "concept_candidate": "",
+      "sources": [
+        "src/agents/bash-tools.exec-approval-request.ts:89-126"
+      ],
+      "extracted_from": [
+        "architecture",
+        "extension-points"
+      ]
+    },
+    {
+      "id": "openclaw:hook-system",
+      "repo": "openclaw",
+      "slug": "hook-system",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "subsystem",
+      "concept": "插件系统",
+      "concept_candidate": "",
+      "sources": [
+        "src/plugins/hook-types.ts:55-84",
+        "src/plugins/hook-types.ts:128-133"
+      ],
+      "extracted_from": [
+        "extension-points"
+      ]
+    },
+    {
+      "id": "openclaw:skills-extension",
+      "repo": "openclaw",
+      "slug": "skills-extension",
+      "type_dir": "extension-points",
+      "node_type": "ExtensionPoint",
+      "scope": "component",
+      "concept": "",
+      "concept_candidate": "声明式行为定制",
+      "sources": [
+        "src/agents/skills.ts:8-39"
+      ],
+      "extracted_from": [
+        "extension-points"
       ]
     }
   ],
@@ -459,9 +488,29 @@
       "to": "hermes-agent:ai-agent"
     },
     {
+      "type": "embodies",
+      "from": "hermes-agent:approval-system",
+      "to": "concept:人机审批协议"
+    },
+    {
       "type": "motivates",
       "from": "hermes-agent:layered-approval-decision",
       "to": "hermes-agent:approval-system"
+    },
+    {
+      "type": "motivates",
+      "from": "hermes-agent:layered-approval-decision",
+      "to": "hermes-agent:skills-guard"
+    },
+    {
+      "type": "embodies",
+      "from": "hermes-agent:tool-registry",
+      "to": "concept:插件系统"
+    },
+    {
+      "type": "motivates",
+      "from": "hermes-agent:ast-autodiscovery-decision",
+      "to": "hermes-agent:tool-registry"
     },
     {
       "type": "embodies",
@@ -489,6 +538,11 @@
       "to": "hermes-agent:event-hooks"
     },
     {
+      "type": "embodies",
+      "from": "hermes-agent:memory-provider",
+      "to": "concept:可替换记忆后端"
+    },
+    {
       "type": "targets",
       "from": "hermes-agent:memory-provider",
       "to": "hermes-agent:ai-agent"
@@ -504,24 +558,34 @@
       "to": "hermes-agent:ai-agent"
     },
     {
-      "type": "motivates",
-      "from": "hermes-agent:layered-approval-decision",
-      "to": "hermes-agent:skills-guard"
-    },
-    {
-      "type": "embodies",
-      "from": "hermes-agent:tool-registry",
-      "to": "concept:插件系统"
-    },
-    {
-      "type": "motivates",
-      "from": "hermes-agent:ast-autodiscovery-decision",
-      "to": "hermes-agent:tool-registry"
-    },
-    {
       "type": "targets",
       "from": "hermes-agent:toolset-system",
       "to": "hermes-agent:tool-registry"
+    },
+    {
+      "type": "embodies",
+      "from": "openclaw:context-engine",
+      "to": "concept:Context 压缩"
+    },
+    {
+      "type": "motivates",
+      "from": "openclaw:compaction-recoverability-priority",
+      "to": "openclaw:context-engine"
+    },
+    {
+      "type": "embodies",
+      "from": "openclaw:memory-system",
+      "to": "concept:可替换记忆后端"
+    },
+    {
+      "type": "motivates",
+      "from": "openclaw:startup-over-memory-tradeoff",
+      "to": "openclaw:process-supervisor"
+    },
+    {
+      "type": "motivates",
+      "from": "openclaw:sync-gating-decision",
+      "to": "openclaw:tool-policy"
     },
     {
       "type": "embodies",
@@ -570,13 +634,8 @@
     },
     {
       "type": "embodies",
-      "from": "openclaw:context-engine",
-      "to": "concept:Context 压缩"
-    },
-    {
-      "type": "motivates",
-      "from": "openclaw:compaction-recoverability-priority",
-      "to": "openclaw:context-engine"
+      "from": "openclaw:exec-approval-request",
+      "to": "concept:人机审批协议"
     },
     {
       "type": "targets",
@@ -604,19 +663,9 @@
       "to": "openclaw:tool-policy"
     },
     {
-      "type": "motivates",
-      "from": "openclaw:startup-over-memory-tradeoff",
-      "to": "openclaw:process-supervisor"
-    },
-    {
       "type": "targets",
       "from": "openclaw:skills-extension",
       "to": "openclaw:context-engine"
-    },
-    {
-      "type": "motivates",
-      "from": "openclaw:sync-gating-decision",
-      "to": "openclaw:tool-policy"
     }
   ]
 }

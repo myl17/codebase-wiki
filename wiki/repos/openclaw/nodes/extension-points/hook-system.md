@@ -19,13 +19,13 @@ extracted_from:
 ## 关联
 
 **作用于**（targets）：
-- [[openclaw/nodes/context-engine]] — 改动会波及此组件
-- [[openclaw/nodes/tool-policy]] — 改动会波及此组件
+- [[openclaw/nodes/components/context-engine]] — 改动会波及此组件
+- [[openclaw/nodes/components/tool-policy]] — 改动会波及此组件
 
 **同属「插件系统」的其他仓库实例：**
-- [[hermes-agent/nodes/event-hooks]] — hermes-agent
-- [[hermes-agent/nodes/platform-adapter]] — hermes-agent
-- [[hermes-agent/nodes/tool-registry]] — hermes-agent
-- [[openclaw/nodes/agent-harness]] — openclaw
-- [[openclaw/nodes/channel-plugin]] — openclaw
+- [[hermes-agent/nodes/extension-points/event-hooks]] — hermes-agent
+- [[hermes-agent/nodes/extension-points/platform-adapter]] — hermes-agent
+- [[hermes-agent/nodes/components/tool-registry]] — hermes-agent
+- [[openclaw/nodes/extension-points/agent-harness]] — openclaw
+- [[openclaw/nodes/extension-points/channel-plugin]] — openclaw
 <!-- /generated -->

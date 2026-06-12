@@ -19,12 +19,12 @@ extracted_from:
 ## 关联
 
 **设计原因**（motivates）：
-- [[openclaw/nodes/compaction-recoverability-priority]] — 该决策催生了此节点
+- [[openclaw/nodes/design-decisions/compaction-recoverability-priority]] — 该决策催生了此节点
 
 **作用于**（targets）：
-- [[openclaw/nodes/context-engine]] — 改动会波及此组件
+- [[openclaw/nodes/components/context-engine]] — 改动会波及此组件
 
 **同属「Context 压缩」的其他仓库实例：**
-- [[hermes-agent/nodes/context-engine]] — hermes-agent
-- [[openclaw/nodes/context-engine]] — openclaw
+- [[hermes-agent/nodes/extension-points/context-engine]] — hermes-agent
+- [[openclaw/nodes/components/context-engine]] — openclaw
 <!-- /generated -->

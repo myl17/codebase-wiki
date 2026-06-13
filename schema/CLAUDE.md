@@ -4,9 +4,7 @@ These rules apply to ALL LLM operations that write to the `wiki/` directory.
 
 ## One-Time Setup
 
-首次使用本 vault 时，在 Obsidian Graph View 中进行以下一次性设置：
-
-**颜色分组**（齿轮图标 → Groups，创建 6 个分组）：
+首次使用本 vault 时，在 Obsidian Graph View 设置（齿轮图标 → Groups）中创建 6 个颜色分组：
 
 | Query | 颜色 | 对应 |
 |-------|------|------|
@@ -16,12 +14,6 @@ These rules apply to ALL LLM operations that write to the `wiki/` directory.
 | `path:dimensions` | 🩵 青 | 维度叙事 |
 | `path:overview` | 🟠 橙 | 概览 |
 | `path:entities` | 🔵 蓝 | Concept 枢纽 |
-
-**排除维护文件**（搜索框中输入，回车确认）：
-
-```
--path:hot -path:log -path:index -path:entities/_index -path:.hashes -path:graph.json
-```
 
 Obsidian 退出时自动保存此配置，之后永久生效，无需再次设置。
 

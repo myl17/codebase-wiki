@@ -36,10 +36,14 @@
           输入：Entity 页 + 按需读源码
           输出：seeds/<name>-problem-map.md
 
+  ★ 暂停点 1（用户确认问题空间列表完整性）
+
   Step 3  问题空间匹配
           输入：problem-map + 种子库 + 已有 Concept 页
           输出：seeds/<name>-candidates.md
                 docs/evolve-signals/<date>-<name>.md（D 类信号）
+
+  ★ 暂停点 2（用户确认候选清单 + 能力域覆盖表）
 
   Step 4  Concept 写作（per-Concept 独立 agent）
           输入：candidates.md 中 A/B 类条目
@@ -54,8 +58,105 @@
           输出：seeds/master.md 更新
                 wiki/log.md + wiki/hot.md 更新
 
+  ★ 暂停点 3（用户看 ingest 总结，决定是否触发 /evolve-apply）
+
 /evolve-apply <signal-file> [--operation merge|split|redirect] [--from <slug>] [--to <slug>]
 ```
+
+---
+
+## 二-a、用户参与点设计
+
+ingest 流程有三个天然暂停点。原则：**LLM 写、人读、人给方向、LLM 继续。不是人批准每一步产出。**
+
+暂停点之外，LLM 自主执行。
+
+---
+
+### 暂停点 1：Step 2 完成后
+
+**目的**：发现 Entity 提取遗漏。
+
+用户看到的是问题空间语言（"如何..."），比模块列表更容易判断覆盖度。
+
+LLM 展示：
+
+```
+本次提取到 <N> 个问题空间，来自 <M> 个 Entity：
+
+| 问题空间                      | 来源 Entity       | 层级     |
+|-------------------------------|-------------------|----------|
+| 如何管理记忆后端的可替换性    | memory-manager    | 架构决策 |
+| 如何控制工具执行的安全边界    | approval-system   | 架构决策 |
+| 如何处理上下文窗口压缩        | context-engine    | 架构决策 |
+| ...                           | ...               | ...      |
+
+跳过的 Entity（<K> 个，属于实现细节）：
+- <slug>：<原因>
+
+是否有遗漏的能力域？确认后继续 Step 3。
+```
+
+用户可以：指出遗漏 → LLM 补充提取后更新 problem-map → 再继续。
+默认行为：用户不响应则继续。
+
+---
+
+### 暂停点 2：Step 3 完成后
+
+**目的**：用户主导 Concept 粒度决策。
+
+LLM 展示候选清单摘要 + 能力域覆盖表：
+
+```
+候选 Concept 清单：
+
+  A 类（追加到已有页面）：<N> 条
+    - <problem-name> → [[<slug>]]
+    ...
+
+  B 类（新建 Concept 页）：<N> 条
+    - <problem-name>（新建 <slug>）
+      理由：①<一句> ②<一句> ③<一句>
+    ...
+
+  C 类（待观察）：<N> 条
+  D 类（演化信号）：<N> 条，已写入 docs/evolve-signals/
+
+能力域覆盖表：
+| 能力域     | 仓库 A | 仓库 B | 新仓库 |
+|------------|--------|--------|--------|
+| 记忆管理   | ✅     | ✅     | ✅     |
+| 工具执行   | ✅     | —      | ✅     |
+| ...        | ...    | ...    | ...    |
+
+是否调整？确认后继续 Step 4。
+```
+
+用户可以：否决某个 B 类新建 / 手动升级某个 C 类 / 调整 slug 命名。
+默认行为：用户不响应则继续。
+
+---
+
+### 暂停点 3：Step 6 完成后
+
+**目的**：用户决定后续方向。
+
+LLM 展示 ingest 总结：
+
+```
+ingest <仓库名> 完成：
+  - <M> 个 Entity 提取
+  - <N> 个 Concept 页更新/新建
+  - <K> 条演化信号写入 docs/evolve-signals/<date>-<name>.md
+
+建议下一步：
+  1. 触发 /evolve-apply 处理 <K> 条演化信号
+  2. 继续 ingest 下一个仓库：<建议仓库名>
+  3. 深挖当前 Concept：/query <slug>
+```
+
+用户给方向，LLM 执行。
 
 ---
 

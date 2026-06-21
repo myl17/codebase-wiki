@@ -662,9 +662,50 @@ repos: [<仓库列表>]
 
 ---
 
-## 六、待优化项（本次设计不覆盖）
+## 六、其他 Skills 的适配需求
+
+以下三个已有 skill 与新架构不兼容，需要同步改造，不能直接沿用：
+
+### `/query` — 需要改动（部分失效）
+
+失效点：
+1. **Graph traversal 整节**：依赖 `wiki/repos/*/nodes/` 目录和 `graph.py` 脚本，
+   以及旧节点类型（DesignDecision / Component）。新架构无 nodes/ 目录，无 graph.py。
+   替代方案：沿 wikilink 网络遍历（Entity 页 → Concept 页 → 其他 Entity 页）。
+2. **Insight 归档的 sources 字段**：现在指向 `dimensions/*.md`，
+   新架构应改为指向 `entities/*.md` 和 `concepts/*.md`。
+3. **选项 B"补充现有维度页"**：新架构无维度页，
+   应改为"补充现有 Entity 页或 Concept 页"。
+
+保留不变：Retrieval Escalation Chain、Archival Decision 机制（询问用户是否存档）。
+
+### `/compare` — 需要重写（整体失效）
+
+整个 skill 基于五维度页（`wiki/repos/<repo>/dimensions/<dim>.md`）+ `.manifest.json`
+版本比对，新架构删除五维度。
+
+新定位：给定多个仓库名或一个问题关键词，找到相关 Concept 页，
+把各 Concept 页的对比表汇总输出。Concept 页内置的对比表已经覆盖了原 `/compare`
+的核心功能，`/compare` 退化为"跨 Concept 汇总视图"的生成器。
+
+### `/lint` — 需要部分更新
+
+基础 wikilink 完整性检查仍然有效。
+失效点：
+- "维度版本比对"规则（依赖 `dimensions_version` frontmatter 和 `.manifest.json`）
+- "provenance 覆盖率"规则（依赖旧维度页格式）
+
+需要新增：
+- Entity 页 frontmatter 合规检查（必须有 `repo`、`slug` 字段）
+- Concept 页 frontmatter 合规检查（必须有 `concept`、`problem`、`repos` 字段）
+- Concept 页 `## 演化记录` 存在性检查
+
+---
+
+## 七、待优化项（本次设计不覆盖）
 
 - Few-shot 反例的具体内容需要优化——当前示例中反驳理由有些牵强，后续单独迭代
 - seeds/master.md 的具体格式规范未定义
 - `/evolve-apply` 的人工确认交互流程（逐条确认 vs 批量确认）未设计
 - Step 3 能力域覆盖表的标准能力域列表未定义（当前由 LLM 自行归纳）
+- `/ingest --resume` 中断恢复机制未设计（三个暂停点使得这个需求更重要）

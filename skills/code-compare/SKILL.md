@@ -156,7 +156,7 @@ sources: ["wiki/concepts/<slug>.md", ...]
 
 ### 对比后主动检查 Concept 结构
 
-对比展示完成后，LLM 应主动审视所涉及 Concept 页的结构质量：
+对比展示完成后，LLM 应主动审视所涉及 Concept 页的结构质量（判断标准见 `schema/concept-criteria.md`）：
 
 1. 这个 Concept 页是否覆盖了差异很大的子议题？（→ 建议拆分）
 2. 两个 Concept 页是否在讨论本质相同的问题，只是粒度不同？（→ 建议合并）

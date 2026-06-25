@@ -14,7 +14,7 @@ Run programmatic health checks on the wiki and report findings.
 ### Step 1 — Run lint.py
 
 ```bash
-python scripts/lint.py --wiki wiki/ --manifest .manifest.json
+python scripts/lint.py --wiki wiki/
 ```
 
 ### Step 2 — Frontmatter 合规检查

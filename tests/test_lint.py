@@ -1,15 +1,13 @@
 # tests/test_lint.py
-import json
-import tempfile
-from pathlib import Path
 import sys
+from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 from lint import (
     check_broken_wikilinks,
-    check_stale_dimensions,
     check_orphan_pages,
     check_missing_provenance,
+    check_views_freshness,
 )
 
 
@@ -18,136 +16,140 @@ def write(path: Path, content: str):
     path.write_text(content)
 
 
-def test_check_broken_wikilinks_detects_missing(tmp_path):
-    # [[vue/dimensions/architecture]] resolves to wiki/repos/vue/dimensions/architecture.md
-    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
-          "See also [[vue/dimensions/architecture]]")
-    # vue page does not exist
+# ---- check_broken_wikilinks ----
+
+def test_check_broken_wikilinks_entity_missing(tmp_path):
+    """[[repos/hermes/entities/memory]] resolves to wiki/repos/hermes/entities/memory.md."""
+    write(tmp_path / "wiki/repos/openclaw/entities/agent.md",
+          "See also [[repos/hermes/entities/memory]]")
     errors = check_broken_wikilinks(tmp_path / "wiki")
     assert len(errors) == 1
-    assert "vue/dimensions/architecture" in errors[0]["detail"]
+    assert "repos/hermes/entities/memory" in errors[0]["detail"]
 
 
-def test_check_broken_wikilinks_passes_when_present(tmp_path):
-    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
-          "See also [[vue/dimensions/architecture]]")
-    # [[vue/dimensions/architecture]] → wiki/repos/vue/dimensions/architecture.md
-    write(tmp_path / "wiki/repos/vue/dimensions/architecture.md", "# Vue Arch")
+def test_check_broken_wikilinks_entity_present(tmp_path):
+    write(tmp_path / "wiki/repos/openclaw/entities/agent.md",
+          "See also [[repos/hermes/entities/memory]]")
+    write(tmp_path / "wiki/repos/hermes/entities/memory.md", "# Memory")
     errors = check_broken_wikilinks(tmp_path / "wiki")
     assert errors == []
 
 
-def test_check_broken_wikilinks_views_resolve_from_wiki_root(tmp_path):
-    write(tmp_path / "wiki/repos/react/overview.md",
-          "See [[views/categories/frontend-frameworks]]")
-    write(tmp_path / "wiki/views/categories/frontend-frameworks.md", "# Matrix")
+def test_check_broken_wikilinks_concept_resolves(tmp_path):
+    """[[concepts/memory-backend]] resolves to wiki/concepts/memory-backend.md."""
+    write(tmp_path / "wiki/repos/openclaw/entities/memory.md",
+          "**关联 Concept**：[[concepts/memory-backend]]")
+    write(tmp_path / "wiki/concepts/memory-backend.md", "# Memory Backend")
     errors = check_broken_wikilinks(tmp_path / "wiki")
     assert errors == []
 
 
-def test_check_stale_dimensions(tmp_path):
-    manifest = {
-        "repos": {
-            "react": {
-                "dimensions_version": "v1.0",
-                "dimensions_completed": ["architecture"],
-            }
-        },
-        "dimensions_version": "v1.1",
-    }
-    write(tmp_path / ".manifest.json", json.dumps(manifest))
-    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
-          "---\ndimensions_version: v1.0\n---\n# Arch")
-    warnings = check_stale_dimensions(tmp_path / "wiki", tmp_path / ".manifest.json")
-    assert len(warnings) == 1
-    assert "react" in warnings[0]["detail"]
+def test_check_broken_wikilinks_concept_missing(tmp_path):
+    write(tmp_path / "wiki/repos/openclaw/entities/memory.md",
+          "**关联 Concept**：[[concepts/nonexistent]]")
+    errors = check_broken_wikilinks(tmp_path / "wiki")
+    assert len(errors) == 1
+    assert "concepts/nonexistent" in errors[0]["detail"]
 
+
+def test_check_broken_wikilinks_overview_resolves(tmp_path):
+    write(tmp_path / "wiki/concepts/agent-style.md",
+          "来源：[[repos/openclaw/overview]]")
+    write(tmp_path / "wiki/repos/openclaw/overview.md", "# OpenClaw")
+    errors = check_broken_wikilinks(tmp_path / "wiki")
+    assert errors == []
+
+
+# ---- check_orphan_pages ----
 
 def test_check_orphan_pages(tmp_path):
-    # index.md exists but doesn't mention orphan.md
-    write(tmp_path / "wiki/index.md", "# Index\n- [[react/overview]]")
-    write(tmp_path / "wiki/repos/react/overview.md", "# React")
-    write(tmp_path / "wiki/repos/react/dimensions/architecture.md", "# Arch")
+    write(tmp_path / "wiki/index.md", "# Index\n- [[repos/openclaw/overview]]")
+    write(tmp_path / "wiki/repos/openclaw/overview.md", "# OpenClaw")
+    write(tmp_path / "wiki/repos/openclaw/entities/isolated.md", "# Nobody links me")
     warnings = check_orphan_pages(tmp_path / "wiki")
     orphan_paths = [w["detail"] for w in warnings]
-    assert any("architecture" in p for p in orphan_paths)
+    assert any("isolated" in p for p in orphan_paths)
 
 
-def test_check_missing_provenance(tmp_path):
-    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
-          "---\nrepo: react\n---\n# Architecture\n\nReact uses Fiber.")
+def test_check_orphan_pages_skip_maintenance(tmp_path):
+    """hot.md, log.md, index.md should never be flagged as orphan."""
+    write(tmp_path / "wiki/hot.md", "# Hot")
+    write(tmp_path / "wiki/log.md", "# Log")
+    warnings = check_orphan_pages(tmp_path / "wiki")
+    orphan_names = [Path(w["file"]).name for w in warnings]
+    assert "hot.md" not in orphan_names
+    assert "log.md" not in orphan_names
+
+
+# ---- check_missing_provenance ----
+
+def test_check_missing_provenance_entity(tmp_path):
+    write(tmp_path / "wiki/repos/openclaw/entities/agent.md",
+          "---\ntype: entity\nrepo: openclaw\nslug: agent\nproblem: 如何定义Agent\n"
+          "generated: 2026-06-25\nsource_files:\n  - src/agent.ts\n---\n"
+          "# Agent\n\nOpenClaw uses YAML config to define agents.")
     warnings = check_missing_provenance(tmp_path / "wiki")
     assert len(warnings) == 1
+    assert "agent.md" in warnings[0]["file"]
 
 
-def test_check_missing_provenance_passes(tmp_path):
-    write(tmp_path / "wiki/repos/react/dimensions/architecture.md",
-          "---\nrepo: react\n---\n# Architecture\n\nReact uses Fiber. ^[src/ReactFiber.js:1-10]")
+def test_check_missing_provenance_entity_passes(tmp_path):
+    write(tmp_path / "wiki/repos/openclaw/entities/agent.md",
+          "---\ntype: entity\nrepo: openclaw\nslug: agent\nproblem: 如何定义Agent\n"
+          "generated: 2026-06-25\nsource_files:\n  - src/agent.ts\n---\n"
+          "# Agent\n\nOpenClaw uses YAML. ^[src/agent.ts:42-58]")
     warnings = check_missing_provenance(tmp_path / "wiki")
     assert warnings == []
 
 
-# ---- graph structure lint rules ----
-
-def test_check_invalid_edge_type_targets(tmp_path):
-    """Component 不能有 targets 字段（targets 只属于 ExtensionPoint）。"""
-    write(tmp_path / "wiki/repos/openclaw/nodes/components/bad.md",
-          "---\nnode_type: Component\nscope: subsystem\ntargets:\n  - other\n---\n# Bad\n")
-    from lint import check_graph_edge_types
-    errors = check_graph_edge_types(tmp_path / "wiki")
-    assert len(errors) == 1
-    assert "bad" in errors[0]["detail"]
-
-
-def test_check_dangling_targets(tmp_path):
-    """targets 指向不存在的节点页时报错。"""
-    write(tmp_path / "wiki/repos/openclaw/nodes/extension-points/ep.md",
-          "---\nnode_type: ExtensionPoint\nscope: subsystem\ntargets:\n  - nonexistent\n---\n# EP\n")
-    from lint import check_graph_dangling_edges
-    errors = check_graph_dangling_edges(tmp_path / "wiki")
-    assert len(errors) == 1
-    assert "nonexistent" in errors[0]["detail"]
-
-
-def test_check_concept_not_registered(tmp_path):
-    """concept 字段的值不在 _index.md 时报错。"""
-    write(tmp_path / "wiki/entities/_index.md",
-          "# Concept Index\n\n| Concept | 别名 | 定义 | 实例数 |\n|---|---|---|---|\n| 插件系统 | Plugin System | desc | 1 |\n")
-    write(tmp_path / "wiki/repos/openclaw/nodes/extension-points/ep.md",
-          "---\nnode_type: ExtensionPoint\nscope: subsystem\nconcept: 未注册概念\n---\n# EP\n")
-    from lint import check_concept_registered
-    errors = check_concept_registered(tmp_path / "wiki")
-    assert len(errors) == 1
-    assert "未注册概念" in errors[0]["detail"]
-
-
-def test_check_concept_registered_passes(tmp_path):
-    write(tmp_path / "wiki/entities/_index.md",
-          "# Concept Index\n\n| Concept | 别名 | 定义 | 实例数 |\n|---|---|---|---|\n| 插件系统 | Plugin System | desc | 1 |\n")
-    write(tmp_path / "wiki/repos/openclaw/nodes/extension-points/ep.md",
-          "---\nnode_type: ExtensionPoint\nscope: subsystem\nconcept: 插件系统\n---\n# EP\n")
-    from lint import check_concept_registered
-    errors = check_concept_registered(tmp_path / "wiki")
-    assert errors == []
-
-
-def test_check_candidate_backlog_warns_when_many(tmp_path):
-    """当某个 repo 的 nodes/ 下积压 >=3 个 concept_candidate 时应报警。"""
-    for i in range(3):
-        write(tmp_path / f"wiki/repos/openclaw/nodes/extension-points/ep{i}.md",
-              f"---\nnode_type: ExtensionPoint\nscope: subsystem\n"
-              f"concept_candidate: 候选概念{i}\n---\n# EP{i}\n")
-    from lint import check_candidate_backlog
-    warnings = check_candidate_backlog(tmp_path / "wiki")
+def test_check_missing_provenance_concept(tmp_path):
+    write(tmp_path / "wiki/concepts/agent-style.md",
+          "---\ntype: concept\nconcept: agent-style\nproblem: 如何定义Agent\n"
+          "concerns: [声明式便捷性, 编程灵活性]\nrepos: [openclaw]\ngenerated: 2026-06-25\n---\n"
+          "# Agent Style\n\n配置驱动提供简单性但灵活性受限。")
+    warnings = check_missing_provenance(tmp_path / "wiki")
     assert len(warnings) == 1
-    assert "openclaw" in warnings[0]["detail"]
+    assert "agent-style.md" in warnings[0]["file"]
 
 
-def test_check_candidate_backlog_ok_when_few(tmp_path):
-    for i in range(2):
-        write(tmp_path / f"wiki/repos/openclaw/nodes/extension-points/ep{i}.md",
-              f"---\nnode_type: ExtensionPoint\nscope: subsystem\n"
-              f"concept_candidate: 候选{i}\n---\n# EP{i}\n")
-    from lint import check_candidate_backlog
-    warnings = check_candidate_backlog(tmp_path / "wiki")
+def test_check_missing_provenance_skips_redirect(tmp_path):
+    """Redirect pages should not be checked for provenance."""
+    write(tmp_path / "wiki/concepts/old-name.md",
+          "---\nredirect_to: new-name\nreason: renamed\ndate: 2026-06-25\n---\n"
+          "# Old Name\n> 此页面已合并至 [[new-name]]。")
+    warnings = check_missing_provenance(tmp_path / "wiki")
     assert warnings == []
+
+
+def test_check_missing_provenance_skips_non_entity_concept(tmp_path):
+    """Pages without type: entity or type: concept should be skipped."""
+    write(tmp_path / "wiki/repos/openclaw/overview.md",
+          "---\ntype: overview\nrepo: openclaw\ngenerated: 2026-06-25\n---\n"
+          "# OpenClaw\nNo provenance here.")
+    warnings = check_missing_provenance(tmp_path / "wiki")
+    assert warnings == []
+
+
+# ---- check_views_freshness ----
+
+def test_check_views_freshness_newer_source(tmp_path):
+    import json
+    write(tmp_path / "wiki/concepts/agent-style.md",
+          "---\ntype: concept\ngenerated: 2026-06-20\n---\n# Agent Style")
+    write(tmp_path / "wiki/views/categories/2026-06-15-compare.md",
+          f"---\ntype: view\nrepos: [openclaw]\ngenerated: 2026-06-15\n"
+          f'sources: {json.dumps(["wiki/concepts/agent-style.md"])}\n---\n# Compare')
+    infos = check_views_freshness(tmp_path / "wiki")
+    assert len(infos) == 1
+    assert "newer" in infos[0]["detail"]
+
+
+def test_check_views_freshness_fresh(tmp_path):
+    import json
+    write(tmp_path / "wiki/concepts/agent-style.md",
+          "---\ntype: concept\ngenerated: 2026-06-10\n---\n# Agent Style")
+    write(tmp_path / "wiki/views/categories/2026-06-15-compare.md",
+          f"---\ntype: view\nrepos: [openclaw]\ngenerated: 2026-06-15\n"
+          f'sources: {json.dumps(["wiki/concepts/agent-style.md"])}\n---\n# Compare')
+    infos = check_views_freshness(tmp_path / "wiki")
+    assert infos == []

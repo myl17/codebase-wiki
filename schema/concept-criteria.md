@@ -44,38 +44,97 @@
 
 ## Few-shot 示例
 
-### 示例领域：AI Agent 框架
+### 示例领域 1：AI Agent 框架
 
-正例——"Agent 定义方式"：
-① OpenClaw 配置驱动 vs HermesAgent 装饰器驱动。✅
-② 评价维度是声明式便捷性 vs 编程灵活性，不与"多Agent协作"共享。✅
-③ 配置简单但灵活性低 vs 编程自由但门槛高，无银弹。✅
-④ 新框架仍会在这个问题上做不同选择。✅
-→ ✅ 新建 Concept 页 `agent-definition-style`
+输入 Entity（跨仓库）：
 
-反例 1——失败在 ①：
-候选"HermesAgent 的 SafeWriter 管道保护"：仅 HermesAgent 有此实现。
-→ ❌ 进种子库待观察
+- **OpenClaw**：Agent（YAML 配置）, Workflow（显式编排）, Memory（外部上下文注入）, ToolTimeout（YAML 配置每个工具的超时时间）
+- **HermesAgent**：Agent（@agent 装饰器）, EventBus（事件驱动协同）, Memory（内部状态同步）, ToolTimeout（per-toolset 超时设置）
 
-反例 2——失败在 ②：
-候选"工具执行超时配置"：是"工具执行安全"的子维度，合并不会损失讨论价值。
-→ ❌ 作为子维度处理
+---
 
-反例 3——失败在 ③：
-候选"日志结构化格式"：结构化 JSON 在所有关切上都优于纯文本，不是真正的 trade-off。
-→ ❌ 不成立
+**正例——"Agent 定义方式"：**
 
-### 示例领域：嵌入式数据库
+① 至少两仓库不同方案：配置驱动 vs 装饰器驱动。✅
+② 独立设计空间：评价维度是声明式便捷性 vs 编程灵活性，不与"多Agent协作"共享评价维度。✅
+③ 持续 Trade-off：配置简单但灵活性低 vs 编程自由但门槛高，无银弹。✅
+④ 可持续扩展：新框架仍会在这个问题上做不同选择。✅
 
-正例——"存储引擎核心数据结构"：
+决策：✅ 新建 Concept 页 `agent-definition-style`
+
+---
+
+**反例 1——失败在 ①：仅单一仓库**
+
+候选分组"HermesAgent 的 SafeWriter 管道保护"：
+
+① 多方案：❌ 仅 HermesAgent 有此实现，其他仓库无对应 Entity。
+
+决策：❌ 进种子库待观察，不成立 Concept
+
+---
+
+**反例 2——失败在 ②：不是独立设计空间**
+
+候选分组"工具执行超时配置"：
+
+① 多方案：OpenClaw 用 YAML 配置每个工具超时，HermesAgent 用 per-toolset 超时。✅
+② 独立设计空间：❌ "超时配置"是"工具执行安全与控制"这个已有问题空间的一个子维度。合并进去后不会损失讨论维度。
+
+决策：❌ 不成立，作为"工具执行安全"Concept 的子维度处理
+
+---
+
+**反例 3——失败在 ③：没有真正的 Trade-off**
+
+候选分组"日志结构化格式"：
+
+① 多方案：OpenClaw 用纯文本格式，HermesAgent 用结构化 JSON + 自动脱敏。✅
+② 独立设计空间：日志格式有自己的评价维度。✅
+③ 持续 Trade-off：❌ 结构化 JSON 在所有关切上都优于纯文本，这不是相互制约的权衡，而是一个方案尚未演化到位。
+
+决策：❌ 不成立，纯文本格式作为历史条目记录
+
+---
+
+**反例 4——失败在 ④（辅助判断，不否决但影响优先级）**
+
+候选分组"Agent 进程启动顺序"：
+
+① ✅ ② ✅ ③ ✅
+④ 可持续扩展：⚠️ 随着异步运行时普及，这个问题空间可能很快收敛。
+
+决策：⚠️ 暂时建页，演化信号文件中标注"低扩展预期"
+
+---
+
+### 示例领域 2：嵌入式数据库
+
+输入 Entity（跨仓库）：
+
+- **SQLite**：B-Tree（存储结构）, WAL（预写日志）
+- **LevelDB**：LSM-Tree（存储结构）, MemTable+SSTable（写入流水线）
+- **RocksDB**：ColumnFamily, Compaction（压缩策略）, BloomFilter
+
+---
+
+**正例——"存储引擎核心数据结构"：**
+
 ① B-Tree vs LSM-Tree，设计哲学完全不同。✅
 ② 独立于持久化策略的评价维度。✅
 ③ 读优化 vs 写优化，经典无银弹权衡。✅
-→ ✅ 新建 Concept 页 `storage-engine-data-structure`
 
-反例——失败在 ①：
-候选"Bloom Filter 过滤策略"：仅 RocksDB 有。
-→ ❌ 进种子库待观察
+决策：✅ 新建 Concept 页 `storage-engine-data-structure`
+
+---
+
+**反例——失败在 ①：仅单仓库**
+
+候选分组"Bloom Filter 过滤策略"：
+
+① 多方案：❌ 仅 RocksDB 有 BloomFilter。
+
+决策：❌ 进种子库待观察
 
 ---
 

@@ -193,6 +193,7 @@
   },
   "active": "7fc803dfd2f17d13",
   "lastOpenFiles": [
+    "concepts",
     "repos/openclaw/dimensions/openclaw-architecture.md",
     "repos/nanobot/nanobot-overview.md",
     "repos/nanobot/dimensions/nanobot-testing-philosophy.md",
@@ -223,7 +224,6 @@
     "repos/openclaw/nodes/design-decisions/openclaw-mariozechner-core-dependency.md",
     "repos/openclaw/nodes/design-decisions/openclaw-compaction-recoverability-priority.md",
     "repos/openclaw/nodes/design-decisions/openclaw-channel-isolation-decision.md",
-    "repos/openclaw/nodes/components/openclaw-tool-policy.md",
     "repos/openclaw/nodes/components",
     "repos/openclaw/nodes/design-decisions",
     "repos/openclaw/nodes/extension-points",

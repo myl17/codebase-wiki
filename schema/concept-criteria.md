@@ -38,7 +38,7 @@
 | **A** | 命中现有 Concept（核心问题是同一个） | 追加到已有 Concept 页 |
 | **B** | 新问题空间，通过①②③ | 新建 Concept 页 |
 | **C** | 目前只有一个仓库面对 | 进种子库（`seeds/master.md`），不升级 |
-| **D** | 与已有 Concept 部分重叠但不完全命中 | 记录演化信号到 `docs/evolve-signals/` |
+| **D** | 与已有 Concept 部分重叠但不完全命中 | 记录演化信号到 `evolve-signals/` |
 
 ---
 

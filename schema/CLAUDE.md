@@ -12,8 +12,7 @@ These rules apply to ALL LLM operations that write to the `wiki/` directory.
 hot.md
 log.md
 index.md
-.hashes.json
-graph.json
+.ingest-state.json
 ```
 
 **2. 颜色分组**（Graph View → 齿轮 → Groups，创建 2 个分组）：
@@ -94,5 +93,5 @@ After every operation, overwrite `wiki/hot.md` with:
 **Last operation:** ingest <仓库名> — <Entity数量> entities, <Concept数量> concepts
 **Active repos:** <逗号分隔>
 **Concept pages:** <N>
-**Pending evolve signals:** <K>（docs/evolve-signals/）
+**Pending evolve signals:** <K>（evolve-signals/）
 ```

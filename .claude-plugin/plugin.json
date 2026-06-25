@@ -33,6 +33,10 @@
     "lint": {
       "description": "Run programmatic health checks on the wiki",
       "file": ".claude/commands/lint.md"
+    },
+    "evolve-apply": {
+      "description": "Wikipedia-style concept page evolution: merge, split, redirect",
+      "file": ".claude/commands/evolve-apply.md"
     }
   }
 }

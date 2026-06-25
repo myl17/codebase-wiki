@@ -5,10 +5,12 @@
 ## Trigger
 
 ```
-/compare <repo1> <repo2> [<repo3> ...]
+/compare <repo1> <repo2> [<repo3> ...] [--concept <keyword>] [--auto]
 /compare --concept <keyword>
 /compare <repo1> <repo2> ... --concept <keyword>
 ```
+
+`--auto`：跳过"这个对比需要归档吗？"的提问，默认不存档。Concept 结构检查仍执行，发现问题仍输出但不强制执行演化操作。可自动修复的问题（如明显缺失的 redirect 别名）自动写入 `evolve-signals/`。
 
 示例：
 ```
@@ -138,6 +140,8 @@ Level 3 → 源码（按关键词现场分析，最贵）
 > - A: 不归档（临时查看）
 > - B: 存入 wiki/views/
 > - C: 发起 `/ingest <repo>` 将对比发现的问题空间纳入 Concept 演化
+
+**如果 --auto：** 跳过此提问，默认选 A（不存档）。Concept 结构检查仍执行并输出。
 
 如果选 B，写入 `wiki/views/<YYYY-MM-DD>-compare-<slug>.md`：
 

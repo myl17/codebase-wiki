@@ -5,13 +5,14 @@
 ## Trigger
 
 ```
-/ingest <repo-path> [<repo-name>] [--verify] [--full]
+/ingest <repo-path> [<repo-name>] [--verify] [--full] [--auto]
 ```
 
 - `<repo-path>`：源码目录（只读）
 - `<repo-name>`：wiki 中的标识符，默认取 `<repo-path>` 的最后一段目录名
 - `--verify`：开启 Step 5 独立验证（默认关闭）
 - `--full`：强制全量重新提取（跳过增量检测）
+- `--auto`：跳过全部暂停点，全流程自动执行（仍输出摘要到日志）
 
 When the user asks to analyze, ingest, or add a code repository to the wiki.
 
@@ -134,7 +135,7 @@ Step 2  Entity 问题空间映射
 Step 3  问题空间匹配
         输入：problem-map + 种子库 + 已有 Concept 页
         输出：seeds/<name>-candidates.md
-              docs/evolve-signals/<date>-<name>.md（D 类信号）
+              evolve-signals/<date>-<name>.md（D 类信号）
 
 ★ 暂停点 2（用户确认候选清单 + 能力域覆盖表）
 
@@ -300,6 +301,8 @@ Step 2 完成后展示以下摘要并等待用户确认：
 用户可以：指出遗漏 → LLM 补充提取后更新 problem-map → 再继续。
 用户不响应则自动继续。
 
+**如果 --auto：跳过用户确认，直接继续 Step 3。但仍在日志中输出问题空间列表和跳过的 Entity 摘要。**
+
 ---
 
 ## Step 3：问题空间匹配
@@ -431,7 +434,7 @@ Step 2 完成后展示以下摘要并等待用户确认：
   |--------|--------|--------|--------|
   | <能力域> | ✅/— | ✅/— | ✅/— |
 
-文件 2：docs/evolve-signals/<YYYY-MM-DD>-<仓库名>.md
+文件 2：evolve-signals/<YYYY-MM-DD>-<仓库名>.md
   仅 D 类信号，每条：
   - 问题：<名称>
   - 相关 Concept：<slug>
@@ -458,7 +461,7 @@ Step 3 完成后展示：
     ...
 
   C 类（待观察）：<N> 条
-  D 类（演化信号）：<N> 条，已写入 docs/evolve-signals/
+  D 类（演化信号）：<N> 条，已写入 evolve-signals/
 
 能力域覆盖表：
 | 能力域     | 仓库 A | 仓库 B | 新仓库 |
@@ -470,6 +473,8 @@ Step 3 完成后展示：
 
 用户可以：否决某个 B 类新建 / 手动升级某个 C 类 / 调整 slug 命名。
 用户不响应则自动继续。
+
+**如果 --auto：跳过用户确认，按模型判断的 A/B/C/D 分类直接继续 Step 4。但仍在日志中输出候选清单摘要和能力域覆盖表。**
 
 ---
 
@@ -609,7 +614,7 @@ generated: <YYYY-MM-DD>
    标注来源仓库和情况类型
 
 2. 确认演化信号文件
-   检查 docs/evolve-signals/<YYYY-MM-DD>-<仓库名>.md 是否存在且完整
+   检查 evolve-signals/<YYYY-MM-DD>-<仓库名>.md 是否存在且完整
    （Step 3 已生成，这里只做完整性确认）
 
 3. 更新 wiki/index.md
@@ -621,7 +626,7 @@ generated: <YYYY-MM-DD>
    **Last operation:** ingest <仓库名> — <Entity数量> entities, <Concept数量> concepts
    **Active repos:** <当前所有已 ingest 仓库，逗号分隔>
    **Concept pages:** <N>
-   **Pending evolve signals:** <K>（docs/evolve-signals/）
+   **Pending evolve signals:** <K>（evolve-signals/）
 
 5. 追加 wiki/log.md：
    [<YYYY-MM-DD HH:MM>] ingest <仓库名> — <Entity数量> entities, <Concept数量> concepts updated/created
@@ -641,13 +646,15 @@ Step 6 完成后展示：
 ingest <仓库名> 完成：
   - <M> 个 Entity 提取
   - <N> 个 Concept 页更新/新建
-  - <K> 条演化信号写入 docs/evolve-signals/<date>-<name>.md
+  - <K> 条演化信号写入 evolve-signals/<date>-<name>.md
 
 建议下一步：
   1. 触发 /evolve-apply 处理 <K> 条演化信号
   2. 继续 ingest 下一个仓库：<建议仓库名>
   3. 深挖当前 Concept：/query <slug>
 ```
+
+**如果 --auto：不等待用户决策，默认不触发 /evolve-apply。但仍在日志中输出完成总结和建议下一步。**
 
 ---
 

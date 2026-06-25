@@ -36,13 +36,78 @@ Tell the user your initial read and ask if there's a specific dimension they wan
 
 ### Step 3 — Dimension-by-Dimension Extraction
 
-For each dimension in `schema/dimensions.md` (or the subset specified with `--dimensions`):
+**Extraction order** (per `schema/dimensions.md`):
+- Architecture MUST be completed first.
+- Extension Points MUST be completed second.
+- Remaining dimensions (Performance Tradeoffs, Dependency Strategy, Testing Philosophy) in any order.
 
-1. Read the dimension description from `schema/dimensions.md`
-2. Read relevant `impl` files as needed (follow imports, search for keywords)
-3. Draft the dimension wiki page in your response
-4. Tell the user your findings and ask: "Anything you want me to adjust or go deeper on before I write this?"
-5. After user confirmation, write the file to `wiki/repos/<name>/dimensions/<dimension-slug>.md`
+Phase 2 dimensions MUST use the subsystem inventory from Architecture + Extension Points
+as their coverage checklist. For Phase 2 dimensions, iterate through every subsystem in the
+inventory — never skip a subsystem without reading its source code first.
+
+For EACH dimension, follow this sub-process:
+
+#### 3a. Exhaustive Exploration → Candidate List
+
+Do NOT draft a wiki page directly. First, output a candidate list. Each item:
+```
+N. Subsystem — tradeoff/pattern name
+   Claim: [one sentence]
+   Evidence: ^[file:line-line]
+```
+
+After the candidate list, complete a self-review checklist. You MUST list the actual
+file paths you read — do not check a box if you haven't read those files:
+
+```
+□ Checked every subsystem in the Architecture + Extension Points inventory?
+  Files actually read: [list paths]
+□ Any source directories not covered?
+□ Does every candidate include a clear sacrifice/rationale (not just a mechanism description)?
+□ All provenance line numbers are from files actually read (not inferred)?
+```
+
+#### 3b. Adversarial Review (Independent Subagent)
+
+Dispatch a separate subagent for review. Use this prompt template:
+
+```
+You are a fact-checker. Verify the candidate list below.
+
+## Candidate List
+[paste full candidate list from step 3a]
+
+## A. Provenance Verification
+For every item, go back to the source repository at [repo-path] and verify the
+file:line references:
+- ✅ Correct: code at those lines implements the described logic
+- ⚠️ Imprecise: lines are offset, or code is only partially related
+- ❌ Fabricated: no corresponding logic found
+
+## B. Coverage Completeness
+Take the subsystem inventory from Architecture + Extension Points. For each
+subsystem, check whether the candidate list covers it. For any uncovered
+subsystem: go into its source directory and confirm whether a tradeoff actually
+exists there. Report any omissions.
+
+## C. Self-Review Honesty
+Check the self-review checklist at the end of the candidate list. Cross-reference
+against your findings from Section B. Was the agent honest about which directories
+it actually checked?
+```
+
+The adversarial review subagent has its own independent context window — it does
+NOT share the main agent's context. This is what makes the review effective.
+
+#### 3c. Fix
+
+Receive the adversarial review results. Fix all ⚠️ and ❌ items. Add any
+omissions the reviewer found. Each fix must include new source evidence.
+
+#### 3d. User Confirmation → Write
+
+Present the final candidate list to the user. After confirmation, write the
+dimension wiki page.
 
 **Every factual claim must end with `^[file:line-start-line-end]`.**
 
@@ -65,6 +130,9 @@ Followed by:
 - [[<other-repo-in-same-category>/dimensions/<dimension-slug>]]
 ```
 (Only add links to repos that have already been analyzed — do not build broken links.)
+
+**User feedback loop:** If the user says "expand on this section" or "add this direction",
+modify the affected items and re-run adversarial review (3b) only on the changed items.
 
 ### Step 3.5 — Node Extraction (graph layer)
 

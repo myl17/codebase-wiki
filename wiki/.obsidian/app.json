@@ -1,1 +1,10 @@
-{}
+{
+  "userIgnoreFilters": [
+    "hot.md",
+    "log.md",
+    "index.md",
+    "entities/_index.md",
+    "repos/hermes-agent/dimensions/",
+    "repos/openclaw/dimensions/"
+  ]
+}

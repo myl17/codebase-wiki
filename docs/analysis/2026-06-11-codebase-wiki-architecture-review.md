@@ -2,14 +2,14 @@
 
 **日期**:2026-06-11
 **状态**:已确认
-**性质**:对 `docs/codebase-knowledge-graph-design.md` 的全面评估与修订方案
+**性质**:对 `docs/design/codebase-knowledge-graph-design.md` 的全面评估与修订方案
 **输入材料**:
 - `docs/superpowers/specs/2026-06-07-codebase-wiki-design.md`(项目原始 spec)
 - `docs/superpowers/specs/2026-06-09-manifest-hash-split-and-provenance-snippet.md`
 - `docs/superpowers/specs/2026-06-10-entity-nodes-design.md`
-- `docs/codebase-knowledge-graph-design.md`(最新图谱设计,本文评估对象)
-- `docs/karpathy-llm-wiki-gist.md`(灵感原型)
-- `docs/gpt-concept分析.md`(本体设计讨论)
+- `docs/design/codebase-knowledge-graph-design.md`(最新图谱设计,本文评估对象)
+- `docs/research/karpathy-llm-wiki-gist.md`(灵感原型)
+- `docs/research/gpt-concept分析.md`(本体设计讨论)
 - `schema/dimensions.md`、`schema/CLAUDE.md`、`wiki/` 现存实态(2 仓库、17 entity 页)
 
 ---

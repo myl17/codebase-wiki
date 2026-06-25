@@ -11,10 +11,10 @@
             "id": "7fc803dfd2f17d13",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 289.5
+    "width": 282.5
   },
   "right": {
     "id": "6d5e763cd2290a11",
@@ -193,41 +193,41 @@
   },
   "active": "7fc803dfd2f17d13",
   "lastOpenFiles": [
-    "entities/插件系统.md",
-    "entities/可替换记忆后端.md",
-    "entities/人机审批协议.md",
+    "repos/openclaw/dimensions/openclaw-architecture.md",
+    "repos/nanobot/nanobot-overview.md",
+    "repos/nanobot/dimensions/nanobot-testing-philosophy.md",
+    "repos/nanobot/dimensions/nanobot-testing-philosophy.md.tmp.9408.cd229a45a305",
+    "repos/nanobot/dimensions/nanobot-dependency-strategy.md",
+    "repos/nanobot/dimensions/nanobot-performance-tradeoffs.md",
+    "repos/nanobot/dimensions/nanobot-extension-points.md",
+    "repos/nanobot/dimensions/nanobot-architecture.md",
+    "repos/nanobot/dimensions",
+    "repos/nanobot",
+    "repos/openclaw/nodes/extension-points/openclaw-agent-harness.md",
+    "projects/openclaw/architecture.md",
+    "projects/openclaw",
+    "projects",
+    "repos/openclaw/dimensions/openclaw-extension-points.md",
+    "index.md",
     "entities/Context 压缩.md",
+    "entities/可替换记忆后端.md",
+    "entities/插件系统.md",
+    "entities/人机审批协议.md",
     "repos/openclaw/nodes/extension-points/openclaw-skills-extension.md",
     "repos/openclaw/nodes/extension-points/openclaw-hook-system.md",
     "repos/openclaw/nodes/extension-points/openclaw-exec-approval-request.md",
     "repos/openclaw/nodes/extension-points/openclaw-compaction-provider.md",
     "repos/openclaw/nodes/extension-points/openclaw-channel-plugin.md",
-    "repos/openclaw/nodes/extension-points/openclaw-agent-harness.md",
     "repos/openclaw/nodes/design-decisions/openclaw-sync-gating-decision.md",
     "repos/openclaw/nodes/design-decisions/openclaw-startup-over-memory-tradeoff.md",
     "repos/openclaw/nodes/design-decisions/openclaw-mariozechner-core-dependency.md",
     "repos/openclaw/nodes/design-decisions/openclaw-compaction-recoverability-priority.md",
     "repos/openclaw/nodes/design-decisions/openclaw-channel-isolation-decision.md",
     "repos/openclaw/nodes/components/openclaw-tool-policy.md",
-    "repos/openclaw/nodes/components/openclaw-process-supervisor.md",
-    "repos/openclaw/nodes/components/openclaw-memory-system.md",
-    "repos/openclaw/nodes/components/openclaw-context-engine.md",
-    "repos/hermes-agent/nodes/extension-points/hermes-agent-toolset-system.md",
-    "repos/hermes-agent/nodes/extension-points/hermes-agent-platform-adapter.md",
-    "repos/hermes-agent/nodes/extension-points/hermes-agent-memory-provider.md",
-    "repos/hermes-agent/nodes/extension-points/hermes-agent-event-hooks.md",
-    "repos/hermes-agent/nodes/extension-points/hermes-agent-context-engine.md",
-    "repos/hermes-agent/nodes/design-decisions/hermes-agent-self-learning-loop-decision.md",
-    "repos/hermes-agent/nodes/design-decisions/hermes-agent-layered-approval-decision.md",
     "repos/openclaw/nodes/components",
     "repos/openclaw/nodes/design-decisions",
     "repos/openclaw/nodes/extension-points",
     "repos/hermes-agent/nodes/extension-points",
-    "repos/hermes-agent/nodes/design-decisions",
-    "repos/hermes-agent/nodes/components",
-    "graph/graph.json",
-    "graph",
-    "repos/hermes-agent/nodes",
-    "repos/openclaw/nodes"
+    "repos/hermes-agent/nodes/design-decisions"
   ]
 }

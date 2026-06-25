@@ -1,5 +1,6 @@
 {
   "enabledPlugins": {
-    "codebase-wiki": true
+    "codebase-wiki": true,
+    "superpowers": true
   }
 }

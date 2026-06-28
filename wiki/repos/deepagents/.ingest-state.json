@@ -1,0 +1,38 @@
+{
+  "repo": "deepagents",
+  "source_path": "/Users/yuanlimiao/Work/agent_harness/deepagents-main/libs/deepagents",
+  "last_ingest": "2026-06-28T12:00:00Z",
+  "files": {
+    "deepagents/__init__.py": "ea020f7b2e625c5a9b248cf8c99243b34eeeab27fffd4fce7aced646499ea82a",
+    "deepagents/graph.py": "8491e108736d5c05913ef522110af4adcd5d476c4b4e9a7ca1943fdda0057e3d",
+    "deepagents/_models.py": "76875a63c930409589398e745107c7474af33b4e1d6e4deaf26aea73ac42d049",
+    "deepagents/_version.py": "6e750adf49d3da85a742f8a96742675a9962f9b272e0421861c018507a54a9b4",
+    "deepagents/middleware/__init__.py": "8afb9b836c0d2e8b5cd8ee0e68f82e369442385dac9591478b54df2c97f264ae",
+    "deepagents/middleware/filesystem.py": "6c73432c8a24833d2d003361360037af7a940fc9cdb8c2f34239391e38bbdd15",
+    "deepagents/middleware/subagents.py": "711dbe0bb5541f7e1823bd046ed67d3edb1453cadc4c37c68db4f0728a18122a",
+    "deepagents/middleware/memory.py": "d7f1d43babf1d0931d23d6821b07545ce9fb766639003a4e623b84db36eb8715",
+    "deepagents/middleware/skills.py": "02180c5af9842c1616c7477bced6ef93b4140b25ab85d2aaf899772389209f68",
+    "deepagents/middleware/summarization.py": "818e4e2d1e886ada866635eb6df4baba10315ac5ef23e86dc8707610e27c687f",
+    "deepagents/middleware/async_subagents.py": "af47e84a00fc2dc530bdc1ce8da5d34cd415248c3d0c4dfb03d1e4f3375dc68f",
+    "deepagents/middleware/patch_tool_calls.py": "def6e1243b69a5527725641fa4a8b71770cfa5658cffd59ccece92c0a48a2e6f",
+    "deepagents/middleware/_utils.py": "c882a7332a6d9e51ab35dabf9a75da10723d728e95b431a341d687a0cb39b965",
+    "deepagents/backends/__init__.py": "d9ed1cfa51025e9fe3f5ab28a317ecb21eea3381a496e4c6062a67b722b999b5",
+    "deepagents/backends/protocol.py": "6d963608a3b20e26068031518d369df6205b411fdce357ec9319ba2dfe2d7491",
+    "deepagents/backends/state.py": "340970e0873f13a91034d13aeb16aeb2f2e929cbf8a2718e9c880b524703285f",
+    "deepagents/backends/composite.py": "51d18e750b3be0a3b39cffe1e0c81354f2a52000f53d1922b24b52a84f4efcbe"
+  },
+  "entity_map": {
+    "agent-graph-assembly": ["deepagents/graph.py"],
+    "filesystem-middleware": ["deepagents/middleware/filesystem.py"],
+    "subagent-middleware": ["deepagents/middleware/subagents.py"],
+    "async-subagent-middleware": ["deepagents/middleware/async_subagents.py"],
+    "summarization-middleware": ["deepagents/middleware/summarization.py"],
+    "memory-middleware": ["deepagents/middleware/memory.py"],
+    "skills-middleware": ["deepagents/middleware/skills.py"],
+    "tool-call-patching": ["deepagents/middleware/patch_tool_calls.py"],
+    "backend-protocol": ["deepagents/backends/protocol.py"],
+    "state-backend": ["deepagents/backends/state.py"],
+    "composite-backend": ["deepagents/backends/composite.py"],
+    "model-resolution": ["deepagents/_models.py"]
+  }
+}

@@ -634,6 +634,10 @@ generated: <YYYY-MM-DD>
 6. 覆写 wiki/repos/<仓库名>/.ingest-state.json：
    用本次 ingest 实际读取的文件列表及其 SHA-256 覆写快照。
    source_path 写入当前源码目录路径。
+   填充 entity_map：从每个 entity 页 frontmatter 的 source_files 字段收集映射。
+   格式：{ "<entity-slug>": ["<相对文件路径>", ...], ... }
+   entity_map 用于 Step 0 增量检测时做逆向映射——文件变了就能知道哪些 entity 受影响。
+   不填充会导致每次 re-ingest 时必须扫描所有 entity 页 frontmatter，500 仓库规模下不可接受。
 ```
 
 ---
@@ -661,7 +665,7 @@ ingest <仓库名> 完成：
 ## 文件结构规范
 
 ```
-wiki/
+wiki/                       ← 持久化知识（提交到 git）
   repos/
     <name>/
       .ingest-state.json    ← Step 6 维护（增量快照）
@@ -671,15 +675,23 @@ wiki/
   concepts/                 ← Step 4 产物
     <slug>.md
 
-seeds/
+seeds/                      ← 管线中间产物（项目根目录下，与 wiki/ 平级）
   <name>-problem-map.md     ← Step 2 产物
   <name>-candidates.md      ← Step 3 产物
   master.md                 ← Step 6 维护
 
-docs/
-  evolve-signals/
-    <YYYY-MM-DD>-<name>.md  ← Step 3 产物（D 类信号）
+evolve-signals/             ← 信号信箱（项目根目录下，与 wiki/ 平级）
+  <YYYY-MM-DD>-<name>.md    ← Step 3 产物（D 类信号）
 ```
+
+### 路径纪律（强制）
+
+管线中间产物（`seeds/` 和 `evolve-signals/`）的路径规则：
+- **必须写入项目根目录下的 `seeds/` 和 `evolve-signals/`，与 `wiki/` 平级**
+- **绝不写入 `wiki/repos/<name>/` 下** —— 那是对 wiki 知识库的污染，会导致 lint 误报和维护混乱
+- `seeds/` 和 `evolve-signals/` 不是 wiki 页面，不在 Obsidian vault 内，不需要 wikilink
+- 示例正确路径：`seeds/hermes-agent-problem-map.md` ← ✅
+- 示例错误路径：`wiki/repos/hermes-agent/seeds/hermes-agent-problem-map.md` ← ❌
 
 ## 维护文件规范
 

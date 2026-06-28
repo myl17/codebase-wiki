@@ -85,6 +85,17 @@ Provide a clear answer with:
 - Key evidence with provenance: `^[file:line]` references from the wiki pages you read
 - Confidence level: High / Medium / Low
 
+## Answer 后主动检查内容准确性
+
+回答完问题后，LLM 应主动审视所引用 Concept 页和 Entity 页的内容质量：
+
+1. 如果有从 Level 3 源码查询拿到、比 Concept 页更准确/更完整的信息 → 主动展示 diff（旧描述 → 新描述），询问用户是否修正
+2. 用户确认后当场写入 wiki 页，源码证据必须标注 `^[文件路径:行号]`
+3. 修正后如有需要重新生成受影响的部分回答
+4. 日志标记：在父 command 的日志行尾追加 `[源码验证: <页名> <节名>修正]`
+
+如果没有发现不准确，跳过此检查直接进入 Archival Decision。
+
 ## Archival Decision (always ask)
 
 After answering, always ask the user:
@@ -95,8 +106,9 @@ After answering, always ask the user:
 > - C: 新建 Insight 页（综合分析有独立价值）
 
 ### If user chooses B:
-Append to the relevant Entity page (`wiki/repos/<name>/entities/<slug>.md`)
-or Concept page (`wiki/concepts/<slug>.md`) under a `## 补充` section. Append log entry.
+- 优先修正受影响的节（用准确信息替换），而非在底部追加 `## 补充`
+- 如果信息确实是全新的、不修正已有内容 → 才追加到对应页底部
+- log 行尾部追加 `[源码验证: <页名> <节名>修正]`
 
 ### If user chooses C:
 Write `wiki/insights/<YYYY-MM-DD>-<slug>.md` with this frontmatter (use single-line JSON arrays):

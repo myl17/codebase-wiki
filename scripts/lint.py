@@ -60,19 +60,72 @@ def check_broken_wikilinks(wiki_root: Path) -> list:
         for p in pages
     }
 
-    def _resolves(target: str) -> bool:
+    def _resolves(target: str, page_rel: str) -> bool:
+        """Check if a wikilink target resolves to any known wiki page.
+
+        Tries resolution strategies in order:
+        1. Exact match against all relative paths
+        2. Relative to the page's own directory
+        3. Prepend 'repos/' (for shorthand like [[nanobot/overview]])
+        4. Prepend 'concepts/' (for shorthand like [[some-concept]])
+        5. Suffix match: for targets like [[entities/xxx]], find
+           any page whose path ends with /entities/xxx
+        """
         t = target.lower().replace("\\", "/")
-        return t in wiki_strs
+
+        # Strategy 1: exact match
+        if t in wiki_strs:
+            return True
+
+        # Strategy 2: relative to page's directory
+        page_dir = "/".join(page_rel.split("/")[:-1]) if "/" in page_rel else ""
+        if page_dir:
+            candidate = f"{page_dir}/{t}"
+            if candidate in wiki_strs:
+                return True
+
+        # Strategy 3: prepend repos/ (e.g. [[nanobot/overview]] -> repos/nanobot/overview)
+        candidate = f"repos/{t}"
+        if candidate in wiki_strs:
+            return True
+
+        # Strategy 4: prepend concepts/
+        candidate = f"concepts/{t}"
+        if candidate in wiki_strs:
+            return True
+
+        # Strategy 5: suffix match — for [[entities/xxx]] or [[repos/r/xxx]]
+        # Build a suffix index lazily
+        if not hasattr(_resolves, "suffix_index"):
+            suffix_index = {}
+            for w in wiki_strs:
+                parts = w.split("/")
+                # Index by last 2, 3, 4 segments
+                for n in (2, 3):
+                    if len(parts) >= n:
+                        key = "/".join(parts[-n:])
+                        suffix_index.setdefault(key, set()).add(w)
+            _resolves.suffix_index = suffix_index
+
+        if t in _resolves.suffix_index:
+            return True
+
+        return False
 
     for page in pages:
+        page_rel = str(page.relative_to(wiki_root))
         content = page.read_text(errors="replace")
         for m in WIKILINK_RE.finditer(content):
             target = m.group(1).strip()
-            if not _resolves(target):
+            # Skip pipeline intermediate paths (seeds/, evolve-signals/)
+            # — these are project-level artifacts, not wiki pages
+            if target.lower().split("/")[0] in {"seeds", "evolve-signals"}:
+                continue
+            if not _resolves(target, page_rel):
                 errors.append({
                     "level": "ERROR",
                     "rule": "check_broken_wikilinks",
-                    "file": str(page.relative_to(wiki_root)),
+                    "file": page_rel,
                     "detail": f"[[{target}]] — target file not found",
                 })
     return errors
@@ -84,22 +137,78 @@ def check_orphan_pages(wiki_root: Path) -> list:
     pages = [p for p in _read_wiki_pages(wiki_root)
              if p.name not in maintenance_files]
 
-    # Build set of all link targets mentioned anywhere
+    # Build set of all link targets mentioned anywhere with resolution
     linked = set()
     for page in pages:
         content = page.read_text(errors="replace")
         for m in WIKILINK_RE.finditer(content):
-            linked.add(m.group(1).strip().lower())
+            target = m.group(1).strip().lower().replace("\\", "/")
+            linked.add(target)
+            # Also try common resolutions (same as check_broken_wikilinks)
+            page_rel = str(page.relative_to(wiki_root))
+            page_dir = "/".join(page_rel.split("/")[:-1]) if "/" in page_rel else ""
+            if page_dir:
+                linked.add(f"{page_dir}/{target}")
+            linked.add(f"repos/{target}")
+            linked.add(f"concepts/{target}")
+
+    # Build suffix index for cross-repo entity resolution (for wikilinks like [[entities/x]])
+    suffix_index = {}
+    for p in pages:
+        rel = str(p.relative_to(wiki_root).with_suffix("")).replace("\\", "/")
+        parts = rel.split("/")
+        for n in (2, 3):
+            if len(parts) >= n:
+                key = "/".join(parts[-n:])
+                suffix_index.setdefault(key, set()).add(rel)
+
+    # Build aliases for each page (how it can be referenced)
+    def _page_aliases(rel: str) -> set:
+        parts = rel.split("/")
+        aliases = {rel}
+        if len(parts) >= 3 and parts[0] == "repos":
+            aliases.add("/".join(parts[1:]))        # r/overview
+        if len(parts) >= 4 and parts[2] == "entities":
+            aliases.add("/".join(parts[2:]))         # entities/x
+        return {a.lower() for a in aliases}
+
+    def _is_linked(rel: str) -> bool:
+        """Check if any alias of this page appears in linked set."""
+        for alias in _page_aliases(rel):
+            if alias in linked:
+                return True
+            # Check suffix-index entries for this alias
+            parts = alias.split("/")
+            for n in (2, 3):
+                if len(parts) >= n:
+                    key = "/".join(parts[-n:])
+                    if key in suffix_index:
+                        if any(suffix_alias in linked for suffix_alias in suffix_index[key]):
+                            return True
+        return False
+
+    # Also scan index.md wikilinks into the linked set (even though index.md
+    # itself is excluded from the pages list)
+    index = wiki_root / "index.md"
+    if index.exists():
+        for m in WIKILINK_RE.finditer(index.read_text(errors="replace")):
+            target = m.group(1).strip().lower().replace("\\", "/")
+            linked.add(target)
+            linked.add(f"repos/{target}")
+            linked.add(f"concepts/{target}")
 
     warnings = []
-    index = wiki_root / "index.md"
     index_content = index.read_text(errors="replace") if index.exists() else ""
+    exclude_dirs = {"seeds", "evolve-signals"}
 
     for page in pages:
         if page == index:
             continue
+        # Skip pipeline intermediates
+        if any(d in page.parts for d in exclude_dirs):
+            continue
         rel = str(page.relative_to(wiki_root).with_suffix("")).replace("\\", "/")
-        if rel.lower() not in linked and rel.lower() not in index_content.lower():
+        if not _is_linked(rel) and rel.lower() not in index_content.lower():
             warnings.append({
                 "level": "WARN",
                 "rule": "check_orphan_pages",
@@ -174,9 +283,53 @@ def check_views_freshness(wiki_root: Path) -> list:
     return infos
 
 
+def check_pipeline_file_placement(wiki_root: Path) -> list:
+    """[ERROR] Pipeline intermediate files (seeds/, evolve-signals/) misplaced under wiki/.
+
+    Pipeline intermediates belong at project root (alongside wiki/), not under wiki/repos/<name>/.
+    If found under wiki/, it means an ingest subagent wrote to the wrong path.
+
+    Checks both directories and individual files.
+    """
+    errors = []
+    project_root = wiki_root.parent
+
+    # Check for misplaced directories under wiki/repos/<name>/
+    for repo_dir in (wiki_root / "repos").iterdir() if (wiki_root / "repos").exists() else []:
+        if not repo_dir.is_dir():
+            continue
+        for bad_dir in ("seeds", "evolve-signals"):
+            misplaced = repo_dir / bad_dir
+            if misplaced.exists():
+                files_inside = list(misplaced.rglob("*.md"))
+                errors.append({
+                    "level": "ERROR",
+                    "rule": "check_pipeline_file_placement",
+                    "file": str(misplaced.relative_to(wiki_root)),
+                    "detail": f"pipeline directory '{bad_dir}/' misplaced under wiki/repos/. "
+                              f"Should be at project root: {bad_dir}/. "
+                              f"({len(files_inside)} files inside: {', '.join(f.name for f in files_inside)})",
+                })
+
+    # Also check for individual pipeline files directly under wiki/repos/ (without a subdirectory)
+    for bad_dir in ("seeds", "evolve-signals"):
+        misplaced_in_wiki = wiki_root / bad_dir
+        if misplaced_in_wiki.exists():
+            errors.append({
+                "level": "ERROR",
+                "rule": "check_pipeline_file_placement",
+                "file": str(misplaced_in_wiki.relative_to(project_root)),
+                "detail": f"pipeline directory '{bad_dir}/' misplaced under wiki/. "
+                          f"Should be at project root: {bad_dir}/.",
+            })
+
+    return errors
+
+
 def run_all(wiki_root: Path) -> list:
     findings = []
     findings += check_broken_wikilinks(wiki_root)
+    findings += check_pipeline_file_placement(wiki_root)
     findings += check_orphan_pages(wiki_root)
     findings += check_missing_provenance(wiki_root)
     findings += check_views_freshness(wiki_root)

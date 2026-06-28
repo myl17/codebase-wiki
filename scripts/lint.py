@@ -247,6 +247,107 @@ def check_missing_provenance(wiki_root: Path) -> list:
     return warnings
 
 
+def check_concept_repos_consistency(wiki_root: Path) -> list:
+    """[ERROR/WARN] Concept pages: frontmatter repos: must match body content.
+
+    Three checks:
+    1. [ERROR] Body repo section (### <name>) not in frontmatter repos: →
+       Concept page discusses a repo but frontmatter doesn't list it.
+       Causes Obsidian Graph isolation — the repo's entities can't link back.
+    2. [WARN] Frontmatter repo not in body wikilinks ([[repos/X/entities/Y]]): →
+       Frontmatter claims coverage but body has no source evidence from that repo.
+    3. [WARN] Body wikilink repo not in frontmatter: →
+       Body links to an entity whose repo isn't declared in frontmatter.
+    """
+    errors = []
+    warnings = []
+    concepts_root = wiki_root / "concepts"
+    if not concepts_root.exists():
+        return []
+
+    # Build known repo names from wiki/repos/ directories
+    repos_root = wiki_root / "repos"
+    known_repos = set()
+    if repos_root.exists():
+        for d in repos_root.iterdir():
+            if d.is_dir():
+                known_repos.add(d.name)
+
+    for page in concepts_root.rglob("*.md"):
+        body, fm = _strip_frontmatter(page.read_text(errors="replace"))
+        if fm.get("type") != "concept" or fm.get("redirect_to"):
+            continue
+
+        page_rel = str(page.relative_to(wiki_root))
+
+        # Parse frontmatter repos: field (supports both [a, b] and [a,b])
+        repos_raw = fm.get("repos", "")
+        front_repos = set()
+        if repos_raw:
+            # Strip brackets and split
+            cleaned = repos_raw.strip().lstrip("[").rstrip("]")
+            for r in cleaned.split(","):
+                r = r.strip()
+                if r:
+                    front_repos.add(r)
+
+        # Extract wikilink repos: [[repos/<repo>/entities/<slug>]]
+        wiki_repos = set()
+        for m in WIKILINK_RE.finditer(body):
+            target = m.group(1).strip()
+            parts = target.split("/")
+            if len(parts) >= 3 and parts[0] == "repos" and parts[2] == "entities":
+                wiki_repos.add(parts[1])
+
+        # Extract section-header repos: ### <name> where name is a known repo
+        section_repos = set()
+        for line in body.splitlines():
+            stripped = line.strip()
+            if stripped.startswith("### ") or stripped.startswith("#### "):
+                header_text = stripped.lstrip("#").strip()
+                # Check if this header names a known repo
+                if header_text in known_repos:
+                    section_repos.add(header_text)
+
+        # Check 1: [ERROR] section repo not in frontmatter
+        missing_from_front = section_repos - front_repos
+        if missing_from_front:
+            errors.append({
+                "level": "ERROR",
+                "rule": "check_concept_repos_consistency",
+                "file": page_rel,
+                "detail": f"body has ### section(s) for {sorted(missing_from_front)} "
+                          f"but frontmatter repos: lists {sorted(front_repos)}. "
+                          f"Add missing repos to frontmatter or add wikilinks to entity pages.",
+            })
+
+        # Check 2: [WARN] frontmatter repo has no wikilink in body
+        missing_wikilinks = front_repos - wiki_repos
+        if missing_wikilinks:
+            warnings.append({
+                "level": "WARN",
+                "rule": "check_concept_repos_consistency",
+                "file": page_rel,
+                "detail": f"frontmatter repos: {sorted(front_repos)} but no "
+                          f"[[repos/X/entities/Y]] wikilink found for {sorted(missing_wikilinks)}. "
+                          f"Body should link to entity pages for each listed repo.",
+            })
+
+        # Check 3: [WARN] wikilink repo not in frontmatter
+        missing_from_wiki = wiki_repos - front_repos
+        if missing_from_wiki:
+            warnings.append({
+                "level": "WARN",
+                "rule": "check_concept_repos_consistency",
+                "file": page_rel,
+                "detail": f"body has wikilinks to {sorted(missing_from_wiki)} entities "
+                          f"but frontmatter repos: lists {sorted(front_repos)}. "
+                          f"Add repos to frontmatter for complete coverage.",
+            })
+
+    return errors + warnings
+
+
 def check_views_freshness(wiki_root: Path) -> list:
     """[INFO] views/ pages older than any of their source pages.
 
@@ -331,6 +432,7 @@ def run_all(wiki_root: Path) -> list:
     findings += check_broken_wikilinks(wiki_root)
     findings += check_pipeline_file_placement(wiki_root)
     findings += check_orphan_pages(wiki_root)
+    findings += check_concept_repos_consistency(wiki_root)
     findings += check_missing_provenance(wiki_root)
     findings += check_views_freshness(wiki_root)
     return findings

@@ -528,8 +528,10 @@ Framework Builder——正在研究这类框架设计空间的人。
 
 1. 每个声明必须有源码证据 ^[文件路径:行号]
 2. 情况 A（追加）：只添加新仓库内容，不修改已有仓库内容
-3. Concept 名称格式：<能力域>-<决策维度>（小写 kebab-case）
+3. 概念名称格式：<能力域>-<决策维度>（小写 kebab-case）
 4. 对比表聚焦关切之间的张力，不是功能列表
+5. **所有仓库的解法都必须读对应 entity 页获取源码引用，不允许凭记忆复述。** 新仓库读 `wiki/repos/<新仓库>/entities/<slug>.md`；已有仓库读 `wiki/repos/<已有仓库>/entities/<slug>.md`。写法：每个仓库一节，节头 `### <仓库名>`，正文第一行 `来源：[[repos/<仓库名>/entities/<entity-slug>]]`，每条关键机制标注 `^[文件路径:行号]`。
+6. **写完本页后，检查 `repos:` frontmatter 是否列出了 body 中每个 `### <仓库>` 节。** 如果 body 讨论了 N 个仓库，repos 必须含 N 个。
 
 ## 输出
 
@@ -578,7 +580,7 @@ generated: <YYYY-MM-DD>
 
 ## 后置动作
 
-写完本页后，到每个来源 entity 页（`wiki/repos/<name>/entities/<slug>.md`）末尾追加反向链接。
+写完本页后，到 body 中**每个提及的仓库**的 entity 页（`wiki/repos/<name>/entities/<slug>.md`）末尾追加反向链接——不只是新仓库，已有仓库如果在 body 中被引用也需要有反向链接。
 如果该 entity 已被其他 concept 引用过，在已有列表后追加一项；如果没有，新建列表：
 
 ```

@@ -3,7 +3,7 @@ type: concept
 concept: hooks-event-interception
 problem: 如何在 Agent 生命周期的关键节点（工具调用前后、会话启动、上下文压缩等）插入可编程的行为拦截
 concerns: [事件覆盖完整性, 匹配器精度与过滤开销, 执行隔离与性能]
-repos: [codex-main]
+repos: [codex-main, openclaw, nanobot]
 generated: 2026-06-28
 ---
 
@@ -41,17 +41,28 @@ generated: 2026-06-28
 
 ### openclaw
 
-来源：种子库 hooks-system（D 类演化信号）
-**解法**：事件驱动扩展点 + 钩子发现-过滤-隔离
-**实现**：OpenClaw 通过插件钩子系统提供扩展点，支持钩子发现、过滤和执行隔离
-**权衡**：钩子粒度较 codex-main 粗（种子库中标记为"粒度不匹配"），但执行隔离更明确
+来源：[[repos/openclaw/entities/hooks-system]]
+**解法**：三源 hook 发现（bundled/managed/workspace）+ 两层事件分发（通配符 + 精确匹配）+ 三级过滤（enable → 运行时资格 → 动态导入）
+**实现**：
+- `registerHook(eventKey, handler)` 注册钩子处理器 ^[src/hooks/internal-hooks.ts:220]
+- `triggerHook(event)` 触发钩子事件
+- `loadInternalHooks(config, opts)` 发现、过滤、注册所有钩子 ^[src/hooks/loader.ts:79]
+- 四个来源目录：`bundled/`（内置）+ managed + workspace + legacy config handlers ^[src/hooks/loader.ts]
+- 两层事件分发：通配符处理器（如 `"message"` 匹配所有 `message:*` 事件）+ 精确处理器（如 `"message:received"`） ^[src/hooks/internal-hooks.ts]
+- 错误隔离：每个处理器错误被捕获记录，不影响其他处理器 ^[src/hooks/internal-hooks.ts]
+- 生命周期事件类型：command、session（start/end/patch）、agent（bootstrap/start/end）、gateway（startup/shutdown）、message（received/sent/transcribed/preprocessed） ^[src/hooks/internal-hook-types.ts]
+- `HookSourcePolicy` 来源策略：precedence 10-40, defaultEnableMode, override rules ^[src/hooks/policy.ts]
+**权衡**：事件粒度（通配符 + 精确双层匹配）比 codex-main 灵活但事件类型数量（~12）类似；三源发现 + 工作区安全警告在社区扩展安全性上更谨慎
 
 ### nanobot
 
-来源：种子库中间件机制
-**解法**：通过中间件组合模式在 Agent 处理管道中插入拦截逻辑
-**实现**：中间件按顺序组成处理链，每个中间件可在处理前后插入逻辑
-**权衡**：中间件模式灵活但与 Agent 循环耦合更紧，不如独立 Hook 系统解耦
+来源：[[repos/nanobot/entities/agent-loop]]
+**解法**：通过 `AgentHook` 生命周期回调 + 中间件组合模式在 Agent 处理管道中插入拦截逻辑
+**实现**：
+- `AgentHook` 提供生命周期回调接口（`nanobot/agent/hook.py`），agent-loop 在关键节点调用 ^[nanobot/agent/loop.py:27-28]
+- 中间件按顺序组成处理链，每个中间件可在处理前后插入逻辑
+- `AgentLoop` 通过依赖注入接收 `MessageBus`、`ToolRegistry`、`LLMProvider` 等组件，钩子在 turn 执行前后触发 ^[nanobot/agent/loop.py:115]
+**权衡**：中间件模式灵活但与 Agent 循环耦合更紧（钩子是 AgentLoop 的内部概念而非独立系统）；没有事件匹配器——所有钩子在固定节点触发，粒度控制不如 codex-main 和 openclaw
 
 ## 对比
 

@@ -41,3 +41,4 @@ source_files:
 
 **关联 Concept**：
 - [[concepts/tool-lifecycle-management]]
+- [[concepts/mcp-protocol-integration]]

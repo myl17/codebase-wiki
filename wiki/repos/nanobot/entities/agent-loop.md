@@ -43,3 +43,4 @@ source_files:
 
 **关联 Concept**：
 - [[concepts/agent-loop-orchestration]]
+- [[concepts/hooks-event-interception]]

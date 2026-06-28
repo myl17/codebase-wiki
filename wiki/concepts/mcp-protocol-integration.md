@@ -44,10 +44,18 @@ MCP（Model Context Protocol）正在成为 AI Agent 工具互操作的事实标
 
 ### hermes-agent
 
-来源：种子库 tool-registry, mcp-integration
-**解法**：MCP 集成作为工具注册表的一个来源
-**实现**：MCP 工具通过 tool-registry 的统一注册接口接入，工具定义转换为内部格式
-**权衡**：集成简单（MCP 只是另一个工具源），但缺少连接管理、目录构建和 OAuth 深度支持
+来源：[[repos/hermes-agent/entities/mcp-integration]]
+**解法**：MCP 工具通过 ToolRegistry 的统一注册接口接入，支持 stdio/HTTP 双传输、自动重连和 OAuth 2.1 PKCE
+**实现**：
+- `register_mcp_servers()` 连接配置的 MCP 服务器，发现工具并注册到中央 ToolRegistry ^[tools/mcp_tool.py:1959]
+- `discover_mcp_tools()` 动态发现 MCP 工具，前缀格式 `server_name/tool_name`，toolset 为 `mcp-{server_name}` ^[tools/mcp_tool.py:2036]
+- `shutdown_mcp_servers()` 优雅关闭所有 MCP 连接 ^[tools/mcp_tool.py:2191]
+- 双传输支持：stdio（command + args 启动子进程）和 HTTP/StreamableHTTP（url 连接） ^[tools/mcp_tool.py:890-966]
+- 专用后台 daemon 线程运行 `asyncio` event loop，每个 MCP 服务器作为长生命周期 Task ^[tools/mcp_tool.py:1170-1185]
+- 自动重连：指数退避最多 5 次重试，支持 `notifications/tools/list_changed` 动态刷新 ^[tools/mcp_tool.py:774-841]
+- OAuth 2.1 PKCE：`mcp_oauth` 模块支持 MCP 授权服务器的 PKCE 流程 ^[tools/mcp_oauth.py]
+- 恶意包检测：`osv_check.check_package_for_malware()` 启动前检查 OSV 数据库 ^[tools/mcp_tool.py:tools/osv_check.py]
+**权衡**：集成简单（MCP 只是 tool-registry 的一个工具源），但缺少独立连接池管理、目录构建和冲突解决；OAuth 支持有 PKCE 但无 scope 降级重试策略
 
 ## 对比
 

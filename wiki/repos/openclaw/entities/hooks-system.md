@@ -43,3 +43,6 @@ source_files:
 - 类型定义：src/hooks/types.ts
 - 策略管理：src/hooks/policy.ts
 - Bundled 钩子：src/hooks/bundled/
+
+**关联 Concept**：
+- [[concepts/hooks-event-interception]]

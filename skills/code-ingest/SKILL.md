@@ -315,8 +315,34 @@ Step 2 完成后展示以下摘要并等待用户确认：
 ## 输入
 
 - 新仓库问题空间映射：seeds/<仓库名>-problem-map.md
-- 已有种子库：seeds/master.md
-- 已有 Concept 页：先扫描 `wiki/concepts/` 下所有 `.md` 的 frontmatter（文件名 + problem 字段）做初筛；对可能相关的条目，读全文的"核心问题"和"关切"节以判断准则②
+- 已有种子库：**禁止读取 seeds/master.md 全文。** 用 problem-map 中的关键词 grep seeds/master.md，只读匹配行：`grep -i "关键词1\|关键词2\|..." seeds/master.md`
+- 已有 Concept 页：
+  **规模检测**：先运行 `ls wiki/concepts/*.md 2>/dev/null | wc -l` 获得 Concept 总数
+
+  **若 ≤ 50 个 Concept（策略 A）**：
+    1. `for f in wiki/concepts/*.md; do head -10 "$f"; done` 一次性扫描所有 Concept 的 frontmatter
+    2. 对 LLM 判断存在语义关联的 Concept，深读全文的"核心问题"和"关切"节
+
+  **若 50–500 个 Concept（策略 B）**：
+    1. 从 problem-map 每条条目的"问题名"中提取 2–4 个核心技术关键词
+       - 选中文技术名词，不选"如何""的""一个"等连接词；有常用英文对应的也加入英文变体
+       - 示例："如何让主Agent委托后台子Agent执行复杂任务" → 子代理 subagent 隔离执行 委托
+    2. 用这些关键词 grep `wiki/concepts/*.md`：`grep -l "关键词1\|关键词2\|..." wiki/concepts/*.md`
+    3. 合并所有条目的命中文件列表并去重
+    4. 只对去重后的文件做 `head -10` 确认 frontmatter 匹配
+    5. 对确认匹配的 Concept 深读全文
+
+  **若 > 500 个 Concept（策略 C）**：
+    1. 先执行策略 B
+    2. 对未匹配的条目，从已匹配 Concept 的 `concerns` 字段提取扩展术语，做第二轮 grep
+    3. 仍无法匹配的条目标记为"待人工审核"（非搜索失败——确实无对应 Concept），说明原因
+
+## 检索行为约束
+
+在开始匹配前，必须先执行规模检测并明确宣告：
+"检测到 N 个 Concept → 选择策略 [A/B/C]"
+
+然后按所选策略执行检索。
 
 ## 判定准则
 

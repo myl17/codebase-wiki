@@ -3,7 +3,7 @@ type: concept
 concept: configuration-management
 problem: 如何管理 Agent 框架的运行时配置，支持多环境隔离、配置模块化和安全值注入
 concerns: [配置源可组合性, 多环境/Profile 隔离强度, Schema 验证与演化]
-repos: [nanobot, hermes-agent, openclaw]
+repos: [nanobot, hermes-agent, openclaw, codex-main]
 generated: 2026-06-25
 ---
 
@@ -53,6 +53,18 @@ generated: 2026-06-25
 - 运维机制：配置审计日志自动记录读写、备份轮转防止写坏、JSON5 格式支持注释 ^[src/config/io.audit.ts]
 **权衡**：$include 模块化最灵活，但 10 层深度和循环检测带来的复杂度要求更严格的边界保护。30+ Zod schema 文件提供了编译时的类型安全但增加了 schema 维护成本。
 
+### codex-main
+
+来源：[[repos/codex-main/entities/config-management]]
+**解法**：多层配置栈（config.toml + CloudConfigBundle + Profile + CLI）+ `ConfigRequirements` 云端约束强制执行。
+**实现**：
+- 多层配置来源：config.toml（本地文件）、`CloudConfigBundle`（从后端 API 拉取）、Profile 文件切换、CLI 参数覆盖，按优先级合并 ^[codex-rs/config/src/lib.rs:1-5]
+- `CloudConfigBundleLoader` 管理云端配置的加载和缓存 ^[codex-rs/config/src/cloud_config_bundle.rs:39-40]
+- `ConfigRequirements` 允许组织通过云端下发不可覆盖的约束（权限、网络、文件系统），Agent 强制执行 ^[codex-rs/config/src/config_requirements.rs:59-80]
+- `strict_config` 模块在解析时验证所有字段类型和值范围 ^[codex-rs/config/src/strict_config.rs]
+- `profile_toml` 模块支持多 Profile 切换，每个 Profile 有独立的模型、权限和工具配置 ^[codex-rs/config/src/profile_toml.rs]
+**权衡**：多层配置栈的云端下发约束是唯一支持"组织强制配置"的方案——企业管理员可设置不可覆盖的权限和网络限制。但严格模式验证增加了启动时的延迟。
+
 ## 对比
 
 | 框架 | 配置源可组合性 | 多环境/Profile 隔离强度 | Schema 验证与演化 |
@@ -60,7 +72,9 @@ generated: 2026-06-25
 | nanobot | 单文件 JSON5 + env vars `__` 嵌套映射，无 include 机制 | 无 profile 支持；多环境需手动管理多个配置文件 | Pydantic BaseSettings 基础校验；无插件 schema 扩展 |
 | hermes-agent | config.yaml + 23 层优先级 + `${VAR}` 引用展开 | 文件系统级 profile 隔离，每个 profile 有独立 home/ 目录隔离 git/ssh/gh | dataclass + 18 种 Platform enum 约束；`extra` 字典支持扩展字段；无版本化迁移 |
 | openclaw | JSON5 + `$include` 递归模块化 + `${ENV}` + 固定顺序默认值填充 | 无 profile 概念；通过 `$include` 和 `${ENV}` 实现环境区分 | 30+ Zod schema 分层验证 + 插件 schema 贡献；审计日志追踪配置变更；备份轮转 |
+| codex-main | 多层配置栈（本地 + 云端 + Profile + CLI），云端约束强制不可覆盖 | Profile 文件隔离（profile_toml） | strict_config 严格验证 + ConfigRequirements 组织级约束 |
 
 ## 演化记录
 
 - 2026-06-25：初建，包含 nanobot, hermes-agent, openclaw
+- 2026-06-28：新增 codex-main（多层配置栈 + CloudConfigBundle 云端约束 + strict_config 严格验证）

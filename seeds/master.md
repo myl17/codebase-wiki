@@ -67,3 +67,27 @@
 | 12 | 如何将多个子任务并行化 | 技术选型 | delegate-subagent | B → subagent-orchestration |
 | 13 | 如何管理配置和 Profile | 技术选型 | config-system | B → configuration-management |
 | 14 | 如何实现定时自主任务 | 技术选型 | cron-scheduler | B → autonomous-scheduling |
+
+## 来自 codex-main（2026-06-28）
+
+| # | 问题名 | 层级 | 来源 Entity | 情况 |
+|---|--------|------|-------------|------|
+| 1 | 如何编排 AI Agent 的回合制交互循环 | 架构决策 | core-agent-loop | A → agent-loop-orchestration |
+| 2 | 如何抽象跨本地/远程/沙箱环境的命令执行 | 架构决策 | exec-server | A → execution-isolation |
+| 3 | 如何对 Shell 命令执行实施允许/拒绝策略 | 架构决策 | execpolicy | A → security-architecture |
+| 4 | 如何提供跨平台的可移植文件系统沙箱 | 架构决策 | sandbox-abstraction | A → execution-isolation |
+| 5 | 如何安全地以提升权限执行 Shell 命令 | 架构决策 | shell-escalation | A → execution-approval-pattern |
+| 6 | 如何定义、发现和执行 Agent 工具 | 架构决策 | tool-system | A → tool-lifecycle-management |
+| 7 | 如何在 Agent 生命周期关键节点插入行为拦截 | 架构决策 | hook-system | B → hooks-event-interception |
+| 8 | 如何用用户定义的技能文件扩展 Agent 能力 | 架构决策 | skills-system | A → skills-extension-mechanism |
+| 9 | 如何抽象多个 LLM 后端为统一接口 | 架构决策 | model-provider | A → provider-abstraction-pattern |
+| 10 | 如何管理模型目录、预设和动态刷新 | 技术选型 | models-manager | C（待观察） |
+| 11 | 如何合并文件/云端/CLI 的多层配置 | 架构决策 | config-management | A → configuration-management |
+| 12 | 如何将 Agent 工具暴露为 MCP JSON-RPC 服务 | 架构决策 | mcp-server | B → mcp-protocol-integration |
+| 13 | 如何管理 MCP 服务器的连接、目录和认证 | 架构决策 | codex-mcp-integration | B → mcp-protocol-integration |
+| 14 | 如何提供多传输层 JSON-RPC 后端管理会话 | 架构决策 | app-server | C（待观察） |
+| 15 | 如何持久化、发现和搜索 Agent 会话转录 | 架构决策 | rollout | A → session-lifecycle-management |
+| 16 | 如何抽象跨存储后端的对话持久化 | 架构决策 | thread-store | A → session-lifecycle-management |
+| 17 | 如何建模插件包的标识、能力和钩子元数据 | 架构决策 | plugin-system | D（演化信号） |
+| 18 | 如何管理插件商城、安装、升级和卸载 | 架构决策 | plugin-management | D（演化信号） |
+| 19 | 如何通过贡献者注册表扩展 Agent 行为 | 架构决策 | extension-api | A → system-prompt-assembly |

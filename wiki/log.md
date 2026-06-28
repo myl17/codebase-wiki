@@ -19,3 +19,4 @@
 [2026-06-25] evolve signal 粒度不匹配 — hooks-system 子维度观察追加至 agent-loop-orchestration [触发: evolve-signals, --auto]
 [2026-06-25] evolve signal 粒度不匹配 — message-bus 子维度观察追加至 channel-abstraction-pattern [触发: evolve-signals, --auto]
 [2026-06-28 12:00] ingest deepagents — 12 entities, 7 concepts updated/created (subagent-orchestration, context-compression-strategy, memory-management-architecture, skills-extension-mechanism, execution-isolation, provider-abstraction-pattern updated; middleware-composition-pattern created), 1 evolve signal
+[2026-06-28 23:38] ingest codex-main — 22 entities, 12 concepts updated/created (10 appended, 2 new: hooks-event-interception, mcp-protocol-integration)

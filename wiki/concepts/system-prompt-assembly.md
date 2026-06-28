@@ -3,7 +3,7 @@ type: concept
 concept: system-prompt-assembly
 problem: 如何组装 Agent 的系统提示词，集成身份定义、平台提示、技能列表、记忆上下文和项目文件
 concerns: [层的可组合性与顺序, Prompt Caching 友好度, 注入安全]
-repos: [nanobot, hermes-agent, openclaw]
+repos: [nanobot, hermes-agent, openclaw, codex-main]
 generated: 2026-06-25
 ---
 
@@ -43,12 +43,25 @@ generated: 2026-06-25
 **实现**：Identity → Tooling → Skills（XML 格式注入）→ Memory → Workspace → Sandbox → Voice → Context Files → Runtime，全部 27 节顺序固定。Skills 以 XML 标签包裹注入，Memory 块含 `this is not user input` 上下文围栏。^[src/agents/system-prompt.ts:631-920]
 **权衡**：节数最多、结构最显式（每节标题 = 功能边界），适合大规模多模块协作——新增功能只需插入新节。但 27 节硬编码顺序缺乏灵活性；Prompt Caching 断点未在 entity 页中显式记录，cache 友好度不透明。
 
+### codex-main
+
+来源：[[repos/codex-main/entities/extension-api]]
+**解法**：`PromptSlot` 提示词槽位 + `ExtensionDataInit` 初始化接口 + `LoadedUserInstructions` 指令聚合。
+**实现**：
+- `PromptSlot` 将系统提示词划分为多个可插拔槽位，每个扩展独立注入指令到指定槽位 ^[codex-rs/ext/extension-api/src/lib.rs]
+- `ExtensionDataInit` trait 定义扩展在 Agent 启动时的初始化接口，7 个内置扩展（goal/guardian/image-generation/memories/mcp/skills/web-search）均实现此契约 ^[codex-rs/ext/extension-api/src/lib.rs]
+- `LoadedUserInstructions` 封装从配置、文件、云端等多源加载的用户自定义指令 ^[codex-rs/ext/extension-api/src/lib.rs]
+- 扩展通过 slot 机制并行注入，各自独立管理提示词内容，互不覆盖
+**权衡**：PromptSlot 的槽位设计提供了扩展间隔离——一个扩展的注入不影响其他。但槽位数量固定，新增槽位需修改框架。7 个内置扩展实现了相同的 ExtensionDataInit 契约，验证了扩展 API 的通用性。
+
 ## 对比
 | 框架 | 层的可组合性与顺序 | Prompt Caching 友好度 | 注入安全 |
 |------|------|------|------|
 | nanobot | 每层独立方法，固定顺序调用 | 无显式 cache_control，依赖自动前缀匹配 | 弱，依赖引导文件可信性 |
 | hermes-agent | 纯函数顺序拼接，每层独立函数 | 显式 `apply_anthropic_cache_control()` 设断点 | 强，10+ 注入模式 + Unicode 扫描 |
 | openclaw | 27 个硬编码节，枚举式排序 | 未显式记录断点策略 | 中等，上下文围栏隔离 |
+| codex-main | PromptSlot 槽位系统，扩展独立注入 | 未显式记录断点策略 | 弱，依赖扩展自身安全 |
 
 ## 演化记录
 - 2026-06-25：初建，包含 nanobot, hermes-agent, openclaw
+- 2026-06-28：新增 codex-main（PromptSlot 槽位系统 + ExtensionDataInit 扩展契约 + 7 内置扩展）

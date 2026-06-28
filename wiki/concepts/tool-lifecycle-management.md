@@ -3,7 +3,7 @@ type: concept
 concept: tool-lifecycle-management
 problem: 如何管理 Agent 工具的注册、发现、策略过滤和生命周期
 concerns: [工具发现机制, 策略复杂度收益/成本比, 工具安全性]
-repos: [nanobot, hermes-agent, openclaw]
+repos: [nanobot, hermes-agent, openclaw, codex-main]
 generated: 2026-06-25
 ---
 
@@ -45,12 +45,27 @@ Agent 的工具集不是静态的——它随 MCP 服务器的动态加入而增
 **实现**：组装管道有序执行：基础工具替换 → 添加 exec/process → 添加渠道工具 → 添加 openclaw 工具 → 策略过滤 → schema 归一化 → 钩子包装 → 超时包装。策略管道 9 层优先级：profile → provider-profile → global → global-provider → agent → agent-provider → group → sandbox → subagent。4 个工具 profiles（minimal/coding/messaging/full）定义不同场景的默认工具集。Owner-only 授权：cron/gateway/nodes/whatsapp_login 等 control-plane 工具仅 owner 可用。Memory refresh mode 限制为仅 read/write。^[src/agents/pi-tools.ts; src/agents/tool-policy-pipeline.ts; src/agents/tool-catalog.ts; src/agents/tool-policy.ts]
 **权衡**：策略粒度最细——9 层管道 + 4 profiles 可实现任意场景的精确工具裁剪。但复杂度最高——策略合并语义和优先级调试不透明；自动发现弱（工具在 pi-tools.ts 中显式组装）；工具遮蔽无保护；无 MCP 工具发现机制。
 
+### codex-main
+
+来源：[[repos/codex-main/entities/tool-system]]
+**解法**：`ToolDefinition` 统一元数据 + 多源工具解析（内置/MCP/动态）+ `TurnItemEmitter` 流式输出 + Responses API 适配。
+**实现**：
+- `ToolDefinition` 是所有工具的统一定义格式（名称、描述、输入/输出 JSON Schema），`defer_loading` 支持延迟加载 ^[codex-rs/tools/src/tool_definition.rs:6-13]
+- 多源解析：内置工具（tool_definition）、MCP 工具（`parse_mcp_tool` 转为内部格式）、动态工具（`parse_dynamic_tool`） ^[codex-rs/tools/src/mcp_tool.rs:41]
+- `ResponsesApiTool` 和 `FreeformTool` 将内部工具定义适配为 OpenAI Responses API 格式，`LoadableToolSpec` 支持延迟发送 ^[codex-rs/tools/src/responses_api.rs:53-64]
+- `TurnItemEmitter` trait 支持工具执行过程中流式发射中间结果，`NoopTurnItemEmitter` 提供空实现降级 ^[codex-rs/tools/src/tool_call.rs:66-72]
+- `JsonSchema` 类型支持 `AdditionalProperties` 控制，`parse_tool_input_schema` 处理 schema 的压缩与展开 ^[codex-rs/tools/src/json_schema.rs:35-40]
+- `ToolConfig` 配置 Shell 后端类型、用户 Shell 类型、ZshForkConfig 等执行参数 ^[codex-rs/tools/src/tool_config.rs:72-80]
+**权衡**：`ToolDefinition` 的统一格式设计使 MCP/内置/动态三种工具源通过同一解析管道接入，实现简洁。但无自动发现机制（工具在组装管道中显式列出），无策略过滤（工具定义和策略检查分离到 execpolicy 层）。流式执行反馈通过 trait 实现，调用了方无需感知底层是流式还是批量。
+
 ## 对比
 | 框架 | 工具发现机制 | 策略复杂度收益/成本比 | 工具安全性 |
 |------|------|------|------|
 | nanobot | 手工注册，无自动发现 | 无策略过滤，所有工具全局可用 | 仅 concurrency_safe 分组 |
 | hermes-agent | AST 扫描自动发现 + MCP 动态刷新 | 静态工具集组合，非管道式过滤 | 工具遮蔽保护 + MCP 凭证脱敏 |
 | openclaw | 显式组装管道，无自动发现 | 9 层管道 + 4 profiles，粒度最细 | Owner-only 授权 + 超时包装 |
+| codex-main | ToolDefinition 统一元数据 + MCP/内置/动态三源解析；无自动发现 | 无策略过滤层（策略在 execpolicy 层单独处理） | MCP tool result output schema 校验 + JsonSchema 控制 |
 
 ## 演化记录
 - 2026-06-25：初建，包含 nanobot, hermes-agent, openclaw
+- 2026-06-28：新增 codex-main（ToolDefinition 统一元数据 + 三源解析 + Responses API 适配）

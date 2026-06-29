@@ -29,7 +29,7 @@ Source → Entity（源码中可定位的模块，有独立职责边界）
   → /evolve-apply（Wikipedia 风格 merge / split / redirect，Concept 页结构调整）
 ```
 
-## 四个 Skill
+## Skills
 
 | Skill | 职责 | 读/写 |
 |-------|------|------|
@@ -38,6 +38,7 @@ Source → Entity（源码中可定位的模块，有独立职责边界）
 | `/compare` | 多仓库在同一问题上的对比：Concept → Entity → 源码 三级升级链。 | 读为主 |
 | `/lint` | wiki 健康检查：wikilink 完整性 + entity/concept frontmatter 合规。 | 读 |
 | `/evolve-apply` | Wikipedia 风格 Concept 页演化：merge / split / redirect。独立工具，信号驱动或手动指定。 | 写 |
+| `/completion-gate` | 共享质量门——所有写操作完成前必须通过。维护文件一致性、frontmatter 验证、写操作追溯。不是独立执行，由其他 skill 以 REQUIRED SUB-SKILL 引用。 | 质量门 |
 
 **各 skill 职责独立，不互相合并。** 不要用"当前规模小"论证合并的合理性——工具职责由功能决定，不由当前数据量决定。
 

@@ -201,37 +201,16 @@ sources: ["wiki/concepts/<slug>.md", ...]
 
 ---
 
-## STOP 3：完成自检门
+## 完成前
 
-**在声称"对比完成"或结束本次 skill 之前，必须逐条通过此清单。未通过 = 未完成。静默执行——不向用户输出检查过程。**
+**REQUIRED SUB-SKILL:** 在声称"对比完成"之前，必须调用 `completion-gate` 通过通用完成门（维护文件一致性、frontmatter 验证、写操作的 log/hot/index 同步）。
 
 ```
-INTERNAL CHECK. DO NOT OUTPUT TO USER.
-
-□ 对比输出中有信息来源标注（Concept / Entity / 源码）？
-□ STOP 1（内容准确性）已运行，且所有发现均已处理（修正或记录）？
-□ STOP 2（Concept 结构）已运行，且所有发现均已处理？
-□ 如果用户选了 B 归档 → view 文件已写入，log.md 已追加？
-□ 如果用户选了 C → /ingest 已触发？
-□ log.md 行尾有对应的 [源码验证: ...] 标记（如有内容修正）？
-
-全部通过 → 可以声明完成。不输出清单给用户。
-任何一项不通过 → 补完后再声明，不要假装完成。
+使用 completion-gate skill 验证本次操作：
+- 如果用户选了 B → view 文件、log、index、hot 是否全部就位
+- 如果有源码验证修正 → log 行尾是否有 [源码验证:] 标记
+- 对比输出是否有信息来源标注
 ```
-
----
-
-## Red Flags — 以下任何情况发生，立即停止
-
-**STOP. 不要继续。退回检查。**
-
-| 如果你发现自己在 | 这是 Red Flag | 正确做法 |
-|-----------------|--------------|---------|
-| 直接 Edit wiki 页而未先展示 diff 给用户 | 跳过了 STOP 1a-1 | 回退，展示 diff |
-| 说"对比完成"但没运行 STOP 3 清单 | Completion claim without gate | 先跑清单 |
-| 手动读文件做对比而不是按升级链 Level 1→2→3 | 跳过了 skill 流程 | 回到 Level 1 |
-| 告诉用户"选 B 的话我稍后写"然后没写 | 口头承诺未执行 | 当场写，不要推迟 |
-| 发现 Concept 描述不准确但没说 | Silent inaccuracy | STOP 1a |
 
 ---
 
@@ -240,4 +219,4 @@ INTERNAL CHECK. DO NOT OUTPUT TO USER.
 1. **对比的正确性依赖 Concept 页的准确性。** 发现不准确时不修正 = 输出不可信。
 2. **修正和对比是一体的。** 修了 Concept 页 → 刷新对比输出 → 一起归档。不分开。
 3. **写操作必须用户确认。--auto 下永远不 auto-write wiki 页。**
-4. **完成声明必须过门。** `STOP 3 全部 □ = ✅` 之前不得声称完成。
+4. **完成声明必须过门。** 不通过 completion-gate 不得声称完成。

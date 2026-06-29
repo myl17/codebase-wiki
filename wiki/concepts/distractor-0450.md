@@ -1,8 +1,0 @@
----
-type: concept
-concept: distractor-0450
-problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
-concerns: [响应延迟, 读写性能]
-repos: [llvm-project, rocksdb]
-generated: 2026-06-29
----

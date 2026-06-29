@@ -6,3 +6,4 @@ __pycache__/
 .pytest_cache/
 wiki/repos/*/.hashes.json
 wiki/.obsidian/graph.json
+experiments/

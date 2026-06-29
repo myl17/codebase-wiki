@@ -1,0 +1,180 @@
+{
+  "entity_map": {
+    "app-server": [
+      "codex-rs/app-server/src/lib.rs",
+      "codex-rs/app-server/src/transport.rs",
+      "codex-rs/app-server/src/message_processor.rs"
+    ],
+    "codex-mcp-integration": [
+      "codex-rs/codex-mcp/src/lib.rs",
+      "codex-rs/codex-mcp/src/connection_manager.rs",
+      "codex-rs/codex-mcp/src/catalog.rs",
+      "codex-rs/codex-mcp/src/mcp.rs"
+    ],
+    "config-management": [
+      "codex-rs/config/src/lib.rs",
+      "codex-rs/config/src/loader.rs",
+      "codex-rs/config/src/merge.rs",
+      "codex-rs/config/src/cloud_config_bundle.rs"
+    ],
+    "connectors": [
+      "codex-rs/connectors/src/lib.rs",
+      "codex-rs/connectors/src/directory_cache.rs",
+      "codex-rs/connectors/src/metadata.rs"
+    ],
+    "core-agent-loop": [
+      "codex-rs/core/src/lib.rs",
+      "codex-rs/core/src/codex_thread.rs",
+      "codex-rs/core/src/session/mod.rs",
+      "codex-rs/core/src/agent/mod.rs"
+    ],
+    "exec-server": [
+      "codex-rs/exec-server/src/lib.rs",
+      "codex-rs/exec-server/src/environment.rs",
+      "codex-rs/exec-server/src/process.rs"
+    ],
+    "execpolicy": [
+      "codex-rs/execpolicy/src/lib.rs",
+      "codex-rs/execpolicy/src/policy.rs",
+      "codex-rs/execpolicy/src/rule.rs"
+    ],
+    "extension-api": [
+      "codex-rs/ext/extension-api/src/lib.rs"
+    ],
+    "headless-exec": [
+      "codex-rs/exec/src/lib.rs",
+      "codex-rs/exec/src/cli.rs",
+      "codex-rs/exec/src/event_processor.rs"
+    ],
+    "hook-system": [
+      "codex-rs/hooks/src/lib.rs",
+      "codex-rs/hooks/src/registry.rs",
+      "codex-rs/hooks/src/engine.rs",
+      "codex-rs/hooks/src/types.rs"
+    ],
+    "mcp-server": [
+      "codex-rs/mcp-server/src/lib.rs",
+      "codex-rs/mcp-server/src/message_processor.rs",
+      "codex-rs/mcp-server/src/codex_tool_runner.rs"
+    ],
+    "message-history": [
+      "codex-rs/message-history/src/lib.rs"
+    ],
+    "model-provider": [
+      "codex-rs/model-provider/src/lib.rs",
+      "codex-rs/model-provider/src/provider.rs",
+      "codex-rs/model-provider/src/amazon_bedrock.rs",
+      "codex-rs/model-provider/src/auth.rs"
+    ],
+    "models-manager": [
+      "codex-rs/models-manager/src/manager.rs"
+    ],
+    "plugin-management": [
+      "codex-rs/core-plugins/src/lib.rs",
+      "codex-rs/core-plugins/src/manager.rs",
+      "codex-rs/core-plugins/src/marketplace.rs",
+      "codex-rs/core-plugins/src/loader.rs"
+    ],
+    "plugin-system": [
+      "codex-rs/plugin/src/lib.rs",
+      "codex-rs/plugin/src/plugin_id.rs",
+      "codex-rs/plugin/src/manifest.rs",
+      "codex-rs/plugin/src/provider.rs"
+    ],
+    "rollout": [
+      "codex-rs/rollout/src/lib.rs",
+      "codex-rs/rollout/src/recorder.rs",
+      "codex-rs/rollout/src/compression.rs",
+      "codex-rs/rollout/src/search.rs",
+      "codex-rs/rollout/src/state_db.rs"
+    ],
+    "sandbox-abstraction": [
+      "codex-rs/sandboxing/src/lib.rs",
+      "codex-rs/sandboxing/src/manager.rs",
+      "codex-rs/sandboxing/src/bwrap.rs"
+    ],
+    "shell-escalation": [
+      "codex-rs/shell-escalation/src/lib.rs"
+    ],
+    "skills-system": [
+      "codex-rs/skills/src/lib.rs",
+      "codex-rs/core-skills/src/lib.rs"
+    ],
+    "thread-store": [
+      "codex-rs/thread-store/src/lib.rs",
+      "codex-rs/core/src/codex_thread.rs"
+    ],
+    "tool-system": [
+      "codex-rs/tools/src/lib.rs",
+      "codex-rs/tools/src/tool_definition.rs",
+      "codex-rs/tools/src/tool_discovery.rs",
+      "codex-rs/tools/src/tool_executor.rs"
+    ]
+  },
+  "files": {
+    "codex-rs/app-server/src/lib.rs": "94a0e52a1e5458d50dce99907ac33d50cd8fb9617f9e43c0e84d2adb27ce66c3",
+    "codex-rs/app-server/src/message_processor.rs": "fd1cd9a1a1c8e4dacf0745154a36741db10eef833b8ce3ff4a88d2287a7c92d0",
+    "codex-rs/app-server/src/transport.rs": "644eff549ffec8cd73811260263671a0873e18a1dd5c8d2cb38e66688ca64e30",
+    "codex-rs/codex-mcp/src/catalog.rs": "89e19ef19cc915904022ecb967d06d6304abe7061e434ade94041ef620bb27de",
+    "codex-rs/codex-mcp/src/connection_manager.rs": "51cae97350e199e0e8d1a73a310d35c8ac4b49878797c00e25cbfa21c14745d2",
+    "codex-rs/codex-mcp/src/lib.rs": "40f0d1dace06d360c1dd38c7fe5046e9789ee0500b8d69f632dc739760b71962",
+    "codex-rs/config/src/cloud_config_bundle.rs": "86bdf0257b86e53c38c85e2bea17a96e3ad8c8ec465008f285e2c842141a14c4",
+    "codex-rs/config/src/lib.rs": "b38ae34211ca49e73ba295434f8004f6b9fa2ee955f6f64514bb447e59e64bd4",
+    "codex-rs/config/src/merge.rs": "b0fc074472a234b7d9375003d864a187ee3eb222317b599719d5fba948055fc2",
+    "codex-rs/connectors/src/directory_cache.rs": "d74d22e8768bd6561d8798e7a6946e1bbca5fee2c9d11b26e0e7138b0536cfdb",
+    "codex-rs/connectors/src/lib.rs": "83313d9fe4a30b6a1cb7d23946513fec050900c8bba26eea3f203abc5925b9bb",
+    "codex-rs/connectors/src/metadata.rs": "4bcc7d01fb9725b9dd81539c805c772f1eb2614577019eb9f65611d79d40768f",
+    "codex-rs/core-plugins/src/lib.rs": "9399bd8efe2fbff794bd6d1afea5c73b7f7bb817389815fe540b6ed6a7bd4d8a",
+    "codex-rs/core-plugins/src/loader.rs": "6546795aa5696e115ca153e56d5db668189bc3fb1205f044d71ad874fdffdf23",
+    "codex-rs/core-plugins/src/manager.rs": "674dbac689789c6a977bce03649814390ec3541e8bcd63e6766d09325422bcb3",
+    "codex-rs/core-plugins/src/marketplace.rs": "daf66e0582d5f3cd485ffec6af6b02fd4f959356562673b208d230df350e7bb7",
+    "codex-rs/core-skills/src/lib.rs": "25da1a007376afce29f4bc57d712b18a64986a0fb3b74b09d92850f4a6a39fd0",
+    "codex-rs/core/src/agent/mod.rs": "fb73c931b6a364a0f970e304eb45776de81c55eff616d2c7faf221b706eddfed",
+    "codex-rs/core/src/codex_thread.rs": "cb206c29883f34cb6dc7577d277e8b73ba84df71ed8bd107b609f3e20a7fba0e",
+    "codex-rs/core/src/lib.rs": "69c5becbf04831062bf423763706a65a5f706ff5744743a7a1e93dc08ee108da",
+    "codex-rs/core/src/session/mod.rs": "607ae32952f83db8dd64cba22b762cefd6c5e08691b101c140e9c7946ff7af00",
+    "codex-rs/exec-server/src/environment.rs": "7f2ba22dd3115a478a3a3ad19cbf415931f999beab12f3be2360113763e9fdbb",
+    "codex-rs/exec-server/src/lib.rs": "ec6f002dded8df4efeca94089e5b7547c53e0d946555853bc075f972a3583377",
+    "codex-rs/exec-server/src/process.rs": "f3983ecbde4c0641281f0c66de1ab07844c0139094a137ad02394dcac328377d",
+    "codex-rs/exec/src/cli.rs": "e60d93d09929b1e03f62ecc04db363faa9e791f87b2ddf030d2102a3400c6566",
+    "codex-rs/exec/src/event_processor.rs": "b23e5cff350f621247ca2d7e21d2458ddd515074becf8f7de599aa495459b2b4",
+    "codex-rs/exec/src/lib.rs": "789a75a175a34b64c5830ec1c03d7f93831e770dab45ac2134ba28fd1f2f09bb",
+    "codex-rs/execpolicy/src/lib.rs": "56310777741d2f8db010d8d7264a8a2a111aea39dd40161abbfdc52dbdd856b9",
+    "codex-rs/execpolicy/src/policy.rs": "123c05042669c6e0d484d4feadc4b621257f30c141ddbc034b6b77214188589f",
+    "codex-rs/execpolicy/src/rule.rs": "f18a712fa2c7c9700d5bda076dcdb151fb62393898429fddbc28922285645fd1",
+    "codex-rs/ext/extension-api/src/lib.rs": "6aa0eb7d35bb8795cd25089716898f0c4f592f6c23d3d5f788e43173a43053b0",
+    "codex-rs/hooks/src/lib.rs": "773167e14354da17d8ed8f346de41c7c68d42a9e9cbf778c3de1299b8bed5449",
+    "codex-rs/hooks/src/registry.rs": "6c277137f36f2324d2ab82cf3ad3b6296cb3abbdb2e7d1d48b95fe2425f6636c",
+    "codex-rs/hooks/src/types.rs": "ae56376e2f97880653a3e9aa0ea38fa8e7b04ea04eddcd7e47689013bcbeb700",
+    "codex-rs/mcp-server/src/codex_tool_runner.rs": "2f54456b9bb26d7cfc8e9b5054468891e26427529d723fde724d417cf4638b86",
+    "codex-rs/mcp-server/src/lib.rs": "54502bfe81e0567413381beeb000c7ada5e54572a3f0ca54e9ea0c9e7fc36543",
+    "codex-rs/mcp-server/src/message_processor.rs": "3d776501f149491cd2ff474941f44f470c49e76e464ccb99c752f35aca8f9182",
+    "codex-rs/message-history/src/lib.rs": "17a9e5b4bbbf2afed13da6c1112be130e5e5e9e559b6db81d84c5d7fc90b4485",
+    "codex-rs/model-provider/src/auth.rs": "3c8a01cc91ec2a0ef62ec7a35f820ecaefee0076b0ad1abf5d06de0d6f58dddf",
+    "codex-rs/model-provider/src/lib.rs": "e0da079dcda53b1620a81c38b6fad52f5221d5fc280370c9e0e96be696343646",
+    "codex-rs/model-provider/src/provider.rs": "2a71545555fa8a436b2f20fb55966b87f00c00191c717c5ba8a6af77852877e4",
+    "codex-rs/models-manager/src/manager.rs": "1c0d9ac6991c13ef5fad7f94d1e460ec0001be2be4d31b3eed90040a1b670ab6",
+    "codex-rs/plugin/src/lib.rs": "9ce9f9ca50dbf767e2e7623c7195ea7985522227e6ef8952537c411f371da226",
+    "codex-rs/plugin/src/manifest.rs": "09b3483987b5f34db2f61f0c909d5575e11efdf436b73533fcd288ca0c404dbd",
+    "codex-rs/plugin/src/plugin_id.rs": "6017f7fd653e20f89f337823c507ab7c63048d08693166605a5f67838b358cc9",
+    "codex-rs/plugin/src/provider.rs": "9f492f57c04d330329eb5e76025549f3da575b6bca704d4bb612bb1fd4353fb4",
+    "codex-rs/rollout/src/compression.rs": "ece86707174764f9d3c8d9a13217056dbf71a6d57361dbc783e94db619658f9a",
+    "codex-rs/rollout/src/lib.rs": "17cce21a7ddec3a1ea7f51208dde5540411274a2997e21eefbf3cfdab11814b3",
+    "codex-rs/rollout/src/recorder.rs": "6fa398ba6a0d65e285b546675e52451eb72e5cc1fb66fc556389487458cf5449",
+    "codex-rs/rollout/src/search.rs": "8dc8b3d71663135134da312772a5c9d5cde3465d7e10538ab73fbea101e5eec7",
+    "codex-rs/rollout/src/state_db.rs": "313363cb8ed3008c64c4806fe2860767406a8de52dded558c3dae994aa7f22ad",
+    "codex-rs/sandboxing/src/bwrap.rs": "43abc86eb6a62689c6aa75dc27f6cd05101cab831b339d4e85e316c1c296d19c",
+    "codex-rs/sandboxing/src/lib.rs": "a9c1d1d6307569711ebbd8ec53fd7e6e4614f460efab37579d3a0ac61e695ece",
+    "codex-rs/sandboxing/src/manager.rs": "96378c137c23383f056ffc6033309884fe96d716a3b66f15ecc8e288d6614d03",
+    "codex-rs/shell-escalation/src/lib.rs": "5a1fa42cc02c70620bb115eefd84211fc4af5534b3a63d7519ddb1ebacbeca6e",
+    "codex-rs/skills/src/lib.rs": "620d77530afb5cfcb0e26eb4f8d772eb6b56b2d06b12d55cc7d959703bb2f059",
+    "codex-rs/thread-store/src/lib.rs": "9d45cc6c10f41d9d815d34b69e5dd51593a7437b5d2acd61c3e16135c7c990a9",
+    "codex-rs/tools/src/lib.rs": "082868fdcf98670f76dfaa2155df438f5f80e82a1b8162dd2a690df1d75a4d7f",
+    "codex-rs/tools/src/tool_definition.rs": "0d17dfb10fc2745c8fb4550b6fe910ecd1add0906d9a6bb66b4f0660c147471a",
+    "codex-rs/tools/src/tool_discovery.rs": "ae22930e1899294bd72417335fb93f98a34cbaa4c8d256c3487c0a3a473a5025",
+    "codex-rs/tools/src/tool_executor.rs": "816dee01105269372732e5378c99fae4cb228787f8fac191ef11fb801fd0fa24"
+  },
+  "last_ingest": "2026-06-28T00:00:00Z",
+  "repo": "codex-main",
+  "source_path": "/Users/yuanlimiao/Work/agent_harness/codex-main"
+}

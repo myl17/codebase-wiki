@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WIKI_ROOT="$(dirname "$SCRIPT_DIR")"
 HOT_FILE="$WIKI_ROOT/wiki/hot.md"
 LOG_FILE="$WIKI_ROOT/wiki/log.md"
-MANIFEST="$WIKI_ROOT/.manifest.json"
+EVOLVE_DIR="$WIKI_ROOT/evolve-signals"
 
 hot_content=""
 if [ -f "$HOT_FILE" ]; then
@@ -20,17 +20,16 @@ if [ -f "$LOG_FILE" ]; then
   last_log_lines="$(tail -3 "$LOG_FILE" 2>/dev/null || true)"
 fi
 
-# stale_count: use --json flag so output is always a number, never "No stale repos."
-stale_count=0
-if [ -f "$MANIFEST" ] && command -v python3 &>/dev/null; then
-  stale_count=$(python3 "$WIKI_ROOT/scripts/manifest.py" --manifest "$MANIFEST" stale --json \
-    2>/dev/null || echo "0")
+# Count pending evolve signals
+evolve_count=0
+if [ -d "$EVOLVE_DIR" ]; then
+  evolve_count=$(ls "$EVOLVE_DIR"/*.md 2>/dev/null | wc -l | tr -d ' ')
 fi
 
 # Build additionalContext safely: use python to produce valid JSON,
 # avoiding shell interpolation of quotes/backslashes in content strings.
 python3 - <<PYEOF
-import json, sys
+import json
 
 context = """## Codebase Wiki Status
 
@@ -42,10 +41,10 @@ context = """## Codebase Wiki Status
 
 ### Health
 
-Stale dimension pages: {stale}""".format(
+Pending evolve signals: {evolve}""".format(
     hot="""$hot_content""",
     log="""$last_log_lines""",
-    stale="""$stale_count""",
+    evolve="""$evolve_count""",
 )
 
 print(json.dumps({"additionalContext": context}))

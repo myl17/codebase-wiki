@@ -18,9 +18,9 @@
     "lint"
   ],
   "commands": {
-    "analyze": {
-      "description": "Analyze a code repository and populate wiki/repos/<name>/ with structured knowledge",
-      "file": ".claude/commands/analyze.md"
+    "ingest": {
+      "description": "Extract structural entities from a code repository, map to problem spaces, and evolve concept pages",
+      "file": ".claude/commands/ingest.md"
     },
     "query": {
       "description": "Answer questions using the wiki knowledge base",
@@ -33,6 +33,10 @@
     "lint": {
       "description": "Run programmatic health checks on the wiki",
       "file": ".claude/commands/lint.md"
+    },
+    "evolve-apply": {
+      "description": "Wikipedia-style concept page evolution: merge, split, redirect",
+      "file": ".claude/commands/evolve-apply.md"
     }
   }
 }

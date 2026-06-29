@@ -49,15 +49,18 @@ Evolution layer:
 
 ### Installation
 
-1. **Install the plugin** from the Claude Code plugin marketplace:
+1. **Add the marketplace and install:**
 
    ```
-   /plugin install codebase-wiki
+   /plugin marketplace add myl17/codebase-wiki
+   /plugin install codebase-wiki@codebase-wiki
    ```
 
-   Or clone it locally and register as a dev marketplace:
+   Or install from a local clone:
    ```bash
    git clone https://github.com/myl17/codebase-wiki.git
+   /plugin marketplace add ./codebase-wiki
+   /plugin install codebase-wiki@codebase-wiki
    ```
 
 2. **Install Python dependencies** (for lint health checks):

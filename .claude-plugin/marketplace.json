@@ -1,6 +1,6 @@
 {
-  "name": "codebase-wiki-dev",
-  "description": "Local development marketplace for codebase-wiki plugin",
+  "name": "codebase-wiki",
+  "description": "Codebase knowledge accumulation system — analyze repos, build a structured wiki, compare architectures, and query design decisions",
   "owner": {
     "name": "myl17"
   },

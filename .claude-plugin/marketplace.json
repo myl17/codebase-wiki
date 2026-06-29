@@ -2,7 +2,7 @@
   "name": "codebase-wiki-dev",
   "description": "Local development marketplace for codebase-wiki plugin",
   "owner": {
-    "name": "miaoyuanli"
+    "name": "myl17"
   },
   "plugins": [
     {
@@ -11,7 +11,7 @@
       "version": "0.1.0",
       "source": "./",
       "author": {
-        "name": "miaoyuanli"
+        "name": "myl17"
       }
     }
   ]

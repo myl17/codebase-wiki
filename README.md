@@ -57,7 +57,7 @@ Evolution layer:
 
    Or clone it locally and register as a dev marketplace:
    ```bash
-   git clone https://github.com/miaoyuanli/codebase-wiki.git
+   git clone https://github.com/myl17/codebase-wiki.git
    ```
 
 2. **Install Python dependencies** (for lint health checks):
@@ -158,7 +158,7 @@ codebase-wiki/
 
 ## License
 
-MIT © [miaoyuanli](https://github.com/miaoyuanli)
+MIT © [myl17](https://github.com/myl17)
 
 ---
 

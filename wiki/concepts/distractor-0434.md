@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0434
-problem: "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）"
-concerns: [运行时性能, 部署复杂度, 版本升级平滑性]
-repos: [kubernetes, flask]
+problem: "如何为 NewSQL 系统设计全局事务标识和时钟同步机制"
+concerns: [容错性, 硬件效率, 运维复杂度]
+repos: [clickhouse, django]
 generated: 2026-06-29
 ---

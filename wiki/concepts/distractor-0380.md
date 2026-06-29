@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0380
-problem: "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）"
-concerns: [接口简洁性, 数据一致性]
-repos: [spark, kubernetes]
+problem: "如何管理多环境下特性开关的配置继承与覆盖规则"
+concerns: [响应延迟, 扩展灵活性]
+repos: [envoy, kubernetes]
 generated: 2026-06-29
 ---

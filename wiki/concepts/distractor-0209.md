@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0209
-problem: "如何在 NUMA 架构上实现内存分配器的节点亲和性策略"
-concerns: [硬件效率, 吞吐量]
-repos: [etcd, elasticsearch]
+problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）"
+concerns: [扩展灵活性, 响应延迟]
+repos: [kafka, redis]
 generated: 2026-06-29
 ---

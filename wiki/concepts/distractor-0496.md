@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0496
-problem: "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）"
-concerns: [代码可维护性, 版本升级平滑性]
-repos: [clickhouse, rocksdb]
+problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
+concerns: [资源利用率, 故障恢复时间, 扩展灵活性]
+repos: [pytorch, etcd]
 generated: 2026-06-29
 ---

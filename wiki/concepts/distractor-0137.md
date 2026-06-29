@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0137
-problem: "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移"
-concerns: [容错性, 硬件效率, 吞吐量]
-repos: [tensorflow, llvm-project]
+problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
+concerns: [容错性, 吞吐量, 延迟]
+repos: [llvm-project, grafana]
 generated: 2026-06-29
 ---

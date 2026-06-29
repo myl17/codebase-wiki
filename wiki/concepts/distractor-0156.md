@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0156
-problem: "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）"
-concerns: [版本升级平滑性, 生态兼容性]
-repos: [kafka, rocksdb]
+problem: "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）"
+concerns: [接口简洁性, 扩展灵活性, 安全隔离性]
+repos: [vue, grafana]
 generated: 2026-06-29
 ---

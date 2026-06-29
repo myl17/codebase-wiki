@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0456
-problem: "如何为时序数据库选择合适的数据编码和压缩算法"
-concerns: [兼容性, 吞吐量]
-repos: [llvm-project, kubernetes]
+problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容"
+concerns: [接口简洁性, 资源利用率]
+repos: [rocksdb, flask]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0429
-problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
-concerns: [版本升级平滑性, 代码可维护性, 运行时性能]
-repos: [pytorch, django]
+problem: "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）"
+concerns: [数据一致性, 接口简洁性]
+repos: [llvm-project, react]
 generated: 2026-06-29
 ---

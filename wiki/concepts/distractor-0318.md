@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0318
-problem: "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟"
-concerns: [内存开销, 实现复杂度, 网络带宽]
-repos: [nginx, envoy]
+problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
+concerns: [一致性, 运维复杂度]
+repos: [clickhouse, grafana]
 generated: 2026-06-29
 ---

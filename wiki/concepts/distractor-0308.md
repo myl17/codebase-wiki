@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0308
-problem: "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）"
-concerns: [资源利用率, 扩展灵活性, 读写性能]
-repos: [flask, grpc]
+problem: "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）"
+concerns: [运行时性能, 调试便利性]
+repos: [llvm-project, clickhouse]
 generated: 2026-06-29
 ---

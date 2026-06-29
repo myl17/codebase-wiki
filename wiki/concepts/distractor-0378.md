@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0378
-problem: "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率"
-concerns: [吞吐量, 硬件效率]
-repos: [postgres, kafka]
+problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
+concerns: [延迟, 可扩展性]
+repos: [llvm-project, linux]
 generated: 2026-06-29
 ---

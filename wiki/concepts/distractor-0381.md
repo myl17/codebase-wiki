@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0381
-problem: "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护"
-concerns: [可扩展性, 延迟, 运维复杂度]
-repos: [llvm-project, rocksdb]
+problem: "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）"
+concerns: [网络带宽, 运行时性能]
+repos: [vue, nginx]
 generated: 2026-06-29
 ---

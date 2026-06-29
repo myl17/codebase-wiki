@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0099
-problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）"
-concerns: [故障恢复时间, 读写性能]
-repos: [elasticsearch, envoy]
+problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
+concerns: [延迟, 硬件效率, 兼容性]
+repos: [redis, swift]
 generated: 2026-06-29
 ---

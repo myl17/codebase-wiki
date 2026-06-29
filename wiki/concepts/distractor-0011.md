@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0011
-problem: "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化"
-concerns: [吞吐量, 兼容性, 可扩展性]
-repos: [postgres, spark]
+problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
+concerns: [调试便利性, 代码可维护性]
+repos: [postgres, grpc]
 generated: 2026-06-29
 ---

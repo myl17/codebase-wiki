@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0464
-problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
-concerns: [接口简洁性, 故障恢复时间, 响应延迟]
-repos: [redis, pytorch]
+problem: "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber"
+concerns: [吞吐量, 容错性, 一致性]
+repos: [flask, redis]
 generated: 2026-06-29
 ---

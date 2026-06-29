@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0352
-problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
-concerns: [兼容性, 可扩展性, 延迟]
-repos: [spark, grafana]
+problem: "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）"
+concerns: [代码可维护性, 运行时性能]
+repos: [llvm-project, prometheus]
 generated: 2026-06-29
 ---

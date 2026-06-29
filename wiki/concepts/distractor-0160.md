@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0160
-problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
-concerns: [响应延迟, 数据一致性, 扩展灵活性]
-repos: [grpc, llvm-project]
+problem: "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）"
+concerns: [代码可维护性, 网络带宽]
+repos: [elasticsearch, docker]
 generated: 2026-06-29
 ---

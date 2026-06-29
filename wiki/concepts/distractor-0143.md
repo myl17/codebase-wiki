@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0143
-problem: "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数"
-concerns: [实现复杂度, 内存开销]
-repos: [flask, envoy]
+problem: "如何管理浏览器扩展的能力声明与权限分级（扩展变体）"
+concerns: [数据一致性, 响应延迟, 接口简洁性]
+repos: [kubernetes, redis]
 generated: 2026-06-29
 ---

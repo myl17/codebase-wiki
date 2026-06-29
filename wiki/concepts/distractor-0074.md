@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0074
-problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）"
-concerns: [学习成本, 代码可维护性]
-repos: [docker, flask]
+problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）"
+concerns: [读写性能, 响应延迟, 故障恢复时间]
+repos: [prometheus, postgres]
 generated: 2026-06-29
 ---

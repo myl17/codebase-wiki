@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0465
-problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
-concerns: [兼容性, 运维复杂度, 可扩展性]
-repos: [llvm-project, grafana]
+problem: "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）"
+concerns: [运行时性能, 代码可维护性, 网络带宽]
+repos: [tensorflow, elasticsearch]
 generated: 2026-06-29
 ---

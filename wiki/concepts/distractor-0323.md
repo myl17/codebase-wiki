@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0323
-problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
-concerns: [一致性, 运维复杂度, 延迟]
-repos: [prometheus, django]
+problem: "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）"
+concerns: [扩展灵活性, 接口简洁性]
+repos: [grafana, elasticsearch]
 generated: 2026-06-29
 ---

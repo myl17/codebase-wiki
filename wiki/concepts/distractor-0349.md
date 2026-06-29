@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0349
-problem: "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）"
-concerns: [实现复杂度, 代码可维护性]
-repos: [llvm-project, pytorch]
+problem: "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销"
+concerns: [硬件效率, 可扩展性]
+repos: [postgres, docker]
 generated: 2026-06-29
 ---

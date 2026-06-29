@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0158
-problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
-concerns: [延迟, 运维复杂度, 硬件效率]
-repos: [react, llvm-project]
+problem: "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）"
+concerns: [代码可维护性, 运行时性能, 磁盘 I/O]
+repos: [swift, etcd]
 generated: 2026-06-29
 ---

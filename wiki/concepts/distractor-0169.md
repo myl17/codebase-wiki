@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0169
-problem: "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）"
-concerns: [安全隔离性, 资源利用率]
-repos: [envoy, spark]
+problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）"
+concerns: [开发效率, 代码可维护性, 部署复杂度]
+repos: [envoy, etcd]
 generated: 2026-06-29
 ---

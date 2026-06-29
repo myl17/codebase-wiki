@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0173
-problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
-concerns: [数据一致性, 资源利用率, 故障恢复时间]
-repos: [docker, rocksdb]
+problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
+concerns: [接口简洁性, 响应延迟, 扩展灵活性]
+repos: [llvm-project, kubernetes]
 generated: 2026-06-29
 ---

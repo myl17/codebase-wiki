@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0273
-problem: "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由"
-concerns: [兼容性, 一致性]
-repos: [react, envoy]
+problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
+concerns: [响应延迟, 数据一致性]
+repos: [envoy, clickhouse]
 generated: 2026-06-29
 ---

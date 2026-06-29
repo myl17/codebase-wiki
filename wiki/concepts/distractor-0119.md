@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0119
-problem: "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）"
-concerns: [安全隔离性, 数据一致性]
-repos: [kubernetes, envoy]
+problem: "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）"
+concerns: [磁盘 I/O, 内存开销, 调试便利性]
+repos: [nginx, vue]
 generated: 2026-06-29
 ---

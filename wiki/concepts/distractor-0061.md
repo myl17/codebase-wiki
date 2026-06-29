@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0061
-problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）"
-concerns: [安全隔离性, 资源利用率, 读写性能]
-repos: [linux, kubernetes]
+problem: "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率"
+concerns: [一致性, 兼容性, 可扩展性]
+repos: [etcd, tensorflow]
 generated: 2026-06-29
 ---

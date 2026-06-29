@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0066
-problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
-concerns: [可扩展性, 容错性, 吞吐量]
-repos: [pytorch, vue]
+problem: "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）"
+concerns: [代码可维护性, 学习成本, 开发效率]
+repos: [clickhouse, elasticsearch]
 generated: 2026-06-29
 ---

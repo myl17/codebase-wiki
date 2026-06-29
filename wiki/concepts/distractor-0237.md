@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0237
-problem: "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）"
-concerns: [响应延迟, 读写性能, 资源利用率]
-repos: [etcd, vue]
+problem: "如何在用户态网络栈中实现零拷贝的数据包处理管道"
+concerns: [运维复杂度, 延迟]
+repos: [react, prometheus]
 generated: 2026-06-29
 ---

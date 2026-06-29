@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0457
-problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
-concerns: [生态兼容性, 学习成本]
-repos: [react, tensorflow]
+problem: "如何在用户态网络栈中实现零拷贝的数据包处理管道"
+concerns: [运维复杂度, 可扩展性, 容错性]
+repos: [linux, grafana]
 generated: 2026-06-29
 ---

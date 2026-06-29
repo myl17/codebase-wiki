@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0188
-problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
-concerns: [安全隔离性, 扩展灵活性]
-repos: [grafana, llvm-project]
+problem: "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新"
+concerns: [可扩展性, 一致性, 延迟]
+repos: [postgres, elasticsearch]
 generated: 2026-06-29
 ---

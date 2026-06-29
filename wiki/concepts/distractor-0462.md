@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0462
-problem: "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）"
-concerns: [调试便利性, 网络带宽, 内存开销]
-repos: [tensorflow, llvm-project]
+problem: "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）"
+concerns: [故障恢复时间, 接口简洁性, 扩展灵活性]
+repos: [django, prometheus]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0269
-problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）"
-concerns: [故障恢复时间, 接口简洁性, 数据一致性]
-repos: [pytorch, llvm-project]
+problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
+concerns: [扩展灵活性, 故障恢复时间, 资源利用率]
+repos: [prometheus, elasticsearch]
 generated: 2026-06-29
 ---

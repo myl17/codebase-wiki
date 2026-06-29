@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0461
-problem: "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界"
-concerns: [一致性, 吞吐量]
-repos: [linux, llvm-project]
+problem: "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）"
+concerns: [内存开销, 代码可维护性]
+repos: [grafana, vue]
 generated: 2026-06-29
 ---

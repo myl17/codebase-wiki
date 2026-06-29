@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0103
-problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚"
-concerns: [扩展灵活性, 安全隔离性, 资源利用率]
-repos: [grafana, vue]
+problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
+concerns: [安全隔离性, 扩展灵活性]
+repos: [elasticsearch, spark]
 generated: 2026-06-29
 ---

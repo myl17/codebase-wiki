@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0187
-problem: "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）"
-concerns: [故障恢复时间, 响应延迟, 扩展灵活性]
-repos: [flask, nginx]
+problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）"
+concerns: [调试便利性, 部署复杂度, 生态兼容性]
+repos: [rocksdb, swift]
 generated: 2026-06-29
 ---

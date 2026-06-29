@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0376
-problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
-concerns: [吞吐量, 一致性, 运维复杂度]
-repos: [flask, linux]
+problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
+concerns: [扩展灵活性, 安全隔离性, 接口简洁性]
+repos: [docker, react]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0140
-problem: "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）"
-concerns: [资源利用率, 接口简洁性, 安全隔离性]
-repos: [flask, spark]
+problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
+concerns: [版本升级平滑性, 调试便利性]
+repos: [spark, rocksdb]
 generated: 2026-06-29
 ---

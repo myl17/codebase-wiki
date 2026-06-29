@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0316
-problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
-concerns: [一致性, 兼容性]
-repos: [grpc, rocksdb]
+problem: "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移"
+concerns: [兼容性, 吞吐量]
+repos: [grafana, grpc]
 generated: 2026-06-29
 ---

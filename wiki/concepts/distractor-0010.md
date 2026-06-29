@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0010
-problem: "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber"
-concerns: [延迟, 容错性, 可扩展性]
-repos: [grpc, envoy]
+problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
+concerns: [调试便利性, 运行时性能]
+repos: [swift, django]
 generated: 2026-06-29
 ---

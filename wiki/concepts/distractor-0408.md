@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0408
-problem: "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用"
-concerns: [可扩展性, 延迟]
-repos: [redis, flask]
+problem: "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）"
+concerns: [代码可维护性, 开发效率]
+repos: [django, kafka]
 generated: 2026-06-29
 ---

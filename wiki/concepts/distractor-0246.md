@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0246
-problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
-concerns: [一致性, 硬件效率, 容错性]
-repos: [postgres, envoy]
+problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
+concerns: [安全隔离性, 响应延迟, 接口简洁性]
+repos: [pytorch, etcd]
 generated: 2026-06-29
 ---

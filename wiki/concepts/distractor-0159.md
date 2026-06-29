@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0159
-problem: "如何在列式存储引擎中实现谓词下推和延迟物化"
-concerns: [可扩展性, 吞吐量, 容错性]
-repos: [kafka, prometheus]
+problem: "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移"
+concerns: [运维复杂度, 吞吐量]
+repos: [docker, pytorch]
 generated: 2026-06-29
 ---

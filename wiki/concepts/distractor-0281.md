@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0281
-problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
-concerns: [运维复杂度, 一致性]
-repos: [tensorflow, elasticsearch]
+problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
+concerns: [读写性能, 资源利用率]
+repos: [grpc, flask]
 generated: 2026-06-29
 ---

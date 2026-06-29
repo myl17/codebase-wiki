@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0041
-problem: "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）"
-concerns: [部署复杂度, 调试便利性, 运行时性能]
-repos: [elasticsearch, linux]
+problem: "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）"
+concerns: [扩展灵活性, 数据一致性]
+repos: [flask, envoy]
 generated: 2026-06-29
 ---

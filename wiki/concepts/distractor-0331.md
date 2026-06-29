@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0331
-problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
-concerns: [响应延迟, 扩展灵活性]
-repos: [redis, react]
+problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）"
+concerns: [数据一致性, 资源利用率]
+repos: [django, clickhouse]
 generated: 2026-06-29
 ---

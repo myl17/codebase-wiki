@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0207
-problem: "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销"
-concerns: [兼容性, 一致性, 吞吐量]
-repos: [llvm-project, clickhouse]
+problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
+concerns: [一致性, 容错性, 延迟]
+repos: [swift, rocksdb]
 generated: 2026-06-29
 ---

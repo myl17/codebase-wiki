@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0427
-problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
-concerns: [生态兼容性, 学习成本]
-repos: [prometheus, rocksdb]
+problem: "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度"
+concerns: [吞吐量, 可扩展性, 一致性]
+repos: [rocksdb, prometheus]
 generated: 2026-06-29
 ---

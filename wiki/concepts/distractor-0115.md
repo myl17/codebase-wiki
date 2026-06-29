@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0115
-problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
-concerns: [版本升级平滑性, 学习成本, 部署复杂度]
-repos: [react, kubernetes]
+problem: "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）"
+concerns: [响应延迟, 故障恢复时间, 安全隔离性]
+repos: [prometheus, kafka]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0298
-problem: "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销"
-concerns: [运维复杂度, 兼容性, 硬件效率]
-repos: [pytorch, etcd]
+problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
+concerns: [延迟, 兼容性, 可扩展性]
+repos: [prometheus, elasticsearch]
 generated: 2026-06-29
 ---

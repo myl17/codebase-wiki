@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0000
-problem: "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）"
-concerns: [扩展灵活性, 接口简洁性]
-repos: [redis, vue]
+problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
+concerns: [代码可维护性, 开发效率, 学习成本]
+repos: [grpc, swift]
 generated: 2026-06-29
 ---

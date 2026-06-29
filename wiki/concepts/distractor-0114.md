@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0114
-problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
-concerns: [扩展灵活性, 资源利用率]
-repos: [kubernetes, llvm-project]
+problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
+concerns: [运维复杂度, 兼容性]
+repos: [flask, prometheus]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0254
-problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
-concerns: [版本升级平滑性, 学习成本, 开发效率]
-repos: [prometheus, elasticsearch]
+problem: "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销"
+concerns: [可扩展性, 兼容性, 容错性]
+repos: [etcd, react]
 generated: 2026-06-29
 ---

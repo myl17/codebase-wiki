@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0162
-problem: "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）"
-concerns: [版本升级平滑性, 开发效率, 生态兼容性]
-repos: [rocksdb, etcd]
+problem: "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除"
+concerns: [可扩展性, 容错性, 硬件效率]
+repos: [linux, vue]
 generated: 2026-06-29
 ---

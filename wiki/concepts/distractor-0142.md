@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0142
-problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
-concerns: [响应延迟, 数据一致性]
-repos: [envoy, clickhouse]
+problem: "如何管理浏览器扩展的能力声明与权限分级（扩展变体）"
+concerns: [资源利用率, 故障恢复时间, 扩展灵活性]
+repos: [rocksdb, spark]
 generated: 2026-06-29
 ---

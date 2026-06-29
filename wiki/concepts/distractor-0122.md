@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0122
-problem: "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）"
-concerns: [学习成本, 部署复杂度, 生态兼容性]
-repos: [llvm-project, etcd]
+problem: "如何为时序数据库选择合适的数据编码和压缩算法"
+concerns: [一致性, 运维复杂度, 容错性]
+repos: [pytorch, tensorflow]
 generated: 2026-06-29
 ---

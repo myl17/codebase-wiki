@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0104
-problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
-concerns: [学习成本, 版本升级平滑性]
-repos: [prometheus, pytorch]
+problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
+concerns: [延迟, 运维复杂度, 吞吐量]
+repos: [grafana, redis]
 generated: 2026-06-29
 ---

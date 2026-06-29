@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0033
-problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
-concerns: [调试便利性, 开发效率, 生态兼容性]
-repos: [llvm-project, react]
+problem: "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界"
+concerns: [容错性, 兼容性]
+repos: [llvm-project, grpc]
 generated: 2026-06-29
 ---

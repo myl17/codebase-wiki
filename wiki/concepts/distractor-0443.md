@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0443
-problem: "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）"
-concerns: [代码可维护性, 学习成本, 运行时性能]
-repos: [clickhouse, linux]
+problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）"
+concerns: [开发效率, 代码可维护性]
+repos: [linux, prometheus]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0441
-problem: "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除"
-concerns: [硬件效率, 可扩展性]
-repos: [llvm-project, django]
+problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入"
+concerns: [扩展灵活性, 读写性能]
+repos: [envoy, flask]
 generated: 2026-06-29
 ---

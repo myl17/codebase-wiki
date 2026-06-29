@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0260
-problem: "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）"
-concerns: [调试便利性, 网络带宽, 磁盘 I/O]
-repos: [kafka, tensorflow]
+problem: "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡"
+concerns: [硬件效率, 一致性, 可扩展性]
+repos: [nginx, postgres]
 generated: 2026-06-29
 ---

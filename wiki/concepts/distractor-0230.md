@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0230
-problem: "如何在 NUMA 架构上实现内存分配器的节点亲和性策略"
-concerns: [延迟, 硬件效率, 兼容性]
-repos: [prometheus, vue]
+problem: "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界"
+concerns: [硬件效率, 一致性]
+repos: [kubernetes, linux]
 generated: 2026-06-29
 ---

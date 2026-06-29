@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0354
-problem: "如何在内存数据库中实现高效的增量检查点与故障恢复"
-concerns: [运维复杂度, 吞吐量]
-repos: [postgres, pytorch]
+problem: "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）"
+concerns: [实现复杂度, 调试便利性, 运行时性能]
+repos: [grpc, kafka]
 generated: 2026-06-29
 ---

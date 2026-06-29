@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0017
-problem: "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护"
-concerns: [硬件效率, 吞吐量, 容错性]
-repos: [grpc, nginx]
+problem: "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度"
+concerns: [故障恢复时间, 扩展灵活性]
+repos: [llvm-project, django]
 generated: 2026-06-29
 ---

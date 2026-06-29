@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0203
-problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
-concerns: [容错性, 可扩展性, 硬件效率]
-repos: [spark, kubernetes]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务"
+concerns: [部署复杂度, 运行时性能, 版本升级平滑性]
+repos: [flask, linux]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0113
-problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）"
-concerns: [扩展灵活性, 数据一致性]
-repos: [prometheus, grafana]
+problem: "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界"
+concerns: [吞吐量, 运维复杂度, 硬件效率]
+repos: [tensorflow, etcd]
 generated: 2026-06-29
 ---

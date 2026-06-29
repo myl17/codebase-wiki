@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0363
-problem: "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）"
-concerns: [响应延迟, 数据一致性, 故障恢复时间]
-repos: [nginx, kubernetes]
+problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
+concerns: [吞吐量, 延迟, 运维复杂度]
+repos: [etcd, postgres]
 generated: 2026-06-29
 ---

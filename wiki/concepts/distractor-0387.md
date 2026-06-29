@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0387
-problem: "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销"
-concerns: [运维复杂度, 容错性, 可扩展性]
-repos: [nginx, clickhouse]
+problem: "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化"
+concerns: [运行时性能, 磁盘 I/O, 调试便利性]
+repos: [vue, rocksdb]
 generated: 2026-06-29
 ---

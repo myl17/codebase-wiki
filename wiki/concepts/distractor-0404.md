@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0404
-problem: "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）"
-concerns: [故障恢复时间, 安全隔离性]
-repos: [react, swift]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
+concerns: [调试便利性, 代码可维护性]
+repos: [docker, react]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0332
-problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
-concerns: [运维复杂度, 一致性, 硬件效率]
-repos: [prometheus, kubernetes]
+problem: "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）"
+concerns: [学习成本, 部署复杂度, 开发效率]
+repos: [rocksdb, nginx]
 generated: 2026-06-29
 ---

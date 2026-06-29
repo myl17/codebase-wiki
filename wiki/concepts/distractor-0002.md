@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0002
-problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
-concerns: [运维复杂度, 延迟, 兼容性]
-repos: [docker, spark]
+problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
+concerns: [可扩展性, 兼容性, 运维复杂度]
+repos: [kubernetes, postgres]
 generated: 2026-06-29
 ---

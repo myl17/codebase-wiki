@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0189
-problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
-concerns: [代码可维护性, 版本升级平滑性]
-repos: [clickhouse, prometheus]
+problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
+concerns: [吞吐量, 容错性, 硬件效率]
+repos: [kafka, react]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0238
-problem: "如何管理浏览器扩展的能力声明与权限分级（扩展变体）"
-concerns: [资源利用率, 故障恢复时间]
-repos: [swift, grpc]
+problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
+concerns: [代码可维护性, 生态兼容性]
+repos: [nginx, grpc]
 generated: 2026-06-29
 ---

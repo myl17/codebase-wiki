@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0365
-problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换"
-concerns: [扩展灵活性, 安全隔离性]
-repos: [react, grpc]
+problem: "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络"
+concerns: [延迟, 硬件效率, 兼容性]
+repos: [envoy, prometheus]
 generated: 2026-06-29
 ---

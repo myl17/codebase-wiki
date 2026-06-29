@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0338
-problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
-concerns: [生态兼容性, 调试便利性, 学习成本]
-repos: [clickhouse, linux]
+problem: "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）"
+concerns: [响应延迟, 扩展灵活性]
+repos: [kubernetes, postgres]
 generated: 2026-06-29
 ---

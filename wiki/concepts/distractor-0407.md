@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0407
-problem: "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡"
-concerns: [一致性, 吞吐量]
-repos: [pytorch, kafka]
+problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
+concerns: [接口简洁性, 数据一致性]
+repos: [nginx, envoy]
 generated: 2026-06-29
 ---

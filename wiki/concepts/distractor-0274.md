@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0274
-problem: "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）"
-concerns: [生态兼容性, 开发效率]
-repos: [django, kubernetes]
+problem: "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销"
+concerns: [容错性, 一致性]
+repos: [vue, redis]
 generated: 2026-06-29
 ---

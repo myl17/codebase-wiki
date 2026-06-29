@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0064
-problem: "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除"
-concerns: [兼容性, 硬件效率, 延迟]
-repos: [redis, linux]
+problem: "如何在分布式数据库中实现基于 Raft 共识的强一致性复制"
+concerns: [吞吐量, 运维复杂度, 硬件效率]
+repos: [nginx, llvm-project]
 generated: 2026-06-29
 ---

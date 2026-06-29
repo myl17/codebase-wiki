@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0101
-problem: "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用"
-concerns: [可扩展性, 硬件效率]
-repos: [llvm-project, kubernetes]
+problem: "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络"
+concerns: [延迟, 运维复杂度, 容错性]
+repos: [pytorch, nginx]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0105
-problem: "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）"
-concerns: [内存开销, 网络带宽]
-repos: [docker, vue]
+problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
+concerns: [兼容性, 运维复杂度, 一致性]
+repos: [react, elasticsearch]
 generated: 2026-06-29
 ---

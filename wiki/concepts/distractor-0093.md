@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0093
-problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
-concerns: [硬件效率, 吞吐量]
-repos: [redis, django]
+problem: "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）"
+concerns: [响应延迟, 故障恢复时间, 数据一致性]
+repos: [vue, grafana]
 generated: 2026-06-29
 ---

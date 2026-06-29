@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0075
-problem: "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）"
-concerns: [运行时性能, 开发效率]
-repos: [grafana, tensorflow]
+problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
+concerns: [部署复杂度, 调试便利性]
+repos: [redis, pytorch]
 generated: 2026-06-29
 ---

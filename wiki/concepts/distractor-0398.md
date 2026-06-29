@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0398
-problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
-concerns: [数据一致性, 读写性能, 接口简洁性]
-repos: [tensorflow, docker]
+problem: "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）"
+concerns: [运行时性能, 学习成本, 代码可维护性]
+repos: [pytorch, vue]
 generated: 2026-06-29
 ---

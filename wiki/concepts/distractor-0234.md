@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0234
-problem: "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）"
-concerns: [数据一致性, 故障恢复时间]
-repos: [kafka, spark]
+problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
+concerns: [运维复杂度, 吞吐量, 兼容性]
+repos: [rocksdb, react]
 generated: 2026-06-29
 ---

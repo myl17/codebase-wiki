@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0165
-problem: "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）"
-concerns: [运行时性能, 代码可维护性, 内存开销]
-repos: [envoy, postgres]
+problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
+concerns: [硬件效率, 容错性, 延迟]
+repos: [clickhouse, swift]
 generated: 2026-06-29
 ---

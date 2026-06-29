@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0215
-problem: "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度"
-concerns: [运维复杂度, 可扩展性]
-repos: [envoy, nginx]
+problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
+concerns: [一致性, 吞吐量]
+repos: [linux, clickhouse]
 generated: 2026-06-29
 ---

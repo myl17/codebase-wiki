@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0488
-problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
-concerns: [响应延迟, 数据一致性, 读写性能]
-repos: [envoy, postgres]
+problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
+concerns: [兼容性, 延迟, 容错性]
+repos: [rocksdb, react]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0136
-problem: "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）"
-concerns: [版本升级平滑性, 学习成本, 代码可维护性]
-repos: [nginx, linux]
+problem: "如何在用户态网络栈中实现零拷贝的数据包处理管道"
+concerns: [吞吐量, 兼容性, 硬件效率]
+repos: [grpc, flask]
 generated: 2026-06-29
 ---

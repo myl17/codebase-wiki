@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0300
-problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
-concerns: [吞吐量, 可扩展性]
-repos: [envoy, postgres]
+problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
+concerns: [调试便利性, 部署复杂度, 生态兼容性]
+repos: [postgres, grpc]
 generated: 2026-06-29
 ---

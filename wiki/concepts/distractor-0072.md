@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0072
-problem: "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）"
-concerns: [部署复杂度, 开发效率, 运行时性能]
-repos: [flask, grafana]
+problem: "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化"
+concerns: [吞吐量, 兼容性]
+repos: [prometheus, envoy]
 generated: 2026-06-29
 ---

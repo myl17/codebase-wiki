@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0453
-problem: "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）"
-concerns: [运行时性能, 网络带宽]
-repos: [postgres, grpc]
+problem: "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新"
+concerns: [可扩展性, 吞吐量, 硬件效率]
+repos: [postgres, envoy]
 generated: 2026-06-29
 ---

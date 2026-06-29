@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0466
-problem: "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查"
-concerns: [部署复杂度, 生态兼容性, 调试便利性]
-repos: [docker, kubernetes]
+problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
+concerns: [调试便利性, 运行时性能, 代码可维护性]
+repos: [linux, spark]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0297
-problem: "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调"
-concerns: [代码可维护性, 部署复杂度, 学习成本]
-repos: [grpc, docker]
+problem: "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）"
+concerns: [磁盘 I/O, 运行时性能, 实现复杂度]
+repos: [rocksdb, kubernetes]
 generated: 2026-06-29
 ---

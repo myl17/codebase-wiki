@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0483
-problem: "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）"
-concerns: [数据一致性, 响应延迟, 故障恢复时间]
-repos: [pytorch, llvm-project]
+problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）"
+concerns: [接口简洁性, 响应延迟]
+repos: [elasticsearch, linux]
 generated: 2026-06-29
 ---

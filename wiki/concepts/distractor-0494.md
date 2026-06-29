@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0494
-problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
-concerns: [一致性, 吞吐量, 硬件效率]
-repos: [envoy, postgres]
+problem: "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）"
+concerns: [接口简洁性, 故障恢复时间, 资源利用率]
+repos: [pytorch, clickhouse]
 generated: 2026-06-29
 ---

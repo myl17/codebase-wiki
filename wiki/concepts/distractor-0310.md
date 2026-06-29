@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0310
-problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
-concerns: [版本升级平滑性, 生态兼容性, 部署复杂度]
-repos: [etcd, grafana]
+problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
+concerns: [兼容性, 运维复杂度, 硬件效率]
+repos: [django, postgres]
 generated: 2026-06-29
 ---

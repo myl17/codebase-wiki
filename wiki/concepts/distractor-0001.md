@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0001
-problem: "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移"
-concerns: [吞吐量, 可扩展性, 运维复杂度]
-repos: [pytorch, nginx]
+problem: "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）"
+concerns: [安全隔离性, 资源利用率, 数据一致性]
+repos: [clickhouse, linux]
 generated: 2026-06-29
 ---

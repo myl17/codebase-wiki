@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0016
-problem: "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）"
-concerns: [资源利用率, 故障恢复时间]
-repos: [llvm-project, kafka]
+problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
+concerns: [运维复杂度, 一致性]
+repos: [swift, etcd]
 generated: 2026-06-29
 ---

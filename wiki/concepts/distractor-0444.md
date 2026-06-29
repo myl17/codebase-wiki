@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0444
-problem: "如何在内存数据库中实现高效的增量检查点与故障恢复"
-concerns: [运维复杂度, 延迟, 兼容性]
-repos: [docker, react]
+problem: "如何在 NUMA 架构上实现内存分配器的节点亲和性策略"
+concerns: [硬件效率, 一致性]
+repos: [django, swift]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0493
-problem: "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）"
-concerns: [响应延迟, 安全隔离性, 数据一致性]
-repos: [tensorflow, grpc]
+problem: "如何为时序数据库选择合适的数据编码和压缩算法"
+concerns: [延迟, 运维复杂度, 一致性]
+repos: [swift, nginx]
 generated: 2026-06-29
 ---

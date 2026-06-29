@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0100
-problem: "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新"
-concerns: [兼容性, 吞吐量]
-repos: [grpc, react]
+problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）"
+concerns: [扩展灵活性, 读写性能]
+repos: [nginx, postgres]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0469
-problem: "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率"
-concerns: [兼容性, 可扩展性, 硬件效率]
-repos: [kubernetes, postgres]
+problem: "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）"
+concerns: [生态兼容性, 代码可维护性]
+repos: [grpc, react]
 generated: 2026-06-29
 ---

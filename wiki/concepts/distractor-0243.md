@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0243
-problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
-concerns: [代码可维护性, 学习成本, 运行时性能]
-repos: [elasticsearch, spark]
+problem: "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）"
+concerns: [数据一致性, 安全隔离性]
+repos: [prometheus, grpc]
 generated: 2026-06-29
 ---

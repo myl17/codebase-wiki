@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0320
-problem: "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）"
-concerns: [数据一致性, 安全隔离性, 故障恢复时间]
-repos: [flask, redis]
+problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
+concerns: [吞吐量, 运维复杂度, 硬件效率]
+repos: [linux, elasticsearch]
 generated: 2026-06-29
 ---

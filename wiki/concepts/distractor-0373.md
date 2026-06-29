@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0373
-problem: "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）"
-concerns: [读写性能, 安全隔离性, 扩展灵活性]
-repos: [tensorflow, swift]
+problem: "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）"
+concerns: [调试便利性, 代码可维护性, 网络带宽]
+repos: [prometheus, tensorflow]
 generated: 2026-06-29
 ---

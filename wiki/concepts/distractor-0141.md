@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0141
-problem: "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化"
-concerns: [一致性, 容错性]
-repos: [spark, nginx]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
+concerns: [生态兼容性, 学习成本]
+repos: [elasticsearch, django]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0112
-problem: "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）"
-concerns: [故障恢复时间, 接口简洁性, 数据一致性]
-repos: [docker, postgres]
+problem: "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新"
+concerns: [延迟, 一致性, 兼容性]
+repos: [spark, kubernetes]
 generated: 2026-06-29
 ---

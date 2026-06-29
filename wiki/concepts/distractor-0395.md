@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0395
-problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）"
-concerns: [扩展灵活性, 读写性能]
-repos: [nginx, llvm-project]
+problem: "如何在图数据库中实现高效的子图匹配和路径查询"
+concerns: [硬件效率, 延迟]
+repos: [rocksdb, postgres]
 generated: 2026-06-29
 ---

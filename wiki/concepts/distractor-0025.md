@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0025
-problem: "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）"
-concerns: [读写性能, 资源利用率]
-repos: [linux, grafana]
+problem: "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）"
+concerns: [调试便利性, 开发效率]
+repos: [prometheus, tensorflow]
 generated: 2026-06-29
 ---

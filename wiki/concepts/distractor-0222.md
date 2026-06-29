@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0222
-problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
-concerns: [一致性, 可扩展性, 吞吐量]
-repos: [linux, grafana]
+problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
+concerns: [可扩展性, 延迟]
+repos: [elasticsearch, vue]
 generated: 2026-06-29
 ---

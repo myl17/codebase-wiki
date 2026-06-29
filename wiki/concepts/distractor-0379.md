@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0379
-problem: "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销"
-concerns: [代码可维护性, 网络带宽]
-repos: [kafka, spark]
+problem: "如何在内存数据库中实现高效的增量检查点与故障恢复"
+concerns: [运维复杂度, 兼容性]
+repos: [flask, docker]
 generated: 2026-06-29
 ---

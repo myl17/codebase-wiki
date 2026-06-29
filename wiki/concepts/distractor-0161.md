@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0161
-problem: "如何在增量编译器中实现细粒度的依赖跟踪与失效传播"
-concerns: [一致性, 兼容性]
-repos: [spark, envoy]
+problem: "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）"
+concerns: [数据一致性, 响应延迟, 资源利用率]
+repos: [kubernetes, react]
 generated: 2026-06-29
 ---

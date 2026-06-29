@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0450
-problem: "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）"
-concerns: [安全隔离性, 接口简洁性]
-repos: [kubernetes, llvm-project]
+problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
+concerns: [响应延迟, 读写性能]
+repos: [llvm-project, rocksdb]
 generated: 2026-06-29
 ---

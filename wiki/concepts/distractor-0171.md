@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0171
-problem: "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销"
-concerns: [磁盘 I/O, 代码可维护性, 实现复杂度]
-repos: [swift, kafka]
+problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
+concerns: [响应延迟, 读写性能]
+repos: [pytorch, grpc]
 generated: 2026-06-29
 ---

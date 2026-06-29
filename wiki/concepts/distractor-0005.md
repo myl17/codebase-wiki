@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0005
-problem: "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度"
-concerns: [可扩展性, 吞吐量]
-repos: [grafana, prometheus]
+problem: "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）"
+concerns: [资源利用率, 安全隔离性]
+repos: [spark, kubernetes]
 generated: 2026-06-29
 ---

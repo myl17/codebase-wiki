@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0079
-problem: "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）"
-concerns: [运行时性能, 版本升级平滑性]
-repos: [react, linux]
+problem: "如何在 NUMA 架构上实现内存分配器的节点亲和性策略"
+concerns: [兼容性, 延迟]
+repos: [clickhouse, grpc]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0306
-problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
-concerns: [开发效率, 部署复杂度]
-repos: [linux, kubernetes]
+problem: "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）"
+concerns: [故障恢复时间, 数据一致性]
+repos: [clickhouse, linux]
 generated: 2026-06-29
 ---

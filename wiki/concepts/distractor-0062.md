@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0062
-problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
-concerns: [延迟, 运维复杂度, 可扩展性]
-repos: [flask, redis]
+problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
+concerns: [代码可维护性, 生态兼容性]
+repos: [tensorflow, django]
 generated: 2026-06-29
 ---

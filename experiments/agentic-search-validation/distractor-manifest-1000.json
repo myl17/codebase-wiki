@@ -1,0 +1,7013 @@
+{
+  "total": 1000,
+  "generated": "2026-06-29",
+  "seed": 42,
+  "by_category": {
+    "structural-neighbor": 200,
+    "vocab-neighbor": 300,
+    "cross-domain": 400,
+    "granularity-trap": 100
+  },
+  "items": [
+    {
+      "id": 0,
+      "slug": "distractor-0000",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 1,
+      "slug": "distractor-0001",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 2,
+      "slug": "distractor-0002",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 3,
+      "slug": "distractor-0003",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 4,
+      "slug": "distractor-0004",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 5,
+      "slug": "distractor-0005",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 6,
+      "slug": "distractor-0006",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 7,
+      "slug": "distractor-0007",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 8,
+      "slug": "distractor-0008",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 9,
+      "slug": "distractor-0009",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 10,
+      "slug": "distractor-0010",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 11,
+      "slug": "distractor-0011",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 12,
+      "slug": "distractor-0012",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 13,
+      "slug": "distractor-0013",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 14,
+      "slug": "distractor-0014",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 15,
+      "slug": "distractor-0015",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 16,
+      "slug": "distractor-0016",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 17,
+      "slug": "distractor-0017",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 18,
+      "slug": "distractor-0018",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 19,
+      "slug": "distractor-0019",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 20,
+      "slug": "distractor-0020",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 21,
+      "slug": "distractor-0021",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 22,
+      "slug": "distractor-0022",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 23,
+      "slug": "distractor-0023",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 24,
+      "slug": "distractor-0024",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 25,
+      "slug": "distractor-0025",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 26,
+      "slug": "distractor-0026",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 27,
+      "slug": "distractor-0027",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 28,
+      "slug": "distractor-0028",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 29,
+      "slug": "distractor-0029",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 30,
+      "slug": "distractor-0030",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 31,
+      "slug": "distractor-0031",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 32,
+      "slug": "distractor-0032",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 33,
+      "slug": "distractor-0033",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 34,
+      "slug": "distractor-0034",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 35,
+      "slug": "distractor-0035",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 36,
+      "slug": "distractor-0036",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 37,
+      "slug": "distractor-0037",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 38,
+      "slug": "distractor-0038",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 39,
+      "slug": "distractor-0039",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 40,
+      "slug": "distractor-0040",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 41,
+      "slug": "distractor-0041",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 42,
+      "slug": "distractor-0042",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 43,
+      "slug": "distractor-0043",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 44,
+      "slug": "distractor-0044",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 45,
+      "slug": "distractor-0045",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 46,
+      "slug": "distractor-0046",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 47,
+      "slug": "distractor-0047",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 48,
+      "slug": "distractor-0048",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 49,
+      "slug": "distractor-0049",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 50,
+      "slug": "distractor-0050",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 51,
+      "slug": "distractor-0051",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 52,
+      "slug": "distractor-0052",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 53,
+      "slug": "distractor-0053",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 54,
+      "slug": "distractor-0054",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 55,
+      "slug": "distractor-0055",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 56,
+      "slug": "distractor-0056",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 57,
+      "slug": "distractor-0057",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 58,
+      "slug": "distractor-0058",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 59,
+      "slug": "distractor-0059",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 60,
+      "slug": "distractor-0060",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 61,
+      "slug": "distractor-0061",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 62,
+      "slug": "distractor-0062",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 63,
+      "slug": "distractor-0063",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 64,
+      "slug": "distractor-0064",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 65,
+      "slug": "distractor-0065",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 66,
+      "slug": "distractor-0066",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 67,
+      "slug": "distractor-0067",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 68,
+      "slug": "distractor-0068",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 69,
+      "slug": "distractor-0069",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 70,
+      "slug": "distractor-0070",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 71,
+      "slug": "distractor-0071",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 72,
+      "slug": "distractor-0072",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 73,
+      "slug": "distractor-0073",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 74,
+      "slug": "distractor-0074",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 75,
+      "slug": "distractor-0075",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 76,
+      "slug": "distractor-0076",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 77,
+      "slug": "distractor-0077",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 78,
+      "slug": "distractor-0078",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 79,
+      "slug": "distractor-0079",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 80,
+      "slug": "distractor-0080",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 81,
+      "slug": "distractor-0081",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 82,
+      "slug": "distractor-0082",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 83,
+      "slug": "distractor-0083",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 84,
+      "slug": "distractor-0084",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 85,
+      "slug": "distractor-0085",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 86,
+      "slug": "distractor-0086",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 87,
+      "slug": "distractor-0087",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 88,
+      "slug": "distractor-0088",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 89,
+      "slug": "distractor-0089",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 90,
+      "slug": "distractor-0090",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 91,
+      "slug": "distractor-0091",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 92,
+      "slug": "distractor-0092",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 93,
+      "slug": "distractor-0093",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 94,
+      "slug": "distractor-0094",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 95,
+      "slug": "distractor-0095",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 96,
+      "slug": "distractor-0096",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 97,
+      "slug": "distractor-0097",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 98,
+      "slug": "distractor-0098",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 99,
+      "slug": "distractor-0099",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 100,
+      "slug": "distractor-0100",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 101,
+      "slug": "distractor-0101",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 102,
+      "slug": "distractor-0102",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 103,
+      "slug": "distractor-0103",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 104,
+      "slug": "distractor-0104",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 105,
+      "slug": "distractor-0105",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 106,
+      "slug": "distractor-0106",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 107,
+      "slug": "distractor-0107",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 108,
+      "slug": "distractor-0108",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 109,
+      "slug": "distractor-0109",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 110,
+      "slug": "distractor-0110",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 111,
+      "slug": "distractor-0111",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 112,
+      "slug": "distractor-0112",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 113,
+      "slug": "distractor-0113",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 114,
+      "slug": "distractor-0114",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 115,
+      "slug": "distractor-0115",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 116,
+      "slug": "distractor-0116",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 117,
+      "slug": "distractor-0117",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 118,
+      "slug": "distractor-0118",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 119,
+      "slug": "distractor-0119",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 120,
+      "slug": "distractor-0120",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 121,
+      "slug": "distractor-0121",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 122,
+      "slug": "distractor-0122",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 123,
+      "slug": "distractor-0123",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 124,
+      "slug": "distractor-0124",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 125,
+      "slug": "distractor-0125",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 126,
+      "slug": "distractor-0126",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 127,
+      "slug": "distractor-0127",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 128,
+      "slug": "distractor-0128",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 129,
+      "slug": "distractor-0129",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 130,
+      "slug": "distractor-0130",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 131,
+      "slug": "distractor-0131",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 132,
+      "slug": "distractor-0132",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 133,
+      "slug": "distractor-0133",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 134,
+      "slug": "distractor-0134",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 135,
+      "slug": "distractor-0135",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 136,
+      "slug": "distractor-0136",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 137,
+      "slug": "distractor-0137",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 138,
+      "slug": "distractor-0138",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 139,
+      "slug": "distractor-0139",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 140,
+      "slug": "distractor-0140",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 141,
+      "slug": "distractor-0141",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 142,
+      "slug": "distractor-0142",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 143,
+      "slug": "distractor-0143",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 144,
+      "slug": "distractor-0144",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 145,
+      "slug": "distractor-0145",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 146,
+      "slug": "distractor-0146",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 147,
+      "slug": "distractor-0147",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 148,
+      "slug": "distractor-0148",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 149,
+      "slug": "distractor-0149",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 150,
+      "slug": "distractor-0150",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 151,
+      "slug": "distractor-0151",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 152,
+      "slug": "distractor-0152",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 153,
+      "slug": "distractor-0153",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 154,
+      "slug": "distractor-0154",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 155,
+      "slug": "distractor-0155",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 156,
+      "slug": "distractor-0156",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 157,
+      "slug": "distractor-0157",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 158,
+      "slug": "distractor-0158",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 159,
+      "slug": "distractor-0159",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 160,
+      "slug": "distractor-0160",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 161,
+      "slug": "distractor-0161",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 162,
+      "slug": "distractor-0162",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 163,
+      "slug": "distractor-0163",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 164,
+      "slug": "distractor-0164",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 165,
+      "slug": "distractor-0165",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 166,
+      "slug": "distractor-0166",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 167,
+      "slug": "distractor-0167",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 168,
+      "slug": "distractor-0168",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 169,
+      "slug": "distractor-0169",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 170,
+      "slug": "distractor-0170",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 171,
+      "slug": "distractor-0171",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 172,
+      "slug": "distractor-0172",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 173,
+      "slug": "distractor-0173",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 174,
+      "slug": "distractor-0174",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 175,
+      "slug": "distractor-0175",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 176,
+      "slug": "distractor-0176",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 177,
+      "slug": "distractor-0177",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 178,
+      "slug": "distractor-0178",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 179,
+      "slug": "distractor-0179",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 180,
+      "slug": "distractor-0180",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 181,
+      "slug": "distractor-0181",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 182,
+      "slug": "distractor-0182",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 183,
+      "slug": "distractor-0183",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 184,
+      "slug": "distractor-0184",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 185,
+      "slug": "distractor-0185",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 186,
+      "slug": "distractor-0186",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 187,
+      "slug": "distractor-0187",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 188,
+      "slug": "distractor-0188",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 189,
+      "slug": "distractor-0189",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 190,
+      "slug": "distractor-0190",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 191,
+      "slug": "distractor-0191",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 192,
+      "slug": "distractor-0192",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 193,
+      "slug": "distractor-0193",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 194,
+      "slug": "distractor-0194",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 195,
+      "slug": "distractor-0195",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 196,
+      "slug": "distractor-0196",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 197,
+      "slug": "distractor-0197",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 198,
+      "slug": "distractor-0198",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 199,
+      "slug": "distractor-0199",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 200,
+      "slug": "distractor-0200",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 201,
+      "slug": "distractor-0201",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 202,
+      "slug": "distractor-0202",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 203,
+      "slug": "distractor-0203",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 204,
+      "slug": "distractor-0204",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 205,
+      "slug": "distractor-0205",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 206,
+      "slug": "distractor-0206",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 207,
+      "slug": "distractor-0207",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 208,
+      "slug": "distractor-0208",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 209,
+      "slug": "distractor-0209",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 210,
+      "slug": "distractor-0210",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 211,
+      "slug": "distractor-0211",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 212,
+      "slug": "distractor-0212",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 213,
+      "slug": "distractor-0213",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 214,
+      "slug": "distractor-0214",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 215,
+      "slug": "distractor-0215",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 216,
+      "slug": "distractor-0216",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 217,
+      "slug": "distractor-0217",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 218,
+      "slug": "distractor-0218",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 219,
+      "slug": "distractor-0219",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 220,
+      "slug": "distractor-0220",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 221,
+      "slug": "distractor-0221",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 222,
+      "slug": "distractor-0222",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 223,
+      "slug": "distractor-0223",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 224,
+      "slug": "distractor-0224",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 225,
+      "slug": "distractor-0225",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 226,
+      "slug": "distractor-0226",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 227,
+      "slug": "distractor-0227",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 228,
+      "slug": "distractor-0228",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 229,
+      "slug": "distractor-0229",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 230,
+      "slug": "distractor-0230",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 231,
+      "slug": "distractor-0231",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 232,
+      "slug": "distractor-0232",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 233,
+      "slug": "distractor-0233",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 234,
+      "slug": "distractor-0234",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 235,
+      "slug": "distractor-0235",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 236,
+      "slug": "distractor-0236",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 237,
+      "slug": "distractor-0237",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 238,
+      "slug": "distractor-0238",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 239,
+      "slug": "distractor-0239",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 240,
+      "slug": "distractor-0240",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 241,
+      "slug": "distractor-0241",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 242,
+      "slug": "distractor-0242",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 243,
+      "slug": "distractor-0243",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 244,
+      "slug": "distractor-0244",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 245,
+      "slug": "distractor-0245",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 246,
+      "slug": "distractor-0246",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 247,
+      "slug": "distractor-0247",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 248,
+      "slug": "distractor-0248",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 249,
+      "slug": "distractor-0249",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 250,
+      "slug": "distractor-0250",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 251,
+      "slug": "distractor-0251",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 252,
+      "slug": "distractor-0252",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 253,
+      "slug": "distractor-0253",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 254,
+      "slug": "distractor-0254",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 255,
+      "slug": "distractor-0255",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 256,
+      "slug": "distractor-0256",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 257,
+      "slug": "distractor-0257",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 258,
+      "slug": "distractor-0258",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 259,
+      "slug": "distractor-0259",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 260,
+      "slug": "distractor-0260",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 261,
+      "slug": "distractor-0261",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 262,
+      "slug": "distractor-0262",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 263,
+      "slug": "distractor-0263",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 264,
+      "slug": "distractor-0264",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 265,
+      "slug": "distractor-0265",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 266,
+      "slug": "distractor-0266",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 267,
+      "slug": "distractor-0267",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 268,
+      "slug": "distractor-0268",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 269,
+      "slug": "distractor-0269",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 270,
+      "slug": "distractor-0270",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 271,
+      "slug": "distractor-0271",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 272,
+      "slug": "distractor-0272",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 273,
+      "slug": "distractor-0273",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 274,
+      "slug": "distractor-0274",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 275,
+      "slug": "distractor-0275",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 276,
+      "slug": "distractor-0276",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 277,
+      "slug": "distractor-0277",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 278,
+      "slug": "distractor-0278",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 279,
+      "slug": "distractor-0279",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销",
+      "grep_risk": "high"
+    },
+    {
+      "id": 280,
+      "slug": "distractor-0280",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 281,
+      "slug": "distractor-0281",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 282,
+      "slug": "distractor-0282",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 283,
+      "slug": "distractor-0283",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 284,
+      "slug": "distractor-0284",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口",
+      "grep_risk": "high"
+    },
+    {
+      "id": 285,
+      "slug": "distractor-0285",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 286,
+      "slug": "distractor-0286",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 287,
+      "slug": "distractor-0287",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 288,
+      "slug": "distractor-0288",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 289,
+      "slug": "distractor-0289",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 290,
+      "slug": "distractor-0290",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 291,
+      "slug": "distractor-0291",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 292,
+      "slug": "distractor-0292",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 293,
+      "slug": "distractor-0293",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 294,
+      "slug": "distractor-0294",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 295,
+      "slug": "distractor-0295",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 296,
+      "slug": "distractor-0296",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 297,
+      "slug": "distractor-0297",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 298,
+      "slug": "distractor-0298",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 299,
+      "slug": "distractor-0299",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 300,
+      "slug": "distractor-0300",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 301,
+      "slug": "distractor-0301",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 302,
+      "slug": "distractor-0302",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 303,
+      "slug": "distractor-0303",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 304,
+      "slug": "distractor-0304",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 305,
+      "slug": "distractor-0305",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 306,
+      "slug": "distractor-0306",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 307,
+      "slug": "distractor-0307",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 308,
+      "slug": "distractor-0308",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 309,
+      "slug": "distractor-0309",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 310,
+      "slug": "distractor-0310",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 311,
+      "slug": "distractor-0311",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 312,
+      "slug": "distractor-0312",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 313,
+      "slug": "distractor-0313",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 314,
+      "slug": "distractor-0314",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 315,
+      "slug": "distractor-0315",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 316,
+      "slug": "distractor-0316",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 317,
+      "slug": "distractor-0317",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 318,
+      "slug": "distractor-0318",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 319,
+      "slug": "distractor-0319",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 320,
+      "slug": "distractor-0320",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 321,
+      "slug": "distractor-0321",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 322,
+      "slug": "distractor-0322",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 323,
+      "slug": "distractor-0323",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 324,
+      "slug": "distractor-0324",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 325,
+      "slug": "distractor-0325",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 326,
+      "slug": "distractor-0326",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 327,
+      "slug": "distractor-0327",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 328,
+      "slug": "distractor-0328",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 329,
+      "slug": "distractor-0329",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 330,
+      "slug": "distractor-0330",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 331,
+      "slug": "distractor-0331",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 332,
+      "slug": "distractor-0332",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 333,
+      "slug": "distractor-0333",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 334,
+      "slug": "distractor-0334",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 335,
+      "slug": "distractor-0335",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 336,
+      "slug": "distractor-0336",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 337,
+      "slug": "distractor-0337",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 338,
+      "slug": "distractor-0338",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 339,
+      "slug": "distractor-0339",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 340,
+      "slug": "distractor-0340",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 341,
+      "slug": "distractor-0341",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 342,
+      "slug": "distractor-0342",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 343,
+      "slug": "distractor-0343",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 344,
+      "slug": "distractor-0344",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 345,
+      "slug": "distractor-0345",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 346,
+      "slug": "distractor-0346",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 347,
+      "slug": "distractor-0347",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 348,
+      "slug": "distractor-0348",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 349,
+      "slug": "distractor-0349",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 350,
+      "slug": "distractor-0350",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 351,
+      "slug": "distractor-0351",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 352,
+      "slug": "distractor-0352",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 353,
+      "slug": "distractor-0353",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 354,
+      "slug": "distractor-0354",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 355,
+      "slug": "distractor-0355",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 356,
+      "slug": "distractor-0356",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 357,
+      "slug": "distractor-0357",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 358,
+      "slug": "distractor-0358",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 359,
+      "slug": "distractor-0359",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 360,
+      "slug": "distractor-0360",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 361,
+      "slug": "distractor-0361",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 362,
+      "slug": "distractor-0362",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 363,
+      "slug": "distractor-0363",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 364,
+      "slug": "distractor-0364",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 365,
+      "slug": "distractor-0365",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 366,
+      "slug": "distractor-0366",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 367,
+      "slug": "distractor-0367",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 368,
+      "slug": "distractor-0368",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 369,
+      "slug": "distractor-0369",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 370,
+      "slug": "distractor-0370",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 371,
+      "slug": "distractor-0371",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 372,
+      "slug": "distractor-0372",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 373,
+      "slug": "distractor-0373",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 374,
+      "slug": "distractor-0374",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 375,
+      "slug": "distractor-0375",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 376,
+      "slug": "distractor-0376",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 377,
+      "slug": "distractor-0377",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 378,
+      "slug": "distractor-0378",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 379,
+      "slug": "distractor-0379",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 380,
+      "slug": "distractor-0380",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 381,
+      "slug": "distractor-0381",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 382,
+      "slug": "distractor-0382",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 383,
+      "slug": "distractor-0383",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 384,
+      "slug": "distractor-0384",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 385,
+      "slug": "distractor-0385",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 386,
+      "slug": "distractor-0386",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 387,
+      "slug": "distractor-0387",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 388,
+      "slug": "distractor-0388",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 389,
+      "slug": "distractor-0389",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 390,
+      "slug": "distractor-0390",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 391,
+      "slug": "distractor-0391",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 392,
+      "slug": "distractor-0392",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 393,
+      "slug": "distractor-0393",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 394,
+      "slug": "distractor-0394",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 395,
+      "slug": "distractor-0395",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 396,
+      "slug": "distractor-0396",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 397,
+      "slug": "distractor-0397",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 398,
+      "slug": "distractor-0398",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 399,
+      "slug": "distractor-0399",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 400,
+      "slug": "distractor-0400",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 401,
+      "slug": "distractor-0401",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 402,
+      "slug": "distractor-0402",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 403,
+      "slug": "distractor-0403",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 404,
+      "slug": "distractor-0404",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 405,
+      "slug": "distractor-0405",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 406,
+      "slug": "distractor-0406",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 407,
+      "slug": "distractor-0407",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 408,
+      "slug": "distractor-0408",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 409,
+      "slug": "distractor-0409",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 410,
+      "slug": "distractor-0410",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 411,
+      "slug": "distractor-0411",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 412,
+      "slug": "distractor-0412",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 413,
+      "slug": "distractor-0413",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 414,
+      "slug": "distractor-0414",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 415,
+      "slug": "distractor-0415",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 416,
+      "slug": "distractor-0416",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 417,
+      "slug": "distractor-0417",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 418,
+      "slug": "distractor-0418",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 419,
+      "slug": "distractor-0419",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 420,
+      "slug": "distractor-0420",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 421,
+      "slug": "distractor-0421",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 422,
+      "slug": "distractor-0422",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 423,
+      "slug": "distractor-0423",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 424,
+      "slug": "distractor-0424",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 425,
+      "slug": "distractor-0425",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 426,
+      "slug": "distractor-0426",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 427,
+      "slug": "distractor-0427",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 428,
+      "slug": "distractor-0428",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 429,
+      "slug": "distractor-0429",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 430,
+      "slug": "distractor-0430",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 431,
+      "slug": "distractor-0431",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 432,
+      "slug": "distractor-0432",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 433,
+      "slug": "distractor-0433",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 434,
+      "slug": "distractor-0434",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 435,
+      "slug": "distractor-0435",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 436,
+      "slug": "distractor-0436",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 437,
+      "slug": "distractor-0437",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 438,
+      "slug": "distractor-0438",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 439,
+      "slug": "distractor-0439",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 440,
+      "slug": "distractor-0440",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 441,
+      "slug": "distractor-0441",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 442,
+      "slug": "distractor-0442",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 443,
+      "slug": "distractor-0443",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 444,
+      "slug": "distractor-0444",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 445,
+      "slug": "distractor-0445",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 446,
+      "slug": "distractor-0446",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 447,
+      "slug": "distractor-0447",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 448,
+      "slug": "distractor-0448",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 449,
+      "slug": "distractor-0449",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 450,
+      "slug": "distractor-0450",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 451,
+      "slug": "distractor-0451",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 452,
+      "slug": "distractor-0452",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 453,
+      "slug": "distractor-0453",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 454,
+      "slug": "distractor-0454",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 455,
+      "slug": "distractor-0455",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 456,
+      "slug": "distractor-0456",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 457,
+      "slug": "distractor-0457",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 458,
+      "slug": "distractor-0458",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 459,
+      "slug": "distractor-0459",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 460,
+      "slug": "distractor-0460",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 461,
+      "slug": "distractor-0461",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 462,
+      "slug": "distractor-0462",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 463,
+      "slug": "distractor-0463",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 464,
+      "slug": "distractor-0464",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 465,
+      "slug": "distractor-0465",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 466,
+      "slug": "distractor-0466",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 467,
+      "slug": "distractor-0467",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 468,
+      "slug": "distractor-0468",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 469,
+      "slug": "distractor-0469",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 470,
+      "slug": "distractor-0470",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 471,
+      "slug": "distractor-0471",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 472,
+      "slug": "distractor-0472",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 473,
+      "slug": "distractor-0473",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 474,
+      "slug": "distractor-0474",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 475,
+      "slug": "distractor-0475",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 476,
+      "slug": "distractor-0476",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 477,
+      "slug": "distractor-0477",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 478,
+      "slug": "distractor-0478",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 479,
+      "slug": "distractor-0479",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 480,
+      "slug": "distractor-0480",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 481,
+      "slug": "distractor-0481",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 482,
+      "slug": "distractor-0482",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 483,
+      "slug": "distractor-0483",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 484,
+      "slug": "distractor-0484",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 485,
+      "slug": "distractor-0485",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 486,
+      "slug": "distractor-0486",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 487,
+      "slug": "distractor-0487",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 488,
+      "slug": "distractor-0488",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 489,
+      "slug": "distractor-0489",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 490,
+      "slug": "distractor-0490",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 491,
+      "slug": "distractor-0491",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略",
+      "grep_risk": "high"
+    },
+    {
+      "id": 492,
+      "slug": "distractor-0492",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 493,
+      "slug": "distractor-0493",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 494,
+      "slug": "distractor-0494",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 495,
+      "slug": "distractor-0495",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 496,
+      "slug": "distractor-0496",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 497,
+      "slug": "distractor-0497",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 498,
+      "slug": "distractor-0498",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 499,
+      "slug": "distractor-0499",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 500,
+      "slug": "distractor-0500",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 501,
+      "slug": "distractor-0501",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 502,
+      "slug": "distractor-0502",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 503,
+      "slug": "distractor-0503",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 504,
+      "slug": "distractor-0504",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 505,
+      "slug": "distractor-0505",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 506,
+      "slug": "distractor-0506",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 507,
+      "slug": "distractor-0507",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 508,
+      "slug": "distractor-0508",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 509,
+      "slug": "distractor-0509",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 510,
+      "slug": "distractor-0510",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 511,
+      "slug": "distractor-0511",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 512,
+      "slug": "distractor-0512",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 513,
+      "slug": "distractor-0513",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 514,
+      "slug": "distractor-0514",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 515,
+      "slug": "distractor-0515",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 516,
+      "slug": "distractor-0516",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 517,
+      "slug": "distractor-0517",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 518,
+      "slug": "distractor-0518",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 519,
+      "slug": "distractor-0519",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 520,
+      "slug": "distractor-0520",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 521,
+      "slug": "distractor-0521",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 522,
+      "slug": "distractor-0522",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 523,
+      "slug": "distractor-0523",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 524,
+      "slug": "distractor-0524",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 525,
+      "slug": "distractor-0525",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 526,
+      "slug": "distractor-0526",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 527,
+      "slug": "distractor-0527",
+      "category": "granularity-trap",
+      "problem": "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 528,
+      "slug": "distractor-0528",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 529,
+      "slug": "distractor-0529",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 530,
+      "slug": "distractor-0530",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 531,
+      "slug": "distractor-0531",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 532,
+      "slug": "distractor-0532",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 533,
+      "slug": "distractor-0533",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 534,
+      "slug": "distractor-0534",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 535,
+      "slug": "distractor-0535",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 536,
+      "slug": "distractor-0536",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 537,
+      "slug": "distractor-0537",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 538,
+      "slug": "distractor-0538",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 539,
+      "slug": "distractor-0539",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 540,
+      "slug": "distractor-0540",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 541,
+      "slug": "distractor-0541",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 542,
+      "slug": "distractor-0542",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 543,
+      "slug": "distractor-0543",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 544,
+      "slug": "distractor-0544",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 545,
+      "slug": "distractor-0545",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 546,
+      "slug": "distractor-0546",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 547,
+      "slug": "distractor-0547",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 548,
+      "slug": "distractor-0548",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 549,
+      "slug": "distractor-0549",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 550,
+      "slug": "distractor-0550",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 551,
+      "slug": "distractor-0551",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 552,
+      "slug": "distractor-0552",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 553,
+      "slug": "distractor-0553",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 554,
+      "slug": "distractor-0554",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 555,
+      "slug": "distractor-0555",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 556,
+      "slug": "distractor-0556",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 557,
+      "slug": "distractor-0557",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 558,
+      "slug": "distractor-0558",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 559,
+      "slug": "distractor-0559",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 560,
+      "slug": "distractor-0560",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 561,
+      "slug": "distractor-0561",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 562,
+      "slug": "distractor-0562",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 563,
+      "slug": "distractor-0563",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 564,
+      "slug": "distractor-0564",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 565,
+      "slug": "distractor-0565",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 566,
+      "slug": "distractor-0566",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 567,
+      "slug": "distractor-0567",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 568,
+      "slug": "distractor-0568",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 569,
+      "slug": "distractor-0569",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 570,
+      "slug": "distractor-0570",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 571,
+      "slug": "distractor-0571",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 572,
+      "slug": "distractor-0572",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 573,
+      "slug": "distractor-0573",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 574,
+      "slug": "distractor-0574",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 575,
+      "slug": "distractor-0575",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 576,
+      "slug": "distractor-0576",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 577,
+      "slug": "distractor-0577",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 578,
+      "slug": "distractor-0578",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 579,
+      "slug": "distractor-0579",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 580,
+      "slug": "distractor-0580",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 581,
+      "slug": "distractor-0581",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 582,
+      "slug": "distractor-0582",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 583,
+      "slug": "distractor-0583",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略",
+      "grep_risk": "low"
+    },
+    {
+      "id": 584,
+      "slug": "distractor-0584",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 585,
+      "slug": "distractor-0585",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 586,
+      "slug": "distractor-0586",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 587,
+      "slug": "distractor-0587",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 588,
+      "slug": "distractor-0588",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 589,
+      "slug": "distractor-0589",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 590,
+      "slug": "distractor-0590",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 591,
+      "slug": "distractor-0591",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 592,
+      "slug": "distractor-0592",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 593,
+      "slug": "distractor-0593",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 594,
+      "slug": "distractor-0594",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 595,
+      "slug": "distractor-0595",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 596,
+      "slug": "distractor-0596",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 597,
+      "slug": "distractor-0597",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 598,
+      "slug": "distractor-0598",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 599,
+      "slug": "distractor-0599",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 600,
+      "slug": "distractor-0600",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 601,
+      "slug": "distractor-0601",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载",
+      "grep_risk": "low"
+    },
+    {
+      "id": 602,
+      "slug": "distractor-0602",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 603,
+      "slug": "distractor-0603",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 604,
+      "slug": "distractor-0604",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 605,
+      "slug": "distractor-0605",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 606,
+      "slug": "distractor-0606",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 607,
+      "slug": "distractor-0607",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 608,
+      "slug": "distractor-0608",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 609,
+      "slug": "distractor-0609",
+      "category": "cross-domain",
+      "problem": "如何在用户态网络栈中实现零拷贝的数据包处理管道",
+      "grep_risk": "none"
+    },
+    {
+      "id": 610,
+      "slug": "distractor-0610",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 611,
+      "slug": "distractor-0611",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 612,
+      "slug": "distractor-0612",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 613,
+      "slug": "distractor-0613",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 614,
+      "slug": "distractor-0614",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 615,
+      "slug": "distractor-0615",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 616,
+      "slug": "distractor-0616",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 617,
+      "slug": "distractor-0617",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 618,
+      "slug": "distractor-0618",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 619,
+      "slug": "distractor-0619",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 620,
+      "slug": "distractor-0620",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 621,
+      "slug": "distractor-0621",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换",
+      "grep_risk": "low"
+    },
+    {
+      "id": 622,
+      "slug": "distractor-0622",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 623,
+      "slug": "distractor-0623",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 624,
+      "slug": "distractor-0624",
+      "category": "cross-domain",
+      "problem": "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大",
+      "grep_risk": "none"
+    },
+    {
+      "id": 625,
+      "slug": "distractor-0625",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 626,
+      "slug": "distractor-0626",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 627,
+      "slug": "distractor-0627",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行",
+      "grep_risk": "high"
+    },
+    {
+      "id": 628,
+      "slug": "distractor-0628",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 629,
+      "slug": "distractor-0629",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 630,
+      "slug": "distractor-0630",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 631,
+      "slug": "distractor-0631",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 632,
+      "slug": "distractor-0632",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发",
+      "grep_risk": "low"
+    },
+    {
+      "id": 633,
+      "slug": "distractor-0633",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 634,
+      "slug": "distractor-0634",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 635,
+      "slug": "distractor-0635",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 636,
+      "slug": "distractor-0636",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 637,
+      "slug": "distractor-0637",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 638,
+      "slug": "distractor-0638",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 639,
+      "slug": "distractor-0639",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 640,
+      "slug": "distractor-0640",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 641,
+      "slug": "distractor-0641",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 642,
+      "slug": "distractor-0642",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 643,
+      "slug": "distractor-0643",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 644,
+      "slug": "distractor-0644",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 645,
+      "slug": "distractor-0645",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 646,
+      "slug": "distractor-0646",
+      "category": "cross-domain",
+      "problem": "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡",
+      "grep_risk": "none"
+    },
+    {
+      "id": 647,
+      "slug": "distractor-0647",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 648,
+      "slug": "distractor-0648",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 649,
+      "slug": "distractor-0649",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 650,
+      "slug": "distractor-0650",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 651,
+      "slug": "distractor-0651",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 652,
+      "slug": "distractor-0652",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 653,
+      "slug": "distractor-0653",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 654,
+      "slug": "distractor-0654",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 655,
+      "slug": "distractor-0655",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 656,
+      "slug": "distractor-0656",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 657,
+      "slug": "distractor-0657",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 658,
+      "slug": "distractor-0658",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 659,
+      "slug": "distractor-0659",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 660,
+      "slug": "distractor-0660",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 661,
+      "slug": "distractor-0661",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 662,
+      "slug": "distractor-0662",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 663,
+      "slug": "distractor-0663",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 664,
+      "slug": "distractor-0664",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 665,
+      "slug": "distractor-0665",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 666,
+      "slug": "distractor-0666",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 667,
+      "slug": "distractor-0667",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 668,
+      "slug": "distractor-0668",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 669,
+      "slug": "distractor-0669",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 670,
+      "slug": "distractor-0670",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 671,
+      "slug": "distractor-0671",
+      "category": "cross-domain",
+      "problem": "如何在多方安全计算中实现高效的秘密共享与不经意传输",
+      "grep_risk": "none"
+    },
+    {
+      "id": 672,
+      "slug": "distractor-0672",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 673,
+      "slug": "distractor-0673",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 674,
+      "slug": "distractor-0674",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 675,
+      "slug": "distractor-0675",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 676,
+      "slug": "distractor-0676",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 677,
+      "slug": "distractor-0677",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 678,
+      "slug": "distractor-0678",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 679,
+      "slug": "distractor-0679",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 680,
+      "slug": "distractor-0680",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 681,
+      "slug": "distractor-0681",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 682,
+      "slug": "distractor-0682",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 683,
+      "slug": "distractor-0683",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 684,
+      "slug": "distractor-0684",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 685,
+      "slug": "distractor-0685",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 686,
+      "slug": "distractor-0686",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 687,
+      "slug": "distractor-0687",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 688,
+      "slug": "distractor-0688",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 689,
+      "slug": "distractor-0689",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 690,
+      "slug": "distractor-0690",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 691,
+      "slug": "distractor-0691",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 692,
+      "slug": "distractor-0692",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 693,
+      "slug": "distractor-0693",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 694,
+      "slug": "distractor-0694",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 695,
+      "slug": "distractor-0695",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 696,
+      "slug": "distractor-0696",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 697,
+      "slug": "distractor-0697",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 698,
+      "slug": "distractor-0698",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 699,
+      "slug": "distractor-0699",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 700,
+      "slug": "distractor-0700",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 701,
+      "slug": "distractor-0701",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 702,
+      "slug": "distractor-0702",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 703,
+      "slug": "distractor-0703",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 704,
+      "slug": "distractor-0704",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 705,
+      "slug": "distractor-0705",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 706,
+      "slug": "distractor-0706",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 707,
+      "slug": "distractor-0707",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 708,
+      "slug": "distractor-0708",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 709,
+      "slug": "distractor-0709",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 710,
+      "slug": "distractor-0710",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 711,
+      "slug": "distractor-0711",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 712,
+      "slug": "distractor-0712",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 713,
+      "slug": "distractor-0713",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 714,
+      "slug": "distractor-0714",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 715,
+      "slug": "distractor-0715",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 716,
+      "slug": "distractor-0716",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 717,
+      "slug": "distractor-0717",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 718,
+      "slug": "distractor-0718",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 719,
+      "slug": "distractor-0719",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 720,
+      "slug": "distractor-0720",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 721,
+      "slug": "distractor-0721",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 722,
+      "slug": "distractor-0722",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理",
+      "grep_risk": "low"
+    },
+    {
+      "id": 723,
+      "slug": "distractor-0723",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 724,
+      "slug": "distractor-0724",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 725,
+      "slug": "distractor-0725",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 726,
+      "slug": "distractor-0726",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 727,
+      "slug": "distractor-0727",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 728,
+      "slug": "distractor-0728",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 729,
+      "slug": "distractor-0729",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 730,
+      "slug": "distractor-0730",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 731,
+      "slug": "distractor-0731",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 732,
+      "slug": "distractor-0732",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 733,
+      "slug": "distractor-0733",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 734,
+      "slug": "distractor-0734",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 735,
+      "slug": "distractor-0735",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 736,
+      "slug": "distractor-0736",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 737,
+      "slug": "distractor-0737",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 738,
+      "slug": "distractor-0738",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 739,
+      "slug": "distractor-0739",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 740,
+      "slug": "distractor-0740",
+      "category": "granularity-trap",
+      "problem": "如何选择消息序列化格式（JSON vs MessagePack vs Protobuf）以降低跨平台通信开销（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 741,
+      "slug": "distractor-0741",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 742,
+      "slug": "distractor-0742",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 743,
+      "slug": "distractor-0743",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 744,
+      "slug": "distractor-0744",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 745,
+      "slug": "distractor-0745",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 746,
+      "slug": "distractor-0746",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 747,
+      "slug": "distractor-0747",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 748,
+      "slug": "distractor-0748",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 749,
+      "slug": "distractor-0749",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 750,
+      "slug": "distractor-0750",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 751,
+      "slug": "distractor-0751",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 752,
+      "slug": "distractor-0752",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 753,
+      "slug": "distractor-0753",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 754,
+      "slug": "distractor-0754",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 755,
+      "slug": "distractor-0755",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 756,
+      "slug": "distractor-0756",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 757,
+      "slug": "distractor-0757",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 758,
+      "slug": "distractor-0758",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 759,
+      "slug": "distractor-0759",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 760,
+      "slug": "distractor-0760",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 761,
+      "slug": "distractor-0761",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 762,
+      "slug": "distractor-0762",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 763,
+      "slug": "distractor-0763",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 764,
+      "slug": "distractor-0764",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 765,
+      "slug": "distractor-0765",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 766,
+      "slug": "distractor-0766",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 767,
+      "slug": "distractor-0767",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 768,
+      "slug": "distractor-0768",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 769,
+      "slug": "distractor-0769",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 770,
+      "slug": "distractor-0770",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 771,
+      "slug": "distractor-0771",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 772,
+      "slug": "distractor-0772",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 773,
+      "slug": "distractor-0773",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 774,
+      "slug": "distractor-0774",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 775,
+      "slug": "distractor-0775",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 776,
+      "slug": "distractor-0776",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 777,
+      "slug": "distractor-0777",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 778,
+      "slug": "distractor-0778",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 779,
+      "slug": "distractor-0779",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 780,
+      "slug": "distractor-0780",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 781,
+      "slug": "distractor-0781",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 782,
+      "slug": "distractor-0782",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 783,
+      "slug": "distractor-0783",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 784,
+      "slug": "distractor-0784",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 785,
+      "slug": "distractor-0785",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 786,
+      "slug": "distractor-0786",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 787,
+      "slug": "distractor-0787",
+      "category": "cross-domain",
+      "problem": "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成",
+      "grep_risk": "none"
+    },
+    {
+      "id": 788,
+      "slug": "distractor-0788",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 789,
+      "slug": "distractor-0789",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 790,
+      "slug": "distractor-0790",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 791,
+      "slug": "distractor-0791",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 792,
+      "slug": "distractor-0792",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 793,
+      "slug": "distractor-0793",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 794,
+      "slug": "distractor-0794",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 795,
+      "slug": "distractor-0795",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 796,
+      "slug": "distractor-0796",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 797,
+      "slug": "distractor-0797",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 798,
+      "slug": "distractor-0798",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 799,
+      "slug": "distractor-0799",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 800,
+      "slug": "distractor-0800",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 801,
+      "slug": "distractor-0801",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 802,
+      "slug": "distractor-0802",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 803,
+      "slug": "distractor-0803",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 804,
+      "slug": "distractor-0804",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 805,
+      "slug": "distractor-0805",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 806,
+      "slug": "distractor-0806",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 807,
+      "slug": "distractor-0807",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 808,
+      "slug": "distractor-0808",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 809,
+      "slug": "distractor-0809",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 810,
+      "slug": "distractor-0810",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 811,
+      "slug": "distractor-0811",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 812,
+      "slug": "distractor-0812",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 813,
+      "slug": "distractor-0813",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 814,
+      "slug": "distractor-0814",
+      "category": "granularity-trap",
+      "problem": "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 815,
+      "slug": "distractor-0815",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 816,
+      "slug": "distractor-0816",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 817,
+      "slug": "distractor-0817",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 818,
+      "slug": "distractor-0818",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 819,
+      "slug": "distractor-0819",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 820,
+      "slug": "distractor-0820",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 821,
+      "slug": "distractor-0821",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 822,
+      "slug": "distractor-0822",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 823,
+      "slug": "distractor-0823",
+      "category": "structural-neighbor",
+      "problem": "如何管理前端应用的多语言国际化配置与运行时切换（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 824,
+      "slug": "distractor-0824",
+      "category": "vocab-neighbor",
+      "problem": "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 825,
+      "slug": "distractor-0825",
+      "category": "cross-domain",
+      "problem": "如何在增量编译器中实现细粒度的依赖跟踪与失效传播",
+      "grep_risk": "none"
+    },
+    {
+      "id": 826,
+      "slug": "distractor-0826",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 827,
+      "slug": "distractor-0827",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 828,
+      "slug": "distractor-0828",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 829,
+      "slug": "distractor-0829",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 830,
+      "slug": "distractor-0830",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 831,
+      "slug": "distractor-0831",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 832,
+      "slug": "distractor-0832",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 833,
+      "slug": "distractor-0833",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 834,
+      "slug": "distractor-0834",
+      "category": "vocab-neighbor",
+      "problem": "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 835,
+      "slug": "distractor-0835",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 836,
+      "slug": "distractor-0836",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 837,
+      "slug": "distractor-0837",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 838,
+      "slug": "distractor-0838",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 839,
+      "slug": "distractor-0839",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 840,
+      "slug": "distractor-0840",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 841,
+      "slug": "distractor-0841",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 842,
+      "slug": "distractor-0842",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 843,
+      "slug": "distractor-0843",
+      "category": "cross-domain",
+      "problem": "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 844,
+      "slug": "distractor-0844",
+      "category": "cross-domain",
+      "problem": "如何在 ECS 架构中实现 System 的并行调度与 Archetype 的缓存局部性优化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 845,
+      "slug": "distractor-0845",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 846,
+      "slug": "distractor-0846",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 847,
+      "slug": "distractor-0847",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 848,
+      "slug": "distractor-0848",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 849,
+      "slug": "distractor-0849",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 850,
+      "slug": "distractor-0850",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 851,
+      "slug": "distractor-0851",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 852,
+      "slug": "distractor-0852",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 853,
+      "slug": "distractor-0853",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 854,
+      "slug": "distractor-0854",
+      "category": "structural-neighbor",
+      "problem": "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 855,
+      "slug": "distractor-0855",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 856,
+      "slug": "distractor-0856",
+      "category": "vocab-neighbor",
+      "problem": "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 857,
+      "slug": "distractor-0857",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 858,
+      "slug": "distractor-0858",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 859,
+      "slug": "distractor-0859",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 860,
+      "slug": "distractor-0860",
+      "category": "structural-neighbor",
+      "problem": "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 861,
+      "slug": "distractor-0861",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 862,
+      "slug": "distractor-0862",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 863,
+      "slug": "distractor-0863",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 864,
+      "slug": "distractor-0864",
+      "category": "cross-domain",
+      "problem": "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络",
+      "grep_risk": "none"
+    },
+    {
+      "id": 865,
+      "slug": "distractor-0865",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 866,
+      "slug": "distractor-0866",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 867,
+      "slug": "distractor-0867",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 868,
+      "slug": "distractor-0868",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 869,
+      "slug": "distractor-0869",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 870,
+      "slug": "distractor-0870",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 871,
+      "slug": "distractor-0871",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 872,
+      "slug": "distractor-0872",
+      "category": "cross-domain",
+      "problem": "如何为 NewSQL 系统设计全局事务标识和时钟同步机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 873,
+      "slug": "distractor-0873",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 874,
+      "slug": "distractor-0874",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 875,
+      "slug": "distractor-0875",
+      "category": "cross-domain",
+      "problem": "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新",
+      "grep_risk": "none"
+    },
+    {
+      "id": 876,
+      "slug": "distractor-0876",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 877,
+      "slug": "distractor-0877",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 878,
+      "slug": "distractor-0878",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 879,
+      "slug": "distractor-0879",
+      "category": "cross-domain",
+      "problem": "如何在图数据库中实现高效的子图匹配和路径查询",
+      "grep_risk": "none"
+    },
+    {
+      "id": 880,
+      "slug": "distractor-0880",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 881,
+      "slug": "distractor-0881",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 882,
+      "slug": "distractor-0882",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 883,
+      "slug": "distractor-0883",
+      "category": "vocab-neighbor",
+      "problem": "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 884,
+      "slug": "distractor-0884",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 885,
+      "slug": "distractor-0885",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 886,
+      "slug": "distractor-0886",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 887,
+      "slug": "distractor-0887",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 888,
+      "slug": "distractor-0888",
+      "category": "cross-domain",
+      "problem": "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性",
+      "grep_risk": "none"
+    },
+    {
+      "id": 889,
+      "slug": "distractor-0889",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 890,
+      "slug": "distractor-0890",
+      "category": "granularity-trap",
+      "problem": "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 891,
+      "slug": "distractor-0891",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 892,
+      "slug": "distractor-0892",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 893,
+      "slug": "distractor-0893",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境",
+      "grep_risk": "high"
+    },
+    {
+      "id": 894,
+      "slug": "distractor-0894",
+      "category": "structural-neighbor",
+      "problem": "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 895,
+      "slug": "distractor-0895",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 896,
+      "slug": "distractor-0896",
+      "category": "vocab-neighbor",
+      "problem": "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 897,
+      "slug": "distractor-0897",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 898,
+      "slug": "distractor-0898",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 899,
+      "slug": "distractor-0899",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 900,
+      "slug": "distractor-0900",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 901,
+      "slug": "distractor-0901",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 902,
+      "slug": "distractor-0902",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 903,
+      "slug": "distractor-0903",
+      "category": "vocab-neighbor",
+      "problem": "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 904,
+      "slug": "distractor-0904",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 905,
+      "slug": "distractor-0905",
+      "category": "structural-neighbor",
+      "problem": "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 906,
+      "slug": "distractor-0906",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 907,
+      "slug": "distractor-0907",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 908,
+      "slug": "distractor-0908",
+      "category": "granularity-trap",
+      "problem": "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 909,
+      "slug": "distractor-0909",
+      "category": "cross-domain",
+      "problem": "如何设计文件系统的写时复制（COW）快照机制与增量备份",
+      "grep_risk": "none"
+    },
+    {
+      "id": 910,
+      "slug": "distractor-0910",
+      "category": "cross-domain",
+      "problem": "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护",
+      "grep_risk": "none"
+    },
+    {
+      "id": 911,
+      "slug": "distractor-0911",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 912,
+      "slug": "distractor-0912",
+      "category": "cross-domain",
+      "problem": "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用",
+      "grep_risk": "none"
+    },
+    {
+      "id": 913,
+      "slug": "distractor-0913",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 914,
+      "slug": "distractor-0914",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 915,
+      "slug": "distractor-0915",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 916,
+      "slug": "distractor-0916",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 917,
+      "slug": "distractor-0917",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 918,
+      "slug": "distractor-0918",
+      "category": "granularity-trap",
+      "problem": "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 919,
+      "slug": "distractor-0919",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 920,
+      "slug": "distractor-0920",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 921,
+      "slug": "distractor-0921",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 922,
+      "slug": "distractor-0922",
+      "category": "granularity-trap",
+      "problem": "如何为 shell 命令的 stdout 捕获选择缓冲区大小以平衡内存和延迟",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 923,
+      "slug": "distractor-0923",
+      "category": "cross-domain",
+      "problem": "如何在编译器中实现跨函数的过程间别名分析与内联决策",
+      "grep_risk": "none"
+    },
+    {
+      "id": 924,
+      "slug": "distractor-0924",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 925,
+      "slug": "distractor-0925",
+      "category": "cross-domain",
+      "problem": "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 926,
+      "slug": "distractor-0926",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 927,
+      "slug": "distractor-0927",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 928,
+      "slug": "distractor-0928",
+      "category": "cross-domain",
+      "problem": "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换",
+      "grep_risk": "none"
+    },
+    {
+      "id": 929,
+      "slug": "distractor-0929",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 930,
+      "slug": "distractor-0930",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 931,
+      "slug": "distractor-0931",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 932,
+      "slug": "distractor-0932",
+      "category": "cross-domain",
+      "problem": "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界",
+      "grep_risk": "none"
+    },
+    {
+      "id": 933,
+      "slug": "distractor-0933",
+      "category": "structural-neighbor",
+      "problem": "如何在单页应用中实现路由的分层配置与懒加载（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 934,
+      "slug": "distractor-0934",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 935,
+      "slug": "distractor-0935",
+      "category": "granularity-trap",
+      "problem": "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 936,
+      "slug": "distractor-0936",
+      "category": "cross-domain",
+      "problem": "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析",
+      "grep_risk": "none"
+    },
+    {
+      "id": 937,
+      "slug": "distractor-0937",
+      "category": "vocab-neighbor",
+      "problem": "如何管理浏览器扩展的能力声明与权限分级（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 938,
+      "slug": "distractor-0938",
+      "category": "cross-domain",
+      "problem": "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber",
+      "grep_risk": "none"
+    },
+    {
+      "id": 939,
+      "slug": "distractor-0939",
+      "category": "vocab-neighbor",
+      "problem": "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 940,
+      "slug": "distractor-0940",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 941,
+      "slug": "distractor-0941",
+      "category": "granularity-trap",
+      "problem": "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 942,
+      "slug": "distractor-0942",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 943,
+      "slug": "distractor-0943",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 944,
+      "slug": "distractor-0944",
+      "category": "granularity-trap",
+      "problem": "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 945,
+      "slug": "distractor-0945",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 946,
+      "slug": "distractor-0946",
+      "category": "vocab-neighbor",
+      "problem": "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 947,
+      "slug": "distractor-0947",
+      "category": "structural-neighbor",
+      "problem": "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 948,
+      "slug": "distractor-0948",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 949,
+      "slug": "distractor-0949",
+      "category": "structural-neighbor",
+      "problem": "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 950,
+      "slug": "distractor-0950",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 951,
+      "slug": "distractor-0951",
+      "category": "cross-domain",
+      "problem": "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 952,
+      "slug": "distractor-0952",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 953,
+      "slug": "distractor-0953",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 954,
+      "slug": "distractor-0954",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 955,
+      "slug": "distractor-0955",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 956,
+      "slug": "distractor-0956",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 957,
+      "slug": "distractor-0957",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 958,
+      "slug": "distractor-0958",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 959,
+      "slug": "distractor-0959",
+      "category": "cross-domain",
+      "problem": "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟",
+      "grep_risk": "none"
+    },
+    {
+      "id": 960,
+      "slug": "distractor-0960",
+      "category": "cross-domain",
+      "problem": "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 961,
+      "slug": "distractor-0961",
+      "category": "cross-domain",
+      "problem": "如何在微内核架构中设计高效的 IPC 机制，减少上下文切换开销",
+      "grep_risk": "none"
+    },
+    {
+      "id": 962,
+      "slug": "distractor-0962",
+      "category": "cross-domain",
+      "problem": "如何为 GPU 编译后端设计 warp 级别的向量化指令选择和调度",
+      "grep_risk": "none"
+    },
+    {
+      "id": 963,
+      "slug": "distractor-0963",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 964,
+      "slug": "distractor-0964",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 965,
+      "slug": "distractor-0965",
+      "category": "vocab-neighbor",
+      "problem": "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 966,
+      "slug": "distractor-0966",
+      "category": "structural-neighbor",
+      "problem": "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 967,
+      "slug": "distractor-0967",
+      "category": "cross-domain",
+      "problem": "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由",
+      "grep_risk": "none"
+    },
+    {
+      "id": 968,
+      "slug": "distractor-0968",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 969,
+      "slug": "distractor-0969",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 970,
+      "slug": "distractor-0970",
+      "category": "granularity-trap",
+      "problem": "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 971,
+      "slug": "distractor-0971",
+      "category": "cross-domain",
+      "problem": "如何为时序数据库选择合适的数据编码和压缩算法",
+      "grep_risk": "none"
+    },
+    {
+      "id": 972,
+      "slug": "distractor-0972",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 973,
+      "slug": "distractor-0973",
+      "category": "granularity-trap",
+      "problem": "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 974,
+      "slug": "distractor-0974",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 975,
+      "slug": "distractor-0975",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 976,
+      "slug": "distractor-0976",
+      "category": "cross-domain",
+      "problem": "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率",
+      "grep_risk": "none"
+    },
+    {
+      "id": 977,
+      "slug": "distractor-0977",
+      "category": "structural-neighbor",
+      "problem": "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 978,
+      "slug": "distractor-0978",
+      "category": "structural-neighbor",
+      "problem": "如何在移动应用中实现离线优先的数据同步与冲突解决策略（变体）",
+      "grep_risk": "low"
+    },
+    {
+      "id": 979,
+      "slug": "distractor-0979",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 980,
+      "slug": "distractor-0980",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放",
+      "grep_risk": "high"
+    },
+    {
+      "id": 981,
+      "slug": "distractor-0981",
+      "category": "cross-domain",
+      "problem": "如何在 NUMA 架构上实现内存分配器的节点亲和性策略",
+      "grep_risk": "none"
+    },
+    {
+      "id": 982,
+      "slug": "distractor-0982",
+      "category": "vocab-neighbor",
+      "problem": "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 983,
+      "slug": "distractor-0983",
+      "category": "cross-domain",
+      "problem": "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除",
+      "grep_risk": "none"
+    },
+    {
+      "id": 984,
+      "slug": "distractor-0984",
+      "category": "vocab-neighbor",
+      "problem": "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）",
+      "grep_risk": "high"
+    },
+    {
+      "id": 985,
+      "slug": "distractor-0985",
+      "category": "structural-neighbor",
+      "problem": "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 986,
+      "slug": "distractor-0986",
+      "category": "vocab-neighbor",
+      "problem": "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 987,
+      "slug": "distractor-0987",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 988,
+      "slug": "distractor-0988",
+      "category": "vocab-neighbor",
+      "problem": "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 989,
+      "slug": "distractor-0989",
+      "category": "vocab-neighbor",
+      "problem": "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 990,
+      "slug": "distractor-0990",
+      "category": "vocab-neighbor",
+      "problem": "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 991,
+      "slug": "distractor-0991",
+      "category": "vocab-neighbor",
+      "problem": "如何管理数据库连接池中长会话的生命周期与持久化",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 992,
+      "slug": "distractor-0992",
+      "category": "structural-neighbor",
+      "problem": "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 993,
+      "slug": "distractor-0993",
+      "category": "structural-neighbor",
+      "problem": "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 994,
+      "slug": "distractor-0994",
+      "category": "granularity-trap",
+      "problem": "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性",
+      "grep_risk": "medium"
+    },
+    {
+      "id": 995,
+      "slug": "distractor-0995",
+      "category": "cross-domain",
+      "problem": "如何在负载均衡器中实现一致性哈希以最小化后端扩缩容时的连接迁移",
+      "grep_risk": "none"
+    },
+    {
+      "id": 996,
+      "slug": "distractor-0996",
+      "category": "cross-domain",
+      "problem": "如何在内存数据库中实现高效的增量检查点与故障恢复",
+      "grep_risk": "none"
+    },
+    {
+      "id": 997,
+      "slug": "distractor-0997",
+      "category": "cross-domain",
+      "problem": "如何在分布式数据库中实现基于 Raft 共识的强一致性复制",
+      "grep_risk": "none"
+    },
+    {
+      "id": 998,
+      "slug": "distractor-0998",
+      "category": "cross-domain",
+      "problem": "如何在列式存储引擎中实现谓词下推和延迟物化",
+      "grep_risk": "none"
+    },
+    {
+      "id": 999,
+      "slug": "distractor-0999",
+      "category": "cross-domain",
+      "problem": "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化",
+      "grep_risk": "none"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0154
-problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
-concerns: [兼容性, 可扩展性]
-repos: [nginx, docker]
+problem: "如何为时序数据库选择合适的数据编码和压缩算法"
+concerns: [兼容性, 硬件效率]
+repos: [grpc, etcd]
 generated: 2026-06-29
 ---

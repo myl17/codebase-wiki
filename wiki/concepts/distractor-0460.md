@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0460
-problem: "如何为时序数据库选择合适的数据编码和压缩算法"
-concerns: [可扩展性, 吞吐量, 硬件效率]
-repos: [react, docker]
+problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
+concerns: [延迟, 吞吐量]
+repos: [django, rocksdb]
 generated: 2026-06-29
 ---

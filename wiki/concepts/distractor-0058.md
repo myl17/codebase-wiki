@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0058
-problem: "如何在权益证明共识中设计验证者选举的随机性与抗偏置机制"
-concerns: [可扩展性, 运维复杂度]
-repos: [linux, spark]
+problem: "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）"
+concerns: [数据一致性, 资源利用率, 扩展灵活性]
+repos: [pytorch, kafka]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0377
-problem: "如何管理数据库连接池中长会话的生命周期与持久化（扩展变体）"
-concerns: [故障恢复时间, 接口简洁性, 扩展灵活性]
-repos: [django, prometheus]
+problem: "如何管理浏览器扩展的能力声明与权限分级（扩展变体）"
+concerns: [资源利用率, 故障恢复时间]
+repos: [prometheus, django]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0391
-problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
-concerns: [数据一致性, 读写性能]
-repos: [elasticsearch, envoy]
+problem: "如何在增量编译器中实现细粒度的依赖跟踪与失效传播"
+concerns: [延迟, 可扩展性, 容错性]
+repos: [pytorch, tensorflow]
 generated: 2026-06-29
 ---

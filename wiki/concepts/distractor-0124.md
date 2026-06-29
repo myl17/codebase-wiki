@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0124
-problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
-concerns: [生态兼容性, 学习成本]
-repos: [redis, envoy]
+problem: "如何管理多环境下特性开关的配置继承与覆盖规则（扩展变体）"
+concerns: [读写性能, 扩展灵活性]
+repos: [kafka, grafana]
 generated: 2026-06-29
 ---

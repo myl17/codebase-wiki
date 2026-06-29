@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0330
-problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异"
-concerns: [代码可维护性, 部署复杂度, 学习成本]
-repos: [react, grafana]
+problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
+concerns: [吞吐量, 延迟]
+repos: [kafka, swift]
 generated: 2026-06-29
 ---

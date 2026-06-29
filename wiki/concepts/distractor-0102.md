@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0102
-problem: "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）"
-concerns: [开发效率, 生态兼容性, 运行时性能]
-repos: [kubernetes, postgres]
+problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
+concerns: [延迟, 容错性, 吞吐量]
+repos: [tensorflow, grpc]
 generated: 2026-06-29
 ---

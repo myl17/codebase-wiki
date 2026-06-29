@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0024
-problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
-concerns: [硬件效率, 兼容性]
-repos: [clickhouse, elasticsearch]
+problem: "如何在虚拟 DOM 中实现细粒度的脏标记追踪与最小化 DOM 更新"
+concerns: [可扩展性, 硬件效率, 兼容性]
+repos: [linux, django]
 generated: 2026-06-29
 ---

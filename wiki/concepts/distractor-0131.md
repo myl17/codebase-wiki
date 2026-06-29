@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0131
-problem: "如何构建多层 DDoS 防御体系，从边缘到源站逐层过滤（扩展变体）"
-concerns: [接口简洁性, 数据一致性, 安全隔离性]
-repos: [llvm-project, pytorch]
+problem: "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡"
+concerns: [容错性, 运维复杂度, 延迟]
+repos: [spark, django]
 generated: 2026-06-29
 ---

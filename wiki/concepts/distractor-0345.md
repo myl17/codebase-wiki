@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0345
-problem: "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）"
-concerns: [故障恢复时间, 数据一致性, 接口简洁性]
-repos: [linux, grpc]
+problem: "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除"
+concerns: [兼容性, 吞吐量, 容错性]
+repos: [kubernetes, docker]
 generated: 2026-06-29
 ---

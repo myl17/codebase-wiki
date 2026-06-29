@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0121
-problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口"
-concerns: [安全隔离性, 扩展灵活性, 故障恢复时间]
-repos: [grpc, redis]
+problem: "如何抽象多个短信和邮件服务提供商的 API 差异与故障切换（扩展变体）"
+concerns: [响应延迟, 扩展灵活性]
+repos: [redis, react]
 generated: 2026-06-29
 ---

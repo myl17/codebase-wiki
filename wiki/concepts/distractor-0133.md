@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0133
-problem: "如何设计 Markdown 转义规则以正确处理 Discord 和 Telegram 的特殊格式差异"
-concerns: [内存开销, 调试便利性]
-repos: [etcd, clickhouse]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
+concerns: [生态兼容性, 部署复杂度]
+repos: [tensorflow, django]
 generated: 2026-06-29
 ---

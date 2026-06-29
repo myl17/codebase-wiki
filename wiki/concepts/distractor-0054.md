@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0054
-problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容"
-concerns: [接口简洁性, 资源利用率]
-repos: [rocksdb, flask]
+problem: "如何在日志系统中实现凭证自动脱敏的正则表达式匹配策略"
+concerns: [内存开销, 实现复杂度]
+repos: [django, redis]
 generated: 2026-06-29
 ---

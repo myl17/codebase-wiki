@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0228
-problem: "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率"
-concerns: [容错性, 可扩展性, 延迟]
-repos: [rocksdb, etcd]
+problem: "如何在图数据库中实现高效的子图匹配和路径查询"
+concerns: [可扩展性, 硬件效率, 容错性]
+repos: [grafana, postgres]
 generated: 2026-06-29
 ---

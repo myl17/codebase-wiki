@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0368
-problem: "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）"
-concerns: [调试便利性, 运行时性能, 生态兼容性]
-repos: [spark, llvm-project]
+problem: "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除"
+concerns: [硬件效率, 兼容性]
+repos: [react, docker]
 generated: 2026-06-29
 ---

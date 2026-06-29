@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0317
-problem: "如何管理浏览器扩展的能力声明与权限分级（扩展变体）"
-concerns: [响应延迟, 接口简洁性]
-repos: [envoy, vue]
+problem: "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）"
+concerns: [学习成本, 调试便利性]
+repos: [flask, react]
 generated: 2026-06-29
 ---

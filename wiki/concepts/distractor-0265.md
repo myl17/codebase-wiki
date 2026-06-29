@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0265
-problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
-concerns: [部署复杂度, 调试便利性, 生态兼容性]
-repos: [prometheus, django]
+problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）"
+concerns: [响应延迟, 读写性能, 接口简洁性]
+repos: [spark, swift]
 generated: 2026-06-29
 ---

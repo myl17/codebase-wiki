@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0410
-problem: "如何设计类型系统以支持泛型特化、单态化和运行时类型擦除"
-concerns: [兼容性, 可扩展性]
-repos: [grpc, spark]
+problem: "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）"
+concerns: [资源利用率, 数据一致性]
+repos: [vue, django]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0360
-problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序（扩展变体）"
-concerns: [响应延迟, 扩展灵活性]
-repos: [rocksdb, spark]
+problem: "如何在列式存储引擎中实现谓词下推和延迟物化"
+concerns: [兼容性, 延迟, 硬件效率]
+repos: [swift, redis]
 generated: 2026-06-29
 ---

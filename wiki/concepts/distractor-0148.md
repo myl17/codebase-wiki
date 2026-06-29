@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0148
-problem: "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）"
-concerns: [扩展灵活性, 故障恢复时间]
-repos: [llvm-project, clickhouse]
+problem: "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）"
+concerns: [学习成本, 运行时性能, 部署复杂度]
+repos: [spark, kubernetes]
 generated: 2026-06-29
 ---

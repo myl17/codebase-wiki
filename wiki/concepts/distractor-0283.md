@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0283
-problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）"
-concerns: [部署复杂度, 代码可维护性, 版本升级平滑性]
-repos: [grpc, flask]
+problem: "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡"
+concerns: [兼容性, 硬件效率]
+repos: [rocksdb, docker]
 generated: 2026-06-29
 ---

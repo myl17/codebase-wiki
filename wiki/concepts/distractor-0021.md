@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0021
-problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）"
-concerns: [扩展灵活性, 数据一致性, 读写性能]
-repos: [llvm-project, redis]
+problem: "如何在用户态网络栈中实现零拷贝的数据包处理管道"
+concerns: [兼容性, 一致性, 吞吐量]
+repos: [elasticsearch, tensorflow]
 generated: 2026-06-29
 ---

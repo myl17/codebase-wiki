@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0393
-problem: "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡"
-concerns: [吞吐量, 兼容性, 可扩展性]
-repos: [docker, react]
+problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
+concerns: [代码可维护性, 生态兼容性, 开发效率]
+repos: [linux, nginx]
 generated: 2026-06-29
 ---

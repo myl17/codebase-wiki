@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0344
-problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
-concerns: [生态兼容性, 调试便利性]
-repos: [grafana, rocksdb]
+problem: "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）"
+concerns: [网络带宽, 调试便利性]
+repos: [envoy, kafka]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0470
-problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
-concerns: [兼容性, 运维复杂度, 可扩展性]
-repos: [django, nginx]
+problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）"
+concerns: [读写性能, 响应延迟, 故障恢复时间]
+repos: [linux, envoy]
 generated: 2026-06-29
 ---

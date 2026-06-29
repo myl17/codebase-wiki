@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0044
-problem: "如何在配置文件热加载中实现 inotify/fsevents 的跨平台文件监控抽象"
-concerns: [网络带宽, 调试便利性]
-repos: [kubernetes, grpc]
+problem: "如何在内存数据库中实现高效的增量检查点与故障恢复"
+concerns: [可扩展性, 延迟, 兼容性]
+repos: [prometheus, tensorflow]
 generated: 2026-06-29
 ---

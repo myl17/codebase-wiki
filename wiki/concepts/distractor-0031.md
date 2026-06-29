@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0031
-problem: "如何在分布式训练中实现梯度压缩与通信计算重叠以提升扩展效率"
-concerns: [硬件效率, 吞吐量]
-repos: [vue, clickhouse]
+problem: "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）"
+concerns: [响应延迟, 故障恢复时间]
+repos: [redis, linux]
 generated: 2026-06-29
 ---

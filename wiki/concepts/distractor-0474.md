@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0474
-problem: "如何在虚拟化环境中实现 GPU 的 SR-IOV 设备直通与热迁移"
-concerns: [兼容性, 一致性, 运维复杂度]
-repos: [envoy, nginx]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
+concerns: [版本升级平滑性, 部署复杂度]
+repos: [kafka, linux]
 generated: 2026-06-29
 ---

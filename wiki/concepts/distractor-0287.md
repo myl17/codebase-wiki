@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0287
-problem: "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）"
-concerns: [接口简洁性, 安全隔离性]
-repos: [clickhouse, pytorch]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
+concerns: [运行时性能, 调试便利性]
+repos: [flask, react]
 generated: 2026-06-29
 ---

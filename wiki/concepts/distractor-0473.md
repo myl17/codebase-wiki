@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0473
-problem: "如何在多集群 Kubernetes 环境中实现统一的配置管理和秘钥分发（变体）"
-concerns: [运行时性能, 部署复杂度, 生态兼容性]
-repos: [llvm-project, docker]
+problem: "如何在分布式数据库中实现基于 Raft 共识的强一致性复制"
+concerns: [可扩展性, 兼容性]
+repos: [grpc, pytorch]
 generated: 2026-06-29
 ---

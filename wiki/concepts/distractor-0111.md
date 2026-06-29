@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0111
-problem: "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）"
-concerns: [数据一致性, 资源利用率, 读写性能]
-repos: [etcd, docker]
+problem: "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除"
+concerns: [兼容性, 可扩展性]
+repos: [kubernetes, redis]
 generated: 2026-06-29
 ---

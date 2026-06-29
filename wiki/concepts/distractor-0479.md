@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0479
-problem: "如何在实时视频编码中实现上下文感知的自适应压缩策略（扩展变体）"
-concerns: [接口简洁性, 扩展灵活性, 安全隔离性]
-repos: [vue, grafana]
+problem: "如何在工具注册表中使用 LRU 缓存加速高频工具的 schema 反序列化（粒度变体）"
+concerns: [磁盘 I/O, 内存开销]
+repos: [spark, redis]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0239
-problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
-concerns: [数据一致性, 资源利用率, 响应延迟]
-repos: [vue, tensorflow]
+problem: "如何在模型推理服务中实现动态批处理与 GPU 显存的分时复用"
+concerns: [可扩展性, 硬件效率, 容错性]
+repos: [kubernetes, llvm-project]
 generated: 2026-06-29
 ---

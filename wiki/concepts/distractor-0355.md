@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0355
-problem: "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性"
-concerns: [硬件效率, 吞吐量, 容错性]
-repos: [django, kafka]
+problem: "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）"
+concerns: [内存开销, 实现复杂度, 网络带宽]
+repos: [grafana, envoy]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0110
-problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
-concerns: [吞吐量, 一致性]
-repos: [docker, kubernetes]
+problem: "如何在图数据库中实现高效的子图匹配和路径查询"
+concerns: [可扩展性, 一致性, 硬件效率]
+repos: [kafka, swift]
 generated: 2026-06-29
 ---

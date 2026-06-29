@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0475
-problem: "如何管理前端应用的多语言国际化配置与运行时切换"
-concerns: [调试便利性, 部署复杂度, 学习成本]
-repos: [prometheus, grpc]
+problem: "如何设计基于 TLS 1.3 的 0-RTT 握手以兼顾安全性与重放攻击防护"
+concerns: [一致性, 容错性]
+repos: [llvm-project, django]
 generated: 2026-06-29
 ---

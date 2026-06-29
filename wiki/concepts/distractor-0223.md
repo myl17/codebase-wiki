@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0223
-problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑"
-concerns: [部署复杂度, 学习成本]
-repos: [clickhouse, vue]
+problem: "如何在 NUMA 架构上实现内存分配器的节点亲和性策略"
+concerns: [容错性, 吞吐量]
+repos: [react, kafka]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0455
-problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）"
-concerns: [读写性能, 响应延迟, 故障恢复时间]
-repos: [linux, envoy]
+problem: "如何设计 LSM-Tree 的 Compaction 策略以平衡读放大、写放大和空间放大"
+concerns: [硬件效率, 延迟, 吞吐量]
+repos: [prometheus, spark]
 generated: 2026-06-29
 ---

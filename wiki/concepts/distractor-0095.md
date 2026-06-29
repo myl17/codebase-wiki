@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0095
-problem: "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）"
-concerns: [版本升级平滑性, 代码可维护性, 调试便利性]
-repos: [kafka, django]
+problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
+concerns: [兼容性, 延迟]
+repos: [flask, kafka]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0424
-problem: "如何选择 HTTP 客户端的连接池大小以平衡并发请求和文件描述符开销（粒度变体）"
-concerns: [内存开销, 实现复杂度, 磁盘 I/O]
-repos: [tensorflow, postgres]
+problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
+concerns: [运维复杂度, 硬件效率, 兼容性]
+repos: [django, llvm-project]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0261
-problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
-concerns: [接口简洁性, 数据一致性]
-repos: [nginx, envoy]
+problem: "如何为 NewSQL 系统设计全局事务标识和时钟同步机制"
+concerns: [吞吐量, 运维复杂度]
+repos: [django, etcd]
 generated: 2026-06-29
 ---

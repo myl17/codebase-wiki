@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0117
-problem: "如何在 LLM API 调用中实现指数退避重试的抖动因子以避免惊群效应（粒度变体）"
-concerns: [调试便利性, 代码可维护性, 运行时性能]
-repos: [flask, react]
+problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
+concerns: [吞吐量, 延迟]
+repos: [react, tensorflow]
 generated: 2026-06-29
 ---

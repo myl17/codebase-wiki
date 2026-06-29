@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0212
-problem: "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）"
-concerns: [版本升级平滑性, 开发效率]
-repos: [redis, grafana]
+problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
+concerns: [一致性, 吞吐量, 兼容性]
+repos: [tensorflow, nginx]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0251
-problem: "如何设计 DNS 的 Anycast 任播架构以保证全球用户的就近解析"
-concerns: [一致性, 可扩展性, 延迟]
-repos: [spark, grpc]
+problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
+concerns: [兼容性, 吞吐量]
+repos: [spark, kafka]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0060
-problem: "如何在用户态网络栈中实现零拷贝的数据包处理管道"
-concerns: [硬件效率, 吞吐量]
-repos: [tensorflow, kafka]
+problem: "如何设计 CSS-in-JS 运行时的样式去重与原子化 class 生成"
+concerns: [容错性, 可扩展性]
+repos: [pytorch, grafana]
 generated: 2026-06-29
 ---

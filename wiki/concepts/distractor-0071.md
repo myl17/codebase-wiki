@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0071
-problem: "如何在 TCP 拥塞窗口中实现基于 RTT 的自适应压缩与扩容（扩展变体）"
-concerns: [扩展灵活性, 读写性能]
-repos: [nginx, postgres]
+problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
+concerns: [部署复杂度, 生态兼容性]
+repos: [nginx, django]
 generated: 2026-06-29
 ---

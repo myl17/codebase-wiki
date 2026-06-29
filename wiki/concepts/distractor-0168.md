@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0168
-problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
-concerns: [数据一致性, 扩展灵活性, 响应延迟]
-repos: [redis, flask]
+problem: "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）"
+concerns: [运行时性能, 代码可维护性]
+repos: [llvm-project, clickhouse]
 generated: 2026-06-29
 ---

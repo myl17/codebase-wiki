@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0214
-problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
-concerns: [生态兼容性, 开发效率, 运行时性能]
-repos: [kubernetes, llvm-project]
+problem: "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）"
+concerns: [调试便利性, 版本升级平滑性, 部署复杂度]
+repos: [react, kubernetes]
 generated: 2026-06-29
 ---

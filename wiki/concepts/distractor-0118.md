@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0118
-problem: "如何在增量编译器中实现细粒度的依赖跟踪与失效传播"
-concerns: [兼容性, 运维复杂度]
-repos: [django, swift]
+problem: "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）"
+concerns: [接口简洁性, 故障恢复时间, 数据一致性]
+repos: [redis, grafana]
 generated: 2026-06-29
 ---

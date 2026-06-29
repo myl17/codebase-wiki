@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0027
-problem: "如何编排 ETL 管线的执行顺序，处理任务间的依赖、失败重试和断点续跑（变体）"
-concerns: [调试便利性, 版本升级平滑性, 学习成本]
-repos: [flask, envoy]
+problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
+concerns: [接口简洁性, 安全隔离性, 响应延迟]
+repos: [tensorflow, linux]
 generated: 2026-06-29
 ---

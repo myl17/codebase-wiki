@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0358
-problem: "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境（扩展变体）"
-concerns: [资源利用率, 响应延迟]
-repos: [linux, grpc]
+problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
+concerns: [代码可维护性, 运行时性能, 学习成本]
+repos: [rocksdb, etcd]
 generated: 2026-06-29
 ---

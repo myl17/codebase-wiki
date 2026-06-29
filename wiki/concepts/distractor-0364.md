@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0364
-problem: "如何在 CI/CD 管线中实现工具的延迟注册与条件执行（扩展变体）"
-concerns: [数据一致性, 资源利用率, 扩展灵活性]
-repos: [pytorch, kafka]
+problem: "如何用统一的数据格式（Arrow/Parquet）抽象不同数据源的行列存储差异（变体）"
+concerns: [开发效率, 学习成本, 版本升级平滑性]
+repos: [docker, postgres]
 generated: 2026-06-29
 ---

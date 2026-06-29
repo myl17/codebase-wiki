@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0248
-problem: "如何设计特征存储以支持在线服务的低延迟特征查询和离线训练的一致性"
-concerns: [延迟, 一致性]
-repos: [envoy, kubernetes]
+problem: "如何为 NewSQL 系统设计全局事务标识和时钟同步机制"
+concerns: [容错性, 运维复杂度, 硬件效率]
+repos: [flask, llvm-project]
 generated: 2026-06-29
 ---

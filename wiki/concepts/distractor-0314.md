@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0314
-problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
-concerns: [安全隔离性, 读写性能]
-repos: [kubernetes, grpc]
+problem: "如何管理 iOS 应用中后台任务的定时执行与系统节能策略的协调（变体）"
+concerns: [运行时性能, 代码可维护性]
+repos: [llvm-project, grafana]
 generated: 2026-06-29
 ---

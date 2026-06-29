@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0375
-problem: "如何在编译器中实现跨函数的过程间别名分析与内联决策"
-concerns: [延迟, 兼容性, 运维复杂度]
-repos: [grafana, spark]
+problem: "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）"
+concerns: [版本升级平滑性, 部署复杂度, 代码可维护性]
+repos: [react, llvm-project]
 generated: 2026-06-29
 ---

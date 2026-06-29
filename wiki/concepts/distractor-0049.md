@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0049
-problem: "如何管理 React 组件的状态生命周期，协调 props、state 和 context 的数据流（变体）"
-concerns: [版本升级平滑性, 生态兼容性, 运行时性能]
-repos: [spark, nginx]
+problem: "如何在 Service Mesh 中实现基于 eBPF 的零侵入流量劫持和路由"
+concerns: [硬件效率, 一致性]
+repos: [llvm-project, linux]
 generated: 2026-06-29
 ---

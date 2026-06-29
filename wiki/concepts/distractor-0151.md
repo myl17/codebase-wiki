@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0151
-problem: "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异（变体）"
-concerns: [生态兼容性, 版本升级平滑性, 部署复杂度]
-repos: [nginx, postgres]
+problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）"
+concerns: [读写性能, 安全隔离性, 数据一致性]
+repos: [tensorflow, elasticsearch]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0262
-problem: "如何在 Kubernetes 集群中构建多层安全审批链（扩展变体）"
-concerns: [安全隔离性, 资源利用率, 接口简洁性]
-repos: [postgres, flask]
+problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
+concerns: [可扩展性, 容错性]
+repos: [envoy, linux]
 generated: 2026-06-29
 ---

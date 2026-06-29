@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0241
-problem: "如何设计后量子密码算法的混合密钥交换，兼容 RSA/ECC 和 Kyber"
-concerns: [一致性, 可扩展性]
-repos: [docker, etcd]
+problem: "如何在图数据库中实现高效的子图匹配和路径查询"
+concerns: [兼容性, 延迟, 运维复杂度]
+repos: [kafka, pytorch]
 generated: 2026-06-29
 ---

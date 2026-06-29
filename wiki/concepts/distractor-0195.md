@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0195
-problem: "如何在用户态网络栈中实现零拷贝的数据包处理管道"
-concerns: [可扩展性, 吞吐量]
-repos: [vue, grafana]
+problem: "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）"
+concerns: [响应延迟, 读写性能, 扩展灵活性]
+repos: [nginx, linux]
 generated: 2026-06-29
 ---

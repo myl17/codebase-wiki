@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0015
-problem: "如何在浏览器引擎中为每个标签页提供独立的 JavaScript 执行隔离环境"
-concerns: [安全隔离性, 读写性能]
-repos: [linux, envoy]
+problem: "如何管理浏览器扩展的能力声明与权限分级（扩展变体）"
+concerns: [响应延迟, 接口简洁性]
+repos: [envoy, vue]
 generated: 2026-06-29
 ---

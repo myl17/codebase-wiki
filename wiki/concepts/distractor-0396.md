@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0396
-problem: "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略"
-concerns: [调试便利性, 实现复杂度, 磁盘 I/O]
-repos: [envoy, rocksdb]
+problem: "如何为时序数据库选择合适的数据编码和压缩算法"
+concerns: [硬件效率, 可扩展性, 一致性]
+repos: [redis, tensorflow]
 generated: 2026-06-29
 ---

@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0202
-problem: "如何设计 IR 的 SSA 形式以支持稀疏条件常量传播和死代码消除"
-concerns: [运维复杂度, 吞吐量]
-repos: [prometheus, kafka]
+problem: "如何在 Docker sandbox 中配置 cgroup 内存限制的硬边界与软边界（粒度变体）"
+concerns: [调试便利性, 运行时性能, 内存开销]
+repos: [elasticsearch, linux]
 generated: 2026-06-29
 ---

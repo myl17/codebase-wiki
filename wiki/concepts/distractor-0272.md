@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0272
-problem: "如何设计工具执行超时的定时器粒度（秒级 vs 毫秒级）与取消传播策略（粒度变体）"
-concerns: [网络带宽, 实现复杂度, 磁盘 I/O]
-repos: [react, postgres]
+problem: "如何管理前端应用的多语言国际化配置与运行时切换（变体）"
+concerns: [运行时性能, 学习成本, 代码可维护性]
+repos: [grpc, tensorflow]
 generated: 2026-06-29
 ---

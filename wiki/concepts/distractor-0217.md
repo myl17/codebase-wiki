@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0217
-problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
-concerns: [运维复杂度, 容错性, 硬件效率]
-repos: [nginx, django]
+problem: "如何在分布式 KV 存储中实现 Agent 级别的数据记忆与回放（扩展变体）"
+concerns: [接口简洁性, 资源利用率, 扩展灵活性]
+repos: [swift, linux]
 generated: 2026-06-29
 ---

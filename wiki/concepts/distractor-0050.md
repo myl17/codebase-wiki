@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0050
-problem: "如何在图数据库中实现高效的子图匹配和路径查询"
-concerns: [硬件效率, 运维复杂度, 一致性]
-repos: [kubernetes, docker]
+problem: "如何为 NewSQL 系统设计全局事务标识和时钟同步机制"
+concerns: [吞吐量, 兼容性, 容错性]
+repos: [rocksdb, redis]
 generated: 2026-06-29
 ---

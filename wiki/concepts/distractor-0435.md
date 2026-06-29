@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0435
-problem: "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异"
-concerns: [开发效率, 学习成本]
-repos: [rocksdb, linux]
+problem: "如何设计 QUIC 协议的拥塞控制算法以适应 5G 高带宽高延迟网络"
+concerns: [兼容性, 硬件效率, 延迟]
+repos: [tensorflow, docker]
 generated: 2026-06-29
 ---

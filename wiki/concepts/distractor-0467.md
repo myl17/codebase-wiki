@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0467
-problem: "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略"
-concerns: [代码可维护性, 调试便利性]
-repos: [swift, elasticsearch]
+problem: "如何为 NewSQL 系统设计全局事务标识和时钟同步机制"
+concerns: [运维复杂度, 吞吐量, 兼容性]
+repos: [redis, linux]
 generated: 2026-06-29
 ---

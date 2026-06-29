@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0340
-problem: "如何在 gRPC 服务端流式响应中实现背压与分块传输控制（扩展变体）"
-concerns: [资源利用率, 接口简洁性]
-repos: [prometheus, nginx]
+problem: "如何在分布式数据库中实现基于 Raft 共识的强一致性复制"
+concerns: [运维复杂度, 容错性, 延迟]
+repos: [prometheus, postgres]
 generated: 2026-06-29
 ---

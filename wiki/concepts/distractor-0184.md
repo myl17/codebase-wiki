@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0184
-problem: "如何设计内核的完全公平调度器（CFS）以兼顾交互式任务的响应延迟"
-concerns: [可扩展性, 延迟, 容错性]
-repos: [django, llvm-project]
+problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
+concerns: [延迟, 容错性]
+repos: [grpc, redis]
 generated: 2026-06-29
 ---

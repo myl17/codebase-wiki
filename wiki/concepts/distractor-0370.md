@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0370
-problem: "如何在流式输出的 delta 合并中使用固定时间窗口减少 Telegram API 调用次数（粒度变体）"
-concerns: [代码可维护性, 内存开销, 调试便利性]
-repos: [docker, rocksdb]
+problem: "如何在 CDN 边缘节点实现基于机器学习的自适应缓存替换策略"
+concerns: [一致性, 延迟]
+repos: [django, flask]
 generated: 2026-06-29
 ---

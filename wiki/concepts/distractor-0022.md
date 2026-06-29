@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0022
-problem: "如何用统一接口抽象微信支付、支付宝和 Stripe 的支付渠道接入（扩展变体）"
-concerns: [响应延迟, 故障恢复时间, 读写性能]
-repos: [vue, grafana]
+problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
+concerns: [硬件效率, 可扩展性]
+repos: [pytorch, kubernetes]
 generated: 2026-06-29
 ---

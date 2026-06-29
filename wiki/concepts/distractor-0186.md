@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0186
-problem: "如何在分布式事务中实现子事务的委托执行与补偿回滚（扩展变体）"
-concerns: [读写性能, 响应延迟]
-repos: [docker, grafana]
+problem: "如何用响应式编程抽象 Android 和 iOS 的异步 UI 更新差异（变体）"
+concerns: [学习成本, 版本升级平滑性, 部署复杂度]
+repos: [envoy, postgres]
 generated: 2026-06-29
 ---

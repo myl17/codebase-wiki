@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0059
-problem: "如何在多方安全计算中实现高效的秘密共享与不经意传输"
-concerns: [可扩展性, 一致性, 吞吐量]
-repos: [spark, postgres]
+problem: "如何为 subprocess 的标准错误流合并选择正确的缓冲区策略（粒度变体）"
+concerns: [网络带宽, 实现复杂度, 磁盘 I/O]
+repos: [kafka, swift]
 generated: 2026-06-29
 ---

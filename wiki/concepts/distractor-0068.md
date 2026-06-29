@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0068
-problem: "如何抽象多个消息队列后端（Kafka/Pulsar/RabbitMQ）的统一发布订阅接口（扩展变体）"
-concerns: [接口简洁性, 安全隔离性, 响应延迟]
-repos: [tensorflow, linux]
+problem: "如何设计 MVCC 的垃圾回收策略，在事务吞吐量和空间回收之间取得平衡"
+concerns: [延迟, 运维复杂度]
+repos: [grpc, django]
 generated: 2026-06-29
 ---

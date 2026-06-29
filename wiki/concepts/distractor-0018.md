@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0018
-problem: "如何用声明式 DSL 抽象不同平台的 UI 渲染差异（变体）"
-concerns: [生态兼容性, 开发效率, 部署复杂度]
-repos: [spark, swift]
+problem: "如何在单页应用中实现路由的分层配置与懒加载（变体）"
+concerns: [部署复杂度, 学习成本]
+repos: [kafka, tensorflow]
 generated: 2026-06-29
 ---

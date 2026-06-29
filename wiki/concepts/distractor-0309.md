@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0309
-problem: "如何在流处理引擎中实现窗口函数的自动压缩与状态清理（变体）"
-concerns: [代码可维护性, 运行时性能]
-repos: [grafana, swift]
+problem: "如何在 GPU 集群上实现多个 LLM 推理请求的批处理与调度（扩展变体）"
+concerns: [读写性能, 安全隔离性, 扩展灵活性]
+repos: [redis, envoy]
 generated: 2026-06-29
 ---

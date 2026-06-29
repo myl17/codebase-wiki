@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0126
-problem: "如何设计游戏引擎的资产管线，支持纹理、模型和音频的异步加载与格式转换"
-concerns: [硬件效率, 运维复杂度, 兼容性]
-repos: [react, kubernetes]
+problem: "如何管理 OAuth 2.0 令牌的身份绑定与完整生命周期（扩展变体）"
+concerns: [数据一致性, 安全隔离性]
+repos: [llvm-project, vue]
 generated: 2026-06-29
 ---

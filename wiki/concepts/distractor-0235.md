@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0235
-problem: "如何为 session key 生成选择 UUID v4 vs ULID 以保证唯一性和排序性（粒度变体）"
-concerns: [内存开销, 磁盘 I/O, 代码可维护性]
-repos: [swift, elasticsearch]
+problem: "如何让主线程委托 Web Worker 执行 CPU 密集型计算任务（变体）"
+concerns: [部署复杂度, 版本升级平滑性]
+repos: [rocksdb, kubernetes]
 generated: 2026-06-29
 ---

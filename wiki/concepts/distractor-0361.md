@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0361
-problem: "如何在 JIT 编译器中实现基于运行时反馈的推测性优化与反优化"
-concerns: [可扩展性, 兼容性, 容错性]
-repos: [nginx, clickhouse]
+problem: "如何设计可插拔的构建工具模块系统，支持动态加载与热替换（扩展变体）"
+concerns: [资源利用率, 扩展灵活性, 接口简洁性]
+repos: [pytorch, django]
 generated: 2026-06-29
 ---

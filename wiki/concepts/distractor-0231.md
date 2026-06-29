@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0231
-problem: "如何为 Terraform 模块设计可复用的抽象层，屏蔽 AWS/Azure/GCP 的 API 差异"
-concerns: [调试便利性, 版本升级平滑性, 部署复杂度]
-repos: [docker, vue]
+problem: "如何设计 UI 组件的分层提示词系统，管理弹窗、工具提示和下拉菜单的层叠顺序"
+concerns: [安全隔离性, 故障恢复时间]
+repos: [redis, nginx]
 generated: 2026-06-29
 ---

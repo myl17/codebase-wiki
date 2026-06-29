@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0090
-problem: "如何在前端构建工具链中实现插件的注册、发现与版本兼容检查（变体）"
-concerns: [开发效率, 部署复杂度]
-repos: [rocksdb, spark]
+problem: "如何设计文件系统的写时复制（COW）快照机制与增量备份"
+concerns: [容错性, 吞吐量]
+repos: [django, flask]
 generated: 2026-06-29
 ---

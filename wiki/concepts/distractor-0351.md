@@ -1,8 +1,8 @@
 ---
 type: concept
 concept: distractor-0351
-problem: "如何在智能合约虚拟机中设计 Gas 计量与执行资源的安全边界"
-concerns: [延迟, 运维复杂度]
-repos: [redis, pytorch]
+problem: "如何在分布式系统中实现精确一次的定时任务调度（扩展变体）"
+concerns: [安全隔离性, 读写性能]
+repos: [prometheus, kafka]
 generated: 2026-06-29
 ---

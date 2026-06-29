@@ -85,26 +85,6 @@ Evolution layer:
 - **Knowledge stays fresh.** Any read that finds stale wiki data must fix it before regenerating output.
 - **Evolution built in.** Concepts aren't frozen — merge/split/redirect handles drift as more repos arrive.
 
-## Demo wiki
-
-This repository ships with an example wiki produced by ingesting 5 AI agent frameworks. It's included so you can browse a real knowledge base before running your own ingest:
-
-```
-wiki/
-├── concepts/           18 cross-framework design pages
-│                       (agent-loop, context-compression, tool-lifecycle,
-│                        provider-abstraction, security, sandboxing, MCP, …)
-├── repos/              5 repos × 98 entity pages
-│   ├── nanobot/
-│   ├── hermes-agent/
-│   ├── openclaw/
-│   ├── deepagents/
-│   └── codex-main/
-└── views/              1 comparison snapshot (hermes-agent vs openclaw)
-```
-
-Open `wiki/` in Obsidian with Graph View to see the wikilink network. Delete the demo content and start fresh if you prefer — the plugin works on any codebase.
-
 ## Project structure
 
 ```

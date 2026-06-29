@@ -24,59 +24,67 @@ NO COMPLETION CLAIMS BEFORE THE GATE IS CLEARED
 BEFORE claiming any wiki operation is complete:
 
 1. IDENTIFY: 本次操作涉及哪些 wiki 文件？
-2. CHECK: 每个文件是否处于正确状态？
+2. CHECK: 每个文件是否处于正确状态？（操作范围，全量 wiki 全覆盖）
 3. VERIFY: 日志和索引是否反映本次操作？
 4. GATE: 全部通过 → 声明完成。任何一项不通过 → 补完。
 ```
 
-## 通用检查清单
+## 检查清单
 
 INTERNAL CHECK. DO NOT OUTPUT TO USER.
 
+### 1. 写入正确性（操作范围）
+
 ```
-□ 本次操作写入了哪些 wiki 页？是否全部写成功（非空、格式正确）？
-□ 如果写入了 Concept 页 → frontmatter 的 repos: 是否包含正确的仓库列表？
+□ 本次操作写入了哪些 wiki 页？列出完整文件清单。
+□ 每个文件是否写成功（存在、非空、内容完整）？
+□ 如果写入了 Concept 页 →
+    ① frontmatter repos: 是否包含了 body 中讨论的**所有**仓库？（body 有 ### repo-name 节或 wikilink 但 frontmatter 没列 = 覆盖关系不可见 → BLOCK）
+    ② body 中每个 frontmatter 列出的 repo 是否至少有一个 [[repos/<name>/entities/...]] wikilink？（有 repos 无 wikilink = 元数据声明了但文档无证据 → WARN，记录不阻断）
 □ 如果写入了 Entity 页 → frontmatter 的 source_files: 是否和源码一致？
 □ 如果写入了 View/Insight 页 → frontmatter 的 sources: / provenance_repos: 是否正确？
+```
 
+### 2. 增量 wikilink 验证（操作范围）
+
+```
+□ 本次操作新增的 wikilink 指向的页面是否存在？
+  - 只检查本次写入文件中的 wikilink，不扫描全 wiki。
+  - 如果目标页尚未创建但有合理理由（如后续步骤会创建）→ 通过，但记录。
+  - 如果目标页不存在且不会有 → BLOCK，补充或修正链接。
+```
+
+### 3. 维护文件同步（全局）
+
+```
 □ wiki/log.md 是否追加了本次操作？格式是否正确（[<ts>] <操作> <详情>）？
 □ wiki/hot.md 是否覆盖写入？Last operation 是否反映本次操作？
 □ wiki/index.md 是否刷新（如有新增/修改页面）？
+```
 
+### 4. 残留检查
+
+```
 □ 如果操作中发现了内容准确性问题并修正了 Concept/Entity 页 →
    log.md 行尾是否有 [源码验证: ...] 标记？
-
 □ 是否有遗留的"稍后做"、"TODO"、未完成的写入承诺？
 ```
 
-## 最后一步：程序化 lint
-
-**内部检查清单全部通过后，必须运行 lint。这是门里最后一道锁。**
-
-```
-cd <wiki-root> && python scripts/lint.py --wiki wiki/ 2>&1
-```
-
-```
-如果 lint 输出 "✓ No issues found." → 静默通过，可以声明完成。
-如果 lint 报告 ERROR → 不通过。回退检查本次操作引入的错误，当场修复。
-如果 lint 报告 WARN/INFO → 记录但不阻塞完成。
-```
-
-**判断标准：**
-- 第一次跑出 ERROR 时，与操作前基线对比（如果知道的话）。新引入的 ERROR → 必须修复。
-- 如果 ERRORS 全是 pre-existing（操作前就有的），不阻塞完成，但在日志中记录。
-- 不确定是否 pre-existing → 当作新引入处理，修复。
-
 ## 与 /lint skill 的关系
 
-`/lint` 是用户手动触发的全局健康检查（在任何时间跑、看全部 wiki 状态）。`completion-gate` 在每次写操作完成时自动运行 lint.py 作为程序化验证。两者的检查逻辑相同（同一份 `scripts/lint.py`），但触发方式和 report 方式不同：
+两者 scope 不同，各自独立：
 
-| | `/lint` | `completion-gate` |
+| | `completion-gate` | `/lint` |
 |---|---|---|
-| 触发 | 用户手动 `(/lint)` | write skill 完成时自动 |
-| 输出 | 完整报告（error/warn/info + 健康分） | 静默；仅在 lint 失败时向用户报告 |
-| fix | 用户决定是否修复 | 当场修复新引入的问题 |
+| Scope | **操作范围** — 只查本次操作涉及的文件 | **全量范围** — 扫描所有 wiki 页面 |
+| 问题 | "这次操作我做对了吗？" | "整个 wiki 健康吗？" |
+| 触发 | 每次 write skill 完成时自动 | 用户手动 `/lint` |
+| 检查内容 | 本次文件写入正确性 + 增量 wikilink + 维护文件同步 + 残留检查 | 全 wiki wikilink 完整性 + frontmatter 合规 + repos 一致性 + 孤立页 + provenance + views 新鲜度 |
+| 运行 lint.py | 不运行 | 运行 `python scripts/lint.py --wiki wiki/` |
+
+**gate 不跑 `lint.py`。** lint 是全量体检，gate 是操作自检。不要用全量工具做增量检查。
+
+**gate 可以向用户建议跑 `/lint`**（如累计 N 次操作后、或发现维护文件不一致时），但不强制。
 
 ## Common Failures
 

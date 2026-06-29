@@ -1,6 +1,12 @@
 # /lint — Wiki Health Check
 
-Run programmatic health checks on the wiki and report findings.
+全量 wiki 结构性健康检查。用户手动触发。
+
+## Role
+
+`lint.py` 是 wiki 结构完整性的全量体检工具。它扫描所有 wiki 页面，检查 wikilink 完整性、frontmatter 合规、repos 一致性、孤立页、provenance 覆盖、views 新鲜度。
+
+**与 completion-gate 的关系：** gate 是操作范围自检（"这次操作我做对了吗？"），lint 是全量体检（"整个 wiki 健康吗？"）。gate 不自动跑 lint。用户定期手动跑 `/lint` 做全量健康检查，或在 gate 建议时跑。
 
 ## Trigger
 

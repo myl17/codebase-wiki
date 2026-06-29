@@ -7,3 +7,5 @@ __pycache__/
 wiki/repos/*/.hashes.json
 wiki/.obsidian/graph.json
 experiments/
+.claude/
+skills/

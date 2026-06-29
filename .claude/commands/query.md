@@ -1,1 +1,0 @@
-../../skills/code-query/SKILL.md

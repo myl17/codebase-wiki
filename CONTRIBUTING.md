@@ -6,7 +6,7 @@ Thanks for your interest in contributing!
 
 codebase-wiki is a **LLM-maintained knowledge base** — the LLM writes everything, humans curate direction. This has implications for contributions:
 
-- **Skill files** (`skills/*/SKILL.md`) are LLM operating manuals written in Chinese. Changes here should be tested with actual ingest/query runs.
+- **Skill files** (`commands/*.md`) are LLM operating manuals written in Chinese. Changes here should be tested with actual ingest/query runs.
 - **Schema files** (`schema/`) define conventions the LLM follows. Changes affect all downstream operations.
 - **Wiki content** (`wiki/`) is LLM-generated and maintained. Manual edits are discouraged — use `/ingest` and `/evolve-apply` instead.
 - **Scripts** (`scripts/`) are human-written tools (Python). Standard code review applies.

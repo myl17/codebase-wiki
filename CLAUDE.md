@@ -14,7 +14,7 @@
 Raw Sources    →  代码仓库（不可变，LLM 只读）
 The Wiki       →  LLM 拥有并维护的所有 markdown（wiki/ 目录）
 The Schema     →  告诉 LLM 怎么结构化、什么约定、什么流程（schema/ + CLAUDE.md）
-The Skills     →  每个 Claude Code skill（skills/code-*/SKILL.md）是 LLM 的操作手册
+The Skills     →  每个 Claude Code skill（commands/*.md）是 LLM 的操作手册
 ```
 
 ## 管线

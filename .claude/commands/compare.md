@@ -1,1 +1,0 @@
-../../skills/code-compare/SKILL.md

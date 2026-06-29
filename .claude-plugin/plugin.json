@@ -20,23 +20,23 @@
   "commands": {
     "ingest": {
       "description": "Extract structural entities from a code repository, map to problem spaces, and evolve concept pages",
-      "file": ".claude/commands/ingest.md"
+      "file": "commands/ingest.md"
     },
     "query": {
       "description": "Answer questions using the wiki knowledge base",
-      "file": ".claude/commands/query.md"
+      "file": "commands/query.md"
     },
     "compare": {
       "description": "Generate a comparison matrix across repos in a category",
-      "file": ".claude/commands/compare.md"
+      "file": "commands/compare.md"
     },
     "lint": {
       "description": "Run programmatic health checks on the wiki",
-      "file": ".claude/commands/lint.md"
+      "file": "commands/lint.md"
     },
     "evolve-apply": {
       "description": "Wikipedia-style concept page evolution: merge, split, redirect",
-      "file": ".claude/commands/evolve-apply.md"
+      "file": "commands/evolve-apply.md"
     }
   }
 }

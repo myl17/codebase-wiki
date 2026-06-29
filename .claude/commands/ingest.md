@@ -1,1 +1,0 @@
-../../skills/code-ingest/SKILL.md

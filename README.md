@@ -89,7 +89,7 @@ Evolution layer:
 
 ```
 codebase-wiki/
-├── skills/              Claude Code skills — the LLM's operating manual
+├── commands/             Claude Code skills — the LLM's operating manual
 ├── schema/              Conventions & criteria the LLM follows
 ├── wiki/                Where YOUR knowledge base lives
 ├── scripts/lint.py      Wiki health checker (6 structural checks)

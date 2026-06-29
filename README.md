@@ -5,159 +5,124 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](CHANGELOG.md)
 
-codebase-wiki is a **code knowledge accumulation system** built on the [Karpathy LLM Wiki](https://github.com/karpathy/llm_wiki) pattern, distributed as a [Claude Code](https://claude.ai/code) plugin. Instead of building a separate graph database with a type system, it maintains a **growing directory of markdown files** linked together via `[[wikilinks]]`. The wikilink network **is** the graph — Obsidian Graph View shows it, and the LLM traverses it when answering queries.
+codebase-wiki is a [Claude Code](https://claude.ai/code) plugin that turns source code repositories into a **living, cross-referenced knowledge base**. It implements the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern by Andrej Karpathy — knowledge is compiled at ingest time and continuously maintained, not re-derived per query.
 
-Each time you ingest a code repository, the LLM reads the source, extracts structural modules (**Entities**), maps them to cross-repo design questions (**Problem Spaces**), and writes or updates **Concept** pages with comparison tables and evolution records. Knowledge is compiled once and kept fresh — not re-derived on every query.
+Each time you ingest a repo, the LLM reads the source, extracts structural modules (**Entities**), maps them to cross-repo design questions (**Problem Spaces**), and writes or updates **Concept** pages with comparison tables, wikilinks, and source provenance. The `[[wikilink]]` network **is** the graph — open it in [Obsidian](https://obsidian.md/) and you see the knowledge structure directly.
 
-## Why codebase-wiki?
-
-**For framework builders and developers who study design spaces across multiple codebases.**
-
-- You maintain or study multiple frameworks in the same domain (e.g., AI agent frameworks)
-- You want to understand how different codebases solve the same design problems
-- You need design rationale, trade-offs, and source evidence — not just API docs
-- You want a living knowledge base that grows with each new repo, not one-off analysis
-
-## Architecture
+## What it does
 
 ```
-Raw Sources    →  Code repositories (immutable, LLM reads only)
-The Wiki       →  LLM-owned markdown (wiki/ directory)
-The Schema     →  Convention & process rules (schema/ + CLAUDE.md)
-The Skills     →  Claude Code skills — the LLM's operating manual (skills/)
+Your source repos  →  LLM reads code, extracts structure
+                   →  Maps modules to design questions
+                   →  Writes & maintains cross-referenced markdown pages
+                   →  You browse, query, compare, and evolve the wiki
 ```
 
-## Pipeline
+**Not** a vector database. **Not** a graph database. **No** separate graph schema to maintain. Just a directory of markdown files linked by `[[wikilinks]]` that the LLM owns, writes, and keeps fresh.
 
-```
-Source → Entity (locatable module with independent responsibility boundary)
-  → Problem Space Mapping (translate single-repo entities into cross-repo "how to..." questions)
-  → Concept (cross-repo design space with per-framework solutions + comparison tables)
-  → Insights (on-demand: /query archive / /compare archive)
-
-Evolution layer:
-  → /evolve-apply (Wikipedia-style merge / split / redirect for Concept pages)
-```
-
-## Quick Start
+## Installation
 
 ### Prerequisites
 
-- [Claude Code](https://claude.ai/code) (the CLI tool)
-- Python 3.10+ (for the `lint.py` health check script)
-- [Obsidian](https://obsidian.md/) (optional — for Graph View visualization)
+- [Claude Code](https://claude.ai/code)
+- Python 3.10+ (`pip install -r requirements.txt` — only needed for the `lint` health check)
+- [Obsidian](https://obsidian.md/) (optional — for Graph View)
 
-### Installation
+### Install
 
-1. **Add the marketplace and install:**
+```
+/plugin marketplace add myl17/codebase-wiki
+/plugin install codebase-wiki@codebase-wiki
+```
 
-   ```
-   /plugin marketplace add myl17/codebase-wiki
-   /plugin install codebase-wiki@codebase-wiki
-   ```
+Or clone and register locally:
 
-   Or install from a local clone:
-   ```bash
-   git clone https://github.com/myl17/codebase-wiki.git
-   /plugin marketplace add ./codebase-wiki
-   /plugin install codebase-wiki@codebase-wiki
-   ```
+```bash
+git clone https://github.com/myl17/codebase-wiki.git
+/plugin marketplace add ./codebase-wiki
+/plugin install codebase-wiki@codebase-wiki
+```
 
-2. **Install Python dependencies** (for lint health checks):
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### First Ingest
+### First ingest
 
 ```
 /ingest /path/to/your/repo my-repo-name
 ```
 
-The LLM will:
-1. Extract structural **Entities** from the source code
-2. Map each entity to a **Problem Space** (cross-repo design question)
-3. Match against existing **Concepts** or create new ones
-4. Write/update Concept pages with comparison tables, wikilinks, and source provenance
-
-After ingest completes, open the `wiki/` directory in Obsidian to see the knowledge graph.
+The LLM extracts entities, maps problem spaces, and writes Concept pages. Afterward, open `wiki/` in Obsidian to see the graph. Ingest a second repo in the same domain and it will **update existing Concept pages** with comparisons — this is where the knowledge compounds.
 
 ## Skills
 
-| Skill | What it does | Type |
-|-------|-------------|------|
-| `/ingest` | Extract entities → map problem spaces → write concept pages | Write |
-| `/query` | Answer questions via wikilink traversal + retrieval escalation | Read |
-| `/compare` | Cross-repo comparison on concepts: Concept → Entity → Source | Read |
-| `/lint` | Full wiki health check: wikilinks, frontmatter, orphans, provenance | Read |
-| `/evolve-apply` | Wikipedia-style concept evolution: merge / split / redirect | Write |
-| `/completion-gate` | Quality gate — runs automatically before any write operation completes | Gate |
+| Skill | What it does |
+|-------|-------------|
+| `/ingest` | Read source code → extract entities → map problem spaces → write/update concept pages |
+| `/query` | Answer questions via wikilink traversal + 3-level retrieval escalation |
+| `/compare` | Cross-repo comparison: Concept → Entity → Source code |
+| `/lint` | Full wiki health check: wikilinks, frontmatter, orphans, provenance, repo consistency |
+| `/evolve-apply` | Wikipedia-style concept evolution: merge, split, redirect |
+| `/completion-gate` | Quality gate — runs automatically before any write operation completes |
 
-Skills are independent by responsibility, not merged for convenience. Each skill's `SKILL.md` is the LLM's operating manual (currently in Chinese; English translation is planned for v0.2.0).
+Each skill's `SKILL.md` is the LLM's operating manual (currently in Chinese; English translation planned for v0.2.0).
 
-## Current Knowledge Base
+## How it works
 
-| Metric | Value |
-|--------|-------|
-| Ingested repos | 5 (nanobot, hermes-agent, openclaw, deepagents, codex-main) |
-| Entity pages | 98 |
-| Concept pages | 18 |
-| Pending evolve signals | 3 |
-| Comparison views | 1 |
-| Lint status | 0 errors |
+```
+Source → Entity (locatable module with independent responsibility boundary)
+  → Problem Space Mapping (translate single-repo entities into cross-repo "how to..." questions)
+  → Concept (cross-repo design space with per-framework solutions + comparison tables)
+  → Insights & Views (on-demand: /query archives, /compare snapshots)
 
-**Covered domain:** AI Agent framework architecture patterns (agent loop orchestration, context compression, channel abstraction, session management, system prompt assembly, memory management, tool lifecycle, provider abstraction, subagent orchestration, security, execution approval, skills/plugins, autonomous scheduling, configuration, execution isolation, middleware composition, hooks/events, MCP protocol integration).
+Evolution layer:
+  → /evolve-apply (Wikipedia-style merge / split / redirect for Concept pages as more repos arrive)
+```
 
-## Project Structure
+**Key design decisions:**
+
+- **Scale-first.** Every decision answers: "Does this still work with 500 repos and 500 concepts?"
+- **Wikilinks are the graph.** No separate graph data structure — `[[wikilinks]]` ARE the edges.
+- **Concepts accumulate.** Cross-repo knowledge lives in Concept pages — each new repo updates existing comparisons.
+- **Incremental by default.** SHA-256 content hashing (`.ingest-state.json`) skips unchanged entities on re-ingest.
+- **Knowledge stays fresh.** Any read that finds stale wiki data must fix it before regenerating output.
+- **Evolution built in.** Concepts aren't frozen — merge/split/redirect handles drift as more repos arrive.
+
+## Demo wiki
+
+This repository ships with an example wiki produced by ingesting 5 AI agent frameworks. It's included so you can browse a real knowledge base before running your own ingest:
+
+```
+wiki/
+├── concepts/           18 cross-framework design pages
+│                       (agent-loop, context-compression, tool-lifecycle,
+│                        provider-abstraction, security, sandboxing, MCP, …)
+├── repos/              5 repos × 98 entity pages
+│   ├── nanobot/
+│   ├── hermes-agent/
+│   ├── openclaw/
+│   ├── deepagents/
+│   └── codex-main/
+└── views/              1 comparison snapshot (hermes-agent vs openclaw)
+```
+
+Open `wiki/` in Obsidian with Graph View to see the wikilink network. Delete the demo content and start fresh if you prefer — the plugin works on any codebase.
+
+## Project structure
 
 ```
 codebase-wiki/
-├── wiki/                    # The knowledge base (markdown + wikilinks)
-│   ├── concepts/            # Cross-repo design space pages
-│   ├── repos/               # Per-repo entity pages + overviews
-│   ├── views/               # Archived comparison results
-│   ├── index.md             # Routing page (entry point for LLM navigation)
-│   ├── log.md               # Append-only operation log
-│   └── hot.md               # Quick context recovery (last operation, status)
-├── skills/                  # Claude Code skills (LLM operating manuals)
-│   ├── code-ingest/
-│   ├── code-query/
-│   ├── code-compare/
-│   ├── code-lint/
-│   ├── code-evolve/
-│   └── code-completion-gate/
-├── schema/                  # Conventions & criteria
-│   ├── CLAUDE.md            # Wiki maintenance rules
-│   └── concept-criteria.md  # Concept admission criteria (4 gates)
-├── scripts/
-│   └── lint.py              # Wiki health check tool (6 checks)
-├── tests/
-│   └── test_lint.py         # pytest tests for lint
-├── seeds/                   # Candidate problem spaces awaiting second repo
-├── evolve-signals/          # Pending concept evolution operations
-├── hooks/                   # Claude Code session hooks
-├── .claude-plugin/          # Plugin marketplace metadata
-├── CLAUDE.md                # Project rules & design principles
-├── README.md
-├── LICENSE
-└── CHANGELOG.md
+├── skills/              Claude Code skills — the LLM's operating manual
+├── schema/              Conventions & criteria the LLM follows
+├── wiki/                Where YOUR knowledge base lives
+├── scripts/lint.py      Wiki health checker (6 structural checks)
+├── tests/test_lint.py   pytest suite
+├── hooks/               Claude Code session hooks
+└── .claude-plugin/      Marketplace metadata
 ```
-
-## Design Principles
-
-1. **Scale-first.** Every decision must answer: "Does this still work with 500 repos and 500 concepts?"
-2. **The wikilink network is the graph.** No separate graph data structure — wikilinks ARE the edges.
-3. **Concept pages are the main battlefield.** Cross-repo knowledge accumulates here — new repos update existing concepts' instance lists and comparison tables.
-4. **Incremental update is infrastructure, not optimization.** SHA-256 content hashing via `.ingest-state.json` enables delta detection.
-5. **Knowledge freshness is a closed loop.** Any read operation that finds stale data must offer to fix it, then regenerate affected output.
-6. **Evolution is built-in.** Concepts are not frozen — Wikipedia-style merge/split/redirect handles drift as more repos arrive.
-7. **Skills are independent by function, not current scale.** Each has a distinct responsibility boundary.
 
 ## Requirements
 
-- **Claude Code** — the LLM runtime that executes the skills
-- **Python 3.10+** — for `scripts/lint.py` health checks
-- **Obsidian** (optional) — for visualizing the wikilink graph
+- Claude Code (the runtime)
+- Python 3.10+ (for `scripts/lint.py`)
+- Obsidian (optional — wikilink graph visualization)
 
 ## License
 
@@ -165,4 +130,4 @@ MIT © [myl17](https://github.com/myl17)
 
 ---
 
-*Inspired by [Andrej Karpathy's LLM Wiki](https://github.com/karpathy/llm_wiki) pattern. Built for the [Claude Code](https://claude.ai/code) ecosystem.*
+*Built on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern. For the [Claude Code](https://claude.ai/code) ecosystem.*

@@ -49,6 +49,35 @@ INTERNAL CHECK. DO NOT OUTPUT TO USER.
 □ 是否有遗留的"稍后做"、"TODO"、未完成的写入承诺？
 ```
 
+## 最后一步：程序化 lint
+
+**内部检查清单全部通过后，必须运行 lint。这是门里最后一道锁。**
+
+```
+cd <wiki-root> && python scripts/lint.py --wiki wiki/ 2>&1
+```
+
+```
+如果 lint 输出 "✓ No issues found." → 静默通过，可以声明完成。
+如果 lint 报告 ERROR → 不通过。回退检查本次操作引入的错误，当场修复。
+如果 lint 报告 WARN/INFO → 记录但不阻塞完成。
+```
+
+**判断标准：**
+- 第一次跑出 ERROR 时，与操作前基线对比（如果知道的话）。新引入的 ERROR → 必须修复。
+- 如果 ERRORS 全是 pre-existing（操作前就有的），不阻塞完成，但在日志中记录。
+- 不确定是否 pre-existing → 当作新引入处理，修复。
+
+## 与 /lint skill 的关系
+
+`/lint` 是用户手动触发的全局健康检查（在任何时间跑、看全部 wiki 状态）。`completion-gate` 在每次写操作完成时自动运行 lint.py 作为程序化验证。两者的检查逻辑相同（同一份 `scripts/lint.py`），但触发方式和 report 方式不同：
+
+| | `/lint` | `completion-gate` |
+|---|---|---|
+| 触发 | 用户手动 `(/lint)` | write skill 完成时自动 |
+| 输出 | 完整报告（error/warn/info + 健康分） | 静默；仅在 lint 失败时向用户报告 |
+| fix | 用户决定是否修复 | 当场修复新引入的问题 |
+
 ## Common Failures
 
 | 声称 | 需要 | 不够 |

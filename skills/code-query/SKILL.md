@@ -108,7 +108,7 @@ After answering, always ask the user:
 ### If user chooses B:
 - 优先修正受影响的节（用准确信息替换），而非在底部追加 `## 补充`
 - 如果信息确实是全新的、不修正已有内容 → 才追加到对应页底部
-- log 行尾部追加 `[源码验证: <页名> <节名>修正]`
+- 写入后，log 行尾部追加 `[源码验证: <页名> <节名>修正]`
 
 ### If user chooses C:
 Write `wiki/insights/<YYYY-MM-DD>-<slug>.md` with this frontmatter (use single-line JSON arrays):
@@ -125,3 +125,14 @@ provenance_repos: ["nanobot", "hermes-agent"]
 Then write the analysis body. Add wikilinks for each path in `sources:`.
 Append to `wiki/log.md`: `[<timestamp>] insight created — <slug>`
 Update `wiki/index.md` under `## Insights`.
+
+## 完成前
+
+**REQUIRED SUB-SKILL:** 如果选择了 B 或 C（写入了 wiki 页），在声称"完成"之前必须调用 `completion-gate`。选择 A（不存档）则跳过。
+
+```
+使用 completion-gate skill 验证：
+- 选 B 时：修正的页面 + log + hot 是否同步
+- 选 C 时：insight 文件 + log + index 是否就位
+- [源码验证:] 标记是否到位（如有内容修正）
+```

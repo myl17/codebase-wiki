@@ -390,7 +390,11 @@ dispatch 一个 agent，运行以下 prompt：
 
 ## Step 3 — 汇总
 
-全部信号处理完毕后，输出汇总：
+全部信号处理完毕后，输出汇总。
+
+## Step 3 汇总后
+
+**REQUIRED SUB-SKILL:** 只要执行了至少一条演化操作（merge/split/redirect），在声称"完成"之前必须调用 `completion-gate`。如果所有信号都被跳过（无实际操作），则跳过 completion-gate。
 
 ```
 演化信号处理完成：<文件名>

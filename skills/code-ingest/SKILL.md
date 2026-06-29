@@ -670,6 +670,12 @@ generated: <YYYY-MM-DD>
 
 ---
 
+## Step 6 收尾前
+
+**REQUIRED SUB-SKILL:** 在声称"ingest 完成"之前，必须调用 `completion-gate` 验证维护文件一致性。
+
+---
+
 ## ★ 暂停点 3：ingest 完成总结
 
 Step 6 完成后展示：

@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "codebase-wiki",
-      "description": "Codebase knowledge management plugin — analyze repos, build a structured wiki, compare architectures, query design decisions, and track staleness",
+      "description": "Codebase knowledge management plugin — analyze repos, build a structured wiki, compare architectures, query design decisions, and track staleness across your organization's repositories",
       "version": "0.2.0",
       "source": "./",
       "author": {
@@ -15,7 +15,7 @@
       },
       "category": "developer-tools",
       "tags": ["codebase", "wiki", "knowledge-management", "code-analysis"],
-      "keywords": ["codebase", "wiki", "knowledge", "ingest", "architecture", "comparison", "lint"]
+      "keywords": ["codebase", "wiki", "knowledge-management", "code-analysis", "architecture", "comparison", "lint"]
     }
   ]
 }

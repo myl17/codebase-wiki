@@ -1,145 +1,145 @@
-# Concept 准入准则
+# Concept Admission Criteria
 
 **Version:** v1.0
-**Role:** 判定一个问题空间条目是否应升级为独立 Concept 页。被 `/ingest` Step 3、`/evolve-apply` Split、`/compare` Concept 结构检查三处引用——此处为单源定义。
+**Role:** Determines whether a problem space entry should be promoted to an independent Concept page. Referenced by `/ingest` Step 3, `/evolve-apply` Split, and `/compare` Concept structure review — this is the single-source definition.
 
 ---
 
-## 硬门槛（三条必须全部满足）
+## Hard Thresholds (all three must pass)
 
-### ① 多方案
+### 1. Multiple Solutions
 
-至少两个不同仓库以明显不同的方式解决了同一个问题。
+At least two different repos solve the same problem in clearly different ways.
 
-注意：如果分析后一个方案在所有 trade-off 维度上都优于另一个，说明这不是真正的设计权衡，不成立。
+Note: if after analysis one solution dominates another on all trade-off dimensions, this is not a genuine design trade-off — does not qualify.
 
-### ② 独立设计空间
+### 2. Independent Design Space
 
-这个问题无法被某个已有问题空间完全覆盖——合并进去后，它自身的讨论维度会消失，Framework Builder 在这个问题上的决策价值会损失。
+This problem cannot be fully covered by an existing problem space — merging it in would cause its own discussion dimensions to disappear, and the Framework Builder would lose decision value on this problem.
 
-### ③ 持续存在的 Trade-off
+### 3. Persistent Trade-off
 
-不同方案之间的权衡没有银弹——满足关切 A 会增大满足关切 B 的成本，反之亦然。
-
----
-
-## 辅助判断（不满足不否决，影响优先级）
-
-### ④ 可持续扩展
-
-新仓库未来仍可能在这个问题上贡献新的解法。如果长期无新仓库加入，触发"降级"演化建议。
+No silver bullet across different solutions — satisfying Concern A increases the cost of satisfying Concern B, and vice versa.
 
 ---
 
-## 四种情况处理
+## Auxiliary Criterion (does not veto if unmet; affects priority)
 
-| 情况 | 条件 | 动作 |
-|------|------|------|
-| **A** | 命中现有 Concept（核心问题是同一个） | 追加到已有 Concept 页 |
-| **B** | 新问题空间，通过①②③ | 新建 Concept 页 |
-| **C** | 目前只有一个仓库面对 | 进种子库（`seeds/master.md`），不升级 |
-| **D** | 与已有 Concept 部分重叠但不完全命中 | 记录演化信号到 `evolve-signals/` |
+### 4. Sustainable Extensibility
+
+New repos are likely to contribute new solutions to this problem in the future. If no new repos join long-term, trigger "downgrade" evolution recommendation.
 
 ---
 
-## Few-shot 示例
+## Four Case Types
 
-### 示例领域 1：AI Agent 框架
-
-输入 Entity（跨仓库）：
-
-- **OpenClaw**：Agent（YAML 配置）, Workflow（显式编排）, Memory（外部上下文注入）, ToolTimeout（YAML 配置每个工具的超时时间）
-- **HermesAgent**：Agent（@agent 装饰器）, EventBus（事件驱动协同）, Memory（内部状态同步）, ToolTimeout（per-toolset 超时设置）
-
----
-
-**正例——"Agent 定义方式"：**
-
-① 至少两仓库不同方案：配置驱动 vs 装饰器驱动。✅
-② 独立设计空间：评价维度是声明式便捷性 vs 编程灵活性，不与"多Agent协作"共享评价维度。✅
-③ 持续 Trade-off：配置简单但灵活性低 vs 编程自由但门槛高，无银弹。✅
-④ 可持续扩展：新框架仍会在这个问题上做不同选择。✅
-
-决策：✅ 新建 Concept 页 `agent-definition-style`
+| Case | Condition | Action |
+|------|-----------|--------|
+| **A** | Hits existing Concept (core problem is the same) | Append to existing Concept page |
+| **B** | New problem space, passes ①②③ | Create new Concept page |
+| **C** | Currently only one repo faces this | Enter seed bank (`seeds/master.md`); do not promote |
+| **D** | Partially overlaps with existing Concept but doesn't fully match | Record as evolve signal in `evolve-signals/` |
 
 ---
 
-**反例 1——失败在 ①：仅单一仓库**
+## Few-shot Examples
 
-候选分组"HermesAgent 的 SafeWriter 管道保护"：
+### Example Domain 1: AI Agent Frameworks
 
-① 多方案：❌ 仅 HermesAgent 有此实现，其他仓库无对应 Entity。
+Input Entities (cross-repo):
 
-决策：❌ 进种子库待观察，不成立 Concept
-
----
-
-**反例 2——失败在 ②：不是独立设计空间**
-
-候选分组"工具执行超时配置"：
-
-① 多方案：OpenClaw 用 YAML 配置每个工具超时，HermesAgent 用 per-toolset 超时。✅
-② 独立设计空间：❌ "超时配置"是"工具执行安全与控制"这个已有问题空间的一个子维度。合并进去后不会损失讨论维度。
-
-决策：❌ 不成立，作为"工具执行安全"Concept 的子维度处理
+- **OpenClaw**: Agent (YAML config), Workflow (explicit orchestration), Memory (external context injection), ToolTimeout (per-tool YAML timeout config)
+- **HermesAgent**: Agent (@agent decorator), EventBus (event-driven coordination), Memory (internal state sync), ToolTimeout (per-toolset timeout)
 
 ---
 
-**反例 3——失败在 ③：没有真正的 Trade-off**
+**Positive — "Agent Definition Style":**
 
-候选分组"日志结构化格式"：
+1. At least two repos, different approaches: config-driven vs. decorator-driven. ✅
+2. Independent design space: evaluation dimensions are declarative convenience vs. programming flexibility; does not share evaluation dimensions with "multi-Agent coordination." ✅
+3. Persistent trade-off: config is simple but inflexible vs. programming freedom with higher barrier; no silver bullet. ✅
+4. Sustainable extensibility: new frameworks will still make different choices on this question. ✅
 
-① 多方案：OpenClaw 用纯文本格式，HermesAgent 用结构化 JSON + 自动脱敏。✅
-② 独立设计空间：日志格式有自己的评价维度。✅
-③ 持续 Trade-off：❌ 结构化 JSON 在所有关切上都优于纯文本，这不是相互制约的权衡，而是一个方案尚未演化到位。
-
-决策：❌ 不成立，纯文本格式作为历史条目记录
-
----
-
-**反例 4——失败在 ④（辅助判断，不否决但影响优先级）**
-
-候选分组"Agent 进程启动顺序"：
-
-① ✅ ② ✅ ③ ✅
-④ 可持续扩展：⚠️ 随着异步运行时普及，这个问题空间可能很快收敛。
-
-决策：⚠️ 暂时建页，演化信号文件中标注"低扩展预期"
+Decision: ✅ Create new Concept page `agent-definition-style`
 
 ---
 
-### 示例领域 2：嵌入式数据库
+**Counter-example 1 — fails 1: single repo only**
 
-输入 Entity（跨仓库）：
+Candidate group "HermesAgent SafeWriter pipeline protection":
 
-- **SQLite**：B-Tree（存储结构）, WAL（预写日志）
-- **LevelDB**：LSM-Tree（存储结构）, MemTable+SSTable（写入流水线）
-- **RocksDB**：ColumnFamily, Compaction（压缩策略）, BloomFilter
+1. Multiple solutions: ❌ Only HermesAgent has this; other repos have no corresponding Entity.
 
----
-
-**正例——"存储引擎核心数据结构"：**
-
-① B-Tree vs LSM-Tree，设计哲学完全不同。✅
-② 独立于持久化策略的评价维度。✅
-③ 读优化 vs 写优化，经典无银弹权衡。✅
-
-决策：✅ 新建 Concept 页 `storage-engine-data-structure`
+Decision: ❌ Enter seed bank for observation; does not qualify as a Concept
 
 ---
 
-**反例——失败在 ①：仅单仓库**
+**Counter-example 2 — fails 2: not an independent design space**
 
-候选分组"Bloom Filter 过滤策略"：
+Candidate group "Tool Execution Timeout Configuration":
 
-① 多方案：❌ 仅 RocksDB 有 BloomFilter。
+1. Multiple solutions: OpenClaw uses per-tool YAML timeout; HermesAgent uses per-toolset timeout. ✅
+2. Independent design space: ❌ "Timeout configuration" is a sub-dimension of the existing problem space "Tool Execution Safety & Control." Merging it in would not lose discussion dimensions.
 
-决策：❌ 进种子库待观察
+Decision: ❌ Does not qualify; handle as sub-dimension of "Tool Execution Safety" Concept
 
 ---
 
-## 准则的演化用途
+**Counter-example 3 — fails 3: no genuine trade-off**
 
-`/evolve-apply` Split 操作复用①②③做前置判断——拆分出的子议题必须独立通过三条硬门槛才允许拆分。
+Candidate group "Structured Log Format":
 
-`/compare` 在对比完成后用准则审视所涉及 Concept 的结构质量：是否有覆盖了差异很大子议题的页面（建议拆分）、是否有本质相同的页面（建议合并）。
+1. Multiple solutions: OpenClaw uses plain text; HermesAgent uses structured JSON + auto-redaction. ✅
+2. Independent design space: log format has its own evaluation dimensions. ✅
+3. Persistent trade-off: ❌ Structured JSON dominates plain text on all concerns; this is not a mutually-constraining trade-off — one solution simply hasn't evolved yet.
+
+Decision: ❌ Does not qualify; record plain-text format as historical note
+
+---
+
+**Counter-example 4 — fails 4 (auxiliary; does not veto but affects priority)**
+
+Candidate group "Agent Process Startup Order":
+
+1. ✅ 2. ✅ 3. ✅
+4. Sustainable extensibility: ⚠️ As async runtimes proliferate, this problem space may converge quickly.
+
+Decision: ⚠️ Create page tentatively; note "low extensibility expectation" in evolve signal file
+
+---
+
+### Example Domain 2: Embedded Databases
+
+Input Entities (cross-repo):
+
+- **SQLite**: B-Tree (storage structure), WAL (write-ahead log)
+- **LevelDB**: LSM-Tree (storage structure), MemTable+SSTable (write pipeline)
+- **RocksDB**: ColumnFamily, Compaction (compaction strategy), BloomFilter
+
+---
+
+**Positive — "Storage Engine Core Data Structure":**
+
+1. B-Tree vs LSM-Tree, fundamentally different design philosophies. ✅
+2. Independent evaluation dimensions from persistence strategy. ✅
+3. Read-optimized vs. write-optimized; classic no-silver-bullet trade-off. ✅
+
+Decision: ✅ Create new Concept page `storage-engine-data-structure`
+
+---
+
+**Counter-example — fails 1: single repo only**
+
+Candidate group "Bloom Filter Strategy":
+
+1. Multiple solutions: ❌ Only RocksDB has BloomFilter.
+
+Decision: ❌ Enter seed bank for observation
+
+---
+
+## Criteria Use in Evolution
+
+`/evolve-apply` Split reuses ①②③ for precondition checks — the split-out sub-topic must independently pass all three hard thresholds to be allowed.
+
+`/compare` after completing a comparison uses these criteria to review the structural quality of involved Concepts: are there pages covering broadly divergent sub-topics (suggest split)? Are there pages that are essentially the same (suggest merge)?

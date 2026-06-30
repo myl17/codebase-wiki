@@ -1,6 +1,6 @@
 # /ingest — Code Repository Ingest
 
-从源码仓库提取结构知识，逐步演化进 wiki。
+Extract structural knowledge from source repositories and progressively evolve the wiki.
 
 ## Trigger
 
@@ -8,50 +8,50 @@
 /ingest <repo-path> [<repo-name>] [--verify] [--full] [--auto]
 ```
 
-- `<repo-path>`：源码目录（只读）
-- `<repo-name>`：wiki 中的标识符，默认取 `<repo-path>` 的最后一段目录名
-- `--verify`：开启 Step 5 独立验证（默认关闭）
-- `--full`：强制全量重新提取（跳过增量检测）
-- `--auto`：跳过全部暂停点，全流程自动执行（仍输出摘要到日志）
+- `<repo-path>`: Source directory (read-only)
+- `<repo-name>`: Identifier in the wiki; defaults to the last segment of `<repo-path>`
+- `--verify`: Enable Step 5 independent verification (disabled by default)
+- `--full`: Force full re-extraction (skip delta detection)
+- `--auto`: Skip all pause points, execute fully automatically (summary still written to log)
 
 When the user asks to analyze, ingest, or add a code repository to the wiki.
 
-### 多仓库并行
+### Multi-Repo Parallelism
 
-当用户一次指定多个仓库时：
+When the user specifies multiple repos at once:
 
 ```
-Step 1+2 并行（每个仓库独立 agent，同时进行）
-  agent-1: repo-A → Entity 提取 → 问题空间映射
-  agent-2: repo-B → Entity 提取 → 问题空间映射
-  agent-3: repo-C → Entity 提取 → 问题空间映射
+Steps 1+2 in parallel (each repo gets its own agent, concurrent)
+  agent-1: repo-A → Entity extraction → Problem Space mapping
+  agent-2: repo-B → Entity extraction → Problem Space mapping
+  agent-3: repo-C → Entity extraction → Problem Space mapping
 
-全部完成后汇总：
+After all complete, converge:
 
-Step 3  问题空间匹配（需要多仓库信息，统一处理）
-  → 所有仓库的 problem-map + 已有种子库 + 已有 Concept 页
-  → 产出候选清单（此时才有跨仓库对比数据，才有 A/B/D 类）
+Step 3  Problem Space matching (needs cross-repo info, unified processing)
+  → All repos' problem-maps + existing seed bank + existing Concept pages
+  → Produce candidate list (cross-repo comparison data now available → A/B/D types possible)
 
-Step 4-6 继续
+Steps 4-6 continue
 ```
 
-**并行 vs 串行的分界线：是否需要跨仓库信息。**
-- Entity 提取（Step 1）：只看单仓库源码 → 可并行
-- 问题空间映射（Step 2）：只看单仓库 entity 页 → 可并行
-- 问题空间匹配（Step 3）：需要对比其他仓库 → 必须等全部完成
+**The parallel vs. serial dividing line: whether cross-repo information is needed.**
+- Entity extraction (Step 1): only looks at single repo source → parallelizable
+- Problem Space mapping (Step 2): only looks at single repo entity pages → parallelizable
+- Problem Space matching (Step 3): needs comparison against other repos → must wait for all to complete
 
-### Re-ingest（增量更新）
+### Re-ingest (Incremental Update)
 
-对已 ingest 过的仓库再次运行。增量检测不是优化——没有它，每次 re-ingest 都要全量重读 500 个仓库的源码，token 成本不可接受。
+Running ingest again on a previously-ingested repo. Delta detection is not an optimization — without it, every re-ingest would require re-reading 500 repos' source code from scratch, an unacceptable token cost.
 
-#### `.ingest-state.json` 格式
+#### `.ingest-state.json` format
 
-存放在 wiki 项目内：`wiki/repos/<name>/.ingest-state.json`（与 `entities/`、`overview.md` 同级，不污染源码仓库）。
+Stored inside the wiki project: `wiki/repos/<name>/.ingest-state.json` (sibling to `entities/` and `overview.md` — does not pollute the source repo).
 
 ```json
 {
   "repo": "<name>",
-  "source_path": "<源码目录绝对路径>",
+  "source_path": "<absolute path to source directory>",
   "last_ingest": "<ISO 8601 timestamp>",
   "files": {
     "<repo-relative-path>": "<SHA-256 hex>",
@@ -63,763 +63,763 @@ Step 4-6 继续
 }
 ```
 
-- `source_path`：源码目录路径。如果用户移动了仓库位置，路径变了也算"需要重新检测"。
-- `files`：所有被 ingest 读取过的源码文件的 SHA-256 哈希。不是仓库全部文件——只记录 Step 1 实际读了哪些。
-- `entity_map`：每个 entity 依赖哪些源码文件。变更检测时用来做逆向映射：文件变了 → 哪些 entity 受影响。
+- `source_path`: Path to the source directory. If the user moved the repo, a changed path also counts as "needs re-detection."
+- `files`: SHA-256 hashes of all source files actually read during ingest. Not every file in the repo — only those Step 1 actually read.
+- `entity_map`: Which source files each entity depends on. Used during change detection for reverse mapping: file changed → which entities are affected.
 
-#### Step 0 — 增量检测
+#### Step 0 — Delta Detection
 
 ```
-你的任务是对 <仓库名> 做增量检测，确定哪些内容需要重新提取。
+Your task is to perform delta detection for <repo-name>, determining what needs re-extraction.
 
-## 输入
+## Input
 
-- 源码目录：<源码路径>
-- 上次 ingest 快照：wiki/repos/<仓库名>/.ingest-state.json
+- Source directory: <source-path>
+- Last ingest snapshot: wiki/repos/<repo-name>/.ingest-state.json
 
-## 检测逻辑
+## Detection logic
 
-1. 如果 wiki/repos/<仓库名>/.ingest-state.json 不存在：
-   → 报告"首次 ingest"，触发全量管线（Step 1-6）
+1. If wiki/repos/<repo-name>/.ingest-state.json does not exist:
+   → Report "first ingest", trigger full pipeline (Steps 1-6)
 
-2. 读取 .ingest-state.json，比较 source_path：
-   - 如果 source_path 与当前源码目录不同 → 路径已移动，触发全量 re-ingest
-   - 相同 → 继续
+2. Read .ingest-state.json, compare source_path:
+   - If source_path differs from current source directory → path moved, trigger full re-ingest
+   - Same → continue
 
-3. 提取 files 字典，对每个路径计算当前文件内容的 SHA-256，与快照值比对
-4. 记录变更文件列表
+3. Extract the files dictionary; for each path, compute SHA-256 of current file content, compare to snapshot
+4. Record changed file list
 
-5. 如果无变更：
-   → 报告"无变更"，结束。不执行后续步骤。
+5. If no changes:
+   → Report "no changes", end. Do not execute subsequent steps.
 
-6. 如果新增了上次快照中不存在的文件（仓库新增了文件）：
-   → 读这些新文件，判断是否包含新的独立模块（entity）
-   → 如果有，也标记为受影响的 entity
+6. If new files exist that weren't in the last snapshot (repo added files):
+   → Read these new files, determine whether they contain new independent modules (entities)
+   → If yes, mark them as affected entities
 
-7. 根据变更文件列表 + entity_map 做逆向映射：
-   → 每个 entity 依赖的文件是否在变更列表中？
-   → 是：该 entity 标记为"受影响"，需要重新提取
+7. Reverse-map changed files + entity_map:
+   → Does each entity's dependent files appear in the change list?
+   → Yes: mark that entity as "affected", needs re-extraction
 
-8. 输出：
-   - 变更文件：<N> 个
-   - 受影响 entity：<列表>
-   - 新增 entity 候选：<列表>（如有）
+8. Output:
+   - Changed files: <N>
+   - Affected entities: <list>
+   - New entity candidates: <list> (if any)
 ```
 
-#### Step 1（增量模式）
+#### Step 1 (incremental mode)
 
-只重新提取受影响的 entity + 新增 entity 候选。未受影响的 entity 页保留不动。
+Only re-extract affected entities + new entity candidates. Unaffected entity pages remain untouched.
 
-overview.md 始终刷新——entity 列表可能变了（新增/删除），tags 描述可能过时。
+overview.md is always refreshed — the entity list may have changed (additions/removals), and the tags description may be stale.
 
-#### 快照更新
+#### Snapshot update
 
-Step 6 收尾时，用本次 ingest 实际读取的文件列表和 SHA-256 覆写 `.ingest-state.json`。
+In Step 6 wrap-up, overwrite `.ingest-state.json` with the files and SHA-256 hashes actually read during this ingest.
 
 ---
 
-## 管线总览
+## Pipeline Overview
 
 ```
-Step 1  Entity 提取
-        输入：源码目录
-        输出：wiki/repos/<name>/entities/<slug>.md（每个 Entity 一文件）
-              wiki/repos/<name>/overview.md
+Step 1  Entity Extraction
+        Input: source directory
+        Output: wiki/repos/<name>/entities/<slug>.md (one file per Entity)
+                wiki/repos/<name>/overview.md
 
-Step 2  Entity 问题空间映射
-        输入：Entity 页 + 按需读源码
-        输出：seeds/<name>-problem-map.md
+Step 2  Entity Problem Space Mapping
+        Input: Entity pages + optionally read source
+        Output: seeds/<name>-problem-map.md
 
-★ 暂停点 1（用户确认问题空间列表完整性）
+★ Pause Point 1 (user confirms problem space list completeness)
 
-Step 3  问题空间匹配
-        输入：problem-map + 种子库 + 已有 Concept 页
-        输出：seeds/<name>-candidates.md
-              evolve-signals/<date>-<name>.md（D 类信号）
+Step 3  Problem Space Matching
+        Input: problem-map + seed bank + existing Concept pages
+        Output: seeds/<name>-candidates.md
+                evolve-signals/<date>-<name>.md (Type D signals)
 
-★ 暂停点 2（用户确认候选清单 + 能力域覆盖表）
+★ Pause Point 2 (user confirms candidate list + capability coverage table)
 
-Step 4  Concept 写作（per-Concept 独立 agent）
-        输入：candidates.md 中 A/B 类条目
-        输出：wiki/concepts/<slug>.md（新建或追加）
+Step 4  Concept Writing (per-Concept independent agent)
+        Input: Type A/B entries from candidates.md
+        Output: wiki/concepts/<slug>.md (new or appended)
 
-Step 5  [可选，--verify] 独立验证 + 修复
-        输入：Step 4 产物
-        输出：验证报告 → 修复后的 Concept 页
+Step 5  [optional, --verify] Independent Verification + Repair
+        Input: Step 4 output
+        Output: verification report → repaired Concept pages
 
-Step 6  种子库更新 + 演化报告落地
-        输入：problem-map + candidates.md
-        输出：seeds/master.md 更新
-              wiki/log.md + wiki/hot.md 更新
+Step 6  Seed Bank Update + Evolution Report Finalization
+        Input: problem-map + candidates.md
+        Output: seeds/master.md updated
+                wiki/log.md + wiki/hot.md updated
 
-★ 暂停点 3（用户看 ingest 总结，决定是否触发 /evolve-apply）
+★ Pause Point 3 (user reviews ingest summary, decides whether to trigger /evolve-apply)
 ```
 
-暂停点之外，LLM 自主执行。
+Outside of pause points, the LLM executes autonomously.
 
 ---
 
-## Step 1：Entity 提取
+## Step 1: Entity Extraction
 
-运行以下提示词：
+Run the following prompt:
 
 ```
-你的任务是从 <仓库名> 源码中提取所有 Structural Entity。
+Your task is to extract all Structural Entities from <repo-name> source code.
 
-## 输入源
+## Input source
 
-源码目录：<源码路径>
-唯一信息来源，不使用训练数据中的先验知识。
+Source directory: <source-path>
+This is the sole source of information — do not use prior knowledge from training data.
 
-## 工作方式
+## Approach
 
-自己决定读哪些文件。广泛探索直到全面理解仓库结构。
-判断标准：一个模块是否有独立的职责边界、对外接口、可以被单独理解和替换？
+Decide for yourself which files to read. Explore broadly until you comprehensively understand the repo structure.
+Criterion: does a module have an independent responsibility boundary, external interface, and can it be understood and replaced in isolation?
 
-## 每个 Entity 输出为独立文件
+## Output each Entity as a separate file
 
-路径：wiki/repos/<仓库名>/entities/<slug>.md
+Path: wiki/repos/<repo-name>/entities/<slug>.md
 
-格式：
+Format:
 
 ---
 type: entity
-repo: <仓库名>
+repo: <repo-name>
 slug: <slug>
-problem: <问题层一句话，"如何..."形式>
+problem: <one-sentence problem description, "how to..." form>
 generated: <YYYY-MM-DD>
 source_files:
   - <repo-relative-path>
 ---
 
-# <Entity 名称>
+# <Entity Name>
 
-**代码位置**：<目录/包路径>
-**这个模块解决什么问题**：
-- 实现层：<这个仓库的具体做法，一句话>
-- 问题层：<同 frontmatter problem 字段，"如何..."形式>
-**对外暴露什么**：<关键类/函数/接口，含文件路径:行号>
-**它和谁交互**：
-- 依赖 [[entities/<slug>]]（<一句说明>）
-- 被 [[entities/<slug>]] 调用（<一句说明>）
-（同仓库 entity wikilink；外部库用纯文本）
-**为什么它是可分离的**：<独立目录？独立接口？独立包？>
+**Code location**: <directory/package path>
+**What problem this module solves**:
+- Implementation layer: <what this repo concretely does, one sentence>
+- Problem layer: <same as frontmatter problem field, "how to..." form>
+**What it exposes**: <key classes/functions/interfaces, with file-path:line>
+**What it interacts with**:
+- Depends on [[entities/<slug>]] (<one-sentence explanation>)
+- Called by [[entities/<slug>]] (<one-sentence explanation>)
+(same-repo entities use wikilinks; external libraries use plain text)
+**Why it is separable**: <independent directory? independent interface? independent package?>
 
-**关键机制**（源码可见）：
-- <机制 1>：<描述> ^[文件路径:行号]
-- <机制 2>：...
+**Key Mechanisms** (visible in source):
+- <mechanism 1>: <description> ^[file-path:line]
+- <mechanism 2>: ...
 
-**源码证据**：
-- 入口文件：<路径>
-- 核心类型/接口定义：<路径:行号>
+**Source evidence**:
+- Entry file: <path>
+- Core type/interface definitions: <path:line>
 
-## 额外输出：仓库总览
+## Additional output: Repo Overview
 
-路径：wiki/repos/<仓库名>/overview.md
+Path: wiki/repos/<repo-name>/overview.md
 
-内容：
-- 这个仓库是什么（一段落）
-- 核心子系统列表，**每项用 wikilink**：`- [[repos/<仓库名>/entities/<slug>]]`
-- 明确不做什么
+Content:
+- What this repo is (one paragraph)
+- Core subsystem list, **each item with wikilink**: `- [[repos/<repo-name>/entities/<slug>]]`
+- What it explicitly does NOT do
 
-## 核心约束
+## Core constraints
 
-1. 每条事实声明必须有 ^[文件路径:行号]
-2. 每个 Entity 独立文件，不合并
-3. 广泛探索，不遗漏独立目录或独立包
+1. Every factual claim must have ^[file-path:line] provenance
+2. Each Entity gets its own file — do not merge
+3. Explore broadly — do not miss independent directories or independent packages
 ```
 
 ---
 
-## Step 2：Entity 问题空间映射
+## Step 2: Entity Problem Space Mapping
 
-运行以下提示词：
+Run the following prompt:
 
 ```
-你的任务是把 <仓库名> 的所有 Entity 页翻译成问题空间条目。
+Your task is to translate all Entity pages for <repo-name> into problem space entries.
 
-## 你在为谁翻译
+## Who you are translating for
 
-Framework Builder——正在研究一类框架设计空间的人，
-需要知道：这个问题是构建同类框架时都必须回答的吗？
-这个仓库在这个问题上做了什么选择？
+Framework Builder — someone studying the design space of a framework class.
+They need to know: is this a question that everyone building a similar framework must answer?
+What choice did this repo make on this question?
 
-## 输入
+## Input
 
-- Entity 页：wiki/repos/<仓库名>/entities/*.md
-- 源码目录：<源码路径>（Entity 页"问题层"描述不够清晰时按需补读）
-- 不要读已有种子库或其他仓库结果，独立处理
+- Entity pages: wiki/repos/<repo-name>/entities/*.md
+- Source directory: <source-path> (read on demand when Entity page "problem layer" descriptions are unclear)
+- Do not read the existing seed bank or other repos' results; work independently
 
-## 第一步：逐 Entity 映射
+## Phase 1: Per-Entity Mapping
 
-对每个 Entity：
+For each Entity:
 
-1. 判断其"问题层"的问题是否值得进入候选：
-   构建同类框架的人，在这个问题上必须做出设计选择吗？
-   → 是：生成一条问题空间条目，只生成一条，聚焦该 Entity 存在的根本原因
-   → 否（实现细节 / 仅此仓库特有）：跳过
+1. Determine whether its "problem layer" question is worth entering as a candidate:
+   Would someone building a similar framework have to make a design choice on this question?
+   → Yes: generate one problem space entry (only one), focused on the fundamental reason this Entity exists
+   → No (implementation detail / unique to this repo): skip
 
-2. 生成条目时，补充这个仓库的解法和关切
+2. When generating an entry, supplement with this repo's solution and concerns
 
-## 第二步：跨 Entity 覆盖检查
+## Phase 2: Cross-Entity Coverage Check
 
-第一步完成后，执行以下纯机械操作：
+After Phase 1 completes, perform the following purely mechanical operation:
 
-1. 收集每个已映射 Entity 正文中 **关键机制** 节列出的每一项。
-   对每一项，问自己：把这句描述中属于该 Entity 问题域的专有名词去掉，
-   剩下的结构是否仍然描述了一个独立的设计选择？
-   若是 → 放入候选池，标注来源 Entity
-   若否 → 忽略（它只是该 Entity 在其问题域内的实现手段）
+1. Collect every item listed in the **Key Mechanisms** section of each mapped Entity's body.
+   For each item, ask yourself: if you strip away the domain-specific terminology belonging to that Entity's problem domain,
+   does the remaining structure still describe an independent design choice?
+   If yes → add to candidate pool, annotate with source Entity
+   If no → ignore (it's just that Entity's implementation tactic within its problem domain)
 
-2. 候选池收集完毕后，检查其中是否有同一设计选择（或高度相似）
-   被 ≥2 个不同 Entity 提及。
-   对每个满足此条件的：
-   - 若当前 problem-map 中已有条目覆盖了该设计维度 → 不处理
-   - 若没有 → 生成一条补充的问题空间条目，格式同第一步，
-     **来源 Entity** 列出所有涉及该设计的 Entity slug
+2. After the candidate pool is collected, check whether the same design choice (or highly similar)
+   is mentioned by ≥2 different Entities.
+   For each that satisfies this:
+   - If the current problem-map already has an entry covering this design dimension → skip
+   - If not → generate a supplementary problem space entry, same format as Phase 1,
+     **Source Entity** listing all Entity slugs involved in this design
 
-## 输出格式
+## Output format
 
-路径：seeds/<仓库名>-problem-map.md
+Path: seeds/<repo-name>-problem-map.md
 
-每条问题空间条目：
+Each problem space entry:
 
 ---
-## <问题名>（"如何..."形式）
+## <Problem Name> ("how to..." form)
 
-**问题陈述**：<为什么构建同类框架的人都必须面对这个问题，一句话>
-**核心关切**：
-- 关切 1：<相互制约的需求，一句话>
-- 关切 2：...
-**<仓库名> 的解法**：<一句话>
-**源码证据**：<文件路径:行号>
-**来源 Entity**：<Entity slug>
-**层级**：架构决策 / 技术选型
+**Problem Statement**: <why everyone building a similar framework must face this question, one sentence>
+**Core Concerns**:
+- Concern 1: <mutually-constraining requirements, one sentence>
+- Concern 2: ...
+**<repo-name>'s Solution**: <one sentence>
+**Source Evidence**: <file-path:line>
+**Source Entity**: <Entity slug>
+**Level**: Architectural Decision / Technology Choice
 
-末尾附注：
+End-of-file notes:
 
-### 跳过的 Entity
-- <slug>：<原因>
+### Skipped Entities
+- <slug>: <reason>
 
-### 跨 Entity 覆盖检查
-| 候选设计元素 | 涉及 Entity | 是否补充条目 | 理由 |
-|-------------|-----------|------------|------|
-| ...         | ...       | 是/否       | ... |
+### Cross-Entity Coverage Check
+| Candidate Design Element | Involved Entities | Added Entry | Rationale |
+|-------------------------|-------------------|-------------|-----------|
+| ...                     | ...               | Yes/No      | ...       |
 ```
-
----
-
-## ★ 暂停点 1：问题空间完整性确认
-
-Step 2 完成后展示以下摘要并等待用户确认：
-
-```
-本次提取到 <N> 个问题空间，来自 <M> 个 Entity：
-
-| 问题空间                      | 来源 Entity       | 层级     |
-|-------------------------------|-------------------|----------|
-| 如何...                       | <entity-slug>     | 架构决策 |
-| ...                           | ...               | ...      |
-
-跳过的 Entity（<K> 个，属于实现细节）：
-- <slug>：<原因>
-
-是否有遗漏的能力域？确认后继续 Step 3。
-```
-
-用户可以：指出遗漏 → LLM 补充提取后更新 problem-map → 再继续。
-用户不响应则自动继续。
-
-**如果 --auto：跳过用户确认，直接继续 Step 3。但仍在日志中输出问题空间列表和跳过的 Entity 摘要。**
 
 ---
 
-## Step 3：问题空间匹配
+## ★ Pause Point 1: Problem Space Completeness Confirmation
 
-运行以下提示词：
+After Step 2 completes, present the following summary and wait for user confirmation:
 
 ```
-你的任务是把 <仓库名> 的问题空间映射结果和已有 Concept 页比对，产出候选清单。
+Extracted <N> problem spaces from <M> Entities:
 
-## 输入
+| Problem Space                 | Source Entity    | Level              |
+|-------------------------------|------------------|--------------------|
+| How to...                     | <entity-slug>    | Architectural      |
+| ...                           | ...              | ...                |
 
-- 新仓库问题空间映射：seeds/<仓库名>-problem-map.md
-- 已有种子库：**禁止读取 seeds/master.md 全文。** 用 problem-map 中的关键词 grep seeds/master.md，只读匹配行：`grep -i "关键词1\|关键词2\|..." seeds/master.md`
-- 已有 Concept 页：
-  **规模检测**：先运行 `ls wiki/concepts/*.md 2>/dev/null | wc -l` 获得 Concept 总数
+Skipped Entities (<K>, implementation details):
+- <slug>: <reason>
 
-  **若 ≤ 50 个 Concept（策略 A）**：
-    1. `for f in wiki/concepts/*.md; do head -10 "$f"; done` 一次性扫描所有 Concept 的 frontmatter
-    2. 对 LLM 判断存在语义关联的 Concept，深读全文的"核心问题"和"关切"节
+Any missing capability domains? Confirm to proceed to Step 3.
+```
 
-  **若 50–500 个 Concept（策略 B）**：
-    1. 从 problem-map 每条条目的"问题名"中提取 2–4 个核心技术关键词
-       - 选中文技术名词，不选"如何""的""一个"等连接词；有常用英文对应的也加入英文变体
-       - 示例："如何让主Agent委托后台子Agent执行复杂任务" → 子代理 subagent 隔离执行 委托
-       - 反例："MCP""RAG""LLM"等 2–3 个字符的缩写同样是高价值关键词，不可因其长度短而跳过——它们在技术文档中集中出现，是精准匹配的核心信号
-    2. 【逐条目独立 grep，严禁跨条目合并】对 problem-map 的每一条条目，仅用该条目自己提取的关键词独立执行一次 grep，不得将不同条目的关键词合并后执行单次巨型 grep：
-       - 条目 1：`grep -l "条目1关键词1\|条目1关键词2\|..." wiki/concepts/*.md` → 记录为结果列表 A
-       - 条目 2：`grep -l "条目2关键词1\|条目2关键词2\|..." wiki/concepts/*.md` → 记录为结果列表 B
-       - ...以此类推，每个条目执行完毕后分别记录其命中文件列表
-       - **严禁**将所有条目的关键词合成为一条 grep 执行——合并会导致命中文件与条目的对应关系断裂，且多个条目的关键词混杂后部分条目可能因关键词在长 OR 链中被稀释而得不到任何命中
-    3. 【自检：逐条核查 grep 执行覆盖】在合并去重之前，必须逐条核查 grep 执行记录：
-       - 对 problem-map 的每一条条目，确认其有对应的 grep 执行记录（即结果列表 A、B、...）
-       - 若发现某条目未执行 grep（缺少对应的结果列表），立刻回到第 2 步为其补执行
-       - 自检通过（所有条目均已 grep 且结果已记录）后，方可进入第 4 步
-    4. 合并所有条目的命中文件列表并去重
-    5. 只对去重后的文件做 `head -10` 确认 frontmatter 匹配
-    6. 对确认匹配的 Concept 深读全文
+User can: point out omissions → LLM supplements extraction, updates problem-map → continues.
+No response from user → auto-continue.
 
-  **若 > 500 个 Concept（策略 C）**：
-    1. 先执行策略 B
-    2. 对未匹配的条目，从已匹配 Concept 的 `concerns` 字段提取扩展术语，做第二轮 grep
-    3. 仍无法匹配的条目标记为"待人工审核"（非搜索失败——确实无对应 Concept），说明原因
+**If --auto: skip user confirmation, proceed directly to Step 3. Still output problem space list and skipped entity summary to log.**
 
-## 检索行为约束
+---
 
-在开始匹配前，必须先执行规模检测并明确宣告：
-"检测到 N 个 Concept → 选择策略 [A/B/C]"
+## Step 3: Problem Space Matching
 
-然后按所选策略执行检索。
+Run the following prompt:
 
-## 判定准则
+```
+Your task is to compare <repo-name>'s problem space mapping results against existing Concept pages and produce a candidate list.
 
-对每条问题空间条目，判断四种情况（见下）。
-新建或追加时，必须通过以下准则检验（单源定义见 `schema/concept-criteria.md`）：
+## Input
 
-硬门槛（三条必须全部满足）：
+- New repo problem space mapping: seeds/<repo-name>-problem-map.md
+- Existing seed bank: **Do NOT read seeds/master.md in full.** Grep seeds/master.md with keywords from the problem-map, only read matching lines: `grep -i "keyword1\|keyword2\|..." seeds/master.md`
+- Existing Concept pages:
+  **Scale detection**: first run `ls wiki/concepts/*.md 2>/dev/null | wc -l` to get total Concept count
 
-① 多方案
-   至少两个不同仓库以明显不同的方式解决了同一个问题。
-   注意：如果分析后一个方案在所有 trade-off 维度上都优于另一个，
-   说明这不是真正的设计权衡，不成立。
+  **If ≤ 50 Concepts (Strategy A)**:
+    1. `for f in wiki/concepts/*.md; do head -10 "$f"; done` scan all Concept frontmatter in one pass
+    2. For Concepts the LLM judges to have semantic relevance, deep-read the full "Core Problem" and "Concerns" sections
 
-② 独立设计空间
-   这个问题无法被某个已有问题空间完全覆盖——
-   合并进去后，它自身的讨论维度会消失，Framework Builder
-   在这个问题上的决策价值会损失。
+  **If 50–500 Concepts (Strategy B)**:
+    1. From each problem-map entry's "Problem Name," extract 2–4 core technical keywords
+       - Choose substantive technical terms; skip connectors like "how to," "the," "a." If common English equivalents exist, include English variants.
+       - Example: "How to let main Agent delegate background sub-agent to execute complex tasks" → subagent delegate isolation execution
+       - Counter-example: short abbreviations like "MCP," "RAG," "LLM" (2–3 characters) are equally high-value keywords — do NOT skip them due to short length. They are concentrated signals in technical documentation and core signals for precise matching.
+    2. 【Per-entry independent grep — strictly forbid cross-entry merging】For each entry in the problem-map, perform one grep using only that entry's own extracted keywords. Do NOT merge keywords from different entries into a single giant grep:
+       - Entry 1: `grep -l "entry1-kw1\|entry1-kw2\|..." wiki/concepts/*.md` → record as result list A
+       - Entry 2: `grep -l "entry2-kw1\|entry2-kw2\|..." wiki/concepts/*.md` → record as result list B
+       - ...and so on. After each entry's grep, record its hit file list separately.
+       - **Strictly forbidden**: synthesizing all entries' keywords into one grep — merging breaks the correspondence between hits and entries, and some entries may get zero hits because their keywords are diluted in a long OR chain.
+    3. 【Self-check: per-entry grep execution coverage audit】Before merging and deduplicating, audit the grep execution records entry by entry:
+       - For every entry in the problem-map, confirm it has a corresponding grep execution record (i.e., result list A, B, ...)
+       - If any entry is found without a grep execution (missing its result list), immediately go back to step 2 and run grep for it
+       - Only after the self-check passes (all entries have been grep'd and results recorded) may you proceed to step 4
+    4. Merge all entries' hit file lists and deduplicate
+    5. Only run `head -10` on deduplicated files to confirm frontmatter match
+    6. Deep-read the full text of confirmed-matching Concepts
 
-③ 持续存在的 Trade-off
-   不同方案之间的权衡没有银弹——
-   满足关切 A 会增大满足关切 B 的成本，反之亦然。
+  **If > 500 Concepts (Strategy C)**:
+    1. First execute Strategy B
+    2. For unmatched entries, extract expanded terms from matched Concepts' `concerns` fields, run a second round of grep
+    3. Entries still unmatched → mark as "manual review needed" (not a search failure — genuinely no matching Concept), explain why
 
-辅助判断（不满足不否决，影响优先级）：
+## Search behavior constraints
 
-④ 可持续扩展
-   新仓库未来仍可能在这个问题上贡献新的解法。
-   如果长期无新仓库加入，触发"降级"演化建议。
+Before starting matching, must execute scale detection and explicitly declare:
+"Detected N Concepts → selected Strategy [A/B/C]"
 
-## Few-shot 示例
+Then execute retrieval per the chosen strategy.
 
-### 示例领域 1：AI Agent 框架
+## Classification criteria
 
-输入 Entity（跨仓库）：
-- OpenClaw: Agent（YAML配置）, Workflow（显式编排）, Memory（外部上下文注入）,
-            ToolTimeout（YAML配置每个工具的超时时间）
-- HermesAgent: Agent（@agent装饰器）, EventBus（事件驱动协同）,
-               Memory（内部状态同步）, ToolTimeout（per-toolset超时设置）
+For each problem space entry, classify into one of four cases (see below).
+When creating new or appending, must pass the following criteria check (single-source definition in `schema/concept-criteria.md`):
 
-正例——"Agent 定义方式"：
-① 至少两仓库不同方案：配置驱动 vs 装饰器驱动。✅
-② 独立设计空间：评价维度是声明式便捷性 vs 编程灵活性，
-   不与"多Agent协作"共享评价维度。✅
-③ 持续 Trade-off：配置简单但灵活性低 vs 编程自由但门槛高，无银弹。✅
-④ 可持续扩展：新框架仍会在这个问题上做不同选择。✅
-决策：✅ 新建 Concept 页 agent-definition-style
+Hard thresholds (all three must pass):
 
-反例 1——失败在 ①：仅单一仓库
-候选分组"HermesAgent 的 SafeWriter 管道保护"：
-① 多方案：❌ 仅 HermesAgent 有此实现，其他仓库无对应 Entity。
-决策：❌ 进种子库待观察，不成立 Concept
+① Multiple Solutions
+   At least two different repos solve the same problem in clearly different ways.
+   Note: if after analysis one solution dominates another on all trade-off dimensions,
+   this is not a genuine design trade-off — does not qualify.
 
-反例 2——失败在 ②：不是独立设计空间
-候选分组"工具执行超时配置"：
-① 多方案：OpenClaw 用 YAML 配置每个工具超时，HermesAgent 用 per-toolset 超时。✅
-② 独立设计空间：❌ "超时配置"是"工具执行安全与控制"这个已有问题空间的一个子维度。
-   合并进去后不会损失讨论维度。
-决策：❌ 不成立，作为"工具执行安全"Concept 的子维度处理
+② Independent Design Space
+   This problem cannot be fully covered by an existing problem space —
+   merging it in would cause its own discussion dimensions to disappear,
+   and the Framework Builder would lose decision value on this problem.
 
-反例 3——失败在 ③：没有真正的 Trade-off
-候选分组"日志结构化格式"：
-① 多方案：OpenClaw 用纯文本格式，HermesAgent 用结构化 JSON + 自动脱敏。✅
-② 独立设计空间：日志格式有自己的评价维度。✅
-③ 持续 Trade-off：❌ 结构化 JSON 在所有关切上都优于纯文本，
-   这不是相互制约的权衡，而是一个方案尚未演化到位。
-决策：❌ 不成立，纯文本格式作为历史条目记录
+③ Persistent Trade-off
+   No silver bullet across different solutions —
+   satisfying Concern A increases the cost of satisfying Concern B, and vice versa.
 
-反例 4——失败在 ④（辅助判断）
-候选分组"Agent 进程启动顺序"：
+Auxiliary criterion (not meeting it does not veto; affects priority):
+
+④ Sustainable Extensibility
+   New repos are likely to contribute new solutions to this problem in the future.
+   If no new repos join long-term, trigger "downgrade" evolution recommendation.
+
+## Few-shot examples
+
+### Example Domain 1: AI Agent Frameworks
+
+Input Entities (cross-repo):
+- OpenClaw: Agent (YAML config), Workflow (explicit orchestration), Memory (external context injection),
+            ToolTimeout (per-tool YAML timeout config)
+- HermesAgent: Agent (@agent decorator), EventBus (event-driven coordination),
+               Memory (internal state sync), ToolTimeout (per-toolset timeout)
+
+Positive example — "Agent Definition Style":
+① At least two repos, different approaches: config-driven vs. decorator-driven. ✅
+② Independent design space: evaluation dimensions are declarative convenience vs. programming flexibility;
+   does not share evaluation dimensions with "multi-Agent coordination." ✅
+③ Persistent trade-off: config is simple but inflexible vs. programming freedom with higher barrier; no silver bullet. ✅
+④ Sustainable extensibility: new frameworks will still make different choices on this question. ✅
+Decision: ✅ Create new Concept page agent-definition-style
+
+Counter-example 1 — fails ①: single repo only
+Candidate group "HermesAgent SafeWriter pipeline protection":
+① Multiple solutions: ❌ Only HermesAgent has this; other repos have no corresponding Entity.
+Decision: ❌ Enter seed bank for observation; does not qualify as a Concept
+
+Counter-example 2 — fails ②: not an independent design space
+Candidate group "Tool Execution Timeout Configuration":
+① Multiple solutions: OpenClaw uses per-tool YAML timeout; HermesAgent uses per-toolset timeout. ✅
+② Independent design space: ❌ "Timeout configuration" is a sub-dimension of the existing problem space
+   "Tool Execution Safety & Control." Merging it in would not lose discussion dimensions.
+Decision: ❌ Does not qualify; handle as sub-dimension of "Tool Execution Safety" Concept
+
+Counter-example 3 — fails ③: no genuine trade-off
+Candidate group "Structured Log Format":
+① Multiple solutions: OpenClaw uses plain text; HermesAgent uses structured JSON + auto-redaction. ✅
+② Independent design space: log format has its own evaluation dimensions. ✅
+③ Persistent trade-off: ❌ Structured JSON dominates plain text on all concerns;
+   this is not a mutually-constraining trade-off — one solution simply hasn't evolved yet.
+Decision: ❌ Does not qualify; record plain-text format as historical note
+
+Counter-example 4 — fails ④ (auxiliary)
+Candidate group "Agent Process Startup Order":
 ① ✅ ② ✅ ③ ✅
-④ 可持续扩展：⚠️ 随着异步运行时普及，这个问题空间可能很快收敛。
-决策：⚠️ 暂时建页，演化信号文件中标注"低扩展预期"
+④ Sustainable extensibility: ⚠️ As async runtimes proliferate, this problem space may converge quickly.
+Decision: ⚠️ Create page tentatively; note "low extensibility expectation" in evolve signal file
 
-### 示例领域 2：嵌入式数据库
+### Example Domain 2: Embedded Databases
 
-输入 Entity（跨仓库）：
-- SQLite: B-Tree（存储结构）, WAL（预写日志）
-- LevelDB: LSM-Tree（存储结构）, MemTable+SSTable（写入流水线）
-- RocksDB: ColumnFamily, Compaction（压缩策略）, BloomFilter
+Input Entities (cross-repo):
+- SQLite: B-Tree (storage structure), WAL (write-ahead log)
+- LevelDB: LSM-Tree (storage structure), MemTable+SSTable (write pipeline)
+- RocksDB: ColumnFamily, Compaction (compaction strategy), BloomFilter
 
-正例——"存储引擎核心数据结构"：
-① B-Tree vs LSM-Tree，设计哲学完全不同。✅
-② 独立于持久化策略的评价维度。✅
-③ 读优化 vs 写优化，经典无银弹权衡。✅
-决策：✅ 新建 Concept 页 storage-engine-data-structure
+Positive example — "Storage Engine Core Data Structure":
+① B-Tree vs LSM-Tree, fundamentally different design philosophies. ✅
+② Independent evaluation dimensions from persistence strategy. ✅
+③ Read-optimized vs. write-optimized; classic no-silver-bullet trade-off. ✅
+Decision: ✅ Create new Concept page storage-engine-data-structure
 
-反例——失败在 ①：
-候选分组"Bloom Filter 过滤策略"：
-① ❌ 仅 RocksDB 有 BloomFilter。
-决策：❌ 进种子库待观察
+Counter-example — fails ①:
+Candidate group "Bloom Filter Strategy":
+① ❌ Only RocksDB has BloomFilter.
+Decision: ❌ Enter seed bank for observation
 
-## 四种情况处理
+## Four case types
 
-情况 A — 命中现有问题空间
-  和某个已有 Concept 页的核心问题是同一个问题
-  动作：标记"追加到 <slug>"
+Case A — Hits existing problem space
+  Core problem is the same as an existing Concept page
+  Action: mark "append to <slug>"
 
-情况 B — 新问题空间，通过三条硬门槛
-  动作：标记"新建 Concept 页"，附三条准则各一句判断理由
+Case B — New problem space, passes all three hard thresholds
+  Action: mark "create new Concept page," with one-sentence justification for each criterion
 
-情况 C — 待观察
-  目前只有一个仓库面对这个问题
-  动作：进种子库，不升级
+Case C — Pending observation
+  Currently only one repo faces this problem
+  Action: enter seed bank; do not promote
 
-情况 D — 演化信号
-  与已有 Concept 部分重叠但不完全命中
-  动作：记录演化信号，不进入本次写作
+Case D — Evolve signal
+  Partially overlaps with existing Concept but does not fully match
+  Action: record as evolve signal; do not enter this round's writing
 
-## 输出
+## Output
 
-文件 1：seeds/<仓库名>-candidates.md
-  每条：情况类型 / 问题名 / 目标 slug（A类）或新建名称（B类）/ 判断理由
+File 1: seeds/<repo-name>-candidates.md
+  Each entry: case type / problem name / target slug (Case A) or new name (Case B) / justification
 
-  末尾附能力域覆盖表（人工核查用）：
-  | 能力域 | <仓库1> | <仓库2> | <新仓库> |
-  |--------|--------|--------|--------|
-  | <能力域> | ✅/— | ✅/— | ✅/— |
+  End-of-file capability coverage table (for human review):
+  | Capability Domain | <repo1> | <repo2> | <new-repo> |
+  |-------------------|---------|---------|------------|
+  | <domain>          | ✅/—   | ✅/—   | ✅/—      |
 
-文件 2：evolve-signals/<YYYY-MM-DD>-<仓库名>.md
-  仅 D 类信号，每条：
-  - 问题：<名称>
-  - 相关 Concept：<slug>
-  - 信号类型：粒度不匹配 / 候选合并
-  - 理由：<一句话>
+File 2: evolve-signals/<YYYY-MM-DD>-<repo-name>.md
+  Only Type D signals, each:
+  - Problem: <name>
+  - Related Concept: <slug>
+  - Signal type: granularity mismatch / merge candidate / split candidate
+  - Reason: <one sentence>
 ```
 
 ---
 
-## ★ 暂停点 2：候选清单确认
+## ★ Pause Point 2: Candidate List Confirmation
 
-Step 3 完成后展示：
+After Step 3 completes, present:
 
 ```
-候选 Concept 清单：
+Concept candidate list:
 
-  A 类（追加到已有页面）：<N> 条
+  Type A (append to existing page): <N>
     - <problem-name> → [[<slug>]]
     ...
 
-  B 类（新建 Concept 页）：<N> 条
-    - <problem-name>（新建 <slug>）
-      理由：①<一句> ②<一句> ③<一句>
+  Type B (create new Concept page): <N>
+    - <problem-name> (new <slug>)
+      Justification: ①<one sentence> ②<one sentence> ③<one sentence>
     ...
 
-  C 类（待观察）：<N> 条
-  D 类（演化信号）：<N> 条，已写入 evolve-signals/
+  Type C (pending observation): <N>
+  Type D (evolve signals): <N>, written to evolve-signals/
 
-能力域覆盖表：
-| 能力域     | 仓库 A | 仓库 B | 新仓库 |
-|------------|--------|--------|--------|
-| ...        | ...    | ...    | ...    |
+Capability coverage table:
+| Capability Domain | Repo A | Repo B | New Repo |
+|-------------------|--------|--------|----------|
+| ...               | ...    | ...    | ...      |
 
-是否调整？确认后继续 Step 4。
+Adjust anything? Confirm to proceed to Step 4.
 ```
 
-用户可以：否决某个 B 类新建 / 手动升级某个 C 类 / 调整 slug 命名。
-用户不响应则自动继续。
+User can: veto a Type B creation / manually promote a Type C / adjust slug naming.
+No response from user → auto-continue.
 
-**如果 --auto：跳过用户确认，按模型判断的 A/B/C/D 分类直接继续 Step 4。但仍在日志中输出候选清单摘要和能力域覆盖表。**
+**If --auto: skip user confirmation, proceed to Step 4 directly with model-determined A/B/C/D classification. Still output candidate list summary and capability coverage table to log.**
 
 ---
 
-## Step 4：Concept 写作
+## Step 4: Concept Writing
 
-对 candidates.md 中每个 A/B 类条目，各启动一个独立 agent：
+For each Type A/B entry in candidates.md, launch an independent agent:
 
 ```
-你负责写或更新一个 Concept 页。每次只处理一个 Concept。
+You are responsible for writing or updating a Concept page. Process one Concept at a time.
 
-## 读者是谁
+## Who is the reader
 
-Framework Builder——正在研究这类框架设计空间的人。
-不需要判断哪个最好，需要建立完整的设计空间地图：
-在这个设计问题上，不同框架做了什么选择，每个选择的代价是什么。
+Framework Builder — someone studying the design space of this framework class.
+They don't need to know which is "best"; they need a complete design space map:
+on this design problem, what choices did different frameworks make, and what is the cost of each choice.
 
-## 输入
+## Input
 
-- 候选清单中的单条条目（情况 A 或 B）
-- 该条目原文：seeds/<仓库名>-candidates.md
-- 若情况 A：现有 Concept 页 wiki/concepts/<slug>.md
-- 源码目录（必须读源码验证，不能只凭映射结果写）
+- A single entry from the candidate list (Case A or B)
+- Entry source: seeds/<repo-name>-candidates.md
+- If Case A: existing Concept page wiki/concepts/<slug>.md
+- Source directory (must read source to verify; don't rely solely on mapping results)
 
-## 强制规则
+## Mandatory rules
 
-1. 每个声明必须有源码证据 ^[文件路径:行号]
-2. 情况 A（追加）：只添加新仓库内容，不修改已有仓库内容
-3. 概念名称格式：<能力域>-<决策维度>（小写 kebab-case）
-4. 对比表聚焦关切之间的张力，不是功能列表
-5. **所有仓库的解法都必须读对应 entity 页获取源码引用，不允许凭记忆复述。** 新仓库读 `wiki/repos/<新仓库>/entities/<slug>.md`；已有仓库读 `wiki/repos/<已有仓库>/entities/<slug>.md`。写法：每个仓库一节，节头 `### <仓库名>`，正文第一行 `来源：[[repos/<仓库名>/entities/<entity-slug>]]`，每条关键机制标注 `^[文件路径:行号]`。
-6. **写完本页后，检查 `repos:` frontmatter 是否列出了 body 中每个 `### <仓库>` 节。** 如果 body 讨论了 N 个仓库，repos 必须含 N 个。
+1. Every claim must have source evidence ^[file-path:line]
+2. Case A (append): only add new repo content; do NOT modify existing repo content
+3. Concept naming format: <capability-domain>-<decision-dimension> (lowercase kebab-case)
+4. Comparison table focuses on tensions between concerns, not a feature list
+5. **All repo solutions must read the corresponding entity page to obtain source citations; reproducing from memory is not permitted.** New repo: read `wiki/repos/<new-repo>/entities/<slug>.md`; existing repos: read `wiki/repos/<existing-repo>/entities/<slug>.md`. Format: one section per repo, section header `### <repo-name>`, first line of body `Source: [[repos/<repo-name>/entities/<entity-slug>]]`, each key mechanism annotated with `^[file-path:line]`.
+6. **After writing this page, check that the `repos:` frontmatter lists every `### <repo>` section in the body.** If the body discusses N repos, repos must contain N entries.
 
-## 输出
+## Output
 
-路径：wiki/concepts/<slug>.md
+Path: wiki/concepts/<slug>.md
 
 ---
 type: concept
 concept: <slug>
-problem: <核心问题，一句话>
-concerns: [<关切1>, <关切2>]
-repos: [<仓库列表>]
+problem: <core problem, one sentence>
+concerns: [<concern1>, <concern2>]
+repos: [<repo-list>]
 generated: <YYYY-MM-DD>
 ---
 
-# <Concept 名>
+# <Concept Name>
 
-## 核心问题
+## Core Problem
 
-<为什么构建同类框架的人都必须回答这个问题>
-<不同解法之间的根本张力是什么>
+<Why everyone building a similar framework must answer this question>
+<What is the fundamental tension between different solutions>
 
-## 关切
+## Concerns
 
-<各关切之间如何相互制约>
+<How the concerns constrain each other>
 
-## 各框架的解法
+## Solutions by Framework
 
-### <仓库名>
+### <repo-name>
 
-来源：[[repos/<仓库名>/entities/<entity-slug>]]
-**解法**：<一句话>
-**实现**：<关键机制> ^[文件路径:行号]
-**权衡**：满足了哪些关切，代价是什么
+Source: [[repos/<repo-name>/entities/<entity-slug>]]
+**Solution**: <one sentence>
+**Implementation**: <key mechanisms> ^[file-path:line]
+**Trade-offs**: which concerns are satisfied, at what cost
 
-[每个仓库一节]
+[one section per repo]
 
-## 对比
+## Comparison
 
-| 框架 | 关切 A | 关切 B | 关切 C |
-|------|--------|--------|--------|
+| Framework | Concern A | Concern B | Concern C |
+|-----------|-----------|-----------|-----------|
 
-## 演化记录
+## Evolution Log
 
-- <YYYY-MM-DD>：初建，包含 <仓库名>
-- <YYYY-MM-DD>：新增 <仓库名>
+- <YYYY-MM-DD>: Initial creation, covers <repo-name>
+- <YYYY-MM-DD>: Added <repo-name>
 
-## 后置动作
+## Post-write action
 
-写完本页后，到 body 中**每个提及的仓库**的 entity 页（`wiki/repos/<name>/entities/<slug>.md`）末尾追加反向链接——不只是新仓库，已有仓库如果在 body 中被引用也需要有反向链接。
-如果该 entity 已被其他 concept 引用过，在已有列表后追加一项；如果没有，新建列表：
+After writing this page, go to **every repo mentioned** in the body's entity pages (`wiki/repos/<name>/entities/<slug>.md`) and append a backlink at the end — not just the new repo; existing repos referenced in the body also need backlinks.
+If the entity already has backlinks from other concepts, append to the existing list; if none, create a new list:
 
 ```
-**关联 Concept**：
+**Associated Concepts**:
 - [[concepts/<this-slug>]]
 ```
 
-注意：一个 entity 可能关联多个 concept——比如 MemoryManager 同时涉及 memory-backend-replaceability 和 state-synchronization。追加时不要覆盖已有条目。
+Note: an entity may be associated with multiple concepts — e.g., MemoryManager involves both memory-backend-replaceability and state-synchronization. When appending, do not overwrite existing entries.
 ```
 
 ---
 
-## Step 5：验证 + 修复（`--verify` 开启时）
+## Step 5: Verification + Repair (when `--verify` is enabled)
 
 ```
-## 验证 agent
+## Verification agent
 
-输入：wiki/concepts/<slug>.md + 对应仓库源码
+Input: wiki/concepts/<slug>.md + corresponding repo source
 
-对每个仓库的解法，逐一检查：
-1. 源码证据是否存在（路径:行号能找到）
-2. 描述是否和源码一致（不夸大、不遗漏关键约束）
-3. 对比表的判断是否有源码支撑
+For each repo's solution, verify one by one:
+1. Source evidence exists (path:line can be found)
+2. Description matches source (no exaggeration, no omission of key constraints)
+3. Comparison table judgments have source support
 
-输出验证报告：
-  ✅ 准确
-  ⚠️ <描述>：部分不准确，可修复
-  ❌ <描述>：严重错误，需重写
+Output verification report:
+  ✅ Accurate
+  ⚠️ <description>: partially inaccurate, repairable
+  ❌ <description>: critically wrong, needs rewrite
 
 ---
 
-## 修复 agent
+## Repair agent
 
-输入：验证报告 + wiki/concepts/<slug>.md + 源码
+Input: verification report + wiki/concepts/<slug>.md + source
 
-只修复 ⚠️ 或 ❌ 的部分。
-不改动验证通过的内容。
-每次修改附修改理由。
+Only repair ⚠️ or ❌ items.
+Do not modify content that passed verification.
+Every modification must include a repair reason.
 ```
 
 ---
 
-## Step 6：种子库更新 + 快照保存
+## Step 6: Seed Bank Update + Snapshot Save
 
 ```
-完成本次 ingest 的收尾工作。
+Complete the wrap-up work for this ingest.
 
-## 输入
+## Input
 
-- 问题空间映射：seeds/<仓库名>-problem-map.md
-- 候选清单：seeds/<仓库名>-candidates.md
-- 已有种子库：seeds/master.md（如不存在则跳过）
-- 源码目录：<源码路径>
+- Problem space mapping: seeds/<repo-name>-problem-map.md
+- Candidate list: seeds/<repo-name>-candidates.md
+- Existing seed bank: seeds/master.md (skip if doesn't exist)
+- Source directory: <source-path>
 
-## 五项操作
+## Six operations
 
-1. 合并种子库
-   把 <仓库名> 所有问题空间条目（A/B/C 类均进入）追加到 seeds/master.md
-   标注来源仓库和情况类型
+1. Merge into seed bank
+   Append all problem space entries for <repo-name> (Type A/B/C all go in) to seeds/master.md
+   Annotate with source repo and case type
 
-2. 确认演化信号文件
-   检查 evolve-signals/<YYYY-MM-DD>-<仓库名>.md 是否存在且完整
-   （Step 3 已生成，这里只做完整性确认）
+2. Confirm evolve signal file
+   Verify evolve-signals/<YYYY-MM-DD>-<repo-name>.md exists and is complete
+   (generated in Step 3; this step only confirms integrity)
 
-3. 更新 wiki/index.md
-   - Repos 节：新增或更新 <仓库名> 行（格式见维护文件规范）
-   - Concepts 节：按格式刷新 Concept 表格（新增/更新的 Concept 行同步）
+3. Update wiki/index.md
+   - Repos section: add or update <repo-name> row (format per maintenance file spec)
+   - Concepts section: refresh Concept table per format (sync added/updated Concept rows)
 
-4. 覆盖写入 wiki/hot.md：
+4. Overwrite wiki/hot.md:
    # Hot Context
-   **Last operation:** ingest <仓库名> — <Entity数量> entities, <Concept数量> concepts
-   **Active repos:** <当前所有已 ingest 仓库，逗号分隔>
+   **Last operation:** ingest <repo-name> — <Entity count> entities, <Concept count> concepts
+   **Active repos:** <all currently ingested repos, comma-separated>
    **Concept pages:** <N>
-   **Pending evolve signals:** <K>（evolve-signals/）
+   **Pending evolve signals:** <K> (evolve-signals/)
 
-5. 追加 wiki/log.md：
-   [<YYYY-MM-DD HH:MM>] ingest <仓库名> — <Entity数量> entities, <Concept数量> concepts updated/created
+5. Append to wiki/log.md:
+   [<YYYY-MM-DD HH:MM>] ingest <repo-name> — <Entity count> entities, <Concept count> concepts updated/created
 
-6. 覆写 wiki/repos/<仓库名>/.ingest-state.json：
-   用本次 ingest 实际读取的文件列表及其 SHA-256 覆写快照。
-   source_path 写入当前源码目录路径。
-   填充 entity_map：从每个 entity 页 frontmatter 的 source_files 字段收集映射。
-   格式：{ "<entity-slug>": ["<相对文件路径>", ...], ... }
-   entity_map 用于 Step 0 增量检测时做逆向映射——文件变了就能知道哪些 entity 受影响。
-   不填充会导致每次 re-ingest 时必须扫描所有 entity 页 frontmatter，500 仓库规模下不可接受。
+6. Overwrite wiki/repos/<repo-name>/.ingest-state.json:
+   Overwrite the snapshot with the files and SHA-256 hashes actually read during this ingest.
+   Write the current source directory path to source_path.
+   Populate entity_map: collect mapping from each entity page's frontmatter source_files field.
+   Format: { "<entity-slug>": ["<relative-file-path>", ...], ... }
+   entity_map is used in Step 0 delta detection for reverse mapping — when a file changes, you know which entities are affected.
+   Not populating it forces scanning all entity page frontmatter on every re-ingest, unacceptable at 500-repo scale.
 ```
 
 ---
 
-## Step 6 收尾前
+## Before Step 6 Wrap-up
 
-**REQUIRED SUB-SKILL:** 在声称"ingest 完成"之前，必须调用 `completion-gate` 验证维护文件一致性。
-
----
-
-## ★ 暂停点 3：ingest 完成总结
-
-Step 6 完成后展示：
-
-```
-ingest <仓库名> 完成：
-  - <M> 个 Entity 提取
-  - <N> 个 Concept 页更新/新建
-  - <K> 条演化信号写入 evolve-signals/<date>-<name>.md
-
-建议下一步：
-  1. 触发 /evolve-apply 处理 <K> 条演化信号
-  2. 继续 ingest 下一个仓库：<建议仓库名>
-  3. 深挖当前 Concept：/query <slug>
-```
-
-**如果 --auto：不等待用户决策，默认不触发 /evolve-apply。但仍在日志中输出完成总结和建议下一步。**
+**REQUIRED SUB-SKILL:** Before claiming "ingest complete," must invoke `completion-gate` to verify maintenance file consistency.
 
 ---
 
-## 文件结构规范
+## ★ Pause Point 3: Ingest Completion Summary
+
+After Step 6 completes, present:
 
 ```
-wiki/                       ← 持久化知识（提交到 git）
+ingest <repo-name> complete:
+  - <M> Entities extracted
+  - <N> Concept pages updated/created
+  - <K> evolve signals written to evolve-signals/<date>-<name>.md
+
+Suggested next steps:
+  1. Trigger /evolve-apply to process <K> evolve signals
+  2. Continue ingesting next repo: <suggested repo name>
+  3. Deep-dive current Concept: /query <slug>
+```
+
+**If --auto: don't wait for user decision; default to NOT triggering /evolve-apply. Still output completion summary and suggested next steps to log.**
+
+---
+
+## File Structure Specification
+
+```
+wiki/                       ← Persistent knowledge (committed to git)
   repos/
     <name>/
-      .ingest-state.json    ← Step 6 维护（增量快照）
-      overview.md           ← Step 1 产物（新建或覆写）
-      entities/             ← Step 1 产物
+      .ingest-state.json    ← Step 6 maintained (delta snapshot)
+      overview.md           ← Step 1 output (new or overwritten)
+      entities/             ← Step 1 output
         <slug>.md
-  concepts/                 ← Step 4 产物
+  concepts/                 ← Step 4 output
     <slug>.md
 
-seeds/                      ← 管线中间产物（项目根目录下，与 wiki/ 平级）
-  <name>-problem-map.md     ← Step 2 产物
-  <name>-candidates.md      ← Step 3 产物
-  master.md                 ← Step 6 维护
+seeds/                      ← Pipeline artifacts (project root, sibling to wiki/)
+  <name>-problem-map.md     ← Step 2 output
+  <name>-candidates.md      ← Step 3 output
+  master.md                 ← Step 6 maintained
 
-evolve-signals/             ← 信号信箱（项目根目录下，与 wiki/ 平级）
-  <YYYY-MM-DD>-<name>.md    ← Step 3 产物（D 类信号）
+evolve-signals/             ← Signal inbox (project root, sibling to wiki/)
+  <YYYY-MM-DD>-<name>.md    ← Step 3 output (Type D signals)
 ```
 
-### 路径纪律（强制）
+### Path Discipline (Mandatory)
 
-管线中间产物（`seeds/` 和 `evolve-signals/`）的路径规则：
-- **必须写入项目根目录下的 `seeds/` 和 `evolve-signals/`，与 `wiki/` 平级**
-- **绝不写入 `wiki/repos/<name>/` 下** —— 那是对 wiki 知识库的污染，会导致 lint 误报和维护混乱
-- `seeds/` 和 `evolve-signals/` 不是 wiki 页面，不在 Obsidian vault 内，不需要 wikilink
-- 示例正确路径：`seeds/hermes-agent-problem-map.md` ← ✅
-- 示例错误路径：`wiki/repos/hermes-agent/seeds/hermes-agent-problem-map.md` ← ❌
+Pipeline artifact (`seeds/` and `evolve-signals/`) path rules:
+- **Must write to `seeds/` and `evolve-signals/` at project root, siblings to `wiki/`**
+- **Never write under `wiki/repos/<name>/`** — that pollutes the wiki knowledge base, causing false lint positives and maintenance chaos
+- `seeds/` and `evolve-signals/` are not wiki pages, not inside the Obsidian vault, do not need wikilinks
+- Correct example: `seeds/hermes-agent-problem-map.md` ← ✅
+- Incorrect example: `wiki/repos/hermes-agent/seeds/hermes-agent-problem-map.md` ← ❌
 
-## 维护文件规范
+## Maintenance File Specs
 
-以下三个文件 LLM 会在 ingest / query / compare / evolve 后自动维护。
-格式必须严格遵守——`/query` 的 Level 1 index scan 和 `/lint` 的检查都依赖这些格式。
+The following three files are automatically maintained by the LLM after ingest / query / compare / evolve operations.
+Format must be strictly followed — `/query` Level 1 index scan and `/lint` checks both depend on these formats.
 
 ### wiki/index.md
 
-**角色**：wiki 目录页。`/query` 检索升级链 Level 1 的第一个读取目标——LLM 用它判断"有没有相关页面值得深入"。
+**Role**: Wiki directory page. The first read target in `/query`'s Level 1 index scan — the LLM uses it to determine "are there relevant pages worth digging into."
 
-**格式**：
+**Format**:
 
 ```markdown
 # Codebase Wiki
 
 ## Repos
 
-- [[<name>/overview]] — <一句话描述> — topics: <逗号分隔> — last ingest: <YYYY-MM-DD>
+- [[<name>/overview]] — <one-sentence description> — topics: <comma-separated> — last ingest: <YYYY-MM-DD>
 
 ## Concepts
 
-| 问题 | 页面 | 覆盖仓库 |
-|------|------|----------|
-| <problem 一句话> | [[concepts/<slug>]] | <repo>, <repo> |
+| Problem | Page | Covered Repos |
+|---------|------|---------------|
+| <one-sentence problem> | [[concepts/<slug>]] | <repo>, <repo> |
 | ... | ... | ... |
 
 ## Views
 
-- [[views/<filename>]] — <描述> — <YYYY-MM-DD>
+- [[views/<filename>]] — <description> — <YYYY-MM-DD>
 
 ## Insights
 
-- [[insights/<filename>]] — <标题> — <YYYY-MM-DD>
+- [[insights/<filename>]] — <title> — <YYYY-MM-DD>
 ```
 
 ### wiki/log.md
 
-**角色**：操作日志。`/lint` 检查最后一次操作时间等。
+**Role**: Operation log. `/lint` checks last operation time etc.
 
-**格式**（只追加，不修改已有行）：
+**Format** (append only, never modify existing lines):
 
 ```
-[YYYY-MM-DD HH:MM] <操作> <详情>
+[YYYY-MM-DD HH:MM] <operation> <detail>
 ```
 
 ### wiki/hot.md
 
-**角色**：热点上下文。每次操作覆盖写入。`/lint` 检查 stale 状态时快速读取。
+**Role**: Hot context. Overwritten on every operation. `/lint` reads rapidly when checking staleness.
 
-**格式**：
+**Format**:
 
 ```markdown
 # Hot Context
 
-**Last operation:** <最近一次操作及结果>
-**Active repos:** <当前所有已 ingest 仓库，逗号分隔>
+**Last operation:** <most recent operation and result>
+**Active repos:** <all currently ingested repos, comma-separated>
 **Concept pages:** <N>
 **Pending evolve signals:** <K>
 ```

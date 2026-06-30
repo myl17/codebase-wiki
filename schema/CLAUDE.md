@@ -4,9 +4,9 @@ These rules apply to ALL LLM operations that write to the `wiki/` directory.
 
 ## One-Time Setup
 
-首次使用本 vault 时，在 Obsidian 中完成以下一次性配置（退出时自动保存，永久生效）：
+When using this vault for the first time, complete the following one-time configuration in Obsidian (auto-saved on exit, permanent):
 
-**1. 排除维护文件**（Settings → Files & Links → Excluded files，一行一个）：
+**1. Exclude maintenance files** (Settings → Files & Links → Excluded files, one per line):
 
 ```
 hot.md
@@ -15,24 +15,24 @@ index.md
 .ingest-state.json
 ```
 
-**2. 颜色分组**（Graph View → 齿轮 → Groups，创建 2 个分组）：
+**2. Color groups** (Graph View → Gear → Groups, create 2 groups):
 
-| Query | 颜色 | 对应 |
-|-------|------|------|
-| `path:repos` | 🟠 橙 | 仓库概览 / Entity |
-| `path:concepts` | 🔵 蓝 | Concept |
+| Query | Color | Maps to |
+|-------|-------|---------|
+| `path:repos` | 🟠 Orange | Repo overviews / Entities |
+| `path:concepts` | 🔵 Blue | Concepts |
 
 ## Double-Link Rules
 
 | Situation | Action |
 |-----------|--------|
-| Entity 页提到同仓库其他 entity | ✅ Build `[[entities/<slug>]]` |
-| Entity 页提到关联 Concept | ✅ Build `[[concepts/<slug>]]`（在末尾 `**关联 Concept**` 列表） |
-| Concept 页引用来源 entity | ✅ Build `[[repos/<name>/entities/<slug>]]` |
-| overview 页指向 entity | ✅ Build `[[repos/<name>/entities/<slug>]]` |
+| Entity page mentions same-repo entity | ✅ Build `[[entities/<slug>]]` |
+| Entity page mentions associated Concept | ✅ Build `[[concepts/<slug>]]` (in the end-of-file `**Associated Concepts**` list) |
+| Concept page cites source entity | ✅ Build `[[repos/<name>/entities/<slug>]]` |
+| Overview page points to entity | ✅ Build `[[repos/<name>/entities/<slug>]]` |
 | Inside a code block (``` or inline code) | ❌ Never build wikilinks |
 | Inside a provenance reference `^[file:line]` | ❌ Keep as plain text |
-| 具体类名、函数名、文件路径 | ❌ 不标 wikilink，保持纯文本 |
+| Concrete class names, function names, file paths | ❌ Don't wikilink; keep as plain text |
 | Associative concept that "might be related" | ❌ Only build links that are definitively meaningful |
 
 ## Provenance Format
@@ -49,27 +49,27 @@ Pages without any provenance references trigger `[WARN] check_missing_provenance
 
 ## Frontmatter
 
-Entity 页（`wiki/repos/<name>/entities/<slug>.md`）：
+Entity pages (`wiki/repos/<name>/entities/<slug>.md`):
 ```yaml
 ---
 type: entity
 repo: <name>
 slug: <slug>
-problem: <问题层一句话，"如何..."形式>
+problem: <one-sentence problem description, "how to..." form>
 generated: <YYYY-MM-DD>
 source_files:
   - <repo-relative-path>
 ---
 ```
 
-Concept 页（`wiki/concepts/<slug>.md`）：
+Concept pages (`wiki/concepts/<slug>.md`):
 ```yaml
 ---
 type: concept
 concept: <slug>
-problem: <核心问题，一句话>
-concerns: [<关切1>, <关切2>]
-repos: [<仓库列表>]
+problem: <core problem, one sentence>
+concerns: [<concern1>, <concern2>]
+repos: [<repo-list>]
 generated: <YYYY-MM-DD>
 ---
 ```
@@ -90,8 +90,8 @@ After every operation, overwrite `wiki/hot.md` with:
 ```markdown
 # Hot Context
 
-**Last operation:** ingest <仓库名> — <Entity数量> entities, <Concept数量> concepts
-**Active repos:** <逗号分隔>
+**Last operation:** ingest <repo-name> — <Entity count> entities, <Concept count> concepts
+**Active repos:** <comma-separated>
 **Concept pages:** <N>
-**Pending evolve signals:** <K>（evolve-signals/）
+**Pending evolve signals:** <K> (evolve-signals/)
 ```

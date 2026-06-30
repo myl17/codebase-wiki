@@ -9,130 +9,77 @@ Answer questions using the wiki knowledge base. Follow the retrieval escalation 
 /query --repo react,vue <question>
 ```
 
-## Wikilink 遍历（结构性问题优先）
+## Wikilink Traversal (structural questions first)
 
-如果问题匹配以下模式，先做 wikilink 遍历，而不是走 Retrieval Escalation Chain：
+If the question matches the following patterns, do wikilink traversal first rather than the Retrieval Escalation Chain:
 
-- "X 会影响什么" / "改 X 会波及哪些" / "X 的影响范围"
-- "为什么有 X" / "X 为什么这样设计"
-- "哪些仓库也有 X" / "X 在不同仓库有什么不同做法"
+- "What does X affect?" / "What would changing X impact?" / "X's blast radius"
+- "Why does X exist?" / "Why is X designed this way?"
+- "Which other repos also have X?" / "How do different repos approach X?"
 
-### 为什么这类问题走 wikilink 遍历就够了
+### Why wikilink traversal suffices for these questions
 
-因为 entity 页之间通过 concept 页互相连接——entity → concept → 其他 entity。
-顺着这个网络走，你看到的是"其他仓库在同类问题上做了什么不同选择"，
-这正是结构性问题要的答案。
+Because entity pages are connected through concept pages — entity → concept → other entities.
+Following this network shows you "what different choices other repos made on the same problem," which is exactly what structural questions are asking.
 
-### 遍历步骤
+### Traversal steps
 
-1. 从问题中识别关键词，扫描 `wiki/repos/*/entities/` 和 `wiki/concepts/`：
+1. Identify keywords from the question, scan `wiki/repos/*/entities/` and `wiki/concepts/`:
    ```bash
-   # 按关键词找 entity 页（读 frontmatter 的 problem: 字段）
-   grep -rl "problem:" wiki/repos --include="*.md" | head -20
-   # 按关键词找 concept 页（读 frontmatter）
-   grep -rl "type: concept" wiki/concepts --include="*.md" 2>/dev/null | head -20
+   # Find entity pages by keyword (read frontmatter problem: field)
+   grep -rl "关键词" wiki/repos/*/entities/ --include="*.md" | head -5
    ```
-   （以上命令从 wiki 根目录执行。读候选文件的前 10 行 frontmatter，判断 `problem:` 字段是否匹配问题。）
 
-2. 读目标页面，沿其中的 wikilink 展开：
-   - entity 页 → 末尾的 `**关联 Concept**：[[concepts/<slug>]]`
-   - concept 页 → "各框架的解法"节中每仓库的 `来源：[[repos/<name>/entities/<slug>]]`
-   - overview 页 → 子系统列表中的 `[[repos/<name>/entities/<slug>]]`
+2. Read matching entity frontmatter (first 10 lines) — find the `problem:` field to filter by relevance
 
-3. 跨仓库问题：直接找 concept 页。Concept 页的"各框架的解法"节和"对比"表
-   已经汇聚了所有仓库的不同做法，无需逐个读 entity 页。
+3. From relevant entities, follow wikilinks:
+   - `[[concepts/<slug>]]` → read concept page → find other repos' entities via `[[repos/<name>/entities/<slug>]]`
+   - This yields: same problem, different repos, different solutions → structural answer
 
-### 遍历输出格式
-
-```
-## 影响发现：<问题名>
-
-**相关 Concept**：[[concepts/<slug>]]
-<concept frontmatter 的 problem 字段>
-
-**各框架的做法**：
-- [[repos/<repo>/entities/<slug>]]：<解法一句话>
-- [[repos/<repo>/entities/<slug>]]：<解法一句话>
-
-**核心张力**：<从 concept 对比表提炼，不同做法之间的 trade-off>
-
-遍历路径：<entity> → <concept> → <其他 entity>
-```
-
-如果找不到匹配的页面，降级到 Retrieval Escalation Chain（下节）。
+4. If the traversal path found enough information → answer with provenance `^[file:line]`. If not enough → fall through to Retrieval Escalation Chain.
 
 ## Retrieval Escalation Chain
 
-Follow in order. Stop at the level that gives a confident answer.
-
 ### Level 1 — Index Scan (cheapest)
-Read `wiki/index.md`. Do any listed pages match the question topic? If yes, proceed to Level 2 on those pages. If no relevant pages found, proceed to Level 3.
+Read `wiki/index.md`. If the question has obvious keyword matches in the Concepts table → go directly to the corresponding concept page.
 
-### Level 2 — Grep Targeted Sections
-Use grep or keyword search to find paragraphs in candidate pages matching key terms from the question. Find specific `^[file:line]` provenance references. Can the question be answered now? If yes, synthesize. If no, proceed to Level 3.
+### Level 2 — Section Grepping (moderate cost)
+```bash
+grep -n "^## \|^### " wiki/concepts/<slug>.md
+```
+Read only the most relevant sections of candidate concept pages, not the whole file.
 
 ### Level 3 — Full Page Read (most expensive, last resort)
-Read the full content of relevant pages. Synthesize a comprehensive answer.
+Read the entire entity page or concept page — only when Levels 1-2 still leave unanswered questions.
 
-**Never skip levels. Never read full pages when Level 1-2 suffices.**
+## Post-Answer Content Accuracy Check
 
-If `--repo` is specified, only read wiki pages for those repos.
+After producing the answer, if Level 3 source-code reading reveals information that is more accurate or more complete than what the Concept page (or Entity page) currently states, this triggers the **wiki knowledge freshness closed-loop protocol**:
 
-## Answer Format
+- (a) Actively present the diff (old description → new description), inform the user of the discrepancy
+- (b) After user confirmation, write the correction to the wiki page on the spot
+- (c) After correction, regenerate the affected output
+- (d) Log append: `[源码验证: <page> <section> 修正]`
 
-Provide a clear answer with:
-- The main finding
-- Key evidence with provenance: `^[file:line]` references from the wiki pages you read
-- Confidence level: High / Medium / Low
+## Archive Decision
 
-## Answer 后主动检查内容准确性
-
-回答完问题后，LLM 应主动审视所引用 Concept 页和 Entity 页的内容质量：
-
-1. 如果有从 Level 3 源码查询拿到、比 Concept 页更准确/更完整的信息 → 主动展示 diff（旧描述 → 新描述），询问用户是否修正
-2. 用户确认后当场写入 wiki 页，源码证据必须标注 `^[文件路径:行号]`
-3. 修正后如有需要重新生成受影响的部分回答
-4. 日志标记：在父 command 的日志行尾追加 `[源码验证: <页名> <节名>修正]`
-
-如果没有发现不准确，跳过此检查直接进入 Archival Decision。
-
-## Archival Decision (always ask)
-
-After answering, always ask the user:
-
-> **这个分析值得存入 wiki 吗？**
-> - A: 不存档（答案已在现有页面，只是汇总）
-> - B: 补充现有页面（发现了现有 Entity 页或 Concept 页的补充或修正）
-> - C: 新建 Insight 页（综合分析有独立价值）
-
-### If user chooses B:
-- 优先修正受影响的节（用准确信息替换），而非在底部追加 `## 补充`
-- 如果信息确实是全新的、不修正已有内容 → 才追加到对应页底部
-- 写入后，log 行尾部追加 `[源码验证: <页名> <节名>修正]`
-
-### If user chooses C:
-Write `wiki/insights/<YYYY-MM-DD>-<slug>.md` with this frontmatter (use single-line JSON arrays):
-```yaml
----
-title: <descriptive title>
-type: insight
-query: "<original question verbatim>"
-generated: <date>
-sources: ["wiki/concepts/memory-backend-replaceability.md", "wiki/repos/nanobot/entities/memory-manager.md"]
-provenance_repos: ["nanobot", "hermes-agent"]
----
-```
-Then write the analysis body. Add wikilinks for each path in `sources:`.
-Append to `wiki/log.md`: `[<timestamp>] insight created — <slug>`
-Update `wiki/index.md` under `## Insights`.
-
-## 完成前
-
-**REQUIRED SUB-SKILL:** 如果选择了 B 或 C（写入了 wiki 页），在声称"完成"之前必须调用 `completion-gate`。选择 A（不存档）则跳过。
+After answering:
 
 ```
-使用 completion-gate skill 验证：
-- 选 B 时：修正的页面 + log + hot 是否同步
-- 选 C 时：insight 文件 + log + index 是否就位
-- [源码验证:] 标记是否到位（如有内容修正）
+> Is this analysis worth archiving in the wiki?
+> - A: Don't archive (answer already in existing pages, just a summary)
+> - B: Supplement existing pages (found additions or corrections to existing Entity or Concept pages)
+> - C: Create new Insight page (synthesis has standalone value)
 ```
+
+### Option B — Supplement existing pages
+Apply the content accuracy fix protocol above, then update `wiki/log.md`.
+
+### Option C — Create new Insight page
+- Write `wiki/insights/<YYYY-MM-DD>-<slug>.md` with frontmatter: `type: insight`, original question, generation date, source array, provenance_repos array
+- Add wikilinks to relevant entities and concepts
+- Append to `wiki/log.md` with `[query]` tag
+- Update `wiki/index.md` `## Insights` section
+
+### After B or C — completion-gate
+Invoke `/completion-gate` as a REQUIRED SUB-SKILL before claiming completion.

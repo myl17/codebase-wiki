@@ -1,12 +1,12 @@
 # /lint — Wiki Health Check
 
-全量 wiki 结构性健康检查。用户手动触发。
+Full-structural health check of the entire wiki. Manually invoked by the user.
 
 ## Role
 
-`lint.py` 是 wiki 结构完整性的全量体检工具。它扫描所有 wiki 页面，检查 wikilink 完整性、frontmatter 合规、repos 一致性、孤立页、provenance 覆盖、views 新鲜度。
+`lint.py` is the comprehensive health-check tool for wiki structural integrity. It scans all wiki pages, checking wikilink validity, frontmatter compliance, repo consistency, orphan pages, provenance coverage, and view freshness.
 
-**与 completion-gate 的关系：** gate 是操作范围自检（"这次操作我做对了吗？"），lint 是全量体检（"整个 wiki 健康吗？"）。gate 不自动跑 lint。用户定期手动跑 `/lint` 做全量健康检查，或在 gate 建议时跑。
+**Relationship to completion-gate:** The gate is a scoped self-check ("Did I do this operation correctly?"), lint is a full audit ("Is the entire wiki healthy?"). The gate does not auto-run lint. Users manually run `/lint` periodically for full health checks, or when the gate suggests it.
 
 ## Trigger
 
@@ -23,37 +23,36 @@
 python scripts/lint.py --wiki wiki/
 ```
 
-### Step 2 — Frontmatter 合规检查
+### Step 2 — Frontmatter compliance check
 
-扫描所有 entity 页和 concept 页，检查必填字段。
+Scan all entity pages and concept pages, verify required fields.
 
-**Entity 页** (`wiki/repos/*/entities/*.md`) 每个文件必须有：
+**Entity pages** (`wiki/repos/*/entities/*.md`) must each have:
 - `type: entity`
-- `repo:` — 所属仓库名
-- `slug:` — entity 标识符
-- `problem:` — 问题层描述，"如何..."形式
-- `source_files:` — 来源文件列表（至少一个）
-- `generated:` — 生成日期
+- `repo:` — owning repo name
+- `slug:` — entity identifier
+- `problem:` — problem-level description, "how to..." form
+- `source_files:` — source file list (at least one)
+- `generated:` — generation date
 
-缺任意一个 → `[ERROR] entity_missing_frontmatter`
+Missing any → `[ERROR] entity_missing_frontmatter`
 
-**Concept 页** (`wiki/concepts/*.md`) 每个文件必须有：
+**Concept pages** (`wiki/concepts/*.md`) must each have:
 - `type: concept`
-- `concept:` — concept 标识符
-- `problem:` — 核心问题，一句话
-- `concerns:` — 关切列表（可为空数组 `[]`）
-- `repos:` — 仓库列表
-- `generated:` — 生成日期
+- `concept:` — concept identifier
+- `problem:` — core problem, one sentence
+- `concerns:` — concern list (can be empty array `[]`)
+- `repos:` — repo list
+- `generated:` — generation date
 
-缺任意一个 → `[ERROR] concept_missing_frontmatter`
+Missing any → `[ERROR] concept_missing_frontmatter`
 
-**Concept 页结构检查：**
-必须包含 `## 演化记录` 节。缺失 → `[WARN] concept_missing_evolution_log`
+**Concept page structure check:**
+Must contain `## Evolution Log` section. Missing → `[WARN] concept_missing_evolution_log`
 
-**Entity → Concept 反向链接检查：**
-对每个 concept 页，取 `repos:` 列表中的仓库，检查对应来源 entity 页
-文件末尾是否有 `**关联 Concept**：[[concepts/<slug>]]`。
-缺失 → `[WARN] entity_missing_concept_backlink`
+**Entity → Concept backlink check:**
+For each concept page, take the repos in its `repos:` list, check that the corresponding source entity pages have `**Associated Concepts**: [[concepts/<slug>]]` at the end of the file.
+Missing → `[WARN] entity_missing_concept_backlink`
 
 ### Step 3 — Report findings
 
@@ -68,23 +67,21 @@ Present a summary organized by severity:
 **Info (optional):**
 - List each [INFO] finding
 
-**健康分：**
-- Wikilink 完整性：X%（broken links / total links）
-- Entity frontmatter 合规率：X%
-- Concept frontmatter 合规率：X%
-- Concept 演化记录覆盖率：X%
+**Health score:**
+- Wikilink integrity: X% (broken links / total links)
+- Entity frontmatter compliance: X%
+- Concept frontmatter compliance: X%
+- Concept evolution log coverage: X%
 
-### Step 4 — 操作建议
+### Step 4 — Remediation guidance
 
-- `check_broken_wikilinks` → 检查对端文件是否存在。若指向旧 `nodes/` 或 `dimensions/` 
-  路径，是遗留链接，直接删除
-- `entity_missing_frontmatter` → 补全对应 entity 页的 frontmatter 字段
-- `concept_missing_frontmatter` → 补全对应 concept 页的 frontmatter 字段
+ERROR level:
+- `check_broken_wikilinks` → check whether the target file exists. If pointing to old `nodes/` or `dimensions/` paths, these are legacy links — delete them directly
+- `entity_missing_frontmatter` → fill in missing frontmatter fields for the entity page
+- `concept_missing_frontmatter` → fill in missing frontmatter fields for the concept page
 
-WARN 级：
-- `concept_missing_evolution_log` → 在 concept 页末尾追加 `## 演化记录` 节
-  （至少一条初建记录）
-- `entity_missing_concept_backlink` → 在 entity 页末尾追加
-  `**关联 Concept**：[[concepts/<slug>]]`
+WARN level:
+- `concept_missing_evolution_log` → append `## Evolution Log` section to end of concept page (at minimum one initial-creation entry)
+- `entity_missing_concept_backlink` → append `**Associated Concepts**: [[concepts/<slug>]]` to end of entity page
 
 Never auto-fix errors without user confirmation. Auto-fix only INFO-level issues with `--fix`.

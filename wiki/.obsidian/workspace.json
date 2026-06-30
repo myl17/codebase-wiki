@@ -14,7 +14,7 @@
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "title": "Graph view"
             }
           }
         ]
@@ -40,7 +40,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "文件列表"
+              "title": "Files"
             }
           },
           {
@@ -57,7 +57,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "搜索"
+              "title": "Search"
             }
           },
           {
@@ -67,7 +67,7 @@
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "书签"
+              "title": "Bookmarks"
             }
           }
         ]
@@ -90,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "repos/openclaw/dimensions/performance-tradeoffs.md",
+                "file": "",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "performance-tradeoffs 的反向链接列表"
+              "title": "Backlinks"
             }
           },
           {
@@ -109,12 +109,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "repos/openclaw/dimensions/performance-tradeoffs.md",
+                "file": "",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "performance-tradeoffs 的出链列表"
+              "title": "Outgoing links"
             }
           },
           {
@@ -129,7 +129,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "标签"
+              "title": "Tags"
             }
           },
           {
@@ -143,7 +143,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-archive",
-              "title": "添加笔记属性"
+              "title": "Properties"
             }
           },
           {
@@ -152,13 +152,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "repos/openclaw/dimensions/performance-tradeoffs.md",
+                "file": "",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "performance-tradeoffs 的大纲"
+              "title": "Outline"
             }
           },
           {
@@ -167,10 +167,10 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "repos/openclaw/dimensions/performance-tradeoffs.md"
+                "file": ""
               },
               "icon": "lucide-file-signature",
-              "title": "脚注"
+              "title": "Footnotes"
             }
           }
         ]
@@ -182,52 +182,20 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "bases:新建数据库": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
     }
   },
   "active": "6707340e6c42b3d5",
   "lastOpenFiles": [
-    "views",
-    "repos",
-    "concepts",
-    "concepts/distractor-0999.md",
-    "concepts/distractor-0998.md",
-    "concepts/distractor-0997.md",
-    "concepts/distractor-0996.md",
-    "concepts/distractor-0995.md",
-    "concepts/distractor-0994.md",
-    "concepts/distractor-0993.md",
-    "concepts/distractor-0992.md",
-    "concepts/distractor-0991.md",
-    "concepts/distractor-0990.md",
-    "concepts/distractor-0989.md",
-    "concepts/distractor-0988.md",
-    "concepts/distractor-0987.md",
-    "concepts/distractor-0986.md",
-    "concepts/distractor-0985.md",
-    "concepts/distractor-0984.md",
-    "concepts/distractor-0983.md",
-    "concepts/distractor-0982.md",
-    "concepts/distractor-0981.md",
-    "concepts/distractor-0980.md",
-    "concepts/distractor-0979.md",
-    "concepts/distractor-0978.md",
-    "concepts/distractor-0977.md",
-    "concepts/distractor-0976.md",
-    "concepts/distractor-0975.md",
-    "repos/openclaw/entities",
-    "repos/nanobot/entities",
-    "repos/nanobot",
-    "repos/hermes-agent/entities",
-    "repos/deepagents/entities",
-    "repos/deepagents",
-    "repos/codex-main/entities",
-    "repos/codex-main"
+    "wiki/concepts",
+    "wiki/repos",
+    "wiki/views",
+    "wiki/index.md"
   ]
 }

@@ -14,7 +14,7 @@ codebase-wiki is a **LLM-maintained knowledge base** — the LLM writes everythi
 ## Development Setup
 
 ```bash
-git clone https://github.com/miaoyuanli/codebase-wiki.git
+git clone https://github.com/myl17/codebase-wiki.git
 cd codebase-wiki
 pip install -r requirements.txt
 ```

@@ -1,1 +1,2 @@
-pyyaml>=6.0
+# No external Python dependencies required.
+# lint.py uses only stdlib modules.

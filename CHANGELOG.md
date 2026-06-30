@@ -2,6 +2,32 @@
 
 All notable changes to codebase-wiki will be documented in this file.
 
+## [0.2.0] — 2026-06-30
+
+### Added
+
+- **All skill files translated to English**: 6 commands (~1800 lines) + 2 schema files
+- **CI/CD**: GitHub Actions workflow (pytest + lint.py) on push and PR
+- **Marketplace submission**: submitted to `kossakovsky/cc-plugins` community marketplace
+- **category/tags/keywords** in marketplace.json for cc-plugins compliance
+
+### Changed
+
+- **Plugin structure flattened**: `skills/code-*/SKILL.md` → `commands/*.md` (matches standard plugin layout)
+- Removed `.claude/commands/` symlink layer
+- Obsolete `.claude/settings.json` removed from tracking
+
+### Fixed
+
+- LICENSE and CONTRIBUTING.md: GitHub username `miaoyuanli` → `myl17`
+- `wiki/.obsidian/workspace.json`: removed 25 distractor file references
+- `requirements.txt`: removed unused `pyyaml` dependency
+- README: Karpathy link fixed to point to original Gist
+
+### Removed
+
+- Demo wiki content (18 concepts, 98 entities) — shipped as clean framework skeleton
+
 ## [0.1.0] — 2026-06-29
 
 ### Initial Public Release

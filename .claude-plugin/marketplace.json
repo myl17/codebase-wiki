@@ -12,7 +12,10 @@
       "source": "./",
       "author": {
         "name": "myl17"
-      }
+      },
+      "category": "developer-tools",
+      "tags": ["codebase", "wiki", "knowledge-management", "code-analysis"],
+      "keywords": ["codebase", "wiki", "knowledge", "ingest", "architecture", "comparison", "lint"]
     }
   ]
 }

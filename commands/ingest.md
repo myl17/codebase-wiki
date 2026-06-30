@@ -1,3 +1,8 @@
+---
+name: ingest
+description: Extract structural entities from a code repository, map to problem spaces, and evolve concept pages
+---
+
 # /ingest — Code Repository Ingest
 
 Extract structural knowledge from source repositories and progressively evolve the wiki.

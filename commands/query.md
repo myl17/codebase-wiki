@@ -1,3 +1,8 @@
+---
+name: query
+description: Answer questions using the wiki knowledge base
+---
+
 # /query — Knowledge Query
 
 Answer questions using the wiki knowledge base. Follow the retrieval escalation chain — start cheap, escalate only as needed.

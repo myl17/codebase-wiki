@@ -1,3 +1,8 @@
+---
+name: completion-gate
+description: Shared quality gate — validates write operations before completion
+---
+
 # /completion-gate — Completion Quality Gate
 
 A shared quality gate that must be passed before any wiki write operation can be declared complete. Not a user-invoked skill — referenced by other skills as `REQUIRED SUB-SKILL` at completion.

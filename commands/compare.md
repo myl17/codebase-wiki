@@ -1,3 +1,8 @@
+---
+name: compare
+description: Generate a comparison matrix across repos in a category
+---
+
 # /compare — Cross-Repo Comparison
 
 Given repo names or design problem keywords, find the cheapest available information source along the escalation chain and produce a comparison.

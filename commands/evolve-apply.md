@@ -1,3 +1,8 @@
+---
+name: evolve-apply
+description: Wikipedia-style concept page evolution — merge, split, redirect
+---
+
 # /evolve-apply — Concept Evolution
 
 Wikipedia-style Concept page evolution: merge, split, redirect.

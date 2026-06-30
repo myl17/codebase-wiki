@@ -1,3 +1,8 @@
+---
+name: lint
+description: Run programmatic health checks on the wiki
+---
+
 # /lint — Wiki Health Check
 
 Full-structural health check of the entire wiki. Manually invoked by the user.
